@@ -8,7 +8,7 @@ namespace dotNet5781_01_0406_3977
 {
     internal enum Menu 
     {
-        Add,Choose,Care,Km,Exit
+        Add = 1 ,Choose,Care,Km,Exit
     }
 
 }
