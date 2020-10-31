@@ -8,6 +8,11 @@ using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
+
+//Tamar Gavrieli 322533977 & Odeya Sadoun 212380406
+//Exercize number 1
+
+
 namespace dotNet5781_01_0406_3977
 {
     class Bus
@@ -27,7 +32,7 @@ namespace dotNet5781_01_0406_3977
                 licenseNumber = VisualShapeOfLicenseNumber(temp);
             }
         }
-        #endregion
+        #endregion 
 
         #region DateBegin
         public DateTime DateBegin { get; set; }
@@ -89,7 +94,7 @@ namespace dotNet5781_01_0406_3977
         public int currentMileage { get; set; }
         #endregion
 
-        #region kmBeforCare
+        #region kmBeforCare //The amount of mileages left for the bus to travel before needing treatment
         private double kmBeforCare;
 
         public double KmBeforCare
@@ -97,7 +102,7 @@ namespace dotNet5781_01_0406_3977
             get { return kmBeforCare; }
             set { kmBeforCare = value; }
         }
-        #endregion
+        #endregion 
 
         #region fuel
         private double fuel;
@@ -110,7 +115,6 @@ namespace dotNet5781_01_0406_3977
                 if (fuel < 0)
                 {
                     throw new ArgumentException("fuel can't be negative");
-                    //fuel = 0; //defalt value
                 }
                 else
                     fuel = value;
@@ -118,7 +122,7 @@ namespace dotNet5781_01_0406_3977
         }
         #endregion
 
-        #region kmBeforeFuel
+        #region kmBeforeFuel //The amount of mileages left for the bus to travel before needing refueling
 
         private double kmBeforeFuel;
 

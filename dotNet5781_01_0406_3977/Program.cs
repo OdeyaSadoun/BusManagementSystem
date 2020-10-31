@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.SymbolStore;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Tamar Gavrieli 322533977 & Odeya Sadoun 212380406
+//Exercize number 1
 
 
 namespace dotNet5781_01_0406_3977
@@ -69,19 +72,30 @@ namespace dotNet5781_01_0406_3977
                             Bus b = new Bus(licenseNumber, dateBegin);
 
                             Console.WriteLine("Do you want to enter mileage? enter 0 to NO, enter 1 to YES");
-                            int temp1 = int.Parse(Console.ReadLine());
-                            if (temp1 == 1)
+                           int.TryParse(Console.ReadLine() , out temp);
+                            if (temp == 1)
                             {
-                                double mileage = double.Parse(Console.ReadLine());
+                                double mileage;
+                                double.TryParse(Console.ReadLine() , out mileage);
                                 b.SumMileage = mileage;
+                                if (b.SumMileage < 20000)
+                                    b.KmBeforCare = 20000 - b.SumMileage;
+                                else
+                                    b.KmBeforCare = 0; //the bus traveled more than 20000 without care
                             }
+                            else
+                                Console.WriteLine("You entered wrong number");
                             Console.WriteLine("Do you want to enter fuel? enter 0 to NO, enter 1 to YES");
-                            int yesOrNo = int.Parse(Console.ReadLine());
+                            int yesOrNo;
+                            int.TryParse(Console.ReadLine() , out yesOrNo);
                             if (yesOrNo == 1)
                             {
-                                double fuel = double.Parse(Console.ReadLine());
+                                double fuel;
+                                double.TryParse(Console.ReadLine() , out fuel);
                                 b.Fuel = fuel;
                             }
+                            else
+                                Console.WriteLine("You entered wrong number");
                             busses.Add(b);//Add the new bus to busses list
                             break;
 
@@ -89,9 +103,9 @@ namespace dotNet5781_01_0406_3977
                             Console.WriteLine("Enter a license number");
                             licenseNumber = Console.ReadLine();
                             Bus b1 = FindBusInList(busses, licenseNumber); //busses[temp] == b1
-                            int km = rnd.Next(1,20000); //maximum drive withot care
-                            if ((km + b1.SumMileage) > 20000)//The sum of mileage more 20000
-                                throw new ArgumentException("The bus cant perform this travel - need to care");
+                            int km = rnd.Next(1,1200); //maximum drive withot feul
+                            if ((b1.KmBeforCare - km) <= 0)//The sum of mileage after the last care more 20000
+                                throw new ArgumentException("The bus cant perform this travel because the bus traveled 20000 km without care - need to care");
                             DateTime currentDate = DateTime.Now;
                             if (b1.YearPassed())
                                 throw new ArgumentException("The bus cant perform this travel because a year passed from the last care- need to care");
@@ -112,7 +126,8 @@ namespace dotNet5781_01_0406_3977
                             licenseNumber = Console.ReadLine();
                             b1 = FindBusInList(busses, licenseNumber); //busses[temp] == b1
                             Console.WriteLine("Do you want to care the bus or fuel it? enter 0 to care, enter 1 to fuel");
-                            int careOrFuel = int.Parse(Console.ReadLine());
+                            int careOrFuel;
+                            int.TryParse(Console.ReadLine(), out careOrFuel);
                             if (careOrFuel == 1)//fuel
                             {
                                 b1.KmBeforeFuel = 1200;
@@ -123,6 +138,8 @@ namespace dotNet5781_01_0406_3977
                                 b1.LastCare = currentDate;
                                 b1.KmBeforCare = 20000;
                             }
+                            else
+                                Console.WriteLine("You entered wrong number");
                             break;
 
                         case Menu.Km://Display the mileage of all the busses from the last care
