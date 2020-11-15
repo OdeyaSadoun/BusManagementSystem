@@ -10,6 +10,10 @@ namespace dotNet5781_02_0406_3977
     {
         static void Main(string[] args)
         {
+            List<BusStation>lst = new List<BusStation>
+            {
+                b1 = new BusStation(){}
+            }
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Device.Location;
 
 namespace dotNet5781_02_0406_3977
 {
-    public class BusLine// : IComparable<BusLine>
+    public class BusLine : IComparable
 
     {
 
@@ -205,7 +205,7 @@ namespace dotNet5781_02_0406_3977
 
         #region subRoute
 
-        public BusLine subRoute(BusStation bs1, BusStation bs2)
+        public BusLine subRoute(BusLine bl, BusStation bs1, BusStation bs2)
         {
             bool flag1 = isExsist(bs1);
             bool flag2 = isExsist(bs2);
@@ -231,9 +231,22 @@ namespace dotNet5781_02_0406_3977
                 newbl.stations.Insert(j, this.stations[i]);
                 j++;
             }
-            return newbl;//לברר מה לעדכן במספר קו ובאזור
+            newbl.BusNumber = bl.BusNumber;
+            newbl.BusStationArea = bl.BusStationArea;
+            return newbl;
         }
         #endregion
 
+        #region CompareTo
+     
+        #endregion
+
+     //   public BusLine ChoiceOfBuses()
+        public int CompareTo(object obj)
+        {
+            BusStation bs = (BusStation)obj;
+            return this.bls.ComperTo(bs.bls.TravelTime); 
+            throw new NotImplementedException();
+        }
     }
 }
