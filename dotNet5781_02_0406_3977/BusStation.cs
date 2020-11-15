@@ -9,9 +9,42 @@ namespace dotNet5781_02_0406_3977
 {
     public class BusStation
     {
-        public static int BusStationKey { get; set; } //לבדוק מה זה מספר סטטי
+        
+        public class BusLineStation
+        {
+            #region Distance
+            public double Distance { get; set; }
+            #endregion
 
-        #region struct BusStationLocation
+            #region TravelTime
+            public TimeSpan TravelTime { get; set; }
+            #endregion
+
+            //functions
+            #region empty constructor
+            public BusLineStation() { }
+            #endregion
+
+            //#region variables constructor
+            //public BusLineStation(double distance, TimeSpan travelTime)
+            //{
+            //    this.Distance = distance;
+            //    this.TravelTime = travelTime;
+            //}
+            //#endregion
+
+            #region ToString
+            public override string ToString()
+            {
+                return string.Format($"Distance:{0}, TravelTime:{1}", Distance, TravelTime);
+            }
+            #endregion
+
+        }
+        public BusLineStation bls{ get; set; }
+
+
+        #region struct Location
         public struct Location
         {
             public double Latitude;
@@ -19,6 +52,16 @@ namespace dotNet5781_02_0406_3977
         }
         #endregion
 
+        #region variableStaticKey
+        public static int key = 0;
+        #endregion
+
+        #region  BusStationKey
+        public int BusStationKey { get; private set; } //לבדוק מה זה מספר סטטי
+        #endregion
+
+
+        #region BusStationLocation
         private Location busStationLocation;
 
         public Location BusStationLocation
@@ -28,18 +71,31 @@ namespace dotNet5781_02_0406_3977
             {
                 Random rnd = new Random();
                 busStationLocation.Latitude = rnd.NextDouble() * (33.3 - 31) + 31;
-                busStationLocation.Latitude = rnd.NextDouble() * (35.5 - 34.3) + 34.3;
+                busStationLocation.Longitude = rnd.NextDouble() * (35.5 - 34.3) + 34.3;
             }
         }
+        #endregion
 
-
-        public string BusstationAddress { get; set; }
+        # region BusStationAdress
+        public string BusStationAdress { get; set; }
+        #endregion
 
         //Functions
+        public BusStation(Location busStationLocation, string busStationAdress=" ") 
+        {
+            this.BusStationKey = key++;
+            if (BusStationKey >= 1000000)
+                throw new ArgumentOutOfRangeException("The number has more than 6 digits"); 
 
+            this.BusStationLocation = busStationLocation;
+            this.BusStationAdress = busStationAdress;           
+        }
+        public BusStation() { }
         public override string ToString()
         {
-            return string.Format($"Bus Station Code:{0}, {1}°N, {2}°E , {3}", BusStationKey,BusStationLocation.Latitude, BusStationLocation.Longitude, BusstationAddress) ;
+            return string.Format($"Bus Station Code:{0}, {1}°N, {2}°E , {3}", BusStationKey,BusStationLocation.Latitude, BusStationLocation.Longitude, BusStationAdress) ;
         }
-    }
+     
+
+    }    
 }
