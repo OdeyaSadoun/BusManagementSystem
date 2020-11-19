@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Area.cs" />
     <Compile Include="BusLine.cs" />
+    <Compile Include="BusLines.cs" />
     <Compile Include="BusStation.cs" />
     <Compile Include="BusStationExceptions.cs" />
     <Compile Include="Program.cs" />
