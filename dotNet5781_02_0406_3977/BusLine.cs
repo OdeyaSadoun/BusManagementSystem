@@ -71,9 +71,9 @@ namespace dotNet5781_02_0406_3977
         public BusLine()
         {
             this.BusNumber = 0;
-            this.Stations = new List<BusStation>(); //
-            this.FirstStation = default;
-            this.LastStation = default;
+            this.stations = new List<BusStation> (); //
+       //     this.FirstStation = default;
+       //     this.LastStation = default;
             this.BusStationArea = Area.General;
         }
         #endregion
@@ -97,7 +97,7 @@ namespace dotNet5781_02_0406_3977
         #region ToString
         public override string ToString()
         {
-            return string.Format("\nThe bus number is: " + BusNumber + "\t The area is: " + BusStationArea + "\n"  + AllStations());
+            return string.Format("\nThe bus number is: " + BusNumber + "\t The area is: " + BusStationArea + "\nThe stations are: \n"  + AllStations());
         }
         #endregion
 
@@ -119,9 +119,13 @@ namespace dotNet5781_02_0406_3977
         #endregion
 
         #region removeStation
+        /// <summary>
+        /// A function that remove station from the list
+        /// </summary>
+        /// <param name="bs"></param>
         public void removeStation(BusStation bs)
         {
-            ExistenceNonExistence(bs);
+            ExceptionsNonExistence(bs);
             if (stations[0] == bs)//If it's the first station
             {
                 FirstStation = stations[1];
@@ -150,6 +154,21 @@ namespace dotNet5781_02_0406_3977
         #endregion
 
         #region addStation
+
+        /// <summary>
+        /// The function recives station and put it in the begining of the list
+        /// </summary>
+        /// <param name="newbs"></param>
+        public void addStation(BusStation newbs)
+        {
+            FirstStation = newbs;
+            FirstStation.bls.Distance = 0;
+            FirstStation.bls.TravelTime = TimeSpan.Zero;
+            stations.Insert(0, FirstStation);
+            stations[1].bls.Distance = DistanceBetweenStations(FirstStation, stations[1]);
+            stations[1].bls.TravelTime = TravelTimeBetweenStations(FirstStation, stations[1]);
+        }
+
         /// <summary>
         /// The function recives 2 BusStation.
         /// The first is the new station and after the second station we insert to the list
@@ -157,50 +176,48 @@ namespace dotNet5781_02_0406_3977
         /// <param name="newbls"></param>
         /// <param name="bls"></param>
         /// 
-
-        public void addStation(BusStation newbs)
-        {
-            FirstStation = newbs;
-            FirstStation.bls.Distance = 0;
-            FirstStation.bls.TravelTime = TimeSpan.Zero;
-            stations.Insert(-1, FirstStation);
-            stations[1].bls.Distance = DistanceBetweenStations(FirstStation, stations[1]);
-            stations[1].bls.TravelTime = TravelTimeBetweenStations(FirstStation, stations[1]);
-        }
-
         public void addStation(BusStation newbs, BusStation bs)
         {
-            ExistenceNonExistence(bs);
-            if (LastStation == bs)
+            ExceptionsNonExistence(bs);
+            if (LastStation == bs) //if the station that we want to add after is the last station
             {
-                bs = LastStation;
-                stations.Insert(stations.Count - 1, bs);
-                stations[stations.Count - 1].bls.Distance = DistanceBetweenStations(stations[stations.Count - 1], LastStation);
-                stations[stations.Count - 1].bls.TravelTime = TravelTimeBetweenStations(stations[stations.Count - 1], LastStation);
+                LastStation = newbs;
+                stations.Insert(stations.Count, newbs);
+                stations[stations.Count - 1].bls.Distance = DistanceBetweenStations(stations[stations.Count - 2], LastStation);
+                stations[stations.Count - 1].bls.TravelTime = TravelTimeBetweenStations(stations[stations.Count - 2], LastStation);
             }
-            int index = stations.IndexOf(bs);
-            //for (int i = 0; i < stations.Count; i++)
-            //{
-            //    if (stations[i] == bs)
-            //    {
-            //        index = i;                    
-            //        break;
-            //    }
-            //}            
-            stations.Insert(index + 1, newbs);
-            //Updating the fields Distance and TravelTime of the new station. and the station after it
-            stations[index + 1].bls.Distance = DistanceBetweenStations(stations[index], stations[index + 1]);
-            stations[index + 1].bls.TravelTime = TravelTimeBetweenStations(stations[index], stations[index + 1]);
-            //and the station after it.
-            stations[index + 2].bls.Distance = DistanceBetweenStations(stations[index + 1], stations[index + 2]);
-            stations[index + 2].bls.TravelTime = TravelTimeBetweenStations(stations[index + 1], stations[index + 2]);
+            else
+            {
+                int index = stations.IndexOf(bs);
+                //for (int i = 0; i < stations.Count; i++)
+                //{
+                //    if (stations[i] == bs)
+                //    {
+                //        index = i;                    
+                //        break;
+                //    }
+                //}            
+                stations.Insert(index + 1, newbs);
+                //Updating the fields Distance and TravelTime of the new station. and the station after it
+                stations[index + 1].bls.Distance = DistanceBetweenStations(stations[index], stations[index + 1]);
+                stations[index + 1].bls.TravelTime = TravelTimeBetweenStations(stations[index], stations[index + 1]);
+                //and the station after it.
+                stations[index + 2].bls.Distance = DistanceBetweenStations(stations[index + 1], stations[index + 2]);
+                stations[index + 2].bls.TravelTime = TravelTimeBetweenStations(stations[index + 1], stations[index + 2]);
+            }
         }
         #endregion
 
         #region DistanceBetweenStations
+        /// <summary>
+        /// A function that calculate the distance between two stations
+        /// </summary>
+        /// <param name="bs1"></param>
+        /// <param name="bs2"></param>
+        /// <returns></returns>
         public double DistanceBetweenStations(BusStation bs1, BusStation bs2)
         {
-            ExistenceNonExistence(bs1, bs2);
+            ExceptionsNonExistence(bs1, bs2);
             GeoCoordinate c1 = new GeoCoordinate(bs1.BusStationLocation.Latitude, bs1.BusStationLocation.Longitude);
             GeoCoordinate c2 = new GeoCoordinate(bs2.BusStationLocation.Latitude, bs2.BusStationLocation.Longitude);
             double distanceInKm = c1.GetDistanceTo(c2) / 1000;
@@ -210,7 +227,12 @@ namespace dotNet5781_02_0406_3977
         #endregion
 
         #region travelTimeBetweenStations
-
+        /// <summary>
+        ///  A function that calculate the travel time between two stations
+        /// </summary>
+        /// <param name="bs1"></param>
+        /// <param name="bs2"></param>
+        /// <returns></returns>
         public TimeSpan TravelTimeBetweenStations(BusStation bs1, BusStation bs2)
         {
             TimeSpan Duration;
@@ -241,7 +263,7 @@ namespace dotNet5781_02_0406_3977
         /// <returns>A function that returns a sub-trajectory of the line</returns>
         public BusLine subRoute(BusStation bs1, BusStation bs2)
         {
-            ExistenceNonExistence(bs1, bs2);
+            ExceptionsNonExistence(bs1, bs2);
             BusLine newbl = new BusLine();
             newbl.FirstStation = bs1;
             newbl.LastStation = bs2;
@@ -268,26 +290,26 @@ namespace dotNet5781_02_0406_3977
         }
         #endregion
 
-        #region ExistenceNonExistence
+        #region ExceptionsNonExistence
         /// <summary>
         /// A function that check if the stations are exsist in the list
         /// if one from them don't exist - the functioun throw exption.
         /// </summary>
         /// <param name="bs1"></param>
         /// <param name="bs2"></param>
-        public void ExistenceNonExistence(BusStation bs1, BusStation bs2)
+        public void ExceptionsNonExistence(BusStation bs1, BusStation bs2)
         {
             bool flag1 = isExsist(bs1);
             bool flag2 = isExsist(bs2);
             if ((!flag1) || (!flag2))
-                throw new BusStationExceptions("One or more of the station aren't exsist");
+                throw new BusStationExceptions("One or more of the station aren't exsist in the list");
         }
 
         /// <summary>
         /// A ExistenceNonExistence loaded function
         /// </summary>
         /// <param name="bs"></param>
-        public void ExistenceNonExistence(BusStation bs)
+        public void ExceptionsNonExistence(BusStation bs)
         {
             bool flag = isExsist(bs);
             if (!flag)
@@ -304,13 +326,19 @@ namespace dotNet5781_02_0406_3977
         /// <returns>the total time</returns>
         public TimeSpan TotalTimeBetweenSomeStations(BusStation source, BusStation destination)
         {
-            ExistenceNonExistence(source, destination);
-            TimeSpan temp = TimeSpan.Zero;
+            ExceptionsNonExistence(source, destination);
+            if(stations.IndexOf(destination)<stations.IndexOf(source))
+            { //change the location between the buses, if they was sent in the inversion order.
+                BusStation tempBusStation = source;
+                source = destination;
+                destination = tempBusStation;
+            }
+            TimeSpan tempTimeSpan = TimeSpan.Zero;
             for (int i = stations.IndexOf(source); i <= stations.IndexOf(destination); i++)
             {
-                temp = temp+ stations[i].bls.TravelTime;
+                tempTimeSpan = tempTimeSpan + stations[i].bls.TravelTime;
             }
-            return temp;
+            return tempTimeSpan;
         }
         #endregion
 
@@ -334,17 +362,17 @@ namespace dotNet5781_02_0406_3977
         #endregion
 
         #region ChoiceOfBuses
-        public BusLine ChoiceOfBuses(BusStation source, BusStation destination, BusLine bl1, BusLine bl2)
+        public BusLine ChoiceOfBuses(BusStation source, BusStation destination, BusLine otherBl)
         {
-            ExistenceNonExistence(source, destination);
-            BusLine temp1 = bl1;
-            BusLine temp2 = bl2;
+            ExceptionsNonExistence(source, destination);
+            BusLine thistemp = this;
+            BusLine othertemp = otherBl;
             //update temp1:
-            temp1.FirstStation = source;
-            temp1.LastStation = destination;
+            thistemp.FirstStation = source;
+            thistemp.LastStation = destination;
             //update temp2:
-            temp2.FirstStation = source;
-            temp2.LastStation = destination;
+            othertemp.FirstStation = source;
+            othertemp.LastStation = destination;
             //int i = 0; // delete the stations befor
             //while (temp1.stations[i] != bs)
             //{
@@ -354,10 +382,10 @@ namespace dotNet5781_02_0406_3977
             //{
             //    temp1.removeStation(temp1.stations[i]);
             //}
-            int priority = temp1.CompareTo(temp2);
+            int priority = thistemp.CompareTo(othertemp);
             if (priority < 0) //temp2 shorter
-                return bl2;
-            return bl1; //temp1 shorter or they are equals
+                return otherBl;
+            return this; //temp1 shorter or they are equals
 
         }
         #endregion

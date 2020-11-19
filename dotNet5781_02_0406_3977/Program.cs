@@ -50,12 +50,14 @@ namespace dotNet5781_02_0406_3977
              Console.WriteLine(bl3);
                 Console.WriteLine(bl4);
                Console.WriteLine(bl5);
-             //  Console.WriteLine(bl1.subRoute(bs[3], bs[6]));
-                bl1.addStation(bs[12], bs[4]);
-                BusLine tmp = bl1.ChoiceOfBuses(bs[1], bs[7], bl1, bl4);
+                //  Console.WriteLine(bl1.subRoute(bs[3], bs[6]));
+                // bl1.removeStation(bs[1]);
+             //   bl1.subRoute(bs[2], bs[4]);
+                BusLine tmp = bl1.ChoiceOfBuses(bs[1], bs[7], bl4);
+                Console.WriteLine(  tmp);
                 for (int i = 0; i < bl1.stations.Count; i++)
                     Console.WriteLine(bl1.stations[i].bls.TravelTime);
-               Console.WriteLine(bl1.TotalTimeBetweenSomeStations(bl1.FirstStation, bl1.LastStation));
+       //        Console.WriteLine(bl1.TotalTimeBetweenSomeStations(bl1.FirstStation, bl1.LastStation));
                 //   Console.WriteLine(bl1);
                 Console.WriteLine(bl1.TotalTimeBetweenSomeStations(bs[1], bs[7]));
                 Console.WriteLine(bl4.TotalTimeBetweenSomeStations(bs[1], bs[7]));
