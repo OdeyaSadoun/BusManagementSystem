@@ -351,8 +351,8 @@ namespace dotNet5781_02_0406_3977
         public int CompareTo(object obj)
         {
             BusLine bl = (BusLine)obj;
-            TimeSpan myTotalTime = TotalTimeBetweenSomeStations(this.FirstStation, this.LastStation);
-            TimeSpan objTotalTime = TotalTimeBetweenSomeStations(bl.FirstStation, bl.LastStation);
+            TimeSpan myTotalTime = this.TotalTimeBetweenSomeStations(this.FirstStation, this.LastStation);
+            TimeSpan objTotalTime = bl.TotalTimeBetweenSomeStations(bl.FirstStation, bl.LastStation);
             if (myTotalTime < objTotalTime)
                 return -1;
             if (myTotalTime > objTotalTime)
@@ -383,7 +383,7 @@ namespace dotNet5781_02_0406_3977
             //    temp1.removeStation(temp1.stations[i]);
             //}
             int priority = thistemp.CompareTo(othertemp);
-            if (priority < 0) //temp2 shorter
+            if (priority > 0) //temp2 shorter
                 return otherBl;
             return this; //temp1 shorter or they are equals
 

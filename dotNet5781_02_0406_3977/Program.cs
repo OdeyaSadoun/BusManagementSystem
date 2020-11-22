@@ -36,7 +36,7 @@ namespace dotNet5781_02_0406_3977
                 List<BusStation> lst1 = new List<BusStation> { bs[1], bs[2], bs[3], bs[4], bs[5], bs[6], bs[7] };
                 List<BusStation> lst2 = new List<BusStation> { bs[8], bs[9], bs[10], bs[4], bs[5], bs[8], bs[11] };
                 List<BusStation> lst3 = new List<BusStation> { bs[5], bs[7], bs[9], bs[12], bs[13], bs[14], bs[15] };
-                List<BusStation> lst4 = new List<BusStation> { bs[1], bs[2], bs[3], bs[7], bs[9], bs[12], bs[13] };
+                List<BusStation> lst4 = new List<BusStation> { bs[1], bs[7], bs[3], bs[2], bs[9], bs[12], bs[13] };
                 List<BusStation> lst5 = new List<BusStation> { bs[1], bs[2], bs[3], bs[6], bs[8], bs[9], bs[10] };
 
                 BusLine bl1 = new BusLine(56, lst1, bs[1], bs[7], Area.Center);
@@ -54,7 +54,7 @@ namespace dotNet5781_02_0406_3977
                 // bl1.removeStation(bs[1]);
              //   bl1.subRoute(bs[2], bs[4]);
                 BusLine tmp = bl1.ChoiceOfBuses(bs[1], bs[7], bl4);
-                Console.WriteLine(  tmp);
+                Console.WriteLine(tmp);
                 for (int i = 0; i < bl1.stations.Count; i++)
                     Console.WriteLine(bl1.stations[i].bls.TravelTime);
        //        Console.WriteLine(bl1.TotalTimeBetweenSomeStations(bl1.FirstStation, bl1.LastStation));
