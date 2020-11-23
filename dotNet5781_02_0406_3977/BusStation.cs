@@ -87,6 +87,10 @@ namespace dotNet5781_02_0406_3977
         //Functions
 
         #region 3 constructors
+        /// <summary>
+        ///constructor with option to enter only adress and this constractor is adition a empty constructor 
+        /// </summary>
+        /// <param name="busStationAdress"></param>
         public BusStation(/*Location busStationLocation,*/ string busStationAdress="") 
         {
             this.BusStationKey = key++;
@@ -100,6 +104,12 @@ namespace dotNet5781_02_0406_3977
             this.bls = new BusLineStation();
 
         }
+        /// <summary>
+        ///constructor with adress and travel time and distanc- bls  
+
+        /// </summary>
+        /// <param name="busStationAdress"></param>
+        /// <param name="bls"></param>
 
         public BusStation(/*Location busStationLocation,*/string busStationAdress, BusLineStation bls)
         {

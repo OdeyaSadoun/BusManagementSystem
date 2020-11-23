@@ -54,6 +54,8 @@ namespace dotNet5781_02_0406_3977
             this.FirstStation = firstStation;
             this.LastStation = lastStation;
             this.Stations = stations;
+            if (stations.Count < 2)//Check if the list has at least 2 stations.
+                throw new BusStationExceptions("The list nust has at least 2 stations");
             this.BusStationArea = area;
             stations[0].bls.Distance = 0;
             stations[0].bls.TravelTime = TimeSpan.Zero;

@@ -9,6 +9,13 @@ namespace dotNet5781_02_0406_3977
     public enum Area
     {
         General=1, North, South, Center, Jerusalem, Other
+
     }
+    public enum Menu
+    {
+        addBusLine = 1, addBusStationToBusLine, removeBusLine, removeBusStationFromBusLine, searchBusLinesInStation, printOptionToTravelBetweenBusStation, printAllTheBusses, printAllBusStations, exit
+    }
+
+
 
 }
