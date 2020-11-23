@@ -78,7 +78,7 @@ namespace dotNet5781_02_0406_3977
         /// A function that add bus to the collection
         /// </summary>
         /// <param name="newbl"></param>
-        void addBus(BusLine newbl)
+        public void addBus(BusLine newbl)
         {
             if (newbl.stations.Count < 2)
                 throw new BusStationExceptions("The bus must has at least 2 stations");
@@ -105,7 +105,7 @@ namespace dotNet5781_02_0406_3977
         /// A function that remove bus from the collection
         /// </summary>
         /// <param name="newbl"></param>
-        void removeBus(BusLine newbl)
+        public void removeBus(BusLine newbl)
         {
             if (!isExsist(newbl))
                 throw new BusStationExceptions("The bus isn't exsist in the list");
@@ -158,15 +158,39 @@ namespace dotNet5781_02_0406_3977
         /// </summary>
         /// <param name="busNumber"></param>
         /// <returns></returns>
-        public List<BusLine> this[int busNumber]
+        public BusLine this[int busNumber]
         {
             get
             {
-                List<BusLine> bs = Busess.FindAll(item => item.BusNumber == busNumber);
-                if (bs.Count != 0)
+                BusLine bs= Busess.Find(item => item.BusNumber == busNumber);
+                if (bs != default)
                     return bs;
                 else
                     throw new BusStationExceptions("The line does not exist in the list");
+            }
+            set
+            {
+                int intd = Busess.FindIndex(item => item.BusNumber == busNumber);
+                if(intd==-1)
+                    throw new BusStationExceptions("The bus isn't exsist");
+                Busess[intd] = value;
+                
+
+                //bool flag = false;
+                //BusLine temp;
+                //foreach (BusLine bl in Busess)
+                //{
+                //    if (bl.BusNumber == busNumber)
+                //    {
+                //        temp = bl;
+                //        flag = true;
+                //        break;
+                //    }
+                //}
+                //if (!flag)
+                //    throw new BusStationExceptions("The bus isn't exsist");
+                //Busess[temp] = value;
+
             }
         }
         #endregion

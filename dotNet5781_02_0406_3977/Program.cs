@@ -25,14 +25,33 @@ namespace dotNet5781_02_0406_3977
 
         }
 
-        //public BusLine enterBusLine()
-        //{
-        //    Console.WriteLine("Enter busLine's number");
-        //    int busNumber = int.Parse(Console.ReadLine());
-
-
-
-        //}
+        public static BusLine enterBusLine(BusLines lst, BusStation[]bs)
+        {
+            Console.WriteLine("Enter busLine's number");
+            int busNumber = int.Parse(Console.ReadLine());
+            if (lst.isExsist(lst[busNumber]))
+                throw new BusStationExceptions("The bus is exsist");
+            BusLine tempBus = new BusLine();
+            tempBus.BusNumber = busNumber;
+            Console.WriteLine("Enter 1 to General, Enter 2 to North, Enter 3 to South, Enter 4 to Center, Enter 5 to Jerusalem");
+            int tempArea = int.Parse(Console.ReadLine());
+            tempBus.BusLineArea = (Area)tempArea;
+            //לצורך רשימת תחנות האוטובוס נגריל מספר רנדומלי
+            // בין 1-20 עבור רשימת התחנות שתהיה בקו
+            //לאחר מכן נעבור בלולאת פור כמממות הפעמים שהוגרלה ובכל פעם נגריל מספר בין 1-50
+            //והמספר שיצא המיקום שלו במאגר התחנות יכנס לרשימת התחנות
+            List<BusStation> stat = new List<BusStation>();
+            Random rnd = new Random();
+            int tempRnd = rnd.Next(1, 20);
+            for(int i=1; i<=tempRnd; i++)
+            {
+                int temp = rnd.Next(1, 51);
+                stat.Add(bs[temp]);
+            }
+            tempBus.FirstStation = stat[0];
+            tempBus.LastStation = stat[stat.Count];
+            return tempBus;
+        }
         static void Main(string[] args)
         {
 
@@ -87,6 +106,11 @@ namespace dotNet5781_02_0406_3977
 
 
             Menu choice;
+            int busNumber = -1;
+            int stationKey = -1;
+            BusLine bus = default;
+            BusStation station = default;
+
             do
             {
                 Console.WriteLine("\nEnter 1 to add new busLine\n" +
@@ -103,23 +127,54 @@ namespace dotNet5781_02_0406_3977
                 {
                     switch (choice)
                     {
+
                         case Menu.addBusLine:
-                            addBus()
-
-
+                            bus = enterBusLine(allBusLines, bs);
+                            allBusLines.addBus(bus);
                             break;
+
                         case Menu.addBusStationToBusLine:
+                            Console.WriteLine("Enter the line number to which you want to enter the requested station ");
+                            busNumber = int.Parse(Console.ReadLine());
+                            bus = allBusLines[busNumber];
+                            station = enterBusStation();
 
+                            bus.addStation(station);
                             break;
+
                         case Menu.removeBusLine:
+                            Console.WriteLine("Enter the bus number that you want to remove ");
+                            busNumber = int.Parse(Console.ReadLine());
+                            bus = allBusLines[busNumber];
+                            allBusLines.isExsist(bus);
+                            allBusLines.removeBus(bus);
                             break;
+
                         case Menu.removeBusStationFromBusLine:
+                            Console.WriteLine("Enter the bus number that you want to remove station from him");
+                            busNumber = int.Parse(Console.ReadLine());
+                            bus = allBusLines[busNumber];
+                            Console.WriteLine("Enter the bus statiom key that you want to remove");
+                            stationKey = int.Parse(Console.ReadLine());
+                            bool busExsist = false;
+                            foreach (BusStation b in bus.stations)
+                            {
+                                if (stationKey == b.BusStationKey)
+                                {
+                                    station = b;
+                                    busExsist = true;
+                                    break;
+                                }
+                            }
+                            if (!busExsist)
+                                throw new BusStationExceptions("A station that does not exist cannot be deleted ");
+                            bus.removeStation(station);
                             break;
 
                         case Menu.searchBusLinesInStation://search buses in specific bus station
                             Console.WriteLine("Enter the bus station key");
-                            int key = int.Parse(Console.ReadLine());
-                            List<BusLine> busesLst = allBusLines.busessInBusStation(key);
+                            stationKey = int.Parse(Console.ReadLine());
+                            List<BusLine> busesLst = allBusLines.busessInBusStation(stationKey);
                             Console.WriteLine(busesLst);//לאחר שמצאנו את רשימת הקווים העוברים בתחנה הרצויה נדפיס אותם
                             break;
 
@@ -162,8 +217,11 @@ namespace dotNet5781_02_0406_3977
                                 Console.WriteLine(temp);
                             }
                             break;
+
                         case Menu.exit:
+                            Console.WriteLine("Bye");
                             break;
+
                         default:
                             throw new ArgumentException("Invalid number, press again");
 
@@ -182,7 +240,7 @@ namespace dotNet5781_02_0406_3977
 
             } while (choice != Menu.exit);
 
-
+        }
     }
 }
 

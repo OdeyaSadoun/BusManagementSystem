@@ -41,8 +41,8 @@ namespace dotNet5781_02_0406_3977
         public BusStation LastStation { get; set; }
         #endregion
 
-        #region BusStationArea
-        public Area BusStationArea { get; set; }
+        #region BusLineArea
+        public Area BusLineArea { get; set; }
         #endregion
 
 
@@ -65,7 +65,7 @@ namespace dotNet5781_02_0406_3977
             this.Stations = stations;
             if (stations.Count < 2)//Check if the list has at least 2 stations.
                 throw new BusStationExceptions("The list nust has at least 2 stations");
-            this.BusStationArea = area;
+            this.BusLineArea = area;
             stations[0].bls.Distance = 0;
             stations[0].bls.TravelTime = TimeSpan.Zero;
 
@@ -87,7 +87,7 @@ namespace dotNet5781_02_0406_3977
             this.stations = new List<BusStation> (); 
        //     this.FirstStation = default;
        //     this.LastStation = default;
-            this.BusStationArea = Area.General;
+            this.BusLineArea = Area.General;
         }
         #endregion
 
@@ -114,7 +114,7 @@ namespace dotNet5781_02_0406_3977
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("\nThe bus number is: " + BusNumber + "\t The area is: " + BusStationArea + "\nThe stations are: \n"  + AllStations());
+            return string.Format("\nThe bus number is: " + BusNumber + "\t The area is: " + BusLineArea + "\nThe stations are: \n"  + AllStations());
         }
         #endregion
 
@@ -302,7 +302,7 @@ namespace dotNet5781_02_0406_3977
                 j++;
             }
             newbl.BusNumber = this.BusNumber;
-            newbl.BusStationArea = this.BusStationArea;
+            newbl.BusLineArea = this.BusLineArea;
             return newbl;
         }
         #endregion
