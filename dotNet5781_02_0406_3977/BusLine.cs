@@ -10,6 +10,7 @@ namespace dotNet5781_02_0406_3977
     public class BusLine : IComparable
 
     {
+        //prorpties:
 
         #region BusNumber
         public int BusNumber { get; set; }
@@ -48,6 +49,14 @@ namespace dotNet5781_02_0406_3977
         //Functions:
 
         #region variables constructor
+        /// <summary>
+        /// A variables constructor
+        /// </summary>
+        /// <param name="busNumber"></param>
+        /// <param name="stations"></param>
+        /// <param name="firstStation"></param>
+        /// <param name="lastStation"></param>
+        /// <param name="area"></param>
         public BusLine(int busNumber, List<BusStation> stations, BusStation firstStation, BusStation lastStation, Area area)
         {
             this.BusNumber = busNumber;
@@ -64,16 +73,18 @@ namespace dotNet5781_02_0406_3977
             {
                 stations[i].bls.Distance = DistanceBetweenStations(stations[i - 1], stations[i]);
                 stations[i].bls.TravelTime = TravelTimeBetweenStations(stations[i - 1], stations[i]);
-
             }
         }
         #endregion
 
         #region empty constructor
+        /// <summary>
+        /// empty constructor
+        /// </summary>
         public BusLine()
         {
             this.BusNumber = 0;
-            this.stations = new List<BusStation> (); //
+            this.stations = new List<BusStation> (); 
        //     this.FirstStation = default;
        //     this.LastStation = default;
             this.BusStationArea = Area.General;
@@ -97,6 +108,10 @@ namespace dotNet5781_02_0406_3977
         #endregion
 
         #region ToString
+        /// <summary>
+        /// An override function to print the object
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return string.Format("\nThe bus number is: " + BusNumber + "\t The area is: " + BusStationArea + "\nThe stations are: \n"  + AllStations());
@@ -364,6 +379,14 @@ namespace dotNet5781_02_0406_3977
         #endregion
 
         #region ChoiceOfBuses
+        /// <summary>
+        /// A function that recives 2 ststions
+        /// the function calculate the minimum time between 2 busses that have the stations in the route
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="destination"></param>
+        /// <param name="otherBl"></param>
+        /// <returns>the bus that has the minimum time to travel</returns>
         public BusLine ChoiceOfBuses(BusStation source, BusStation destination, BusLine otherBl)
         {
             ExceptionsNonExistence(source, destination);

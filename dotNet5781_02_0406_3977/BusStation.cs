@@ -10,6 +10,7 @@ namespace dotNet5781_02_0406_3977
     public class BusStation
     {
         public static Random rnd = new Random();
+
         public static int key = 0;
 
         #region struct Location
@@ -20,6 +21,7 @@ namespace dotNet5781_02_0406_3977
         }
         #endregion
 
+        //proprties:
 
         #region BusLineStation bls
         public class BusLineStation
@@ -61,7 +63,6 @@ namespace dotNet5781_02_0406_3977
         public BusLineStation bls{ get; set; }
         #endregion
 
-
         #region  BusStationKey
         public int BusStationKey { get; private set; } //לבדוק מה זה מספר סטטי
         #endregion
@@ -84,9 +85,10 @@ namespace dotNet5781_02_0406_3977
         public string BusStationAdress { get; set; }
         #endregion
 
-        //Functions
 
-        #region 3 constructors
+        //Functions:
+
+        #region constructor with option to enter only adress and this constractor is adition a empty constructor
         /// <summary>
         ///constructor with option to enter only adress and this constractor is adition a empty constructor 
         /// </summary>
@@ -104,6 +106,9 @@ namespace dotNet5781_02_0406_3977
             this.bls = new BusLineStation();
 
         }
+        #endregion
+
+        #region constructor with adress and travel time and distanc- bls
         /// <summary>
         ///constructor with adress and travel time and distanc- bls  
 
@@ -125,6 +130,13 @@ namespace dotNet5781_02_0406_3977
             this.bls.Distance = bls.Distance;
             this.bls.TravelTime = bls.TravelTime;
         }
+        #endregion
+
+        #region constructor with travel time and distance - bls
+        /// <summary>
+        /// constructor with travel time and distance - bls
+        /// </summary>
+        /// <param name="bls"></param>
         public BusStation(/*Location busStationLocation,*/ BusLineStation bls)
         {
             this.BusStationKey = key++;
@@ -146,6 +158,10 @@ namespace dotNet5781_02_0406_3977
         #endregion
 
         #region ToString
+        /// <summary>
+        /// An override function to print the object
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             //return string.Format($"Bus Station Code:{0}, {1}°N, {2}°E , {3}", BusStationKey,BusStationLocation.Latitude, BusStationLocation.Longitude, BusStationAdress) ;

@@ -25,20 +25,20 @@ namespace dotNet5781_02_0406_3977
 
         }
 
-        public BusLine enterBusLine()
-        {
-            Console.WriteLine("Enter busLine's number");
-            int busNumber = int.Parse(Console.ReadLine());
+        //public BusLine enterBusLine()
+        //{
+        //    Console.WriteLine("Enter busLine's number");
+        //    int busNumber = int.Parse(Console.ReadLine());
 
 
 
-        }
+        //}
         static void Main(string[] args)
         {
 
             Random r = BusStation.rnd;
-            //Random rnd = new Random();
-            //Create stock of stations
+
+            #region Create stock of stations:
             string[] streets = { "Rashbam ", "HaChida ", "Haatzmaut ", "Hertzel ", "Jerusalem ", "Halevi ", "Haneviim " };
             BusStation[] bs = new BusStation[50];
             for (int i = 0; i < bs.Length; i += 5)
@@ -50,7 +50,9 @@ namespace dotNet5781_02_0406_3977
                 bs[i + 3] = new BusStation(streets[r.Next(0, streets.Length)] + r.Next(1, (i + 3) * 10), bls);
                 bs[i + 4] = new BusStation(streets[r.Next(0, streets.Length)] + r.Next(1, (i + 1) * 10));
             }
-            //Create list of stations
+            #endregion
+
+            #region Create list of stations
             List<BusStation> lst1 = new List<BusStation> { bs[5], bs[6], bs[7], bs[8], bs[17], bs[16], bs[15], bs[21], bs[10] };
             List<BusStation> lst2 = new List<BusStation> { bs[11], bs[9], bs[10], bs[12], bs[5], bs[13], bs[14], bs[18], bs[19], bs[20], bs[22], bs[23], bs[24] };
             List<BusStation> lst3 = new List<BusStation> { bs[25], bs[27], bs[29], bs[26], bs[18], bs[30], bs[31] };
@@ -61,7 +63,9 @@ namespace dotNet5781_02_0406_3977
             List<BusStation> lst8 = new List<BusStation> { bs[5], bs[7], bs[9], bs[12], bs[13], bs[14], bs[15], bs[2], bs[3], bs[6], bs[8], bs[9], bs[10] };
             List<BusStation> lst9 = new List<BusStation> { bs[1], bs[7], bs[3], bs[2], bs[9], bs[12], bs[13], bs[45], bs[47], bs[50], };
             List<BusStation> lst10 = new List<BusStation> { bs[27], bs[29], bs[26], bs[17], bs[16], bs[15], bs[21], bs[10], bs[40], bs[41], bs[44], bs[45] };
-            //Create stock of buses
+            #endregion
+
+            #region Create stock of buses
             BusLine bl1 = new BusLine(401, lst1, bs[5], bs[10], Area.Center);
             BusLine bl2 = new BusLine(39, lst2, bs[11], bs[24], Area.Jerusalem);
             BusLine bl3 = new BusLine(947, lst3, bs[25], bs[31], Area.North);
@@ -72,7 +76,11 @@ namespace dotNet5781_02_0406_3977
             BusLine bl8 = new BusLine(179, lst3, bs[5], bs[10], Area.North);
             BusLine bl9 = new BusLine(3, lst4, bs[1], bs[50], Area.Center);
             BusLine bl10 = new BusLine(12, lst5, bs[27], bs[45], Area.Center);
-            BusLines allBusLines = new BusLines(); //{ bl1, bl2, bl3, bl4, bl5, bl6, bl7, bl8, bl9, bl10 };
+            #endregion
+
+            List<BusLine> tempLstBusLine = new List<BusLine> { bl1, bl2, bl3, bl4, bl5, bl6, bl7, bl7, bl8, bl9, bl10 }; // creat list with all the busess 
+
+            BusLines allBusLines = new BusLines(tempLstBusLine); //the collection of the busess
 
 
 
@@ -111,8 +119,8 @@ namespace dotNet5781_02_0406_3977
                         case Menu.searchBusLinesInStation://search buses in specific bus station
                             Console.WriteLine("Enter the bus station key");
                             int key = int.Parse(Console.ReadLine());
-                            List<BusLine> busesLst = allBusLines.busesInBusStation(key);
-                            Console.WriteLine(busesLst);//לאחר שמצאנו את רשימת הקווים העוברים בתחנה הרצויה נדפיס אותם.
+                            List<BusLine> busesLst = allBusLines.busessInBusStation(key);
+                            Console.WriteLine(busesLst);//לאחר שמצאנו את רשימת הקווים העוברים בתחנה הרצויה נדפיס אותם
                             break;
 
                         case Menu.printOptionToTravelBetweenBusStation:
@@ -126,7 +134,7 @@ namespace dotNet5781_02_0406_3977
                                 if (bl.isExsist(source) && bl.isExsist(destination))
                                     optionToTravel.Add(bl);
                             }
-                            //הגענו לרשימה שמכילה את כל הקווים שבהם יש את תחנת המוצא והיעד
+                            //הגענו כעת לרשימה שמכילה את כל הקווים שבהם קיימות את תחנת המוצא והיעד
                             List<BusLine> optionToTravelBetweenStations = new List<BusLine>();
                             foreach (BusLine bl in optionToTravel)
                             {
@@ -150,7 +158,7 @@ namespace dotNet5781_02_0406_3977
                             List<BusLine> temp = new List<BusLine>();
                             for (int i = 0; i < bs.Length; i++)
                             {
-                                temp = allBusLines.busesInBusStation(bs[i].BusStationKey);
+                                temp = allBusLines.busessInBusStation(bs[i].BusStationKey);
                                 Console.WriteLine(temp);
                             }
                             break;
@@ -161,25 +169,18 @@ namespace dotNet5781_02_0406_3977
 
                     }
 
-
-
-
-
-
                 }
-                catch (BusStationExceptions bsEx)
+                catch (BusStationExceptions bsEx) // catch to our class to special busStation exeptions
                 {
                     Console.WriteLine(bsEx.Message);
                 }
-                catch (Exception ex)
+                catch (Exception ex)//catch for other exeptions
                 {
                     Console.WriteLine(ex.Message);
                 }
-                catch ()
 
 
-
-        }   }while(choice!=Menu.exit);
+            } while (choice != Menu.exit);
 
 
     }

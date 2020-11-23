@@ -8,24 +8,36 @@ namespace dotNet5781_02_0406_3977
 {
     class BusLines : IEnumerable
     {
-        public List<BusLine> Buses { get; set; }
+        //property:
 
-        #region enptyConstructor
+        #region Busess
+        public List<BusLine> Busess { get; set; }
+        #endregion
+
+        //Functions:
+
+        #region emptyConstructor
+        /// <summary>
+        /// empty constructor
+        /// </summary>
         public BusLines() { }
 
         #endregion;
 
         #region variableConstructor
-
+        /// <summary>
+        /// A variable constructor
+        /// </summary>
+        /// <param name="lstBuses"></param>
         public BusLines(List<BusLine> lstBuses)
         {
-            this.Buses = lstBuses;
+            this.Busess = lstBuses;
             for (int i = 0; i < lstBuses.Count; i++)
             {
                 for (int j = 0; j < lstBuses.Count; j++)
                 {
                     if (i != j)
-                        if (Buses[i] == lstBuses[j])
+                        if (Busess[i] == lstBuses[j])
                             throw new BusStationExceptions("There are the same buses in the list");
                 }
             }
@@ -33,17 +45,26 @@ namespace dotNet5781_02_0406_3977
         #endregion
 
         #region IEnumerator
+        /// <summary>
+        /// A function that returns an enumerator that iterates through a collection.
+        /// </summary>
+        /// <returns>enumerator that iterates through a collection</returns>
 
         public IEnumerator GetEnumerator()
         {
-            return Buses.GetEnumerator();
+            return Busess.GetEnumerator();
         }
         #endregion
 
         #region  isExsist
+        /// <summary>
+        /// A function that check if the bus exist in the collection of the busess
+        /// </summary>
+        /// <param name="bs"></param>
+        /// <returns></returns>
         public bool isExsist(BusLine bs)
         {
-            foreach (BusLine b in Buses)
+            foreach (BusLine b in Busess)
             {
                 if (b == bs)
                     return true;
@@ -53,6 +74,10 @@ namespace dotNet5781_02_0406_3977
         #endregion
 
         #region addBus
+        /// <summary>
+        /// A function that add bus to the collection
+        /// </summary>
+        /// <param name="newbl"></param>
         void addBus(BusLine newbl)
         {
             if (newbl.stations.Count < 2)
@@ -63,7 +88,7 @@ namespace dotNet5781_02_0406_3977
             //אך זהו קו אחר ולכן קיימים  לנו יותר מ 2 קווים בעלי מספר זהה
             //אך לא כל הקו זהה אלא יש שינוי קל אז הכנסנו למערכת 
             //ורק כאשר כל הקו זהה נזרוק חריגה שהרי לא יכול להיות אותו קו בדיוק פעמיים במערכת.  
-            foreach(BusLine bl in Buses)
+            foreach(BusLine bl in Busess)
             {
                 if(bl==newbl)
                 {
@@ -71,26 +96,33 @@ namespace dotNet5781_02_0406_3977
                 }
             }
       
-            Buses.Add(newbl);
+            Busess.Add(newbl);
         }
         #endregion
 
         #region removeBus
-
+        /// <summary>
+        /// A function that remove bus from the collection
+        /// </summary>
+        /// <param name="newbl"></param>
         void removeBus(BusLine newbl)
         {
             if (!isExsist(newbl))
                 throw new BusStationExceptions("The bus isn't exsist in the list");
-            Buses.Remove(newbl);
+            Busess.Remove(newbl);
         }
         #endregion
 
-        #region busesInBusStation
-
-        public List<BusLine> busesInBusStation(int busStationKey)
+        #region busessInBusStation
+        /// <summary>
+        /// A function that recives a bus station
+        /// </summary>
+        /// <param name="busStationKey"></param>
+        /// <returns>a list with all the busess that go through ther</returns>
+        public List<BusLine> busessInBusStation(int busStationKey)
         {
             List<BusLine> returnLst = new List<BusLine>();
-            foreach(BusLine bl in Buses)
+            foreach(BusLine bl in Busess)
             {
                 foreach(BusStation s in bl.stations)
                 {
@@ -106,11 +138,14 @@ namespace dotNet5781_02_0406_3977
         #endregion
 
         #region sortByTravelTime
-
+        /// <summary>
+        /// A function that sort the list by the travel time
+        /// </summary>
+        /// <returns></returns>
         public List<BusLine> sortByTravelTime()
         {//Copy to an array to create a copy of a list
-            BusLine[] sortArrayBls = new BusLine[Buses.Count];          
-            Buses.CopyTo(sortArrayBls);
+            BusLine[] sortArrayBls = new BusLine[Busess.Count];          
+            Busess.CopyTo(sortArrayBls);
             List<BusLine> sortListBls = sortArrayBls.ToList();
             sortListBls.Sort();
             return sortListBls;
@@ -118,11 +153,16 @@ namespace dotNet5781_02_0406_3977
         #endregion
 
         #region indexer
+        /// <summary>
+        /// A function that receives a line number and returns the instance. If there is no such line an anomaly will be thrown.
+        /// </summary>
+        /// <param name="busNumber"></param>
+        /// <returns></returns>
         public List<BusLine> this[int busNumber]
         {
             get
             {
-                List<BusLine> bs = Buses.FindAll(item => item.BusNumber == busNumber);
+                List<BusLine> bs = Busess.FindAll(item => item.BusNumber == busNumber);
                 if (bs.Count != 0)
                     return bs;
                 else

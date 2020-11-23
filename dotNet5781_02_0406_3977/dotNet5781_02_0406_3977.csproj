@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Area.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="BusLine.cs" />
     <Compile Include="BusLines.cs" />
     <Compile Include="BusStation.cs" />
