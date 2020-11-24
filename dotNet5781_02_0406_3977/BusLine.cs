@@ -17,7 +17,7 @@ namespace dotNet5781_02_0406_3977
         #endregion
 
         #region Stations
-        public List<BusStation> stations;
+        public List<BusStation> stations;//the list of the stations in the bus
 
         public List<BusStation> Stations
         {
@@ -85,8 +85,6 @@ namespace dotNet5781_02_0406_3977
         {
             this.BusNumber = 0;
             this.stations = new List<BusStation> (); 
-       //     this.FirstStation = default;
-       //     this.LastStation = default;
             this.BusLineArea = Area.General;
         }
         #endregion
@@ -118,15 +116,15 @@ namespace dotNet5781_02_0406_3977
         }
         #endregion
 
-        #region isExsist
+        #region IsExsist
         /// <summary>
         /// A Boolean method that checks whether a particular station is on the route of the line
         /// </summary>
         /// <param name="bls"></param>
         /// <returns> true if the bus station exist and false if not</returns>
-        public bool isExsist(BusStation bls)
+        public bool IsExsist(BusStation bls)
         {
-            foreach (BusStation b in stations)
+            foreach (BusStation b  in stations)
             {
                 if (b == bls)
                     return true;
@@ -135,12 +133,12 @@ namespace dotNet5781_02_0406_3977
         }
         #endregion
 
-        #region removeStation
+        #region RemoveStation
         /// <summary>
         /// A function that remove station from the list
         /// </summary>
         /// <param name="bs"></param>
-        public void removeStation(BusStation bs)
+        public void RemoveStation(BusStation bs)
         {
             ExceptionsNonExistence(bs);
             if (stations[0] == bs)//If it's the first station
@@ -170,13 +168,13 @@ namespace dotNet5781_02_0406_3977
         }
         #endregion
 
-        #region addStation
+        #region AddStation
 
         /// <summary>
         /// The function recives station and put it in the begining of the list
         /// </summary>
         /// <param name="newbs"></param>
-        public void addStation(BusStation newbs)
+        public void AddStation(BusStation newbs)
         {
             FirstStation = newbs;
             FirstStation.bls.Distance = 0;
@@ -243,7 +241,7 @@ namespace dotNet5781_02_0406_3977
 
         #endregion
 
-        #region travelTimeBetweenStations
+        #region TravelTimeBetweenStations
         /// <summary>
         ///  A function that calculate the travel time between two stations
         /// </summary>
@@ -269,7 +267,7 @@ namespace dotNet5781_02_0406_3977
         }
         #endregion
 
-        #region subRoute
+        #region SubRoute
         /// <summary>
         /// The method receives 2 stations
         /// and returns A bus line object that actually represented the section of the line between the two stations(including)
@@ -278,7 +276,7 @@ namespace dotNet5781_02_0406_3977
         /// <param name="bs1"></param>
         /// <param name="bs2"></param>
         /// <returns>A function that returns a sub-trajectory of the line</returns>
-        public BusLine subRoute(BusStation bs1, BusStation bs2)
+        public BusLine SubRoute(BusStation bs1, BusStation bs2)
         {
             ExceptionsNonExistence(bs1, bs2);
             BusLine newbl = new BusLine();
@@ -296,6 +294,7 @@ namespace dotNet5781_02_0406_3977
                     break;
             }
             int j = 0;
+            
             for (int i = index1; i <= index2; i++)
             {
                 newbl.stations.Insert(j, this.stations[i]);
@@ -316,8 +315,8 @@ namespace dotNet5781_02_0406_3977
         /// <param name="bs2"></param>
         public void ExceptionsNonExistence(BusStation bs1, BusStation bs2)
         {
-            bool flag1 = isExsist(bs1);
-            bool flag2 = isExsist(bs2);
+            bool flag1 = IsExsist(bs1);
+            bool flag2 = IsExsist(bs2);
             if ((!flag1) || (!flag2))
                 throw new BusStationExceptions("One or more of the station aren't exsist in the list");
         }
@@ -328,7 +327,7 @@ namespace dotNet5781_02_0406_3977
         /// <param name="bs"></param>
         public void ExceptionsNonExistence(BusStation bs)
         {
-            bool flag = isExsist(bs);
+            bool flag = IsExsist(bs);
             if (!flag)
                 throw new BusStationExceptions("The bus station dosn't exist in the list");
         }
@@ -398,15 +397,7 @@ namespace dotNet5781_02_0406_3977
             //update temp2:
             othertemp.FirstStation = source;
             othertemp.LastStation = destination;
-            //int i = 0; // delete the stations befor
-            //while (temp1.stations[i] != bs)
-            //{
-            //    temp1.removeStation(temp1.stations[i]);
-            //}
-            //while (temp1.stations[i] != bs)
-            //{
-            //    temp1.removeStation(temp1.stations[i]);
-            //}
+
             int priority = thistemp.CompareTo(othertemp);
             if (priority > 0) //temp2 shorter
                 return otherBl;

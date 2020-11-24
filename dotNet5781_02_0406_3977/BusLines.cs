@@ -14,6 +14,34 @@ namespace dotNet5781_02_0406_3977
         public List<BusLine> Busess { get; set; }
         #endregion
 
+        #region indexer
+        /// <summary>
+        ///receives a line number and returns the instance. If there is no such line an anomaly will be thrown.
+        /// </summary>
+        /// <param name="busNumber"></param>
+        /// <returns></returns>
+        public BusLine this[int busNumber]
+        {
+            //רכז הקורס דן זילברשטיין אמר שאפשר להחזיר את האינדקס הראשון בו נמצא האוטובוס למרות שיכול להיות כמה כאלו.
+            get
+            {
+                BusLine bs = Busess.Find(item => item.BusNumber == busNumber);
+                if (bs != default)
+                    return bs;
+                else
+                    throw new BusStationExceptions("The line does not exist in the list");
+            }
+            set
+            {
+                int intd = Busess.FindIndex(item => item.BusNumber == busNumber);
+                if (intd == -1)
+                    throw new BusStationExceptions("The bus isn't exsist");
+                Busess[intd] = value;
+
+            }
+        }
+        #endregion
+
         //Functions:
 
         #region emptyConstructor
@@ -56,13 +84,13 @@ namespace dotNet5781_02_0406_3977
         }
         #endregion
 
-        #region  isExsist
+        #region  IsExsist
         /// <summary>
         /// A function that check if the bus exist in the collection of the busess
         /// </summary>
         /// <param name="bs"></param>
         /// <returns></returns>
-        public bool isExsist(BusLine bs)
+        public bool IsExsist(BusLine bs)
         {
             foreach (BusLine b in Busess)
             {
@@ -73,12 +101,12 @@ namespace dotNet5781_02_0406_3977
         }
         #endregion
 
-        #region addBus
+        #region AddBus
         /// <summary>
         /// A function that add bus to the collection
         /// </summary>
         /// <param name="newbl"></param>
-        public void addBus(BusLine newbl)
+        public void AddBus(BusLine newbl)
         {
             if (newbl.stations.Count < 2)
                 throw new BusStationExceptions("The bus must has at least 2 stations");
@@ -100,26 +128,26 @@ namespace dotNet5781_02_0406_3977
         }
         #endregion
 
-        #region removeBus
+        #region RemoveBus
         /// <summary>
         /// A function that remove bus from the collection
         /// </summary>
         /// <param name="newbl"></param>
-        public void removeBus(BusLine newbl)
+        public void RemoveBus(BusLine newbl)
         {
-            if (!isExsist(newbl))
+            if (!IsExsist(newbl))
                 throw new BusStationExceptions("The bus isn't exsist in the list");
             Busess.Remove(newbl);
         }
         #endregion
 
-        #region busessInBusStation
+        #region BusesInBusStation
         /// <summary>
         /// A function that recives a bus station
         /// </summary>
         /// <param name="busStationKey"></param>
         /// <returns>a list with all the busess that go through ther</returns>
-        public List<BusLine> busessInBusStation(int busStationKey)
+        public List<BusLine> BusesInBusStation(int busStationKey)
         {
             List<BusLine> returnLst = new List<BusLine>();
             foreach(BusLine bl in Busess)
@@ -137,12 +165,12 @@ namespace dotNet5781_02_0406_3977
         }
         #endregion
 
-        #region sortByTravelTime
+        #region SortByTravelTime
         /// <summary>
         /// A function that sort the list by the travel time
         /// </summary>
         /// <returns></returns>
-        public List<BusLine> sortByTravelTime()
+        public List<BusLine> SortByTravelTime()
         {//Copy to an array to create a copy of a list
             BusLine[] sortArrayBls = new BusLine[Busess.Count];          
             Busess.CopyTo(sortArrayBls);
@@ -152,48 +180,20 @@ namespace dotNet5781_02_0406_3977
         }
         #endregion
 
-        #region indexer
+        #region ToString
         /// <summary>
-        /// A function that receives a line number and returns the instance. If there is no such line an anomaly will be thrown.
+        /// An override function to print the object
         /// </summary>
-        /// <param name="busNumber"></param>
         /// <returns></returns>
-        public BusLine this[int busNumber]
+        public override string ToString()
         {
-            get
-            {
-                BusLine bs= Busess.Find(item => item.BusNumber == busNumber);
-                if (bs != default)
-                    return bs;
-                else
-                    throw new BusStationExceptions("The line does not exist in the list");
-            }
-            set
-            {
-                int intd = Busess.FindIndex(item => item.BusNumber == busNumber);
-                if(intd==-1)
-                    throw new BusStationExceptions("The bus isn't exsist");
-                Busess[intd] = value;
-                
-
-                //bool flag = false;
-                //BusLine temp;
-                //foreach (BusLine bl in Busess)
-                //{
-                //    if (bl.BusNumber == busNumber)
-                //    {
-                //        temp = bl;
-                //        flag = true;
-                //        break;
-                //    }
-                //}
-                //if (!flag)
-                //    throw new BusStationExceptions("The bus isn't exsist");
-                //Busess[temp] = value;
-
-            }
+            string str = "";
+            foreach (BusLine bl in Busess)
+                str = str + bl.ToString();
+            return str;
         }
-        #endregion
+        #endregion 
+
     }
 
 

@@ -26,6 +26,8 @@ namespace dotNet5781_02_0406_3977
         #region BusLineStation bls
         public class BusLineStation
         {
+            //proprties:
+
             #region Distance
             public double Distance { get; set; }
             #endregion
@@ -34,23 +36,14 @@ namespace dotNet5781_02_0406_3977
             public TimeSpan TravelTime { get; set; }
             #endregion
 
-            //functions
+            //functions:
             #region empty constructor
             public BusLineStation() 
             {
                 this.Distance = rnd.NextDouble() * (33.3 - 31) + 31;
                 this.TravelTime = new TimeSpan(/*hours*/rnd.Next(0, 3), /*minutes*/rnd.Next(0, 60), /*seconds*/rnd.Next(0, 60));
-                //rnd.NextDouble() * (35.5 - 34.3) + 34.3;
             }
             #endregion
-
-            //#region variables constructor
-            //public BusLineStation(double distance, TimeSpan travelTime)
-            //{
-            //    this.Distance = distance;
-            //    this.TravelTime = travelTime;
-            //}
-            //#endregion
 
             #region ToString
             public override string ToString()
@@ -164,12 +157,9 @@ namespace dotNet5781_02_0406_3977
         /// <returns></returns>
         public override string ToString()
         {
-            //return string.Format($"Bus Station Code:{0}, {1}°N, {2}°E , {3}", BusStationKey,BusStationLocation.Latitude, BusStationLocation.Longitude, BusStationAdress) ;
             return (string.Format("Bus Station Code: " + BusStationKey.ToString("000000") + "\t" + BusStationLocation.Latitude + "°N \t"+ BusStationLocation.Longitude + "°E \t" + BusStationAdress));
         }
         #endregion
-
-
 
     }
 }
