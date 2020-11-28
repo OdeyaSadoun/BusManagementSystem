@@ -157,7 +157,7 @@ namespace dotNet5781_02_0406_3977
         /// <returns></returns>
         public override string ToString()
         {
-            return (string.Format("Bus Station Code: " + BusStationKey.ToString("000000") + "\t" + BusStationLocation.Latitude + "°N \t"+ BusStationLocation.Longitude + "°E \t" + BusStationAdress));
+            return (string.Format("Bus Station Code: " + BusStationKey.ToString("000000") + "\t\t" + BusStationLocation.Latitude + "°N \t"+ BusStationLocation.Longitude + "°E \t" + BusStationAdress));
         }
         #endregion
 

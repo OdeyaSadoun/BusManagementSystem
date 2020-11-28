@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Collections;
 namespace dotNet5781_02_0406_3977
 {
-    class BusLines : IEnumerable
+    public class BusLines : IEnumerable
     {
         //property:
 
