@@ -72,7 +72,7 @@
         <ListBox x:Name="lbBusLineStations" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Width="714" ItemsSource="{Binding}" Margin="39,40,39,60" Background="#B2C4D5FF" SelectionChanged="lbBusLineStations_SelectionChanged" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2"/>
         <Label Content="The stations of the bus " HorizontalAlignment="Stretch" Margin="39,0,523,489" Grid.Row="1" VerticalAlignment="Stretch" FontWeight="Bold" FontSize="20" Grid.ColumnSpan="2"/>
         <Label Content="are:" HorizontalAlignment="Stretch" Margin="265,0,208,489" Grid.Row="1" VerticalAlignment="Stretch" Width="264" FontWeight="Bold" FontSize="20" Grid.Column="1"/>
-        <Label Content="A good trip!!!" HorizontalAlignment="Stretch" Margin="283,481,311,10" Grid.Row="1" VerticalAlignment="Stretch" FontWeight="Bold" FontSize="20" Grid.Column="1" Foreground="White"/>
+        <Label Content="A good travel!!!" HorizontalAlignment="Stretch" Margin="287.8,481.6,293.6,10" Grid.Row="1" VerticalAlignment="Stretch" FontWeight="Bold" FontSize="20" Grid.Column="1" Foreground="White"/>
 
     </Grid>
 </Window>

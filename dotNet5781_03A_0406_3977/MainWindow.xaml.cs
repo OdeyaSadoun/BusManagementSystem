@@ -25,8 +25,11 @@ namespace dotNet5781_03A_0406_3977
         BusLines BusCollection = new BusLines();
         private BusLine currentDisplayBusLine;
 
-    
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        #region constructor
         public MainWindow()
         {
 
@@ -91,27 +94,56 @@ namespace dotNet5781_03A_0406_3977
             
 
         }
+        #endregion
 
+        #region  ShowBusLine
+        /// <summary>
+        /// A function that displays the information about the bus line
+        /// </summary>
+        /// <param name="index"></param>
         private void ShowBusLine(int index)
         {
             currentDisplayBusLine = BusCollection[index];
             UpGrid.DataContext = currentDisplayBusLine;
             lbBusLineStations.DataContext = currentDisplayBusLine.Stations;
-        } 
+        }
+        #endregion
 
+        #region tbArea_TextChanged
+        /// <summary>
+        /// A function that displays the bus area inside the textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbArea_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
+        #endregion
 
+        #region bBusLines_SelectionChanged
+        /// <summary>
+        /// A function that displays the bus number inside the combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbBusLines_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ShowBusLine((cbBusLines.SelectedValue as BusLine).BusNumber);
         }
 
+        #endregion
+
+        #region lbBusLineStations_SelectionChanged
+        /// <summary>
+        /// A function that displays all the details for stations of the bus that selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbBusLineStations_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+        #endregion
     }
 }
