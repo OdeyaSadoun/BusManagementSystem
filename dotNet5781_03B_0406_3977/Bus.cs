@@ -7,6 +7,8 @@ using System.Linq;
     using System.Runtime.Remoting.Metadata.W3cXsd2001;
     using System.Text;
     using System.Threading.Tasks;
+using System.ComponentModel;
+
 
 
 //Tamar Gavrieli 322533977 & Odeya Sadoun 212380406
@@ -15,7 +17,7 @@ using System.Linq;
 
 namespace dotNet5781_03B_0406_3977
 {
-    class Bus
+    public class Bus
     {
         //FILDES:
         #region licenseNumber
@@ -175,15 +177,15 @@ namespace dotNet5781_03B_0406_3977
 
         //FUNCTIONS:
         #region Constructor
-        public Bus(string licenseNumber, DateTime dateBegin, double mileage = 0, BusStatus status=BusStatus.Ready,  double fuel = 0)
+        public Bus(string licenseNumber, DateTime dateBegin, double mileage = 0,  double fuel = 0)
         //constructor
         {
             this.LicenseNumber = licenseNumber;
             this.DateBegin = dateBegin;
             this.sumMileage = mileage;
-            this.Status = status;
             this.Fuel = fuel;
             //defult values
+            this.Status = BusStatus.Ready;
             this.currentMileage = 0;
             this.kmBeforeFuel = 1200;
             this.KmBeforCare = 20000;

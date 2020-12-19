@@ -3,11 +3,44 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
         xmlns:local="clr-namespace:dotNet5781_03B_0406_3977"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <DataTemplate x:Key="BusesList"
+                  DataType="local:Bus">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0"
+                   Text="The License Nuber is: " />
+                <TextBlock Grid.Column="1"
+                   Text="{Binding Path=LicenseNumber}" />
+                <TextBlock Grid.Column="2"
+                   Text="Status: " />
+                <TextBlock Grid.Column="3"
+                   Text="{Binding Path=Status}" />
+                <Button Grid.Column="4"
+                   Content="Drive" Click="drive_click_button" />
+               
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
-        <ListBox x:Name="lbBuses" HorizontalAlignment="Left" Height="280" Margin="78,64,0,0" VerticalAlignment="Top" Width="635"/>
+        <ListBox x:Name="lbBuses" HorizontalAlignment="Left" Height="280" Margin="78,64,0,0" VerticalAlignment="Top" Width="635" ItemsSource="{Binding}" ItemTemplate="{StaticResource BusesList}" HorizontalContentAlignment="Stretch" />
+
         <Button x:Name="B_AddBus" Content="Add Bus" HorizontalAlignment="Left" Margin="321,364,0,0" VerticalAlignment="Top" Width="75" Click="B_AddBus_Click"/>
 
 

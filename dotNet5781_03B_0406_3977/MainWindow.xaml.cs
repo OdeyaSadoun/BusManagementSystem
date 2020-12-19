@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
+
 
 namespace dotNet5781_03B_0406_3977
 {
@@ -22,7 +24,10 @@ namespace dotNet5781_03B_0406_3977
     public partial class MainWindow : Window
     {
         public static Random rnd = new Random(DateTime.Now.Millisecond);
+        ObservableCollection<Bus> busLst = new ObservableCollection<Bus>();
+        public ObservableCollection<Bus> listOfBuses { get; set; }
 
+        BackgroundWorker worker;
         public MainWindow()
         {
             InitializeComponent();
@@ -31,11 +36,19 @@ namespace dotNet5781_03B_0406_3977
             {
                 Bus b = new Bus();               
                 string licenseNumber = (rnd.Next(999999, 100000000)).ToString();
-                DateTime timeBegin =new DateTime(/*years*/rnd.Next(1900, 2022), /*monthes*/rnd.Next(1, 13), /*days*/rnd.Next(1, 31));
+                int tempYearBegin = rnd.Next(1900, 2022);
+                DateTime timeBegin =new DateTime(/*years*/tempYearBegin, /*monthes*/rnd.Next(1, 13), /*days*/rnd.Next(1, 29));
                 int mileage = rnd.Next(0, 200000);//החלטנו שזה הכולל
-                DateTime lastCare = new DateTime(/*years*/rnd.Next(2015, 2022), /*monthes*/rnd.Next(1, 13), /*days*/rnd.Next(1, 31));
+                int tempYearLastCare;
+                if (tempYearBegin <= 2015)
+                    tempYearLastCare = rnd.Next(2015, 2022);
+                else
+                    tempYearLastCare = rnd.Next(tempYearBegin, 2022);
+                DateTime lastCare = new DateTime(/*years*/tempYearLastCare, /*monthes*/rnd.Next(1, 13), /*days*/rnd.Next(1, 29));
                 double kmAfterCare = rnd.NextDouble() * 20000;//מקסימום נסיעה אחרי הטיפול הוא 20000
                 double kmAfterFuel = rnd.NextDouble() * 1200;//1מקסימום נסיעה אחרי התדלוק הוא 200
+                int tempStatus = rnd.Next(1, 5);
+                b.Status = (BusStatus)tempStatus;
                 b.LicenseNumber = licenseNumber;
                 b.SumMileage = mileage;
                 b.DateBegin = timeBegin;
@@ -45,17 +58,37 @@ namespace dotNet5781_03B_0406_3977
                 busLst.Add(b);
 
             }
+            listOfBuses = busLst;
+            lbBuses.ItemsSource = listOfBuses /*busLst*/;
+            //lbBuses.DisplayMemberPath = "LicenseNumber";
 
-            lbBuses.ItemsSource = busLst;
-            lbBuses.DisplayMemberPath = "LicenseNumber";
+            worker = new BackgroundWorker();
+            worker.DoWork += travel;
+            worker.ProgressChanged += Worker_ProgressChanged;
 
+        }
 
+        private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
+        private void travel(object sender, DoWorkEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void B_AddBus_Click(object sender, RoutedEventArgs e)
         {
-            WindowAddBus win = new WindowAddBus();
+            WindowAddBus win = new WindowAddBus(/*listOfBuses*/);
+            win.Buses = listOfBuses;  
+            win.ShowDialog();
+            
+        }
+
+        private void drive_click_button(object sender, RoutedEventArgs e)
+        {
+            EnterDistanceForTravelWindow win = new EnterDistanceForTravelWindow();
             win.ShowDialog();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,13 @@ namespace dotNet5781_03B_0406_3977
     /// </summary>
     public partial class WindowAddBus : Window
     {
-        public WindowAddBus()
+        //private ObservableCollection<Bus> buses;
+        public ObservableCollection<Bus> Buses{ get; set; }
+
+        public WindowAddBus(/*ObservableCollection<Bus> b*/)
         {
-            InitializeComponent(); 
-            statusComboBox.ItemsSource = Enum.GetValues(typeof(BusStatus)).Cast<BusStatus>();
-            statusComboBox.SelectedIndex = 0;
+            InitializeComponent();
+            //Buses = b;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -39,11 +42,11 @@ namespace dotNet5781_03B_0406_3977
 
         }
 
-        private void statusComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void submit_bus_button_Click(object sender, RoutedEventArgs e)
         {
-            statusComboBox.ItemsSource = Enum.GetValues(typeof(BusStatus)).Cast<BusStatus>();
-            
-
+            Buses.Add(new Bus() { LicenseNumber = licenseNumberTextBox.Text, DateBegin = dateBeginDatePicker.DisplayDate, Fuel = int.Parse(fuelTextBox.Text), LastCare = lastCareDatePicker.DisplayDate, SumMileage = int.Parse(sumMileageTextBox.Text)});
+            this.Close();
         }
+
     }
 }

@@ -8,6 +8,6 @@ namespace dotNet5781_03B_0406_3977
 {
     public enum BusStatus
     {
-        Ready=1, Middle,Refueling, Care
+        Ready=1, Driving, Refueling, Careing
     }
 }
