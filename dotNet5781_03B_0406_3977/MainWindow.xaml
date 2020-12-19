@@ -40,9 +40,9 @@
 
     <Grid>
         <ListBox x:Name="lbBuses" HorizontalAlignment="Left" Height="280" Margin="78,64,0,0" VerticalAlignment="Top" Width="635" ItemsSource="{Binding}" ItemTemplate="{StaticResource BusesList}" HorizontalContentAlignment="Stretch" />
-
         <Button x:Name="B_AddBus" Content="Add Bus" HorizontalAlignment="Left" Margin="321,364,0,0" VerticalAlignment="Top" Width="75" Click="B_AddBus_Click"/>
 
 
     </Grid>
+    
 </Window>

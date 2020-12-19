@@ -23,33 +23,35 @@ namespace dotNet5781_03B_0406_3977
 
     public partial class EnterDistanceForTravelWindow : Window
     {
-        public EnterDistanceForTravelWindow()
+        public double KmToTravel { get; set; }
+        public Bus Bus { get; set; }
+        public EnterDistanceForTravelWindow(Bus b)
         {
             InitializeComponent();
+            Bus = b;
 
         }
 
-        private void enter_km(object sender, KeyEventArgs e)
+        //private void enter_km(object sender, KeyEventArgs e)
+        //{
+        //    TextBox txt = sender as TextBox;
+        //    if (txt == null)
+        //        return;
+        //    if (e == null)
+        //        return;
+        //    if (e.Key == Key.Enter || e.Key == Key.Return)
+        //    {
+        //        KmToTravel = double.Parse(txt.Text);
+        //        Bus.goToTravel(KmToTravel);
+        //    }
+        //    this.Close();
+        //}
+
+        private void Enter_km_button_Click(object sender, RoutedEventArgs e)
         {
-            TextBox txt = sender as TextBox;
-            if (txt == null)
-                return;
-            if (e == null)
-                return;
-            if (e.Key == Key.Enter || e.Key == Key.Return)
-            {
-                if (txt.Text.Length > 0)
-                {
-                    int amount = int.Parse(txt.Text);
-                    txt.Text = "";
-                    if (sender == txtBox_km_to_travel)
-                        
-
-
-
-
-                }
-            }
+            Bus.currentMileage = double.Parse(TextBoxKm.Text);
+            Bus.goToTravel(KmToTravel);
+            this.Close();
         }
     }
 }

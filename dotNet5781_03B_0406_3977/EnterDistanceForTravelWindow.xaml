@@ -8,7 +8,9 @@
         Title="EnterDistanceForTravelWindow" Height="450" Width="800">
     <Grid>
         <Label x:Name="lable_distance" Content="Number of kilometers on this travel:&#xD;&#xA;" HorizontalAlignment="Left" Margin="205,131,0,0" VerticalAlignment="Top" Height="30" Width="207"/>
-        <TextBox x:Name="txtBox_km_to_travel" Text="{Binding currentMileage}" HorizontalAlignment="Left" Height="23" Margin="406,135,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" PreviewKeyDown="enter_km"/>
+     
+        <Button x:Name="Enter_km_button" Content="Go to travel" HorizontalAlignment="Left" Margin="364,301,0,0" VerticalAlignment="Top" Width="75" Click="Enter_km_button_Click"/>
+        <TextBox x:Name="TextBoxKm" Text="{Binding currentMealege}" HorizontalAlignment="Left" Height="23" Margin="417,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

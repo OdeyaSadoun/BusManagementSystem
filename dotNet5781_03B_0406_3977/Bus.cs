@@ -8,6 +8,15 @@ using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
 
 
 
@@ -93,7 +102,7 @@ namespace dotNet5781_03B_0406_3977
         #endregion
 
         #region currentMileage
-        public int currentMileage { get; set; }
+        public double currentMileage { get; set; }
         #endregion
 
         #region kmBeforCare //The amount of mileages left for the bus to travel before needing treatment
@@ -275,6 +284,26 @@ namespace dotNet5781_03B_0406_3977
         public override string ToString()
         {
             return string.Format("The bus license number is:" + licenseNumber+ "\t DateBegin:" + DateBegin+ "\t the sum mileage is:"+ SumMileage);
+        }
+        public void goToTravel(double km)
+        {
+            if (kmBeforCare - km <= 0)
+                MessageBox.Show("The bus cant perform this travel because the bus traveled 20000 km without care - need to care");
+            if (kmBeforeFuel - km <= 0)
+                MessageBox.Show("The fuel isnt enough for travel, you should fuel");
+          
+            //if (YearPassed())
+            //    MessageBox.Show("The bus cant perform this travel because a year passed from");
+            if (Status == BusStatus.Ready)
+            {
+                currentMileage = km;
+                sumMileage += currentMileage;
+                kmBeforeFuel -= km;
+                kmBeforCare -= km;
+            }
+            else
+                MessageBox.Show("The status of the bus is:" + Status + "\nThe bus can't go to drive");
+
         }
 
 

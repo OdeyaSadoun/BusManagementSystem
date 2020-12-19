@@ -62,21 +62,11 @@ namespace dotNet5781_03B_0406_3977
             lbBuses.ItemsSource = listOfBuses /*busLst*/;
             //lbBuses.DisplayMemberPath = "LicenseNumber";
 
-            worker = new BackgroundWorker();
-            worker.DoWork += travel;
-            worker.ProgressChanged += Worker_ProgressChanged;
+            
 
         }
 
-        private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void travel(object sender, DoWorkEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         private void B_AddBus_Click(object sender, RoutedEventArgs e)
         {
@@ -88,8 +78,33 @@ namespace dotNet5781_03B_0406_3977
 
         private void drive_click_button(object sender, RoutedEventArgs e)
         {
-            EnterDistanceForTravelWindow win = new EnterDistanceForTravelWindow();
+            Bus b = (sender as Button).DataContext as Bus;
+            EnterDistanceForTravelWindow win = new EnterDistanceForTravelWindow(b);
             win.ShowDialog();
+            worker = new BackgroundWorker();
+            worker.DoWork += Worker_DoWork;
+            worker.ProgressChanged += Worker_ProgressChanged;
+            worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+            worker.WorkerReportsProgress = true;
+            worker.RunWorkerAsync(b);
+        }
+
+        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            int progress = e.ProgressPercentage;
+            
+            throw new NotImplementedException();
+        }
+
+        private void Worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //throw new NotImplementedException();
+            res
         }
     }
     
