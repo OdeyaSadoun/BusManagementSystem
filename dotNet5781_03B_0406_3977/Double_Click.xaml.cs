@@ -22,7 +22,8 @@ namespace dotNet5781_03B_0406_3977
     {
         public Bus currentBus { get; set; }
         public ProgressBar progressBar { get; set; }
-        public Label label { get; set; }
+        public Label lresult { get; set; }
+        public Label lseconds { get; set; }
         public Button bcare { get; set; }
         public Button brefuel { get; set; }
 
@@ -51,7 +52,9 @@ namespace dotNet5781_03B_0406_3977
             {
                 b.care();
                 ProgressBar p = progressBar;
-                Label l = label;
+                Label l1 = lresult;
+                Label l2 = lseconds;
+
                 Button bCare = sender as Button;
                 Button bRefule = brefuel;
             
@@ -62,7 +65,7 @@ namespace dotNet5781_03B_0406_3977
 
                 p.Foreground = Brushes.Yellow;
                 p.Value = 0;
-                MyBackground background = new MyBackground() { bus = b, Length = 144, progressBar = p, result_Label = l, Care = bCare, Reful = bRefule};
+                MyBackground background = new MyBackground() { bus = b, Length = 144, progressBar = p, seconds_Label= l2, result_Label = l1, Care = bCare, Reful = bRefule};
                 background.start();
                 this.Close();
 
@@ -79,7 +82,8 @@ namespace dotNet5781_03B_0406_3977
             {
                 b.refueling();
                 ProgressBar p = progressBar;
-                Label l = label;
+                Label l1 = lresult;
+                Label l2 = lseconds;
                 Button bCare = bcare;
                 Button bRefule = sender as Button;
 
@@ -88,7 +92,7 @@ namespace dotNet5781_03B_0406_3977
                // bDrive.IsEnabled = false;
                 p.Foreground = Brushes.Red;
                 p.Value = 0;
-                MyBackground background = new MyBackground() { bus = b, Length = 12, progressBar = p, result_Label = l, Care = bCare, Reful = bRefule};
+                MyBackground background = new MyBackground() { bus = b, Length = 12, progressBar = p, seconds_Label= lseconds, result_Label = lresult, Care = bCare, Reful = bRefule};
                 background.start();
                 this.Close();
             }

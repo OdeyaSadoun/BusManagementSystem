@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03B_0406_3977"
         mc:Ignorable="d"
-        Title="EnterDistanceForTravelWindow" Height="450" Width="800">
+        Title="EnterDistanceForTravelWindow" Height="300" Width="500">
     <Grid>
-        <Label x:Name="lable_distance" Content="Number of kilometers on this travel:&#xD;&#xA;" HorizontalAlignment="Left" Margin="205,131,0,0" VerticalAlignment="Top" Height="30" Width="207"/>
+        <Label x:Name="lable_distance" Content="Enter a number of kilometers on this travel:&#xA;" HorizontalAlignment="Left" Margin="129,45,0,0" VerticalAlignment="Top" Height="30" Width="263"/>
      
-        <Button x:Name="Enter_km_button" Content="Go to travel" HorizontalAlignment="Left" Margin="346,266,0,0" VerticalAlignment="Top" Width="75" Click="Enter_km_button_Click"/>
-        <TextBox x:Name="TextBoxKm" Text="{Binding currentMealege}" HorizontalAlignment="Left" Height="23" Margin="417,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Enter_km_button" Content="Go to travel" HorizontalAlignment="Left" Margin="215,169,0,0" VerticalAlignment="Top" Width="75" Click="Enter_km_button_Click"/>
+        <TextBox x:Name="TextBoxKm" Text="{Binding currentMealege}" HorizontalAlignment="Left" Height="23" Margin="194,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

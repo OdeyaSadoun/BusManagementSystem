@@ -47,9 +47,15 @@ namespace dotNet5781_03B_0406_3977
             progressBar.Visibility = Visibility.Hidden;
             result_Label.Visibility = Visibility.Hidden;
             seconds_Label.Visibility = Visibility.Hidden;
-
+            string message = ""; ////////////////////
+            if (bus.Status == BusStatus.Careing)
+                message = "The caring of bus number: " + bus.LicenseNumber + " ended successfully!";
+            else if (bus.Status == BusStatus.Driving)
+                message = "The driving of bus number: " + bus.LicenseNumber + " ended successfully!";
+            else if (bus.Status == BusStatus.Refueling)
+                message = "The refueling of bus number: " + bus.LicenseNumber + " ended successfully!";
+            MessageBox.Show(message);
             bus.Status = BusStatus.Ready;
-            MessageBox.Show("succeed " + bus.LicenseNumber);
             Reful.IsEnabled = true;
             Care.IsEnabled = true;
             Drive.IsEnabled = true;
@@ -58,20 +64,20 @@ namespace dotNet5781_03B_0406_3977
 
 
         }
-        void Countdown(int count, TimeSpan interval, Action<int> ts)
-        {
-            var dt = new System.Windows.Threading.DispatcherTimer();
-            dt.Interval = interval;
-            dt.Tick += (_, a) =>
-            {
-                if (count-- == 0)
-                    dt.Stop();
-                else
-                    ts(count);
-            };
-            ts(count);
-            dt.Start();
-        }
+        //void Countdown(int count, TimeSpan interval, Action<int> ts)
+        //{
+        //    var dt = new System.Windows.Threading.DispatcherTimer();
+        //    dt.Interval = interval;
+        //    dt.Tick += (_, a) =>
+        //    {
+        //        if (count-- == 0)
+        //            dt.Stop();
+        //        else
+        //            ts(count);
+        //    };
+        //    ts(count);
+        //    dt.Start();
+        //}
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {

@@ -270,7 +270,7 @@ namespace dotNet5781_03B_0406_3977
         {
             DateTime zeroTime = new DateTime(1, 1, 1);
 
-            var diff = DateTime.Now - DateBegin;
+            var diff = DateTime.Now - LastCare;
             int years = (zeroTime + diff).Year - 1;
             if (years >= 1)
             {
