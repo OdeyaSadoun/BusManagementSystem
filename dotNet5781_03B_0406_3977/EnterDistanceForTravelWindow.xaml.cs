@@ -25,6 +25,7 @@ namespace dotNet5781_03B_0406_3977
     {
         public double KmToTravel { get; set; }
         public Bus Bus { get; set; }
+        public ProgressBar psBar { get; set; }
         public EnterDistanceForTravelWindow(Bus b)
         {
             InitializeComponent();
@@ -51,7 +52,21 @@ namespace dotNet5781_03B_0406_3977
         {
             Bus.currentMileage = double.Parse(TextBoxKm.Text);
             Bus.goToTravel(KmToTravel);
-            this.Close();
+
+            //ProgressBar p = progressBar;
+            //Label l = label;
+            //Button bCare = sender as Button;
+            //Button bRefule = brefuel;
+            //bCare.IsEnabled = false;
+            //bRefule.IsEnabled = false;
+
+            //p.Foreground = Brushes.Yellow;
+            //p.Value = 0;
+            //Random rnd = new Random();
+            //int temp = rnd.Next(20, 51);
+            //MyBackground background = new MyBackground() { bus = Bus, Length = temp * int.Parse(TextBoxKm.Text)  /*, progressBar = p, result_Label = l, Care = bCare*/ };
+            //background.start();
+           this.Close();
         }
     }
 }

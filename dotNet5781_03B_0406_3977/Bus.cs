@@ -309,6 +309,7 @@ namespace dotNet5781_03B_0406_3977
         public void refueling()
         {
             kmBeforeFuel = 1200;
+            Status = BusStatus.Refueling;
         }
         public void care()
         {

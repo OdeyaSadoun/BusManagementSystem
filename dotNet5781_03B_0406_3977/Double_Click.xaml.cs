@@ -20,22 +20,73 @@ namespace dotNet5781_03B_0406_3977
     /// </summary>
     public partial class Double_Click : Window
     {
-        public Double_Click()
+        public Bus currentBus { get; set; }
+        public ProgressBar progressBar { get; set; }
+        public Label label { get; set; }
+        public Button bcare { get; set; }
+        public Button brefuel { get; set; }
+
+        public Double_Click(Bus b)
         {
             InitializeComponent();
+            currentBus = b;
+            licenseNumberTextBlock.Text = currentBus.LicenseNumber.ToString();
+            dateBeginTextBlock.Text = currentBus.DateBegin.Day + "/" + currentBus.DateBegin.Month + "/" + currentBus.DateBegin.Year;
+            lastCareTextBlock.Text = currentBus.LastCare.Day + "/" + currentBus.LastCare.Month + "/" + currentBus.LastCare.Year;
+            kmBeforCareTextBlock.Text = currentBus.KmBeforCare.ToString();
+            kmBeforeFuelTextBlock.Text = currentBus.KmBeforeFuel.ToString();
+            statusTextBlock.Text = currentBus.Status.ToString();
+            sumMileageTextBlock.Text = currentBus.SumMileage.ToString();
+
         }
+
 
         private void care_Click(object sender, RoutedEventArgs e)
         {
-            Bus b = (sender as Button).DataContext as Bus;
+            Bus b = currentBus;
             b.care();
-            MessageBox.Show("The bus " + b.LicenseNumber + " sent for caring");
+            ProgressBar p = progressBar;
+            Label l = label;
+            Button bCare = sender as Button;
+            Button bRefule = brefuel;
+            bCare.IsEnabled = false;
+            bRefule.IsEnabled = false;
+
+            p.Foreground = Brushes.Yellow;
+            p.Value = 0;
+            MyBackground background = new MyBackground() { bus = b, Length = 144, progressBar = p, result_Label = l, Care = bCare };
+            background.start();
+           
         }
 
         private void refuel_Click(object sender, RoutedEventArgs e)
         {
-            Bus b = (sender as Button).DataContext as Bus;
+            Bus b = currentBus;
             b.refueling();
+            ProgressBar p = progressBar;
+            Label l = label;
+            Button bRefule = sender as Button;
+            Button bCare = bcare;
+            bCare.IsEnabled = false;
+            bRefule.IsEnabled = false;
+            p.Foreground = Brushes.Yellow;
+            p.Value = 0;
+            MyBackground background = new MyBackground() { bus = b, Length = 144, progressBar = p, result_Label = l, Care = bCare };
+            background.start();
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+
+            System.Windows.Data.CollectionViewSource busViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("busViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // busViewSource.Source = [generic data source]
         }
     }
 }

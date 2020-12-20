@@ -25,10 +25,14 @@ namespace dotNet5781_03B_0406_3977
     public partial class MainWindow : Window
     {
         public static Random rnd = new Random(DateTime.Now.Millisecond);
+
         ObservableCollection<Bus> busLst = new ObservableCollection<Bus>();
         public ObservableCollection<Bus> listOfBuses { get; set; }
+        public double Km { get; set; }
 
         BackgroundWorker worker;
+
+        #region constructor
         public MainWindow()
         {
             InitializeComponent();
@@ -41,15 +45,14 @@ namespace dotNet5781_03B_0406_3977
                 DateTime timeBegin =new DateTime(/*years*/tempYearBegin, /*monthes*/rnd.Next(1, 13), /*days*/rnd.Next(1, 29));
                 int mileage = rnd.Next(0, 200000);//החלטנו שזה הכולל
                 int tempYearLastCare;
-                if (tempYearBegin <= 2015)
-                    tempYearLastCare = rnd.Next(2015, 2022);
+                if (tempYearBegin <= 2019)
+                    tempYearLastCare = rnd.Next(2019, 2021);
                 else
-                    tempYearLastCare = rnd.Next(tempYearBegin, 2022);
+                    tempYearLastCare = rnd.Next(tempYearBegin, 2021);
                 DateTime lastCare = new DateTime(/*years*/tempYearLastCare, /*monthes*/rnd.Next(1, 13), /*days*/rnd.Next(1, 29));
                 double kmAfterCare = rnd.NextDouble() * 20000;//מקסימום נסיעה אחרי הטיפול הוא 20000
                 double kmAfterFuel = rnd.NextDouble() * 1200;//1מקסימום נסיעה אחרי התדלוק הוא 200
-                int tempStatus = rnd.Next(1, 5);
-                b.Status = (BusStatus)tempStatus;
+
                 b.LicenseNumber = licenseNumber;
                 b.SumMileage = mileage;
                 b.DateBegin = timeBegin;
@@ -67,8 +70,9 @@ namespace dotNet5781_03B_0406_3977
 
         }
 
-      
+        #endregion
 
+        #region B_AddBus_Click
         private void B_AddBus_Click(object sender, RoutedEventArgs e)
         {
             WindowAddBus win = new WindowAddBus(/*listOfBuses*/);
@@ -76,70 +80,131 @@ namespace dotNet5781_03B_0406_3977
             win.ShowDialog();
             
         }
+        #endregion
 
+        #region drive_click_button
         private void drive_click_button(object sender, RoutedEventArgs e)
         {
             Bus b = (sender as Button).DataContext as Bus;
             EnterDistanceForTravelWindow win = new EnterDistanceForTravelWindow(b);
             win.ShowDialog();
-            worker = new BackgroundWorker();
-            worker.DoWork += Worker_DoWork;
-            worker.ProgressChanged += Worker_ProgressChanged;
-            worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
-            worker.WorkerReportsProgress = true;
-           // worker.RunWorkerAsync(b);
-        }
 
-        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+            ListBoxItem myListBoxItem = (ListBoxItem)(lbBuses.ItemContainerGenerator.ContainerFromItem(b));
+            ContentPresenter myContentPresenter = FindVisualChild<ContentPresenter>(myListBoxItem);
+            DataTemplate myDataTemplate = myContentPresenter.ContentTemplate;
+            ProgressBar p = (ProgressBar)myDataTemplate.FindName("Time_Before_Ready", myContentPresenter);
+            Label l = (Label)myDataTemplate.FindName("result_Label", myContentPresenter);
+            Button bRefuel = (Button)myDataTemplate.FindName("Drive_Button", myContentPresenter);
+            Button bCare = (Button)myDataTemplate.FindName("Care_Button", myContentPresenter);
+            Button bDrive = sender as Button; 
 
-        private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-           // int progress = e.ProgressPercentage;
-           // result_lable.Content = (progress + "%");
-           //result_lableProgressBar.value = progress;
-            throw new NotImplementedException();
-        }
+            bRefuel.IsEnabled = false;
+            bCare.IsEnabled = false;
+            bDrive.IsEnabled = false;
 
-        private void Worker_DoWork(object sender, DoWorkEventArgs e)
+
+            p.Foreground = Brushes.Green;
+            p.Value = 0;
+            Random rnd = new Random();
+            int temp = rnd.Next(20, 51);
+          
+            MyBackground background = new MyBackground() { bus = b, Length = temp * int.Parse(TextBoxKm.Text), progressBar = p, result_Label = l, Care = bCare, Reful = bRefuel, Drive = bDrive };
+            background.start();
+
+        }
+        #endregion
+
+        #region FindVisualChild
+        private childItem FindVisualChild<childItem>(DependencyObject obj) where childItem : DependencyObject
         {
-            
-            for(int i = 0; i < 100; i++)
-			{
-                (sender as BackgroundWorker).ReportProgress(i);
-                Thread.Sleep(100);
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(obj, i);
+                if (child != null && child is childItem)
+                {
+                    return (childItem)child;
+                }
+                else
+                {
+                    childItem childOfChild = FindVisualChild<childItem>(child);
+                    if (childOfChild != null)
+                        return childOfChild;
+                }
             }
-            throw new NotImplementedException();
-
+            return null;
         }
+        #endregion
 
+        #region refuel_click_button
         private void refuel_click_button(object sender, RoutedEventArgs e)
         {
             Bus b = (sender as Button).DataContext as Bus;
             b.refueling();
-            MessageBox.Show("The bus " + b.LicenseNumber + " sent for refueling");
-        }
+            ListBoxItem myListBoxItem = (ListBoxItem)(lbBuses.ItemContainerGenerator.ContainerFromItem(b));
+            ContentPresenter myContentPresenter = FindVisualChild<ContentPresenter>(myListBoxItem);
+            DataTemplate myDataTemplate = myContentPresenter.ContentTemplate;
+            ProgressBar p = (ProgressBar)myDataTemplate.FindName("Time_Before_Ready", myContentPresenter);
+            Label l = (Label)myDataTemplate.FindName("result_Label", myContentPresenter);
+            Button bRefuel = sender as Button;
+            Button bCare = (Button)myDataTemplate.FindName("Care_Button", myContentPresenter);
+            Button bDrive = (Button)myDataTemplate.FindName("Drive_Button", myContentPresenter);
 
+            bRefuel.IsEnabled = false;
+            bCare.IsEnabled = false;
+            bDrive.IsEnabled = false;
+
+
+            p.Foreground = Brushes.Red;
+            p.Value = 0;
+            MyBackground background = new MyBackground() { bus = b, Length = 12, progressBar = p, result_Label = l, Care = bCare, Reful = bRefuel, Drive = bDrive };
+            background.start();
+            //MessageBox.Show("The bus " + b.LicenseNumber + " sent for refueling");
+        }
+        #endregion
+
+        #region care_click_button
         private void care_click_button(object sender, RoutedEventArgs e)
         {
             Bus b = (sender as Button).DataContext as Bus;
             b.care();
-            MessageBox.Show("The bus "+ b.LicenseNumber+" sent for caring");
+            ListBoxItem myListBoxItem = (ListBoxItem)(lbBuses.ItemContainerGenerator.ContainerFromItem(b));
+            ContentPresenter myContentPresenter = FindVisualChild<ContentPresenter>(myListBoxItem);
+            DataTemplate myDataTemplate = myContentPresenter.ContentTemplate;
+            ProgressBar p = (ProgressBar)myDataTemplate.FindName("Time_Before_Ready", myContentPresenter);
+            Label l = (Label)myDataTemplate.FindName("result_Label", myContentPresenter);
+            Button bCare = sender as Button;
+            Button bRefuel = (Button)myDataTemplate.FindName("Refuel_Button", myContentPresenter);
+            Button bDrive = (Button)myDataTemplate.FindName("Drive_Button", myContentPresenter);
+
+            bRefuel.IsEnabled = false;
+            bCare.IsEnabled = false;
+            bDrive.IsEnabled = false;
+            Button bcare = sender as Button;
+            bcare.IsEnabled = false;
+            p.Foreground = Brushes.Yellow;
+            p.Value = 0;
+            MyBackground background = new MyBackground() { bus = b, Length = 144, progressBar = p, result_Label = l , Care = bCare, Reful = bRefuel, Drive = bDrive};
+            background.start();
+           // MessageBox.Show("The bus "+ b.LicenseNumber+" sent for caring");
         }
+        #endregion
 
-        private void Preview(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
+        #region Preview_Double_Click
         private void Preview_Double_Click(object sender, MouseButtonEventArgs e)
         {
-            
-            Double_Click win = new Double_Click();
-            win.Show();
+
+            Bus b = (sender as ListBox).SelectedItem as Bus;
+            ListBoxItem myListBoxItem = (ListBoxItem)(lbBuses.ItemContainerGenerator.ContainerFromItem(b));
+            ContentPresenter myContentPresenter = FindVisualChild<ContentPresenter>(myListBoxItem);
+            DataTemplate myDataTemplate = myContentPresenter.ContentTemplate;
+            ProgressBar p = (ProgressBar)myDataTemplate.FindName("Time_Before_Ready", myContentPresenter);
+            Label l = (Label)myDataTemplate.FindName("result_Label", myContentPresenter);
+            Button bRefuel = (Button)myDataTemplate.FindName("Refuel_Button", myContentPresenter);
+            Button bCare = (Button)myDataTemplate.FindName("Care_Button", myContentPresenter);
+            Double_Click win = new Double_Click(b) { progressBar = p, label = l, bcare = bCare, brefuel = bRefuel };
+            win.ShowDialog();
         }
+        #endregion
     }
-    
+
 }

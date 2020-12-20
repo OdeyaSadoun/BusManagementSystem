@@ -61,6 +61,7 @@
     <Compile Include="EnterDistanceForTravelWindow.xaml.cs">
       <DependentUpon>EnterDistanceForTravelWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyBackground.cs" />
     <Compile Include="ObservableCollection.cs" />
     <Compile Include="WindowAddBus.xaml.cs">
       <DependentUpon>WindowAddBus.xaml</DependentUpon>
