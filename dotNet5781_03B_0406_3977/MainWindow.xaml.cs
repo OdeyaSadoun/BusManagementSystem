@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using System.Threading;
 
 
 namespace dotNet5781_03B_0406_3977
@@ -86,7 +87,7 @@ namespace dotNet5781_03B_0406_3977
             worker.ProgressChanged += Worker_ProgressChanged;
             worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
             worker.WorkerReportsProgress = true;
-            worker.RunWorkerAsync(b);
+           // worker.RunWorkerAsync(b);
         }
 
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -96,15 +97,48 @@ namespace dotNet5781_03B_0406_3977
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            int progress = e.ProgressPercentage;
-            
+           // int progress = e.ProgressPercentage;
+           // result_lable.Content = (progress + "%");
+           //result_lableProgressBar.value = progress;
             throw new NotImplementedException();
         }
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            //throw new NotImplementedException();
-            res
+            
+            for(int i = 0; i < 100; i++)
+			{
+                (sender as BackgroundWorker).ReportProgress(i);
+                Thread.Sleep(100);
+            }
+            throw new NotImplementedException();
+
+        }
+
+        private void refuel_click_button(object sender, RoutedEventArgs e)
+        {
+            Bus b = (sender as Button).DataContext as Bus;
+            b.refueling();
+            MessageBox.Show("The bus " + b.LicenseNumber + " sent for refueling");
+        }
+
+        private void care_click_button(object sender, RoutedEventArgs e)
+        {
+            Bus b = (sender as Button).DataContext as Bus;
+            b.care();
+            MessageBox.Show("The bus "+ b.LicenseNumber+" sent for caring");
+        }
+
+        private void Preview(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Preview_Double_Click(object sender, MouseButtonEventArgs e)
+        {
+            
+            Double_Click win = new Double_Click();
+            win.Show();
         }
     }
     

@@ -306,7 +306,16 @@ namespace dotNet5781_03B_0406_3977
 
         }
 
-
+        public void refueling()
+        {
+            kmBeforeFuel = 1200;
+        }
+        public void care()
+        {
+            DateTime currentDate = DateTime.Now;
+            LastCare = currentDate;
+            KmBeforCare = 20000;
+        }
     }
 }
 

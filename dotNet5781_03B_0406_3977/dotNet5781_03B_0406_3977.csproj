@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Double_Click.xaml.cs">
+      <DependentUpon>Double_Click.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EnterDistanceForTravelWindow.xaml.cs">
       <DependentUpon>EnterDistanceForTravelWindow.xaml</DependentUpon>
     </Compile>
@@ -62,6 +65,10 @@
     <Compile Include="WindowAddBus.xaml.cs">
       <DependentUpon>WindowAddBus.xaml</DependentUpon>
     </Compile>
+    <Page Include="Double_Click.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EnterDistanceForTravelWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
