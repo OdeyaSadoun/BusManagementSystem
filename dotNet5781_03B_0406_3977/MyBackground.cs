@@ -18,6 +18,7 @@ namespace dotNet5781_03B_0406_3977
         public ProgressBar progressBar { get; set; }
         public Bus bus { get; set; }
         public Label result_Label { get; set; }
+        public Label seconds_Label { get; set; }
         public Button Reful { get; set; }
         public Button Care { get; set; }
         public Button Drive { get; set; }
@@ -36,6 +37,8 @@ namespace dotNet5781_03B_0406_3977
         {
             progressBar.Visibility = Visibility.Visible;
             result_Label.Visibility = Visibility.Visible;
+            seconds_Label.Visibility = Visibility.Visible;
+
             worker.RunWorkerAsync();
         }
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -43,6 +46,8 @@ namespace dotNet5781_03B_0406_3977
            
             progressBar.Visibility = Visibility.Hidden;
             result_Label.Visibility = Visibility.Hidden;
+            seconds_Label.Visibility = Visibility.Hidden;
+
             bus.Status = BusStatus.Ready;
             MessageBox.Show("succeed " + bus.LicenseNumber);
             Reful.IsEnabled = true;
@@ -53,14 +58,29 @@ namespace dotNet5781_03B_0406_3977
 
 
         }
+        void Countdown(int count, TimeSpan interval, Action<int> ts)
+        {
+            var dt = new System.Windows.Threading.DispatcherTimer();
+            dt.Interval = interval;
+            dt.Tick += (_, a) =>
+            {
+                if (count-- == 0)
+                    dt.Stop();
+                else
+                    ts(count);
+            };
+            ts(count);
+            dt.Start();
+        }
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             int progress = e.ProgressPercentage;
-            progressBar.Value = (progress * 100 / Length);
-            result_Label.Content = (progress*100/Length + "%");
-   
-           
+            progressBar.Value = progress * 100 / Length;
+            result_Label.Content = progress*100/Length + "%";
+            seconds_Label.Content = Length - progress;//the seconde that need to wait
+
+
         }
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)

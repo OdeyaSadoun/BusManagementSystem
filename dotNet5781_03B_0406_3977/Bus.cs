@@ -287,13 +287,12 @@ namespace dotNet5781_03B_0406_3977
         }
         public void goToTravel(double km)
         {
-            if (kmBeforCare - km <= 0)
-                MessageBox.Show("The bus cant perform this travel because the bus traveled 20000 km without care - need to care");
-            if (kmBeforeFuel - km <= 0)
-                MessageBox.Show("The fuel isnt enough for travel, you should fuel");
+            //if (kmBeforCare - km <= 0)
+            //    MessageBox.Show("The bus cant perform this travel because the bus traveled 20000 km without care - need to care");
+            //if (kmBeforeFuel - km <= 0)
+            //    MessageBox.Show("The fuel isnt enough for travel, you should fuel");
           
-            //if (YearPassed())
-            //    MessageBox.Show("The bus cant perform this travel because a year passed from");
+           
             if (Status == BusStatus.Ready)
             {
                 currentMileage = km;
@@ -301,8 +300,8 @@ namespace dotNet5781_03B_0406_3977
                 kmBeforeFuel -= km;
                 kmBeforCare -= km;
             }
-            else
-                MessageBox.Show("The status of the bus is:" + Status + "\nThe bus can't go to drive");
+            //else
+            //    MessageBox.Show("The status of the bus is:" + Status + "\nThe bus can't go to drive");
 
         }
 
@@ -310,12 +309,14 @@ namespace dotNet5781_03B_0406_3977
         {
             kmBeforeFuel = 1200;
             Status = BusStatus.Refueling;
+
         }
         public void care()
         {
             DateTime currentDate = DateTime.Now;
             LastCare = currentDate;
             KmBeforCare = 20000;
+            Status = BusStatus.Careing;
         }
     }
 }

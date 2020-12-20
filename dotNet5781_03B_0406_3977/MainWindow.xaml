@@ -23,6 +23,8 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
                 </Grid.ColumnDefinitions>
 
                 <!--<TextBlock Grid.Column="0"
@@ -41,6 +43,10 @@
                    Content="Caring" Click="care_click_button" />
                 <ProgressBar x:Name="Time_Before_Ready" Grid.Column="6" Visibility="Hidden"/>
                 <Label x:Name="result_Label" Grid.Column="6" Visibility="Hidden" HorizontalContentAlignment="Center"/>
+                <Label x:Name="seconds_Label" Grid.Column="7" Visibility="Hidden" HorizontalContentAlignment="Center"/>
+
+
+
 
                 <!--<ProgressBar Grid.Column="4" Minimum="0" Maximum="100" Value="75" x:Name="ProgressBar" />                <TextBlock Grid.Column="4" Text="{Binding Value, ElementName=ProgressBar, StringFormat=\{0:0\}%}" HorizontalAlignment="Center" VerticalAlignment="Center" />-->
 
@@ -50,7 +56,7 @@
     </Window.Resources>
 
     <Grid>
-        <ListBox x:Name="lbBuses" HorizontalAlignment="Left" Height="280" Margin="44,71,0,0" VerticalAlignment="Top" Width="706" ItemsSource="{Binding}" ItemTemplate="{StaticResource BusesList}" HorizontalContentAlignment="Stretch" MouseDoubleClick="Preview_Double_Click" />
+        <ListBox x:Name="lbBuses" HorizontalAlignment="Left" Height="280" Margin="44,69,0,0" VerticalAlignment="Top" Width="706" ItemsSource="{Binding}" ItemTemplate="{StaticResource BusesList}" HorizontalContentAlignment="Stretch" MouseDoubleClick="Preview_Double_Click" />
         <Button x:Name="B_AddBus" Content="Add Bus" HorizontalAlignment="Left" Margin="355,380,0,0" VerticalAlignment="Top" Width="75" Click="B_AddBus_Click"/>
         <Label Content="The bus is: &#x9;status:&#x9;&#x9;&#x9;&#x9; options:" HorizontalAlignment="Left" Margin="44,40,0,0" VerticalAlignment="Top" Width="706" FontSize="14" FontWeight="Bold"/>
 

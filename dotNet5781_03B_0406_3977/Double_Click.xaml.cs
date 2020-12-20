@@ -26,6 +26,7 @@ namespace dotNet5781_03B_0406_3977
         public Button bcare { get; set; }
         public Button brefuel { get; set; }
 
+
         public Double_Click(Bus b)
         {
             InitializeComponent();
@@ -44,35 +45,53 @@ namespace dotNet5781_03B_0406_3977
         private void care_Click(object sender, RoutedEventArgs e)
         {
             Bus b = currentBus;
-            b.care();
-            ProgressBar p = progressBar;
-            Label l = label;
-            Button bCare = sender as Button;
-            Button bRefule = brefuel;
-            bCare.IsEnabled = false;
-            bRefule.IsEnabled = false;
+            if (b.Status != BusStatus.Ready)
+                MessageBox.Show("the bus in " + b.Status + "\n The bus can't go to care now!");
+            else
+            {
+                b.care();
+                ProgressBar p = progressBar;
+                Label l = label;
+                Button bCare = sender as Button;
+                Button bRefule = brefuel;
+            
 
-            p.Foreground = Brushes.Yellow;
-            p.Value = 0;
-            MyBackground background = new MyBackground() { bus = b, Length = 144, progressBar = p, result_Label = l, Care = bCare };
-            background.start();
-           
+                //bCare.IsEnabled = false;
+                //bRefule.IsEnabled = false;
+               
+
+                p.Foreground = Brushes.Yellow;
+                p.Value = 0;
+                MyBackground background = new MyBackground() { bus = b, Length = 144, progressBar = p, result_Label = l, Care = bCare, Reful = bRefule};
+                background.start();
+                this.Close();
+
+            }
+
         }
 
         private void refuel_Click(object sender, RoutedEventArgs e)
         {
             Bus b = currentBus;
-            b.refueling();
-            ProgressBar p = progressBar;
-            Label l = label;
-            Button bRefule = sender as Button;
-            Button bCare = bcare;
-            bCare.IsEnabled = false;
-            bRefule.IsEnabled = false;
-            p.Foreground = Brushes.Yellow;
-            p.Value = 0;
-            MyBackground background = new MyBackground() { bus = b, Length = 144, progressBar = p, result_Label = l, Care = bCare };
-            background.start();
+            if (b.Status != BusStatus.Ready)
+                MessageBox.Show("the bus in " + b.Status + "\n The bus can't go to refuel now!");
+            else
+            {
+                b.refueling();
+                ProgressBar p = progressBar;
+                Label l = label;
+                Button bCare = bcare;
+                Button bRefule = sender as Button;
+
+                //bCare.IsEnabled = false;
+                //bRefule.IsEnabled = false;
+               // bDrive.IsEnabled = false;
+                p.Foreground = Brushes.Red;
+                p.Value = 0;
+                MyBackground background = new MyBackground() { bus = b, Length = 12, progressBar = p, result_Label = l, Care = bCare, Reful = bRefule};
+                background.start();
+                this.Close();
+            }
 
         }
 

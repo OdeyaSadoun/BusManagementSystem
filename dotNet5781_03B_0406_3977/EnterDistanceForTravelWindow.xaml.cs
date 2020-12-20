@@ -51,7 +51,7 @@ namespace dotNet5781_03B_0406_3977
         private void Enter_km_button_Click(object sender, RoutedEventArgs e)
         {
             Bus.currentMileage = double.Parse(TextBoxKm.Text);
-            Bus.goToTravel(KmToTravel);
+            Bus.goToTravel(Bus.currentMileage);
 
             //ProgressBar p = progressBar;
             //Label l = label;
@@ -67,6 +67,7 @@ namespace dotNet5781_03B_0406_3977
             //MyBackground background = new MyBackground() { bus = Bus, Length = temp * int.Parse(TextBoxKm.Text)  /*, progressBar = p, result_Label = l, Care = bCare*/ };
             //background.start();
            this.Close();
+
         }
     }
 }
