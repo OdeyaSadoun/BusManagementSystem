@@ -120,5 +120,65 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Free video - Police, Officer, Policeman.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="policeman1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Free_video_-_Police__Officer__Policeman-removebg-preview.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="p4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="p5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="l1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="p1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="p1-removebg-preview.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="p3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="תמונה1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="NRG_Innovations_-_350mm_Sparkle_Flake_Wood_Grain_Steering_Wheel_-_RST-036BSB-MC-removebg-preview.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="d1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="t1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="c1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="d2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="d3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="a1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cl.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="drive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pach.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,47 +3,72 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        
+        WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:dotNet5781_03B_0406_3977"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="900" Icon="drive.png">
 
     <Window.Resources>
         <DataTemplate x:Key="BusesList"
                   DataType="local:Bus">
-            <Grid>
+            <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0"
+VerticalAlignment="Stretch" Width="auto">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
+
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
                     <ColumnDefinition Width="*" />
 
                 </Grid.ColumnDefinitions>
 
                 <!--<TextBlock Grid.Column="0"
                    Text="The License Nuber is: " />-->
+
                 <TextBlock Grid.Column="0"
-                   Text="{Binding Path=LicenseNumber}" />
+                   Text="{Binding Path=LicenseNumber}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <!--<TextBlock Grid.Column="2"
                    Text="Status: " />-->
-                <TextBlock Grid.Column="1" 
-                   Text="{Binding Path=Status}" />
-                <Button x:Name="Drive_Button" Grid.Column="3"
-                   Content="Drive" Click="drive_click_button" />
-                <Button x:Name="Refuel_Button" Grid.Column="4"
-                   Content="Refueling" Click="refuel_click_button" />
-                <Button x:Name="Care_Button" Grid.Column="5"
-                   Content="Caring" Click="care_click_button" />
-                <ProgressBar x:Name="Time_Before_Ready" Grid.Column="6" Visibility="Hidden"/>
-                <Label x:Name="result_Label" Grid.Column="6" Visibility="Hidden" HorizontalContentAlignment="Center"/>
-                <Label x:Name="seconds_Label" Grid.Column="7" Visibility="Hidden" HorizontalContentAlignment="Center"/>
+                <TextBlock Grid.Column="2" 
+                   Text="{Binding Path=Status}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <ProgressBar x:Name="Time_Before_Ready" Grid.Column="4" Height="15" Visibility="Hidden"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                <Label x:Name="result_Label" Grid.Column="4" Visibility="Hidden" HorizontalContentAlignment="Center"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label x:Name="seconds_Label" Grid.Column="5" Visibility="Hidden" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button x:Name="Drive_Button" Grid.Column="7"
+                    Height="40" Width ="45" Click="drive_click_button" BorderBrush="{x:Null}" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="drive.png" Stretch="UniformToFill"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="Refuel_Button" Grid.Column="8"  Height="40" Width ="45" Click="refuel_click_button" BorderBrush="{x:Null}" Content="refuel">
+                    <Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="d3.jpg"/>
+                    </Button.Background>
+
+                </Button>
+                <Button x:Name="Care_Button" Grid.Column="9"
+                   Height="40" Width ="45"  Click="care_click_button" BorderBrush="{x:Null}" Content="care" ClickMode="Release" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="cl.jpg" Stretch="Uniform" TileMode="None"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="Remove_Button" Grid.Column="10"
+                    Height="40" Width ="45"  Click="remove_click_button" BorderBrush="{x:Null}" Content="remove"  >
+                    <Button.Background>
+                        <ImageBrush ImageSource="pach.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
 
 
 
@@ -55,10 +80,15 @@
         </DataTemplate>
     </Window.Resources>
 
-    <Grid>
-        <ListBox x:Name="lbBuses" HorizontalAlignment="Left" Height="280" Margin="44,69,0,0" VerticalAlignment="Top" Width="706" ItemsSource="{Binding}" ItemTemplate="{StaticResource BusesList}" HorizontalContentAlignment="Stretch" MouseDoubleClick="Preview_Double_Click" />
-        <Button x:Name="B_AddBus" Content="Add Bus" HorizontalAlignment="Left" Margin="355,380,0,0" VerticalAlignment="Top" Width="75" Click="B_AddBus_Click"/>
-        <Label Content="The bus is: &#x9;status:&#x9;&#x9;&#x9;&#x9; options:" HorizontalAlignment="Left" Margin="44,40,0,0" VerticalAlignment="Top" Width="706" FontSize="14" FontWeight="Bold"/>
+    <Grid Background="#FFBCECEA" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="145*"/>
+            <ColumnDefinition Width="747*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox x:Name="lbBuses" Margin="62,60,68,45" ItemsSource="{Binding}" ItemTemplate="{StaticResource BusesList}" HorizontalContentAlignment="Stretch" MouseDoubleClick="Preview_Double_Click" HorizontalAlignment="Stretch"  Grid.Row="0" VerticalContentAlignment="Stretch"   FontSize="14" Grid.ColumnSpan="2" />
+        <Button x:Name="B_AddBus" Content="Add Bus" Margin="241,0,384,4" VerticalAlignment="Bottom" Click="B_AddBus_Click" Height="36" Grid.Column="1"/>
+        <Label Content="The bus is: &#x9;          status:     the seconds are left:&#x9;       &#x9;  drive:&#x9;    refuel:       care:        remove:" Margin="62,18,68,459" FontSize="14" FontWeight="Bold"  HorizontalContentAlignment="Stretch"  VerticalContentAlignment="Stretch" Grid.ColumnSpan="2"   />
 
 
 

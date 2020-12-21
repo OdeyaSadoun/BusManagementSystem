@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.ComponentModel;
-
+using System.Text.RegularExpressions;
 
 namespace dotNet5781_03B_0406_3977
 {
@@ -23,15 +23,42 @@ namespace dotNet5781_03B_0406_3977
 
     public partial class EnterDistanceForTravelWindow : Window
     {
+        //proprties:
+
         public double KmToTravel { get; set; }
         public Bus Bus { get; set; }
         public ProgressBar psBar { get; set; }
+
+        //functions:
+
+        #region constructor
         public EnterDistanceForTravelWindow(Bus b)
         {
             InitializeComponent();
             Bus = b;
-
         }
+        #endregion
+
+    
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+    private void Grid_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                var temp = TextBoxKm.Text;
+
+                Bus.currentMileage = float.Parse(TextBoxKm.Text);
+
+                Bus.goToTravel(Bus.currentMileage);
+                this.Close();
+            }
+        }
+
 
         //private void enter_km(object sender, KeyEventArgs e)
         //{
@@ -48,26 +75,5 @@ namespace dotNet5781_03B_0406_3977
         //    this.Close();
         //}
 
-        private void Enter_km_button_Click(object sender, RoutedEventArgs e)
-        {
-            Bus.currentMileage = double.Parse(TextBoxKm.Text);
-            Bus.goToTravel(Bus.currentMileage);
-
-            //ProgressBar p = progressBar;
-            //Label l = label;
-            //Button bCare = sender as Button;
-            //Button bRefule = brefuel;
-            //bCare.IsEnabled = false;
-            //bRefule.IsEnabled = false;
-
-            //p.Foreground = Brushes.Yellow;
-            //p.Value = 0;
-            //Random rnd = new Random();
-            //int temp = rnd.Next(20, 51);
-            //MyBackground background = new MyBackground() { bus = Bus, Length = temp * int.Parse(TextBoxKm.Text)  /*, progressBar = p, result_Label = l, Care = bCare*/ };
-            //background.start();
-           this.Close();
-
-        }
     }
 }

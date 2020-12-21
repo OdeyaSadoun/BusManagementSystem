@@ -40,9 +40,13 @@ namespace dotNet5781_03B_0406_3977
             ObservableCollection<Bus> busLst = new ObservableCollection<Bus>();
             for(int i=0; i<10; i++)
             {
-                Bus b = new Bus();               
+                Bus b = new Bus();
                 string licenseNumber = (rnd.Next(999999, 100000000)).ToString();
-                int tempYearBegin = rnd.Next(1900, 2022);
+                int tempYearBegin;
+                if (int.Parse(licenseNumber) < 10000000) // 7 digits
+                    tempYearBegin = rnd.Next(2000, 2018);
+                else
+                    tempYearBegin = rnd.Next(2018, 2021);
                 DateTime timeBegin =new DateTime(/*years*/tempYearBegin, /*monthes*/rnd.Next(1, 13), /*days*/rnd.Next(1, 29));
                 int mileage = rnd.Next(0, 200000);//החלטנו שזה הכולל
                 int tempYearLastCare;
@@ -51,12 +55,12 @@ namespace dotNet5781_03B_0406_3977
                 else
                     tempYearLastCare = rnd.Next(tempYearBegin, 2021);
                 DateTime lastCare = new DateTime(/*years*/tempYearLastCare, /*monthes*/rnd.Next(1, 13), /*days*/rnd.Next(1, 29));
-                double kmAfterCare = rnd.NextDouble() * 20000;//מקסימום נסיעה אחרי הטיפול הוא 20000
-                double kmAfterFuel = rnd.NextDouble() * 1200;//1מקסימום נסיעה אחרי התדלוק הוא 200
+                float kmAfterCare = (float)rnd.NextDouble() * 20000;//מקסימום נסיעה אחרי הטיפול הוא 20000
+                float kmAfterFuel = (float)rnd.NextDouble() * 1200;//1מקסימום נסיעה אחרי התדלוק הוא 200
 
+                b.DateBegin = timeBegin;
                 b.LicenseNumber = licenseNumber;
                 b.SumMileage = mileage;
-                b.DateBegin = timeBegin;
                 b.KmBeforeFuel = 1200 - kmAfterFuel;
                 b.KmBeforCare = 20000 - kmAfterCare;
                 b.LastCare = lastCare;
@@ -66,9 +70,6 @@ namespace dotNet5781_03B_0406_3977
             listOfBuses = busLst;
             lbBuses.ItemsSource = listOfBuses /*busLst*/;
             //lbBuses.DisplayMemberPath = "LicenseNumber";
-
-            
-
         }
 
         #endregion
@@ -89,19 +90,19 @@ namespace dotNet5781_03B_0406_3977
             Bus b = (sender as Button).DataContext as Bus;
 
             if (b.Status != BusStatus.Ready)
-                MessageBox.Show("The status of the bus is:" + b.Status + "\nThe bus can't go to drive");
+                MessageBox.Show("The status of the bus is:" + b.Status + "\nThe bus can't go to drive", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             else 
             {
                 EnterDistanceForTravelWindow win = new EnterDistanceForTravelWindow(b);
                 win.ShowDialog();
             }
-            double km = b.currentMileage;
+            float km = b.currentMileage;
             if (b.YearPassed())
-            MessageBox.Show("The bus cant perform this travel because a year passed from");
+            MessageBox.Show("The bus cant perform this travel because a year passed from", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             else if (b.KmBeforCare - km <= 0)
-            MessageBox.Show("The bus cant perform this travel because the bus traveled 20000 km without care - need to care");
+            MessageBox.Show("The bus cant perform this travel because the bus traveled 20000 km without care - need to care", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             else if (b.KmBeforeFuel - km <= 0)
-                MessageBox.Show("The fuel isnt enough for travel, you should fuel");
+                MessageBox.Show("The fuel isnt enough for travel, you should fuel", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             else
             {
                 ListBoxItem myListBoxItem = (ListBoxItem)(lbBuses.ItemContainerGenerator.ContainerFromItem(b));
@@ -119,7 +120,7 @@ namespace dotNet5781_03B_0406_3977
                 bDrive.IsEnabled = false;
 
 
-                p.Foreground = Brushes.Green;
+                p.Foreground = Brushes.LimeGreen;
                 p.Value = 0;
                 b.Status = BusStatus.Driving;
                 Random rnd = new Random();
@@ -156,7 +157,7 @@ namespace dotNet5781_03B_0406_3977
         {
             Bus b = (sender as Button).DataContext as Bus;
             if (b.Status != BusStatus.Ready)
-                MessageBox.Show("the bus in " + b.Status + "\n The bus can't go to refuel now!");
+                MessageBox.Show("the bus in " + b.Status + "\n The bus can't go to refuel now!", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             else
             {
                 b.refueling();
@@ -177,7 +178,7 @@ namespace dotNet5781_03B_0406_3977
                 bDrive.IsEnabled = false;
 
 
-                p.Foreground = Brushes.Red;
+                p.Foreground = Brushes.LightBlue;
                 p.Value = 0;
                 MyBackground background = new MyBackground() { bus = b, Length = 12, progressBar = p, seconds_Label = lseconds, result_Label = lresult, Care = bCare, Reful = bRefuel, Drive = bDrive };
                 background.start();
@@ -191,7 +192,7 @@ namespace dotNet5781_03B_0406_3977
         {
             Bus b = (sender as Button).DataContext as Bus;
             if (b.Status != BusStatus.Ready)
-                MessageBox.Show("the bus in " + b.Status + "\n The bus can't go to care now!");
+                MessageBox.Show("the bus in " + b.Status + "\n The bus can't go to care now!", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             else
             {
                 b.care();
@@ -238,9 +239,19 @@ namespace dotNet5781_03B_0406_3977
             win.ShowDialog();
         }
 
+
         #endregion
 
-     
+        #region remove_click_button
+        private void remove_click_button(object sender, RoutedEventArgs e)
+        {
+
+            Bus b = (sender as Button).DataContext as Bus;
+
+            listOfBuses.Remove(b);
+           
+        }
+        #endregion
     }
 
 }

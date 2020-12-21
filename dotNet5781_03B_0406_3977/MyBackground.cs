@@ -13,6 +13,7 @@ namespace dotNet5781_03B_0406_3977
     
     class MyBackground
     {
+        //property
         BackgroundWorker worker;
         public int Length { get; set; }
         public ProgressBar progressBar { get; set; }
@@ -23,7 +24,9 @@ namespace dotNet5781_03B_0406_3977
         public Button Care { get; set; }
         public Button Drive { get; set; }
 
+        //functions
 
+        #region constructor
         public MyBackground()
         {
             worker = new BackgroundWorker();
@@ -33,6 +36,9 @@ namespace dotNet5781_03B_0406_3977
             worker.WorkerReportsProgress = true;
 
         }
+        #endregion
+
+        #region start
         public void start()
         {
             progressBar.Visibility = Visibility.Visible;
@@ -41,6 +47,9 @@ namespace dotNet5781_03B_0406_3977
 
             worker.RunWorkerAsync();
         }
+        #endregion
+
+        #region Worker_RunWorkerCompleted
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
            
@@ -48,36 +57,23 @@ namespace dotNet5781_03B_0406_3977
             result_Label.Visibility = Visibility.Hidden;
             seconds_Label.Visibility = Visibility.Hidden;
             string message = ""; ////////////////////
+
             if (bus.Status == BusStatus.Careing)
                 message = "The caring of bus number: " + bus.LicenseNumber + " ended successfully!";
             else if (bus.Status == BusStatus.Driving)
                 message = "The driving of bus number: " + bus.LicenseNumber + " ended successfully!";
             else if (bus.Status == BusStatus.Refueling)
                 message = "The refueling of bus number: " + bus.LicenseNumber + " ended successfully!";
-            MessageBox.Show(message);
+            MessageBox.Show(message, bus.Status .ToString() , MessageBoxButton.OK, /*MessageBoxImage.Information*/ MessageBoxImage.Information);
+           // MessageBoxButton.YesNo.ToString();
             bus.Status = BusStatus.Ready;
             Reful.IsEnabled = true;
             Care.IsEnabled = true;
             Drive.IsEnabled = true;
-
-
-
-
         }
-        //void Countdown(int count, TimeSpan interval, Action<int> ts)
-        //{
-        //    var dt = new System.Windows.Threading.DispatcherTimer();
-        //    dt.Interval = interval;
-        //    dt.Tick += (_, a) =>
-        //    {
-        //        if (count-- == 0)
-        //            dt.Stop();
-        //        else
-        //            ts(count);
-        //    };
-        //    ts(count);
-        //    dt.Start();
-        //}
+        #endregion
+
+        #region  Worker_ProgressChanged
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -85,10 +81,10 @@ namespace dotNet5781_03B_0406_3977
             progressBar.Value = progress * 100 / Length;
             result_Label.Content = progress*100/Length + "%";
             seconds_Label.Content = Length - progress;//the seconde that need to wait
-
-
         }
+        #endregion
 
+        #region  Worker_DoWork
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
             for (int i = 1; i < Length; i++)
@@ -98,6 +94,7 @@ namespace dotNet5781_03B_0406_3977
             }
 
         }
+        #endregion
 
     }
 }

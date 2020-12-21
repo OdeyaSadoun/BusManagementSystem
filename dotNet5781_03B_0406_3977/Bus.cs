@@ -40,6 +40,12 @@ namespace dotNet5781_03B_0406_3977
                 string temp = value;
                 if (!IsDigitsOnly(temp))
                     throw new ArgumentException("error input licenseNumber");
+                //if ((temp.Length == 8) && (DateBegin.Year < 2018))
+                //    throw new ArgumentException("error input licenseNumber");
+                //if  ((temp.Length == 7) && (DateBegin.Year >= 2018))
+                //    throw new ArgumentException("error input licenseNumber");
+
+                //MessageBox.Show("error input licenseNumber od date");
                 licenseNumber = VisualShapeOfLicenseNumber(temp);
             }
         }
@@ -83,9 +89,9 @@ namespace dotNet5781_03B_0406_3977
         #endregion
 
         #region sumMileage
-        private double sumMileage;
+        private float sumMileage;
 
-        public double SumMileage
+        public float SumMileage
         {
             get { return sumMileage; }
             set
@@ -102,13 +108,13 @@ namespace dotNet5781_03B_0406_3977
         #endregion
 
         #region currentMileage
-        public double currentMileage { get; set; }
+        public float currentMileage { get; set; }
         #endregion
 
         #region kmBeforCare //The amount of mileages left for the bus to travel before needing treatment
-        private double kmBeforCare;
+        private float kmBeforCare;
 
-        public double KmBeforCare
+        public float KmBeforCare
         {
             get { return kmBeforCare; }
             set { kmBeforCare = value; }
@@ -116,9 +122,9 @@ namespace dotNet5781_03B_0406_3977
         #endregion 
 
         #region fuel
-        private double fuel;
+        private float fuel;
 
-        public double Fuel
+        public float Fuel
         {
             get { return fuel; }
             set
@@ -135,9 +141,9 @@ namespace dotNet5781_03B_0406_3977
 
         #region kmBeforeFuel //The amount of mileages left for the bus to travel before needing refueling
 
-        private double kmBeforeFuel;
+        private float kmBeforeFuel;
 
-        public double KmBeforeFuel
+        public float KmBeforeFuel
         {
             get { return kmBeforeFuel; }
             set {kmBeforeFuel = value;}
@@ -146,37 +152,6 @@ namespace dotNet5781_03B_0406_3977
 
         #region lastCare
         public DateTime LastCare { get; set; }
-        //private Date lastCare;
-
-        //public Date LastCare
-        //{
-        //    get { return lastCare; }
-        //    set {
-        //        if ((lastCare.day > 31) || (lastCare.day < 1))
-        //        {
-        //            throw new ArgumentException("day must be between 1 to 31");
-        //            //lastCare.day = 1; //defalt value
-        //        }
-        //        else
-        //            lastCare.day = value.day;
-
-        //        if ((lastCare.month > 12) || (lastCare.month < 1))
-        //        {
-        //            throw new ArgumentException("month must be between 1 to 12");
-        //            //lastCare.day = 1; //defalt value
-        //        }
-        //        else
-        //            lastCare.month = value.month;
-
-        //        if (lastCare.year < 2015) //before 2015 there weren't buses.
-        //        {
-        //            throw new ArgumentException("last year must be more than 2015 years");
-        //            //lastCare.year = 1900;
-        //        }
-        //        else
-        //            lastCare.year = value.year;
-        //    }
-        //}
 
         #endregion
 
@@ -186,7 +161,7 @@ namespace dotNet5781_03B_0406_3977
 
         //FUNCTIONS:
         #region Constructor
-        public Bus(string licenseNumber, DateTime dateBegin, double mileage = 0,  double fuel = 0)
+        public Bus(string licenseNumber, DateTime dateBegin, float mileage = 0, float fuel = 0)
         //constructor
         {
             this.LicenseNumber = licenseNumber;
@@ -281,11 +256,15 @@ namespace dotNet5781_03B_0406_3977
         }
         #endregion
 
+        #region tostring
         public override string ToString()
         {
             return string.Format("The bus license number is:" + licenseNumber+ "\t DateBegin:" + DateBegin+ "\t the sum mileage is:"+ SumMileage);
         }
-        public void goToTravel(double km)
+        #endregion
+
+        #region go to travel
+        public void goToTravel(float km)
         {
             //if (kmBeforCare - km <= 0)
             //    MessageBox.Show("The bus cant perform this travel because the bus traveled 20000 km without care - need to care");
@@ -304,20 +283,27 @@ namespace dotNet5781_03B_0406_3977
             //    MessageBox.Show("The status of the bus is:" + Status + "\nThe bus can't go to drive");
 
         }
+        #endregion
 
+        #region refueling
         public void refueling()
         {
             kmBeforeFuel = 1200;
             Status = BusStatus.Refueling;
 
         }
+        #endregion
+
+        #region care
         public void care()
         {
             DateTime currentDate = DateTime.Now;
             LastCare = currentDate;
             KmBeforCare = 20000;
+            kmBeforeFuel = 1200;
             Status = BusStatus.Careing;
         }
+        #endregion
     }
 }
 

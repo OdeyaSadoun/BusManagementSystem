@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03B_0406_3977"
         mc:Ignorable="d"
-        Title="Double_Click" Height="450" Width="800" Loaded="Window_Loaded_1">
+        WindowStartupLocation="CenterScreen"
+        Title="Double_Click" Height="450" Width="800" Loaded="Window_Loaded_1" Icon="drive.png">
+    
     <Window.Resources>
         <CollectionViewSource x:Key="busViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Bus}, CreateList=True}"/>
     </Window.Resources>
-    <Grid>
+    <Grid Background="#FFBCECEA">
 
-        <Button x:Name="care" Content="care" HorizontalAlignment="Left" Margin="312,355,0,0" VerticalAlignment="Top" Width="75" Click="care_Click"/>
-        <Button x:Name="refuel" Content="refuel" HorizontalAlignment="Left" Margin="407,355,0,0" VerticalAlignment="Top" Width="75" Click="refuel_Click"/>
+        <Button x:Name="care" Content="care" HorizontalAlignment="Left" Margin="297,370,0,0" VerticalAlignment="Top" Width="75" Click="care_Click"/>
+        <Button x:Name="refuel" Content="refuel" HorizontalAlignment="Left" Margin="401,371,0,0" VerticalAlignment="Top" Width="75" Click="refuel_Click"/>
 
-        <Grid x:Name="grid1" DataContext="{StaticResource busViewSource}" HorizontalAlignment="Left" Margin="278,30,0,0" VerticalAlignment="Top">
+        <Grid x:Name="grid1" DataContext="{StaticResource busViewSource}" HorizontalAlignment="Left" Margin="144,103,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -30,22 +32,24 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="License Number:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBlock x:Name="licenseNumberTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" Text="{Binding LicenseNumber}" VerticalAlignment="Center"/>
-            <Label Content="Date Begin:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-            <TextBlock x:Name="dateBeginTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" Text="{Binding DateBegin}" VerticalAlignment="Center"/>
-            <Label Content="Last Care:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <TextBlock x:Name="lastCareTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="2" Text="{Binding LastCare}" VerticalAlignment="Center"/>
-            <Label Content="Km Befor Care:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-            <TextBlock x:Name="kmBeforCareTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="3" Text="{Binding KmBeforCare}" VerticalAlignment="Center"/>
-            <Label Content="Km Before Fuel:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
-            <TextBlock x:Name="kmBeforeFuelTextBlock" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding KmBeforeFuel, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Status:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
-            <TextBlock x:Name="statusTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3,8,0,8" Grid.Row="5" Text="{Binding Status}" VerticalAlignment="Center" Width="113"/>
-            <Label Content="Sum Mileage:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
-            <TextBlock x:Name="sumMileageTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="6" Text="{Binding SumMileage}" VerticalAlignment="Center"/>
+            <Label Content="License Number:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock x:Name="licenseNumberTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" Text="{Binding LicenseNumber}" VerticalAlignment="Center" FontWeight="Bold"/>
+            <Label Content="Date Begin:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock x:Name="dateBeginTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" Text="{Binding DateBegin}" VerticalAlignment="Center" FontWeight="Bold"/>
+            <Label Content="Last Care:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock x:Name="lastCareTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="2" Text="{Binding LastCare}" VerticalAlignment="Center" FontWeight="Bold"/>
+            <Label Content="Km Befor Care:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock x:Name="kmBeforCareTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="3" Text="{Binding KmBeforCare}" VerticalAlignment="Center" FontWeight="Bold"/>
+            <Label Content="Km Before Fuel:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock x:Name="kmBeforeFuelTextBlock" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding KmBeforeFuel, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" FontWeight="Bold"/>
+            <Label Content="Status:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock x:Name="statusTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3,8,0,8" Grid.Row="5" Text="{Binding Status}" VerticalAlignment="Center" Width="113" FontWeight="Bold"/>
+            <Label Content="Sum Mileage:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock x:Name="sumMileageTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="6" Text="{Binding SumMileage}" VerticalAlignment="Center" FontWeight="Bold"/>
         </Grid>
-   
+        <Label Content="The bus details:" HorizontalAlignment="Left" Margin="144,53,0,0" VerticalAlignment="Top" Height="33" Width="184" FontWeight="Bold" FontSize="20"/>
+        <Image Margin="513,166,0,10" Source="p1-removebg-preview.jpg" Stretch="Fill"/>
+
 
     </Grid>
 </Window>
