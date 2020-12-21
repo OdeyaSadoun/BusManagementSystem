@@ -9,10 +9,10 @@
         Title="MainWindow" Height="550" Width="900" Icon="drive.png">
 
     <Window.Resources>
+        <local:StatusColorConverter x:Key="backCon"/>
         <DataTemplate x:Key="BusesList"
                   DataType="local:Bus">
-            <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0"
-VerticalAlignment="Stretch" Width="auto">
+            <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
@@ -86,7 +86,34 @@ VerticalAlignment="Stretch" Width="auto">
             <ColumnDefinition Width="747*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="lbBuses" Margin="62,60,68,45" ItemsSource="{Binding}" ItemTemplate="{StaticResource BusesList}" HorizontalContentAlignment="Stretch" MouseDoubleClick="Preview_Double_Click" HorizontalAlignment="Stretch"  Grid.Row="0" VerticalContentAlignment="Stretch"   FontSize="14" Grid.ColumnSpan="2" />
+        <ListBox x:Name="lbBuses" Margin="62,60,68,45"  ItemsSource="{Binding}"  SelectionMode="Single"  HorizontalContentAlignment="Stretch" MouseDoubleClick="Preview_Double_Click" HorizontalAlignment="Stretch"  Grid.Row="0" VerticalContentAlignment="Stretch"   FontSize="14" Grid.ColumnSpan="2" DockPanel.Dock="Top">
+            <!--<ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation = "Horizontal" Background= "{Binding Path= Status, Converter= {StaticResource backCon}, Mode=OneWay}">
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>-->
+            <ListBox.Resources>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Height" Value="40"/>
+                    <Style.Triggers>
+                         <!--Sets the color of the row according to bus' status--> 
+                        <DataTrigger Binding="{Binding  Path = Status, Converter={StaticResource backCon},Mode =OneWay}" Value="Ready">
+                            <Setter Property="Background" Value="LightGreen" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path = Status, Converter={StaticResource backCon},Mode =OneWay}" Value="Need Refueling">
+                            <Setter Property="Background" Value="Khaki" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path = Status, Converter={StaticResource backCon},Mode =OneWay}" Value="Else">
+                            <Setter Property="Background" Value="LightSalmon" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                    
+                </Style>
+            </ListBox.Resources> />
+
+        </ListBox>
         <Button x:Name="B_AddBus" Content="Add Bus" Margin="241,0,384,4" VerticalAlignment="Bottom" Click="B_AddBus_Click" Height="36" Grid.Column="1"/>
         <Label Content="The bus is: &#x9;          status:     the seconds are left:&#x9;       &#x9;  drive:&#x9;    refuel:       care:        remove:" Margin="62,18,68,459" FontSize="14" FontWeight="Bold"  HorizontalContentAlignment="Stretch"  VerticalContentAlignment="Stretch" Grid.ColumnSpan="2"   />
 
