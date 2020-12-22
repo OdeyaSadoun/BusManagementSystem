@@ -34,13 +34,9 @@
 
                 </Grid.ColumnDefinitions>
 
-                <!--<TextBlock Grid.Column="0"
-                   Text="The License Nuber is: " />-->
-
                 <TextBlock Grid.Column="0"
                    Text="{Binding Path=LicenseNumber}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <!--<TextBlock Grid.Column="2"
-                   Text="Status: " />-->
+          
                 <TextBlock Grid.Column="2" 
                    Text="{Binding Path=Status}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <ProgressBar x:Name="Time_Before_Ready" Grid.Column="4" Height="15" Width="100" Visibility="Hidden"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
@@ -52,7 +48,7 @@
                         <ImageBrush ImageSource="drive.png" Stretch="UniformToFill"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="Refuel_Button" Grid.Column="8"  Height="40" Width ="45" Click="refuel_click_button" BorderBrush="{x:Null}" >
+                <Button x:Name="Refuel_Button" Grid.Column="8"  Height="40" Width ="45" Click="refuel_click_button" BorderBrush="{x:Null}"  >
                     <Button.Background>
                         <ImageBrush Stretch="UniformToFill" ImageSource="d3.jpg"/>
                     </Button.Background>
@@ -70,13 +66,6 @@
                         <ImageBrush ImageSource="pach.png" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
-
-
-
-
-                <!--<ProgressBar Grid.Column="4" Minimum="0" Maximum="100" Value="75" x:Name="ProgressBar" />
-                <TextBlock Grid.Column="4" Text="{Binding Value, ElementName=ProgressBar, StringFormat=\{0:0\}%}" HorizontalAlignment="Center" VerticalAlignment="Center" />-->
-
 
             </Grid>
         </DataTemplate>

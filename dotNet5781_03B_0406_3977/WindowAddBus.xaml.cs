@@ -64,15 +64,18 @@ namespace dotNet5781_03B_0406_3977
         private void submit_bus_button_Click(object sender, RoutedEventArgs e)
         {
             Bus b = new Bus() { LicenseNumber = licenseNumberTextBox.Text, DateBegin = dateBeginDatePicker.DisplayDate, LastCare = lastCareDatePicker.DisplayDate, SumMileage = int.Parse(sumMileageTextBox.Text) };
-            if ((b.LicenseNumber.Length == 8) && (b.DateBegin.Year < 2018))
-                //throw new ArgumentException("error input licenseNumber");
-                MessageBox.Show("error input licenseNumber or date");
+            if ((b.LicenseNumber.Length == 10) && (b.DateBegin.Year < 2018))//אם המספר רישוי 8 ספרות אך השנה קטנה מ 2018
+                MessageBox.Show("Error input licenseNumber or date\nPlease try again", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-            if ((b.LicenseNumber.Length == 7) && (b.DateBegin.Year >= 2018))
-                throw new ArgumentException("error input licenseNumber");
-
-            Buses.Add(b);
-            this.Close();
+            else if ((b.LicenseNumber.Length == 9) && (b.DateBegin.Year >= 2018))
+                MessageBox.Show("Error input licenseNumber or date\nPlease try again", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            else if(b.LicenseNumber=="")
+                MessageBox.Show("Error input licenseNumber\nPlease try again", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            else
+            {
+                Buses.Add(b);
+                this.Close();
+            }
         }
         #endregion
 

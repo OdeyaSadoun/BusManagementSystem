@@ -61,7 +61,7 @@ namespace dotNet5781_03B_0406_3977
         {
             Bus b = currentBus;
             if (b.Status != BusStatus.Ready)
-                MessageBox.Show("the bus in " + b.Status + "\n The bus can't go to care now!", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("The bus in " + b.Status + "\n The bus can't go to care now!", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             else
             {
                 b.care();
@@ -92,7 +92,7 @@ namespace dotNet5781_03B_0406_3977
         {
             Bus b = currentBus;
             if (b.Status != BusStatus.Ready)
-                MessageBox.Show("the bus in " + b.Status + "\n The bus can't go to refuel now!", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("The bus in " + b.Status + "\n The bus can't go to refuel now!", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             else
             {
                 b.refueling();

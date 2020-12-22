@@ -240,11 +240,9 @@ namespace dotNet5781_03B_0406_3977
                     temp += value[i];
                 }
             }
-            else
-            {
-                //input defalt value
-                throw new ArgumentException("error input licenseNumber");
-            }
+           // else
+           //אם המחרוזת ריקה כלומר קלט לא נכון של מספר רישוי אז לפני ההווספה תהיה בדיקה והיא לא תכנס. ניתן יהיה לנסות שוב.
+
             return temp;
         }
         #endregion

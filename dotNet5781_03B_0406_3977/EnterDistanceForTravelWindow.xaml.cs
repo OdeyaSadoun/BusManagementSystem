@@ -59,21 +59,5 @@ namespace dotNet5781_03B_0406_3977
             }
         }
 
-
-        //private void enter_km(object sender, KeyEventArgs e)
-        //{
-        //    TextBox txt = sender as TextBox;
-        //    if (txt == null)
-        //        return;
-        //    if (e == null)
-        //        return;
-        //    if (e.Key == Key.Enter || e.Key == Key.Return)
-        //    {
-        //        KmToTravel = double.Parse(txt.Text);
-        //        Bus.goToTravel(KmToTravel);
-        //    }
-        //    this.Close();
-        //}
-
     }
 }

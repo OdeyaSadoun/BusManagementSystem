@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Threading;
 
+// עפ הבהרות והסברים word מצורף לתוכנית קובץ 
 
 
 
@@ -111,6 +112,7 @@ namespace dotNet5781_03B_0406_3977
         {
             Bus b = (sender as Button).DataContext as Bus;
             float km = b.currentMileage;
+
             if (b.Status != BusStatus.Ready)
                 MessageBox.Show("The status of the bus is:" + b.Status + "\nThe bus can't go to drive", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             else if (b.YearPassed())
@@ -124,8 +126,7 @@ namespace dotNet5781_03B_0406_3977
             {
                 EnterDistanceForTravelWindow win = new EnterDistanceForTravelWindow(b);
                 win.ShowDialog();
-
-
+                km = b.currentMileage;
                 if (km == 0)
                     MessageBox.Show("The bus cant perform this travel because the number of kilometers was not entered", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 else
@@ -190,7 +191,7 @@ namespace dotNet5781_03B_0406_3977
         {
             Bus b = (sender as Button).DataContext as Bus;
             if (b.Status != BusStatus.Ready)
-                MessageBox.Show("the bus in " + b.Status + "\n The bus can't go to refuel now!", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("The bus in " + b.Status + "\n The bus can't go to refuel now!", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             else
             {
                 b.refueling();
@@ -230,7 +231,7 @@ namespace dotNet5781_03B_0406_3977
         {
             Bus b = (sender as Button).DataContext as Bus;
             if (b.Status != BusStatus.Ready)
-                MessageBox.Show("the bus in " + b.Status + "\n The bus can't go to care now!", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("The bus in " + b.Status + "\n The bus can't go to care now!", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             else
             {
                 b.care();
@@ -294,6 +295,7 @@ namespace dotNet5781_03B_0406_3977
             listOfBuses.Remove(b);
            
         }
+
         #endregion
 
        

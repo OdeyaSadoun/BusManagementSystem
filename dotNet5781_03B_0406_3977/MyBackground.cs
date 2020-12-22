@@ -25,7 +25,7 @@ namespace dotNet5781_03B_0406_3977
         public Button Drive { get; set; }
 
         //functions
-
+        //   לצורך מימוש התהליכונים Background השתמשנו במחלקת  
         #region constructor
         /// <summary>
         /// constructor,Registration for threads
