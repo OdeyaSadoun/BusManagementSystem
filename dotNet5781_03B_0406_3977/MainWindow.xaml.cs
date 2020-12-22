@@ -28,8 +28,8 @@ namespace dotNet5781_03B_0406_3977
     {
         public static Random rnd = new Random(DateTime.Now.Millisecond);
 
-        ObservableCollection<Bus> busLst = new ObservableCollection<Bus>();
-        public ObservableCollection<Bus> listOfBuses { get; set; }
+        //ObservableCollection<Bus> busLst = new ObservableCollection<Bus>();
+        public ObservableCollection<Bus> listOfBuses { get; } = new ObservableCollection<Bus>();
 
         BackgroundWorker worker;
 
@@ -37,7 +37,7 @@ namespace dotNet5781_03B_0406_3977
         public MainWindow()
         {
             InitializeComponent();
-            ObservableCollection<Bus> busLst = new ObservableCollection<Bus>();
+            //ObservableCollection<Bus> busLst = new ObservableCollection<Bus>();
             for(int i=0; i<10; i++)
             {
                 Bus b = new Bus();
@@ -64,10 +64,10 @@ namespace dotNet5781_03B_0406_3977
                 b.KmBeforeFuel = 1200 - kmAfterFuel;
                 b.KmBeforCare = 20000 - kmAfterCare;
                 b.LastCare = lastCare;
-                busLst.Add(b);
-
+                //busLst.Add(b);
+                listOfBuses.Add(b);
             }
-            listOfBuses = busLst;
+           // listOfBuses = busLst;
             lbBuses.ItemsSource = listOfBuses /*busLst*/;
             //lbBuses.DisplayMemberPath = "LicenseNumber";
         }

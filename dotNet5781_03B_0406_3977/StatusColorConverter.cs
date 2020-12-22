@@ -16,10 +16,12 @@ namespace dotNet5781_03B_0406_3977
         {
             if ((BusStatus)value == BusStatus.Ready)
             {
-                return Brushes.GreenYellow;
+                //return Brushes.GreenYellow;
+                return "Ready";
             }
             else
-                return Brushes.PaleVioletRed;
+                //return Brushes.PaleVioletRed;
+                return "Else";
 
         }
 

@@ -43,7 +43,7 @@
                    Text="Status: " />-->
                 <TextBlock Grid.Column="2" 
                    Text="{Binding Path=Status}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <ProgressBar x:Name="Time_Before_Ready" Grid.Column="4" Height="15" Visibility="Hidden"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                <ProgressBar x:Name="Time_Before_Ready" Grid.Column="4" Height="15" Width="100" Visibility="Hidden"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
                 <Label x:Name="result_Label" Grid.Column="4" Visibility="Hidden" HorizontalContentAlignment="Center"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label x:Name="seconds_Label" Grid.Column="5" Visibility="Hidden" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Button x:Name="Drive_Button" Grid.Column="7"
@@ -74,7 +74,8 @@
 
 
 
-                <!--<ProgressBar Grid.Column="4" Minimum="0" Maximum="100" Value="75" x:Name="ProgressBar" />                <TextBlock Grid.Column="4" Text="{Binding Value, ElementName=ProgressBar, StringFormat=\{0:0\}%}" HorizontalAlignment="Center" VerticalAlignment="Center" />-->
+                <!--<ProgressBar Grid.Column="4" Minimum="0" Maximum="100" Value="75" x:Name="ProgressBar" />
+                <TextBlock Grid.Column="4" Text="{Binding Value, ElementName=ProgressBar, StringFormat=\{0:0\}%}" HorizontalAlignment="Center" VerticalAlignment="Center" />-->
 
 
             </Grid>
@@ -87,7 +88,24 @@
             <ColumnDefinition Width="747*"/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="lbBuses" Margin="62,60,68,45" ItemsSource="{Binding}" ItemTemplate="{StaticResource BusesList}" HorizontalContentAlignment="Stretch" MouseDoubleClick="Preview_Double_Click" HorizontalAlignment="Stretch"  Grid.Row="0" VerticalContentAlignment="Stretch"   FontSize="14" Grid.ColumnSpan="2" >
+        <ListView x:Name="lbBuses" Margin="62,60,68,45" ItemsSource="{Binding}" ItemTemplate="{StaticResource BusesList}"
+                  HorizontalContentAlignment="Stretch" MouseDoubleClick="Preview_Double_Click" HorizontalAlignment="Stretch"
+                  Grid.Row="0" VerticalContentAlignment="Stretch"   FontSize="14" Grid.ColumnSpan="2" >
+            <ListView.Resources>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Height" Value="40"/>
+                    <Style.Triggers>
+                        <!-- Sets the color of the row according to bus' status -->
+                        <DataTrigger Binding="{Binding Status, Converter={StaticResource backCon}}" Value="Ready">
+                            <Setter Property="Background" Value="LightGreen" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Status, Converter={StaticResource backCon}}"  Value="Else">
+                            <Setter Property="Background" Value="LightSalmon" />
+                        </DataTrigger>
+
+                    </Style.Triggers>
+                </Style>
+            </ListView.Resources>
 
         </ListView>
         <Button x:Name="B_AddBus" Content="Add Bus" Margin="241,0,384,4" VerticalAlignment="Bottom" Click="B_AddBus_Click" Height="36" Grid.Column="1"/>

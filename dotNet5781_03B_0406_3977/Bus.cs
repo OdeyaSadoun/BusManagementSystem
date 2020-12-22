@@ -26,7 +26,7 @@ using System.Windows.Shapes;
 
 namespace dotNet5781_03B_0406_3977
 {
-    public class Bus
+    public class Bus : DependencyObject
     {
         //FILDES:
         #region licenseNumber
@@ -156,7 +156,15 @@ namespace dotNet5781_03B_0406_3977
         #endregion
 
         #region BusStatus
-        public BusStatus Status { get; set; }
+        public BusStatus Status
+        {
+            get { return (BusStatus)GetValue(StatusProperty); }
+
+            set { SetValue(StatusProperty, value); }
+        }
+        public static readonly DependencyProperty StatusProperty =
+        DependencyProperty.Register("Status", typeof(BusStatus), typeof(Bus), new UIPropertyMetadata(BusStatus.Ready));
+
         #endregion
 
         //FUNCTIONS:
@@ -304,6 +312,7 @@ namespace dotNet5781_03B_0406_3977
             Status = BusStatus.Careing;
         }
         #endregion
+
     }
 }
 
