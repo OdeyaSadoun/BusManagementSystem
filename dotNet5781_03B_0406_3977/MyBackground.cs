@@ -27,6 +27,9 @@ namespace dotNet5781_03B_0406_3977
         //functions
 
         #region constructor
+        /// <summary>
+        /// constructor,Registration for threads
+        /// </summary>
         public MyBackground()
         {
             worker = new BackgroundWorker();

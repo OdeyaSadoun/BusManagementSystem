@@ -56,12 +56,17 @@ namespace dotNet5781_03B_0406_3977
         #endregion
 
         #region submit_bus_button_Click
+        /// <summary>
+        /// Abutton for sumbit the bus that we add,check the input and after that we add it to buse's list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void submit_bus_button_Click(object sender, RoutedEventArgs e)
         {
             Bus b = new Bus() { LicenseNumber = licenseNumberTextBox.Text, DateBegin = dateBeginDatePicker.DisplayDate, LastCare = lastCareDatePicker.DisplayDate, SumMileage = int.Parse(sumMileageTextBox.Text) };
             if ((b.LicenseNumber.Length == 8) && (b.DateBegin.Year < 2018))
                 //throw new ArgumentException("error input licenseNumber");
-                MessageBox.Show("error input licenseNumber od date");
+                MessageBox.Show("error input licenseNumber or date");
 
             if ((b.LicenseNumber.Length == 7) && (b.DateBegin.Year >= 2018))
                 throw new ArgumentException("error input licenseNumber");

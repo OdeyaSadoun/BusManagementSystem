@@ -32,6 +32,10 @@ namespace dotNet5781_03B_0406_3977
         //functions:
 
         #region constructor
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="b"></param>
         public Double_Click(Bus b)
         {
             InitializeComponent();
@@ -48,6 +52,11 @@ namespace dotNet5781_03B_0406_3977
         #endregion
 
         #region care_Click
+        /// <summary>
+        /// Checking the status of the bus, if it is ready the bus is sent for refueling the progressBar is activated
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void care_Click(object sender, RoutedEventArgs e)
         {
             Bus b = currentBus;
@@ -62,12 +71,6 @@ namespace dotNet5781_03B_0406_3977
 
                 Button bCare = sender as Button;
                 Button bRefule = brefuel;
-            
-
-                //bCare.IsEnabled = false;
-                //bRefule.IsEnabled = false;
-               
-
                 p.Foreground = Brushes.Yellow;
                 p.Value = 0;
                 MyBackground background = new MyBackground() { bus = b, Length = 144, progressBar = p, seconds_Label= l2, result_Label = l1, Care = bCare, Reful = bRefule};
@@ -80,6 +83,11 @@ namespace dotNet5781_03B_0406_3977
         #endregion
 
         #region refuel_Click
+        /// <summary>
+        /// Checking the status of the bus, if it is ready the bus is sent for caring theprogressBar is activated
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void refuel_Click(object sender, RoutedEventArgs e)
         {
             Bus b = currentBus;
@@ -93,10 +101,6 @@ namespace dotNet5781_03B_0406_3977
                 Label l2 = lseconds;
                 Button bCare = bcare;
                 Button bRefule = sender as Button;
-
-                //bCare.IsEnabled = false;
-                //bRefule.IsEnabled = false;
-               // bDrive.IsEnabled = false;
                 p.Foreground = Brushes.LightBlue;
                 p.Value = 0;
                 MyBackground background = new MyBackground() { bus = b, Length = 12, progressBar = p, seconds_Label= lseconds, result_Label = lresult, Care = bCare, Reful = bRefule};
@@ -111,10 +115,7 @@ namespace dotNet5781_03B_0406_3977
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-
-            System.Windows.Data.CollectionViewSource busViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("busViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // busViewSource.Source = [generic data source]
+            System.Windows.Data.CollectionViewSource busViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("busViewSource")));         
         }
         #endregion
     }

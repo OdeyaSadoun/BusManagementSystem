@@ -169,8 +169,15 @@ namespace dotNet5781_03B_0406_3977
 
         //FUNCTIONS:
         #region Constructor
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="licenseNumber"></param>
+        /// <param name="dateBegin"></param>
+        /// <param name="mileage"></param>
+        /// <param name="fuel"></param>
         public Bus(string licenseNumber, DateTime dateBegin, float mileage = 0, float fuel = 0)
-        //constructor
+        
         {
             this.LicenseNumber = licenseNumber;
             this.DateBegin = dateBegin;
@@ -187,8 +194,11 @@ namespace dotNet5781_03B_0406_3977
         #endregion
 
         #region Defult Constructor
+        /// <summary>
+        ///defalt constructor
+        /// </summary>
         public Bus()
-        //defalt constructor
+        
         {
             this.licenseNumber = "000-00-000";
             this.DateBegin = new DateTime(1900, 01, 01);
@@ -203,8 +213,13 @@ namespace dotNet5781_03B_0406_3977
         #endregion
 
         #region VisualShapeOfLicenseNumber
+        /// <summary>
+        /// A function that edit the license number to the format XX-XXX-XX / XXX-XX-XX
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string VisualShapeOfLicenseNumber(string value)
-        //A function that edit the license number to the format XX-XXX-XX / XXX-XX-XX
+        
         {
             string temp = "";
             if (value.Length == 7)
@@ -235,8 +250,13 @@ namespace dotNet5781_03B_0406_3977
         #endregion
 
         #region IsDigitsOnly
+        /// <summary>
+        /// A function that cheak if the string is only numbers
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         private bool IsDigitsOnly(string str)
-        //A function that cheak if the string is only numbers
+        
         {
             foreach (char c in str)
             {
@@ -248,8 +268,12 @@ namespace dotNet5781_03B_0406_3977
         #endregion
 
         #region YearPassed
+        /// <summary>
+        ///A function that cheak if passed year from the date begin
+        /// </summary>
+        /// <returns></returns>
         public bool YearPassed()
-        //A function that cheak if passed year from the date begin
+        
         {
             DateTime zeroTime = new DateTime(1, 1, 1);
 
@@ -272,14 +296,12 @@ namespace dotNet5781_03B_0406_3977
         #endregion
 
         #region go to travel
+        /// <summary>
+        /// A func that check if the bus can go to travel according to his status and if the status is ready the func update the fildes.
+        /// </summary>
+        /// <param name="km"></param>
         public void goToTravel(float km)
         {
-            //if (kmBeforCare - km <= 0)
-            //    MessageBox.Show("The bus cant perform this travel because the bus traveled 20000 km without care - need to care");
-            //if (kmBeforeFuel - km <= 0)
-            //    MessageBox.Show("The fuel isnt enough for travel, you should fuel");
-          
-           
             if (Status == BusStatus.Ready)
             {
                 currentMileage = km;
@@ -287,13 +309,13 @@ namespace dotNet5781_03B_0406_3977
                 kmBeforeFuel -= km;
                 kmBeforCare -= km;
             }
-            //else
-            //    MessageBox.Show("The status of the bus is:" + Status + "\nThe bus can't go to drive");
-
         }
         #endregion
 
         #region refueling
+        /// <summary>
+        /// A func for refuel the bus
+        /// </summary>
         public void refueling()
         {
             kmBeforeFuel = 1200;
@@ -303,6 +325,9 @@ namespace dotNet5781_03B_0406_3977
         #endregion
 
         #region care
+        /// <summary>
+        /// A func for care the bus
+        /// </summary>
         public void care()
         {
             DateTime currentDate = DateTime.Now;
