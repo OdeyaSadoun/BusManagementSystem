@@ -67,14 +67,31 @@ namespace dotNet5781_03B_0406_3977
             if ((b.LicenseNumber.Length == 10) && (b.DateBegin.Year < 2018))//אם המספר רישוי 8 ספרות אך השנה קטנה מ 2018
                 MessageBox.Show("Error input licenseNumber or date\nPlease try again", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-            else if ((b.LicenseNumber.Length == 9) && (b.DateBegin.Year >= 2018))
+            else if ((b.LicenseNumber.Length == 9) && (b.DateBegin.Year >= 2018))//אם המספר רישוי 7 ספרות אך השנה גדולה או שווה ל 2018
                 MessageBox.Show("Error input licenseNumber or date\nPlease try again", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-            else if(b.LicenseNumber=="")
+
+            else if (b.LicenseNumber == "")
                 MessageBox.Show("Error input licenseNumber\nPlease try again", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+
             else
             {
-                Buses.Add(b);
-                this.Close();
+                bool flag = false;
+                foreach (Bus bus in Buses)
+                {
+                    if (bus.LicenseNumber == b.LicenseNumber)
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (flag)
+                    MessageBox.Show("The bus with this license number is exist!\nPlease try again", "warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                else
+                {
+                    Buses.Add(b);
+                    this.Close();
+                }
             }
         }
         #endregion
