@@ -8,7 +8,7 @@ namespace DO
 {
     public enum Area //for the buses
     {
-        General = 1, North, South, Center, Jerusalem, Other
+        North = 1, NorthSouth , South, Center, NorthCenter, SouthCenter, Jerusalem, JerusalemNorth, JerusalemCenter, JerusalemSouth
 
     }
     public enum BusStatus
