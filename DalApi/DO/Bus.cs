@@ -8,6 +8,9 @@ namespace DO
 {
     public class Bus
     {
+        /// <summary>
+        /// license number of bus
+        /// </summary>
         public int LicenseNum { get; set; }
         public DateTime FromDate { get; set; }
         public double TotalTrip { get; set; }

@@ -8,7 +8,7 @@ namespace DS
 {
     public static class DataSource
     {
-        public static List<Bus> listBuses = new List<Bus>
+        public static List<Bus> ListBuses = new List<Bus>
         {
             #region Boot buses//אתחול אוטובוסים
             /*0*/new Bus{ LicenseNum= 0110354 , FromDate=new DateTime(13,2,2008), TotalTrip=2198, FuelRemain=542, Status= BusStatus.Careing},
@@ -35,9 +35,9 @@ namespace DS
             #endregion;
         };
 
-        public static List<BusOnTrip> listBusesOnTrip;
-        public static List<LineTrip> listLinesTrip;
-        public static List<Station> listStations = new List<Station>
+        public static List<BusOnTrip> ListBusesOnTrip;
+        public static List<LineTrip> ListLinesTrip;
+        public static List<Station> ListStations = new List<Station>
         {
             #region Boot stations//אתחול תחנות
                 /*0*/  new Station { Code = 20001, Name = "ת. רכבת ת''א מרכז / רציפים", Address = "תל אביב - יפו", Latitude = 32.083157, Longitude = 34.796091 },
@@ -284,7 +284,7 @@ namespace DS
 
                        #endregion
         };
-        public static List<Line> listLines = new List<Line>
+        public static List<Line> ListLines = new List<Line>
         {
             #region Boot lines //אתחול קווים
                 /*0*/ new Line { Id = 1, Code = 480, Area= Area.JerusalemCenter ,FirstStation= listStations[0].Code, LastStation= listStations[3].Code }, //תל אביב - ירושלים
@@ -303,9 +303,9 @@ namespace DS
                 /*13*/new Line { Id = 14, Code = 392, Area= Area.Center ,FirstStation= listStations[218].Code, LastStation= listStations[240].Code },//פתח תקווה
                 #endregion
         };
-        public static List<LineStation> listLineStations;
-        public static List<User> listUsers;
-        public static List<AdjacentStations> listAdjacentStations;
-        public static List<Trip> listTrips;
+        public static List<LineStation> ListLineStations;
+        public static List<User> ListUsers;
+        public static List<AdjacentStations> ListAdjacentStations;
+        public static List<Trip> ListTrips;
     }
 }

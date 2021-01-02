@@ -9,13 +9,19 @@ namespace DalApi
     public interface IDL
     {
         #region Bus
-        IEnumerable<DO.Bus> GetAllBuses();
+        IEnumerable<DO.Bus> GetAllBuses(); //V
         IEnumerable<DO.Bus> GetAllBusesBy(Predicate<DO.Bus> predicate);
-        DO.Bus GetBus(int id);
-        void AddBus(DO.Bus bus);
-        void UpdateBus(DO.Bus bus);
-        void UpdateBus(int id, Action<DO.Bus> update); //method that knows to updt specific fields in Bus
-        void DeleteBus(int id);
+        DO.Bus GetBus(int id);//V
+        void AddBus(DO.Bus bus);//V
+        void UpdateBus(DO.Bus bus);//V
+
+        /// <summary>
+        /// method that knows to updt specific fields in Bus
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="update"></param>
+        void UpdateBus(int id, Action<DO.Bus> update); 
+        void DeleteBus(int id);//V
         #endregion
 
         #region BusOnTrip
