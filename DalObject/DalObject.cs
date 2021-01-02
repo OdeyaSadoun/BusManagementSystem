@@ -188,7 +188,15 @@ namespace DalObject
         #region Line
         IEnumerable<DO.Line> GetAllLines();
         IEnumerable<DO.Line> GetAllLinesBy(Predicate<DO.Line> predicate);
-        DO.Line GetLine(int id);
+        DO.Line GetLine(int id)
+        {
+            DO.Line l = DataSource.ListLines.Find(p => p.Id == id);
+
+            if (l != null)
+                return l.Clone();
+            else
+                throw new DO.BadPersonIdException(id, $"bad person id: {id}");
+        }
         void AddLine(DO.Line line);
         void UpdateLine(DO.Line line);
         void UpdateLine(int id, Action<DO.Line> update); //method that knows to updt specific fields in Line
@@ -209,7 +217,10 @@ namespace DalObject
         #region User
         IEnumerable<DO.User> GetAllUsers();
         IEnumerable<DO.User> GetAllUsersBy(Predicate<DO.User> predicate);
-        DO.User GetUser(int id);
+        DO.User GetUser(int id)
+        {
+
+        }
         void AddUser(DO.User user);
         void UpdateUser(DO.User user);
         void UpdateUser(int id, Action<DO.User> update); //method that knows to updt specific fields in User
