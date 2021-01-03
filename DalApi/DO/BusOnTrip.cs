@@ -22,11 +22,11 @@ namespace DO
         public int LicenseNumber { get; set; }//uniqe number
         #endregion
 
-        #region LineNumber
+        #region LineId
         /// <summary>
         /// Identifies the line in the current trip
         /// </summary>
-        public int LineNumber { get; set; }
+        public int LineId { get; set; }
         #endregion
 
         #region PlannedTakeOff

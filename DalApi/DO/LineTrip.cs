@@ -15,11 +15,11 @@ namespace DO
         public int Id { get; set; }//uniqe number
         #endregion
 
-        #region LineNumber - uniqe number
+        #region LineId - uniqe number
         /// <summary>
         /// The ID of the line for this travel
         /// </summary>
-        public int LineNumber { get; set; }//uniqe number
+        public int LineId { get; set; }//uniqe number
         #endregion
 
         #region StartAt
