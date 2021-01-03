@@ -25,7 +25,7 @@ namespace DalObject
         #region GetBus
         public DO.Bus GetBus(int id)
         {
-            DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNum == id);
+            DO.Bus b = DataSource.ListBuses.Find(p => ((p.LicenseNumber == id)&&(p.IsDeleted==false)));
 
             if (b != null)
                 return b.Clone();
@@ -45,15 +45,17 @@ namespace DalObject
         #region GetAllBusesBy
         public IEnumerable<DO.Bus> GetAllBusesBy(Predicate<DO.Bus> predicate)
         {
-            throw new NotImplementedException();
+            return from bus in DataSource.ListBuses
+                   where predicate(bus)
+                   select bus.Clone();
         }
         #endregion
 
         #region AddBus
         public void AddBus(DO.Bus bus)
         {
-            if (DataSource.ListBuses.FirstOrDefault(p => p.LicenseNum == bus.LicenseNum) != null)
-                throw new DO.BadPersonIdException(bus.LicenseNum, "Duplicate person ID");
+            if (DataSource.ListBuses.FirstOrDefault(p => p.LicenseNumber == bus.LicenseNumber && p.IsDeleted) != null)
+                throw new DO.BadPersonIdException(bus.LicenseNumber, "Duplicate person ID");
             DataSource.ListBuses.Add(bus.Clone());
         }
         #endregion
@@ -61,7 +63,7 @@ namespace DalObject
         #region DeleteBus
         public void DeleteBus(int id)
         {
-            DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNum == id);
+            DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNumber == id && p.IsDeleted);
 
             if (b != null)
             {
@@ -76,7 +78,7 @@ namespace DalObject
 
         public void UpdateBus(DO.Bus bus)
         {
-            DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNum == bus.LicenseNum);
+            DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNumber == bus.LicenseNumber && p.IsDeleted);
 
             if (b != null)
             {
@@ -84,14 +86,17 @@ namespace DalObject
                 DataSource.ListBuses.Add(bus.Clone());
             }
             else
-                throw new DO.BadPersonIdException(bus.LicenseNum, $"bad person id: {bus.LicenseNum}");
+                throw new DO.BadPersonIdException(bus.LicenseNumber, $"bad person id: {bus.LicenseNumber}");
         }
         #endregion
 
         #region UpdateBus
-        public void UpdateBus(int id, Action<DO.Bus> update)
+        public void UpdateBus(int licenseNumber, Action<DO.Bus> update)
         {
-            throw new NotImplementedException();
+            DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNumber == licenseNumber && p.IsDeleted == false);
+            if (b == null)
+                throw new Exception();
+            update(b);
         }
         #endregion
         #endregion
@@ -100,7 +105,7 @@ namespace DalObject
         #region GetBusOnTrip
         public DO.BusOnTrip GetBusOnTrip(int id)
         {
-            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id);
+            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.IsDeleted);
 
             if (b != null)
                 return b.Clone();
@@ -120,7 +125,9 @@ namespace DalObject
         #region GetAllBusesOnTripBy
         IEnumerable<DO.BusOnTrip> GetAllBusesOnTripBy(Predicate<DO.BusOnTrip> predicate)
         {
-
+            return from bus in DataSource.ListBusesOnTrip
+                   where predicate(bus)
+                   select bus.Clone();
         }
         #endregion
 
@@ -128,7 +135,7 @@ namespace DalObject
         void AddBusOnTrip(DO.BusOnTrip bus)
         {
             /****************************************************************************************/
-            if (DataSource.ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id) != null)
+            if (DataSource.ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id && p.IsDeleted) != null)
                 throw new DO.BadPersonIdException(bus.Id, "Duplicate person ID");
             DataSource.ListBusesOnTrip.Add(bus.Clone());
         }
@@ -137,7 +144,7 @@ namespace DalObject
         #region UpdateBusOnTrip
         void UpdateBusOnTrip(DO.BusOnTrip bus)
         {
-            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == bus.Id);
+            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == bus.Id && p.IsDeleted);
 
             if (b != null)
             {
@@ -158,14 +165,17 @@ namespace DalObject
         /// <param name="update"></param>
         void UpdateBusOnTrip(int id, Action<DO.BusOnTrip> update)
         {
-
+            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.IsDeleted == false);
+            if (b == null)
+                throw new Exception();
+            update(b);
         }
         #endregion
 
         #region DeleteBusOnTrip
         void DeleteBusOnTrip(int id)
         {
-            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id);
+            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.IsDeleted);
 
             if (b != null)
             {
@@ -189,14 +199,16 @@ namespace DalObject
         #region GetAllLinesTripBy
         IEnumerable<DO.BusOnTrip> GetAllLinesTripBy(Predicate<DO.LineTrip> predicate)
         {
-
+            return from trip in DataSource.ListLinesTrip
+                   where predicate(trip)
+                   select trip.Clone();
         }
         #endregion
 
         #region GetLineTrip
         DO.LineTrip GetLineTrip(int id)
         {
-            DO.LineTrip lt = DataSource.ListLinesTrip.Find(p => p.Id == id);
+            DO.LineTrip lt = DataSource.ListLinesTrip.Find(p => p.Id == id && p.IsDeleted);
 
             if (lt != null)
                 return lt.Clone();
@@ -208,7 +220,7 @@ namespace DalObject
         #region AddLineTrip
         void AddLineTrip(DO.LineTrip lt)
         {
-            if (DataSource.ListLinesTrip.FirstOrDefault(p => p.Id == lt.Id) != null)
+            if (DataSource.ListLinesTrip.FirstOrDefault(p => p.Id == lt.Id && p.IsDeleted) != null)
                 throw new DO.BadPersonIdException(lt.Id, "Duplicate person ID");
             DataSource.ListLinesTrip.Add(lt.Clone());
         }
@@ -218,7 +230,7 @@ namespace DalObject
         void UpdateLineTrip(DO.LineTrip bus)
         {
 
-            DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == bus.Id);
+            DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == bus.Id && p.IsDeleted);
 
             if (b != null)
             {
@@ -233,14 +245,18 @@ namespace DalObject
         #region UpdateLineTrip
         void UpdateLineTrip(int id, Action<DO.LineTrip> update) //method that knows to updt specific fields in LineTrip
         {
-            throw new NotImplementedException();
+
+            DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == id && p.IsDeleted == false);
+            if (b == null)
+                throw new Exception();
+            update(b);
         }
         #endregion
 
         #region DeleteLineTrip
         void DeleteLineTrip(int id)
         {
-            DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == id);
+            DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == id && p.IsDeleted);
 
             if (b != null)
             {
@@ -265,14 +281,16 @@ namespace DalObject
         #region GetAllStationesBy
         IEnumerable<DO.Station> GetAllStationesBy(Predicate<DO.Station> predicate)
         {
-
+            return from station in DataSource.ListStations
+                   where predicate(station)
+                   select station.Clone();
         }
         #endregion
 
         #region GetStation
         DO.Station GetStation(int code)
         {
-            DO.Bus b = DataSource.ListStations.Find(p => p.Code == Code);
+            DO.Station b = DataSource.ListStations.Find(p => p.Code == code && p.IsDeleted);
 
             if (b != null)
                 return b.Clone();
@@ -284,7 +302,7 @@ namespace DalObject
         #region AddStation
         void AddStation(DO.Station station)
         {
-            if (DataSource.ListStations.FirstOrDefault(p => p.Code == station.Code) != null)
+            if (DataSource.ListStations.FirstOrDefault(p => p.Code == station.Code && p.IsDeleted) != null)
                 throw new DO.BadPersonIdException(station.Code, "Duplicate person ID");
             DataSource.ListStations.Add(station.Clone());
 
@@ -294,29 +312,32 @@ namespace DalObject
         #region UpdateStation
         void UpdateStation(DO.Station station)
         {
-            DO.Station b = DataSource.ListStations.Find(p => p.Code == station.Code);
+            DO.Station b = DataSource.ListStations.Find(p => p.Code == station.Code && p.IsDeleted);
 
-            if (b != null)
-            {
-                DataSource.ListStations.Remove(b);
-                DataSource.ListStations.Add(station.Clone());
-            }
-            else
-                throw new DO.BadPersonIdException(station.Code, $"bad person id: {station.Code}");
+                if (b != null)
+                {
+                    DataSource.ListStations.Remove(b);
+                    DataSource.ListStations.Add(station.Clone());
+                }
+                else
+                    throw new DO.BadPersonIdException(station.Code, $"bad person id: {station.Code}");
         }
         #endregion
 
         #region UpdateStation
         void UpdateStation(int id, Action<DO.Station> update) //method that knows to updt specific fields in station
-        {
-
-        }
+            {
+                DO.Station station = DataSource.ListStations.Find(p => p.Code == id && p.IsDeleted == false);
+                if (station == null)
+                    throw new Exception();
+                update(station);
+            }
         #endregion
 
         #region DeleteStation
         void DeleteStation(int code)
         {
-            DO.Station b = DataSource.ListStations.Find(p => p.Code == code);
+            DO.Station b = DataSource.ListStations.Find(p => p.Code == code && p.IsDeleted);
 
             if (b != null)
             {
@@ -341,6 +362,9 @@ namespace DalObject
         #region GetAllLinesBy
         IEnumerable<DO.Line> GetAllLinesBy(Predicate<DO.Line> predicate)
         {
+                return from line in DataSource.ListLines
+                       where predicate(line)
+                       select line.Clone();
 
         }
         #endregion
@@ -348,7 +372,7 @@ namespace DalObject
         #region GetLine
         DO.Line GetLine(int id)
         {
-            DO.Line l = DataSource.ListLines.Find(p => p.Id == id);
+            DO.Line l = DataSource.ListLines.Find(p => p.Id == id && p.IsDeleted);
 
             if (l != null)
                 return l.Clone();
@@ -360,7 +384,7 @@ namespace DalObject
         #region AddLine
         void AddLine(DO.Line line)
         {
-            if (DataSource.ListLines.FirstOrDefault(p => p.Id == line.Id) != null)
+            if (DataSource.ListLines.FirstOrDefault(p => p.Id == line.Id && p.IsDeleted) != null)
                 throw new DO.BadPersonIdException(line.Id, "Duplicate person ID");
             DataSource.ListBuses.Add(line.Clone());
         }
@@ -369,7 +393,7 @@ namespace DalObject
         #region UpdateLine
         void UpdateLine(DO.Line line)
         {
-            DO.Line l = DataSource.ListLines.Find(p => p.Id == line.Id);
+            DO.Line l = DataSource.ListLines.Find(p => p.Id == line.Id && p.IsDeleted);
 
             if (l != null)
             {
@@ -385,14 +409,17 @@ namespace DalObject
         #region UpdateLine
         void UpdateLine(int id, Action<DO.Line> update) //method that knows to updt specific fields in Line
         {
-            throw new NotImplementedException();
+                DO.Line line = DataSource.ListLines.Find(p => p.Id == id && p.IsDeleted == false);
+                if (line == null)
+                    throw new Exception();
+                update(line);
         }
         #endregion
 
         #region DeleteLine
         void DeleteLine(int id)
         {
-            DO.Line l = DataSource.ListLines.Find(p => p.Id == id);
+            DO.Line l = DataSource.ListLines.Find(p => p.Id == id && p.IsDeleted);
 
             if (l != null)
             {
@@ -416,6 +443,9 @@ namespace DalObject
         #region GetAllLinesStationBy
         IEnumerable<DO.LineStation> GetAllLinesStationBy(Predicate<DO.LineStation> predicate)
         {
+                return from line in DataSource.ListLineStations
+                       where predicate(line)
+                       select line.Clone();
 
         }
         #endregion
@@ -423,7 +453,7 @@ namespace DalObject
         #region GetLineStation
         DO.LineStation GetLineStation(int id)
         {
-            DO.LineStation b = DataSource.ListLineStations.Find(p => p.LineId == id);
+            DO.LineStation b = DataSource.ListLineStations.Find(p => p.LineId == id && p.IsDeleted);
 
             if (b != null)
                 return b.Clone();
@@ -435,7 +465,7 @@ namespace DalObject
         #region AddLineStation
         void AddLineStation(DO.LineStation lineStation)
         {
-            if (DataSource.ListLineStations.FirstOrDefault(p => p.LineId == lineStation.LineId) != null)
+            if (DataSource.ListLineStations.FirstOrDefault(p => p.LineId == lineStation.LineId && p.IsDeleted) != null)
                 throw new DO.BadPersonIdException(lineStation.LineId, "Duplicate person ID");
             DataSource.ListLineStations.Add(lineStation.Clone());
         }
@@ -444,7 +474,7 @@ namespace DalObject
         #region UpdateLineStation
         void UpdateLineStation(DO.LineStation lineStation)
         {
-            DO.LineStation b = DataSource.ListLineStations.Find(p => p.LineId == lineStation.LineId);
+            DO.LineStation b = DataSource.ListLineStations.Find(p => p.LineId == lineStation.LineId && p.IsDeleted);
 
             if (b != null)
             {
@@ -452,21 +482,24 @@ namespace DalObject
                 DataSource.ListLineStations.Add(lineStation.Clone());
             }
             else
-                throw new DO.BadPersonIdException(lineStation.LineId $"bad person id: {lineStation.LineId}");
+                throw new DO.BadPersonIdException(lineStation.LineId, $"bad person id: {lineStation.LineId}");
         }
         #endregion
 
         #region UpdateLineStation
         void UpdateLineStation(int id, Action<DO.LineStation> update) //method that knows to updt specific fields in LineStation
         {
-            throw new NotImplementedException();
+                DO.LineStation line = DataSource.ListLineStations.Find(p => (p.LineId == id// && p.StationCode == stationCode && p.IsDeleted == false));
+                if (line == null)
+                    throw new Exception();
+                update(line);
         }
         #endregion
 
         #region DeleteLineStation
         void DeleteLineStation(int id)
         {
-            DO.LineStation b = DataSource.ListLineStations.Find(p => p.LineId == id);
+            DO.LineStation b = DataSource.ListLineStations.Find(p => p.LineId == id && p.IsDeleted);
 
             if (b != null)
             {
@@ -490,14 +523,16 @@ namespace DalObject
         #region GetAllUsersBy
         IEnumerable<DO.User> GetAllUsersBy(Predicate<DO.User> predicate)
         {
-            throw new NotImplementedException();
+                return from user in DataSource.ListUsers
+                       where predicate(user)
+                       select user.Clone();
         }
         #endregion
 
         #region GetUser
         DO.User GetUser(string name)
         {
-            DO.User u = DataSource.ListUsers.Find(p => p.UserName == name);
+            DO.User u = DataSource.ListUsers.Find(p => p.UserName == name && p.IsDeleted);
 
             if (u != null)
                 return u.Clone();
@@ -509,7 +544,7 @@ namespace DalObject
         #region AddUser
         void AddUser(DO.User user)
         {
-            if (DataSource.ListUsers.FirstOrDefault(p => p.UserName == user.UserName) != null)
+            if (DataSource.ListUsers.FirstOrDefault(p => p.UserName == user.UserName && p.IsDeleted) != null)
                 throw new DO.BadPersonIdException(user.UserName, "Duplicate person ID");
             DataSource.ListUsers.Add(user.Clone());
         }
@@ -518,7 +553,7 @@ namespace DalObject
         #region UpdateUser
         void UpdateUser(DO.User user)
         {
-            DO.User u = DataSource.ListUsers.Find(p => p.UserName == user.UserName);
+            DO.User u = DataSource.ListUsers.Find(p => p.UserName == user.UserName && p.IsDeleted);
 
             if (u != null)
             {
@@ -531,16 +566,19 @@ namespace DalObject
         #endregion
 
         #region UpdateUser
-        void UpdateUser(int id, Action<DO.User> update)//method that knows to updt specific fields in User
+        void UpdateUser(string userName, Action<DO.User> update)//method that knows to updt specific fields in User
         {
-
+                DO.User user = DataSource.ListUsers.Find(p => p.UserName == userName && p.IsDeleted == false);
+                if (user == null)
+                    throw new Exception();
+                update(user);
         }
         #endregion
 
         #region DeleteUser
         void DeleteUser(string userName)
         {
-            DO.User u = DataSource.ListUsers.Find(p => p.UserName == userName);
+            DO.User u = DataSource.ListUsers.Find(p => p.UserName == userName && p.IsDeleted);
 
             if (u != null)
             {
@@ -565,14 +603,16 @@ namespace DalObject
         #region GetAllAdjacentStationsBy
         IEnumerable<DO.AdjacentStations> GetAllAdjacentStationsBy(Predicate<DO.AdjacentStations> predicate)
         {
-            throw new NotImplementedException();
+                return from adjacentStations in DataSource.ListAdjacentStations
+                       where predicate(adjacentStations)
+                       select adjacentStations.Clone();
         }
         #endregion
 
        #region GetAdjacentStations
         DO.AdjacentStations GetAdjacentStations(int id)
         {
-                DO.AdjacentStations a = DataSource.ListAdjacentStations.Find(p =>( p.CodeStation1 == id)&&(p.CodeStation2 == id));
+                DO.AdjacentStations a = DataSource.ListAdjacentStations.Find(p =>( p.CodeStation1 == id)&&(p.CodeStation2 == id)&& p.IsDeleted);
 
                 if (a != null)
                     return a.Clone();
@@ -584,7 +624,7 @@ namespace DalObject
         #region AddAdjacentStations
         void AddAdjacentStations(DO.AdjacentStations adjacentStations)
         {
-            if (DataSource.ListAdjacentStations.FirstOrDefault(p => (p.CodeStation1== adjacentStations.CodeStation1) && (p.CodeStation2 == adjacentStations.CodeStation2)) != null);
+            if (DataSource.ListAdjacentStations.FirstOrDefault(p => (p.CodeStation1== adjacentStations.CodeStation1) && (p.CodeStation2 == adjacentStations.CodeStation2)&& p.IsDeleted) != null);
                     throw new DO.BadPersonIdException(adjacentStations.CodeStation1, adjacentStations.CodeStation2, "Duplicate person ID");
             else
                 DataSource.ListAdjacentStations.Add(adjacentStations.Clone());
@@ -594,7 +634,7 @@ namespace DalObject
         #region UpdateAdjacentStations
         void UpdateAdjacentStations(DO.AdjacentStations adjacentStations)
         {
-            DO.AdjacentStations u = DataSource.ListAdjacentStations.Find(p => ((p.CodeStation1 == adjacentStations.CodeStation1) && (p.CodeStation2 == adjacentStations.CodeStation2)));
+            DO.AdjacentStations u = DataSource.ListAdjacentStations.Find(p => ((p.CodeStation1 == adjacentStations.CodeStation1) && (p.CodeStation2 == adjacentStations.CodeStation2))&& p.IsDeleted);
                 if (u != null)
                 {
                     DataSource.ListAdjacentStations.Remove(u);
@@ -606,16 +646,19 @@ namespace DalObject
         #endregion
 
         #region UpdateAdjacentStations
-        void UpdateAdjacentStations(int id, Action<DO.AdjacentStations> update) //method that knows to updt specific fields in AdjacentStations
+        void UpdateAdjacentStations(int stationCode1, int stationCode2, Action<DO.AdjacentStations> update) //method that knows to updt specific fields in AdjacentStations
         {
-            throw new NotImplementedException();
+                DO.AdjacentStations adjacentStations = DataSource.ListAdjacentStations.Find(p => ((p.CodeStation1 == stationCode1 && p.CodeStation2 == stationCode2 && p.IsDeleted == false || p.CodeStation1 == stationCode2 && p.CodeStation2 == stationCode1) && p.IsDeleted == false));
+                if (adjacentStations == null)
+                    throw new Exception();
+                update(adjacentStations);
         }
         #endregion
 
         #region DeleteAdjacentStations
         void DeleteAdjacentStations(int id)
         {
-                DO.AdjacentStations u = DataSource.ListAdjacentStations.Find(p => (p.CodeStation1 == id) && (p.CodeStation2 == id));
+                DO.AdjacentStations u = DataSource.ListAdjacentStations.Find(p => (p.CodeStation1 == id) && (p.CodeStation2 == id)&& p.IsDeleted);
 
             if (u != null)
                 {
@@ -639,17 +682,19 @@ namespace DalObject
         #region GetAllTripsBy
         IEnumerable<DO.Trip> GetAllTripsBy(Predicate<DO.Trip> predicate)
         {
-            throw new NotImplementedException();
+                return from trip in DataSource.ListTrips
+                       where predicate(trip)
+                       select trip.Clone();
         }
         #endregion
 
         #region GetTrip
         DO.Trip GetTrip(int id)
         {
-            DO.Trip t = DataSource.ListTrips.Find(p => p.Id == id);
+            DO.Trip trip = DataSource.ListTrips.Find(p => p.Id == id && p.IsDeleted);
 
-            if (t != null)
-                return t.Clone();
+            if (trip != null)
+                return trip.Clone();
             else
                 throw new DO.BadPersonIdException(id, $"bad person id: {id}");
         }
@@ -658,7 +703,7 @@ namespace DalObject
         #region AddTrip
         void AddTrip(DO.Trip trip)
         {
-            if (DataSource.ListTrips.FirstOrDefault(p => p.Id == trip.Id) != null)
+            if (DataSource.ListTrips.FirstOrDefault(p => p.Id == trip.Id && p.IsDeleted) != null)
                 throw new DO.BadPersonIdException(trip.Id, "Duplicate person ID");
             DataSource.ListTrips.Add(trip.Clone());
         }
@@ -667,7 +712,7 @@ namespace DalObject
         #region UpdateTrip
         void UpdateTrip(DO.Trip trip)
         {
-            DO.Trip u = DataSource.ListTrips.Find(p => p.Id == trip.Id);
+            DO.Trip u = DataSource.ListTrips.Find(p => p.Id == trip.Id && p.IsDeleted);
 
             if (u != null)
             {
@@ -682,14 +727,17 @@ namespace DalObject
         #region UpdateTrip
         void UpdateTrip(int id, Action<DO.Trip> update) //method that knows to updt specific fields in Trip
         {
-
+                DO.Trip trip = DataSource.ListTrips.Find(p => p.Id == id && p.IsDeleted == false);
+                if (trip == null)
+                    throw new Exception();
+                update(trip);
         }
         #endregion
 
         #region DeleteTrip
         void DeleteTrip(int id)
         {
-            DO.Trip u = DataSource.ListTrips.Find(p => p.Id == id);
+            DO.Trip u = DataSource.ListTrips.Find(p => p.Id == id && p.IsDeleted);
 
             if (u != null)
             {
