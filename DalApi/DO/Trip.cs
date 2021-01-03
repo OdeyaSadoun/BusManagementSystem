@@ -8,7 +8,7 @@ namespace DO
 {
     public class Trip
     {
-        #region Id
+        #region Id - uniq number
         /// <summary>
         /// The trip's id
         /// </summary>

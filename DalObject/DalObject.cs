@@ -21,7 +21,7 @@ namespace DalObject
         #endregion
 
         //Implement IDL methods, CRUD
-
+        #region Bus
         #region GetBus
         public DO.Bus GetBus(int id)
         {
@@ -93,8 +93,10 @@ namespace DalObject
         {
             throw new NotImplementedException();
         }
-        #endregion 
+        #endregion
+        #endregion
 
+        #region BusOnTrip
         #region GetBusOnTrip
         public DO.BusOnTrip GetBusOnTrip(int id)
         {
@@ -173,7 +175,9 @@ namespace DalObject
                 throw new DO.BadPersonIdException(id, $"bad person id: {id}");
         }
         #endregion
+        #endregion
 
+        #region LineTrip
         #region GetAllLinesTrip
         IEnumerable<DO.LineTrip> GetAllLinesTrip()
         {
@@ -246,6 +250,9 @@ namespace DalObject
                 throw new DO.BadPersonIdException(id, $"bad person id: {id}");
         }
         #endregion
+        #endregion
+
+        #region Station
 
         #region GetAllStationes
         IEnumerable<DO.Station> GetAllStationes()
@@ -319,7 +326,9 @@ namespace DalObject
                 throw new DO.BadPersonIdException(code, $"bad person id: {code}");
         }
         #endregion
+        #endregion
 
+        #region Line
         #region GetAllLines
         IEnumerable<DO.Line> GetAllLines()
         {
@@ -393,8 +402,9 @@ namespace DalObject
                 throw new DO.BadPersonIdException(id, $"bad person id: {id}");
         }
         #endregion
+        #endregion
 
-
+        #region LineStation
         #region GetAllLinesStation
         IEnumerable<DO.LineStation> GetAllLinesStation()
         {
@@ -466,7 +476,9 @@ namespace DalObject
                 throw new DO.BadPersonIdException(id, $"bad person id: {id}");
         }
         #endregion
+        #endregion
 
+        #region User
         #region GetAllUsers
         IEnumerable<DO.User> GetAllUsers()
         {
@@ -538,6 +550,9 @@ namespace DalObject
                 throw new DO.BadPersonIdException(userName, $"bad person id: {userName}");
         }
         #endregion
+        #endregion
+
+        #region AdjacentStations
 
         #region GetAllAdjacentStations
         IEnumerable<DO.AdjacentStations> GetAllAdjacentStations()
@@ -569,8 +584,9 @@ namespace DalObject
         #region AddAdjacentStations
         void AddAdjacentStations(DO.AdjacentStations adjacentStations)
         {
-            if (DataSource.ListAdjacentStations.FirstOrDefault(p => (p.CodeStation1 == adjacentStations) && (p.CodeStation2 == adjacentStations) != null);
+            if (DataSource.ListAdjacentStations.FirstOrDefault(p => (p.CodeStation1== adjacentStations.CodeStation1) && (p.CodeStation2 == adjacentStations.CodeStation2)) != null);
                     throw new DO.BadPersonIdException(adjacentStations.CodeStation1, adjacentStations.CodeStation2, "Duplicate person ID");
+            else
                 DataSource.ListAdjacentStations.Add(adjacentStations.Clone());
         }
         #endregion
@@ -578,42 +594,56 @@ namespace DalObject
         #region UpdateAdjacentStations
         void UpdateAdjacentStations(DO.AdjacentStations adjacentStations)
         {
-                DO.User u = DataSource.ListAdjacentStations.Find(p => p.UserName == user.UserName);
-
+            DO.AdjacentStations u = DataSource.ListAdjacentStations.Find(p => ((p.CodeStation1 == adjacentStations.CodeStation1) && (p.CodeStation2 == adjacentStations.CodeStation2)));
                 if (u != null)
                 {
                     DataSource.ListAdjacentStations.Remove(u);
-                    DataSource.ListAdjacentStations.Add(user.Clone());
+                    DataSource.ListAdjacentStations.Add(adjacentStations.Clone());
                 }
                 else
-                    throw new DO.BadPersonIdException(user.UserName, $"bad person id: {user.UserName}");
+                    throw new DO.BadPersonIdException(adjacentStations.CodeStation1, adjacentStations.CodeStation2, $"bad person id: {adjacentStations.CodeStation1, adjacentStations.CodeStation2}");
         }
         #endregion
 
         #region UpdateAdjacentStations
         void UpdateAdjacentStations(int id, Action<DO.AdjacentStations> update) //method that knows to updt specific fields in AdjacentStations
         {
-
+            throw new NotImplementedException();
         }
         #endregion
 
         #region DeleteAdjacentStations
         void DeleteAdjacentStations(int id)
         {
-                DO.User u = DataSource.ListAdjacentStations.Find(p => p.UserName == userName);
+                DO.AdjacentStations u = DataSource.ListAdjacentStations.Find(p => (p.CodeStation1 == id) && (p.CodeStation2 == id));
 
-                if (u != null)
+            if (u != null)
                 {
                     DataSource.ListAdjacentStations.Remove(u);
                 }
                 else
-                    throw new DO.BadPersonIdException(userName, $"bad person id: {userName}");
+                    throw new DO.BadPersonIdException(id, $"bad person id: {id}");
         }
+        #endregion
         #endregion
 
         #region Trip
-        IEnumerable<DO.Trip> GetAllTrips();
-        IEnumerable<DO.Trip> GetAllTripsBy(Predicate<DO.Trip> predicate);
+        #region GetAllTrips
+        IEnumerable<DO.Trip> GetAllTrips()
+        {
+            return from user in DataSource.ListTrips
+                   select user.Clone();
+        }
+        #endregion
+
+        #region GetAllTripsBy
+        IEnumerable<DO.Trip> GetAllTripsBy(Predicate<DO.Trip> predicate)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region GetTrip
         DO.Trip GetTrip(int id)
         {
             DO.Trip t = DataSource.ListTrips.Find(p => p.Id == id);
@@ -623,10 +653,52 @@ namespace DalObject
             else
                 throw new DO.BadPersonIdException(id, $"bad person id: {id}");
         }
-        void AddTrip(DO.Trip trip);
-        void UpdateTrip(DO.Trip trip);
-        void UpdateTrip(int id, Action<DO.Trip> update); //method that knows to updt specific fields in Trip
-        void DeleteTrip(int id);
+        #endregion
+
+        #region AddTrip
+        void AddTrip(DO.Trip trip)
+        {
+            if (DataSource.ListTrips.FirstOrDefault(p => p.Id == trip.Id) != null)
+                throw new DO.BadPersonIdException(trip.Id, "Duplicate person ID");
+            DataSource.ListTrips.Add(trip.Clone());
+        }
+        #endregion
+
+        #region UpdateTrip
+        void UpdateTrip(DO.Trip trip)
+        {
+            DO.Trip u = DataSource.ListTrips.Find(p => p.Id == trip.Id);
+
+            if (u != null)
+            {
+                DataSource.ListTrips.Remove(u);
+                DataSource.ListTrips.Add(trip.Clone());
+            }
+            else
+                throw new DO.BadPersonIdException(trip.Id, $"bad person id: {trip.Id}");
+        }
+        #endregion
+
+        #region UpdateTrip
+        void UpdateTrip(int id, Action<DO.Trip> update) //method that knows to updt specific fields in Trip
+        {
+
+        }
+        #endregion
+
+        #region DeleteTrip
+        void DeleteTrip(int id)
+        {
+            DO.Trip u = DataSource.ListTrips.Find(p => p.Id == id);
+
+            if (u != null)
+            {
+                DataSource.ListTrips.Remove(u);
+            }
+            else
+                throw new DO.BadPersonIdException(id, $"bad person id: {id}");
+        }
+        #endregion
         #endregion
     }
 }
