@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    class LineTrip
+    public class LineTrip
     {
-        #region Id
+        #region Id - uniqe number
         /// <summary>
         /// The ID of this line trip
         /// </summary>
-        public int Id { get; set; }
+        public int Id { get; set; }//uniqe number
         #endregion
 
-        #region LineId
+        #region LineNumber - uniqe number
         /// <summary>
         /// The ID of the line for this travel
         /// </summary>
-        public int LineId { get; set; }
+        public int LineNumber { get; set; }//uniqe number
         #endregion
 
         #region StartAt

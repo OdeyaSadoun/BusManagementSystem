@@ -15,18 +15,18 @@ namespace DO
         public int Id { get; set; } // uniqe number
         #endregion
 
-        #region LicenseNumber
+        #region LicenseNumber - uniqe number
         /// <summary>
         /// License number of this bus
         /// </summary>
-        public int LicenseNumber { get; set; }
+        public int LicenseNumber { get; set; }//uniqe number
         #endregion
 
-        #region LineId
+        #region LineNumber
         /// <summary>
         /// Identifies the line in the current trip
         /// </summary>
-        public int LineId { get; set; }
+        public int LineNumber { get; set; }
         #endregion
 
         #region PlannedTakeOff

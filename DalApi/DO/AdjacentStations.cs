@@ -43,8 +43,7 @@ namespace DO
         public bool IsDeleted { get; set; }
         #endregion
 
-
-
+        /*********************/
 
         #region ToString
         /// <summary>

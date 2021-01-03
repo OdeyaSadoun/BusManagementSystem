@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    class AdjancentStations
+    public class AdjancentStations
     {
         #region CodeStation1 - uniqe number1
         /// <summary>

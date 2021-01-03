@@ -43,11 +43,11 @@ namespace DO
         public double FuelRemain { get; set; }
         #endregion
 
-        #region currentMileage
+        #region CurrentMileage
         /// <summary>
         /// The amount of mileage needed for the current trip
         /// </summary>
-        public float currentMileage { get; set; }
+        public float CurrentMileage { get; set; }
         #endregion
 
         #region Status

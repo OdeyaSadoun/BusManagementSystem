@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    class LineStation
+    public class LineStation
     {
-        #region LineId
+        #region LineId - uniqe number
         /// <summary>
         /// The ID of the line
         /// </summary>
-        public int LineId { get; set; }
+        public int LineId { get; set; }//uniqe number
         #endregion
 
-        #region StationCode
+        #region StationCode - uniqe number
         /// <summary>
         /// The ID of the station
         /// </summary>
-        public int StationCode { get; set; }
+        public int StationCode { get; set; }//uniqe number
         #endregion
 
         #region LineStationIndex

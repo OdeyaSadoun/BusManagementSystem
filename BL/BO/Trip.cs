@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    class Trip
+    public class Trip
     {
         #region Id - uniq number
         /// <summary>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    class Line
+    public class Line
     {
         #region Id - uniqe number
         /// <summary>

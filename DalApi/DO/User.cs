@@ -43,6 +43,27 @@ namespace DO
         public Profile UserProfile { get; set; }
         #endregion
 
+        #region ID
+        /// <summary>
+        /// the user's id
+        /// </summary>
+        public int ID { get; set; }
+        #endregion
+
+        #region Birthday
+        /// <summary>
+        /// Date of birth
+        /// </summary>
+        public DateTime Birthday { get; set; }
+        #endregion
+
+        #region Balance
+        /// <summary>
+        /// The balance of money left to the multi-line user
+        /// </summary>
+        public double Balance { get; set; }
+        #endregion
+
         /*************************/
 
         #region ToString

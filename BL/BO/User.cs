@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    class User
+    public class User
     {
         #region UserName - uniqe user name
         /// <summary>
@@ -41,6 +41,27 @@ namespace BO
         /// Does this bus exist in the system or is it deleted from it
         /// </summary>
         public bool IsDeleted { get; set; }
+        #endregion
+
+        #region ID
+        /// <summary>
+        /// the user's id
+        /// </summary>
+        public int ID { get; set; }
+        #endregion
+
+        #region Birthday
+        /// <summary>
+        /// Date of birth
+        /// </summary>
+        public DateTime Birthday { get; set; }
+        #endregion
+
+        #region Balance
+        /// <summary>
+        /// The balance of money left to the multi-line user
+        /// </summary>
+        public double Balance { get; set; }
         #endregion
     }
 }
