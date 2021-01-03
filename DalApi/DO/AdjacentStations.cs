@@ -24,7 +24,7 @@ namespace DO
 
         #region Distance
         /// <summary>
-        /// The distance between the 2 stations
+        /// The distance between 2 stations
         /// </summary>
         public double  Distance { get; set; }
         #endregion
