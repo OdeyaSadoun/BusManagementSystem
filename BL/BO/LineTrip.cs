@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DO
+namespace BO
 {
-    public class LineTrip
+    class LineTrip
     {
         #region Id
         /// <summary>
@@ -62,16 +62,6 @@ namespace DO
         /// Is there a bench at the bus stop for the benefit of the residents
         /// </summary>
         public bool IsBench { get; set; }
-        #endregion
-
-        /*************************/
-
-        #region ToString
-        /// <summary>
-        /// A to string function
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString() => this.ToStringProperty();
         #endregion
     }
 }

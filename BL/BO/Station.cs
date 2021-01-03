@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DO
+namespace BO
 {
-    public class Station
+    class Station
     {
         #region Code - uniqe code
         /// <summary>
@@ -55,16 +55,6 @@ namespace DO
         /// Is the bus accessible to the disabled or not
         /// </summary>
         public bool IsAccessible { get; set; }
-        #endregion
-
-        /*************************/
-
-        #region ToString
-        /// <summary>
-        /// A to string function
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString() => this.ToStringProperty();
         #endregion
     }
 }

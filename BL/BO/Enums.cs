@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DO
-{ 
+namespace BO
+{
     //Enums:
 
     #region Area
     public enum Area //for the buses
     {
-        North = 1, NorthSouth , South, Center, NorthCenter, SouthCenter, Jerusalem, JerusalemNorth, JerusalemCenter, JerusalemSouth
+        North = 1, NorthSouth, South, Center, NorthCenter, SouthCenter, Jerusalem, JerusalemNorth, JerusalemCenter, JerusalemSouth
     }
     #endregion
 

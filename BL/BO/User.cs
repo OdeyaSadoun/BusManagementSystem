@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DO
+namespace BO
 {
-    public class User
+    class User
     {
         #region UserName - uniqe user name
         /// <summary>
         /// Username - the unique ID of the user
         /// </summary>
-        public string UserName{ get; set; }//uniqe user name
+        public string UserName { get; set; }//uniqe user name
         #endregion
 
         #region Password
@@ -29,13 +29,6 @@ namespace DO
         public bool Admin { get; set; }
         #endregion
 
-        #region IsDeleted
-        /// <summary>
-        /// Does this bus exist in the system or is it deleted from it
-        /// </summary>
-        public bool IsDeleted { get; set; }
-        #endregion
-
         #region UserProfile
         /// <summary>
         /// This user's profile
@@ -43,14 +36,11 @@ namespace DO
         public Profile UserProfile { get; set; }
         #endregion
 
-        /*************************/
-
-        #region ToString
+        #region IsDeleted
         /// <summary>
-        /// A to string function
+        /// Does this bus exist in the system or is it deleted from it
         /// </summary>
-        /// <returns></returns>
-        public override string ToString() => this.ToStringProperty();
+        public bool IsDeleted { get; set; }
         #endregion
     }
 }

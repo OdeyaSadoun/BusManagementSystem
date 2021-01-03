@@ -41,6 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BO\AdjancentStations.cs" />
+    <Compile Include="BO\Bus.cs" />
+    <Compile Include="BO\BusOnTrip.cs" />
+    <Compile Include="BO\Enums.cs" />
+    <Compile Include="BO\Exceptions.cs" />
+    <Compile Include="BO\Line.cs" />
+    <Compile Include="BO\LineStation.cs" />
+    <Compile Include="BO\LineTrip.cs" />
+    <Compile Include="BO\Station.cs" />
+    <Compile Include="BO\Tools.cs" />
+    <Compile Include="BO\Trip.cs" />
+    <Compile Include="BO\User.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

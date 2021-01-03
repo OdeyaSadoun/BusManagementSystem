@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DO
+namespace BO
 {
-    public class Bus
+    class Bus
     {
         #region LicenseNumber - uniqe number
         /// <summary>
@@ -84,16 +84,5 @@ namespace DO
         /// </summary>
         public bool IsAccessible { get; set; }
         #endregion
-
-        /*************************/
-
-        #region ToString
-        /// <summary>
-        /// A to string function
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString() => this.ToStringProperty();
-        #endregion
-
     }
 }
