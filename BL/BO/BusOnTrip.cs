@@ -84,5 +84,12 @@ namespace BO
         /// </summary>
         public bool IsDeleted { get; set; }
         #endregion
+
+        #region ListOfStations
+        /// <summary>
+        /// the list of all the stations in this bus on trip
+        /// </summary>
+        public IEnumerable<Station> ListOfStations{ get; set; }
+        #endregion
     }
 }

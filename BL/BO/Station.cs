@@ -56,5 +56,12 @@ namespace BO
         /// </summary>
         public bool IsAccessible { get; set; }
         #endregion
+
+        #region ListOfLines
+        /// <summary>
+        /// the list of all the stations in this bus on trip
+        /// </summary>
+        public IEnumerable<Line> ListOfLines { get; set; }
+        #endregion
     }
 }

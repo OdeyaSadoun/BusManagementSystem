@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLApi\BLFactory.cs" />
+    <Compile Include="BLImp.cs" />
     <Compile Include="BO\AdjancentStations.cs" />
     <Compile Include="BO\Bus.cs" />
     <Compile Include="BO\BusOnTrip.cs" />
@@ -53,6 +55,7 @@
     <Compile Include="BO\Tools.cs" />
     <Compile Include="BO\Trip.cs" />
     <Compile Include="BO\User.cs" />
+    <Compile Include="BLApi\IBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
