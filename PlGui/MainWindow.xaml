@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="UserNane" HorizontalAlignment="Left" Height="23" Margin="274,99,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="Password" HorizontalAlignment="Left" Margin="274,145,0,0" VerticalAlignment="Top" Width="120" Height="27" PasswordChar="●"  MaxLength="8"/>
     </Grid>
 </Window>
