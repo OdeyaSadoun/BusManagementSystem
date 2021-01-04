@@ -64,6 +64,17 @@ namespace DO
         public double Balance { get; set; }
         #endregion
 
+
+        #region FirstName
+        public string FirstName  { get; set; }
+        #endregion
+
+        #region LastName
+        public string LastName { get; set; }
+        #endregion
+
+
+
         /*************************/
 
         #region ToString
