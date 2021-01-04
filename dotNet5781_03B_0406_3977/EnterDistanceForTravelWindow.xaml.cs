@@ -59,5 +59,9 @@ namespace dotNet5781_03B_0406_3977
             }
         }
 
+        private void TextBoxKm_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

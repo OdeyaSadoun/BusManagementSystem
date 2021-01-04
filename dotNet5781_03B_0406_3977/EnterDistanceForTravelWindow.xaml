@@ -18,7 +18,7 @@ VerticalAlignment="Stretch" Width="auto">
         <Label x:Name="lable_distance" Content="Enter a number of kilometers on this travel:&#xA;" HorizontalAlignment="Stretch" Margin="65,86,40,153" VerticalAlignment="Stretch" Height="30" Width="351" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
 
         <!--<Button x:Name="Enter_km_button" Content="Go to travel" HorizontalAlignment="Left" Margin="203,214,0,0" VerticalAlignment="Top" Width="75" Click="Enter_km_button_Click"/>-->
-        <TextBox x:Name="TextBoxKm" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Stretch" Height="41" Margin="179,143,157,85" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="120" FontSize="18" TextAlignment="Center" Grid.Column="1"/>
+        <TextBox x:Name="TextBoxKm" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Stretch" Height="41" Margin="179,143,157,85" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="120" FontSize="18" TextAlignment="Center" Grid.Column="1" TextChanged="TextBoxKm_TextChanged"/>
 
     </Grid>
 </Window>
