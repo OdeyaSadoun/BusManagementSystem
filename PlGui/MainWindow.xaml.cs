@@ -36,19 +36,19 @@ namespace PlGui
             
             Close();
         }
-        public void Reset()
-        {
-            textBoxFirstName.Text = "";
-            textBoxLastName.Text = "";
-            textBoxEmail.Text = "";
-            textBoxAddress.Text = "";
-            passwordBox1.Password = "";
-            passwordBoxConfirm.Password = "";
-        }
+        //public void Reset()
+        //{
+        //    textBoxFirstName.Text = "";
+        //    textBoxLastName.Text = "";
+        //    textBoxEmail.Text = "";
+        //    textBoxAddress.Text = "";
+        //    passwordBox1.Password = "";
+        //    passwordBoxConfirm.Password = "";
+        //}
 
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
-            Reset();
+           // Reset();
         }
         
         private void Submit_Click(object sender, RoutedEventArgs e)
@@ -94,12 +94,12 @@ namespace PlGui
                     //string address = textBoxAddress.Text;
                     SqlConnection con = new SqlConnection("Data Source=TESTPURU;Initial Catalog=Data;User ID=sa;Password=wintellect");
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("Insert into Registration (FirstName,LastName,Email,Password,Address) values('" + firstname + "','" + lastname + "','" + email + "','" + password + "','" + address + "')", con);
+                    SqlCommand cmd = new SqlCommand("Insert into Registration (FirstName,LastName,Email,Password,Address) values('" + firstname + "','" + lastname + "','" + email + "','" + password + "','" + "')", con);
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
                     con.Close();
                     errormessage.Text = "You have Registered successfully.";
-                    Reset();
+                   // Reset();
                 }
             }
         }
