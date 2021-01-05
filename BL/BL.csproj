@@ -54,8 +54,8 @@
     <Compile Include="BO\Station.cs" />
     <Compile Include="BO\Tools.cs" />
     <Compile Include="BO\Trip.cs" />
-    <Compile Include="BO\User.cs" />
     <Compile Include="BLApi\IBL.cs" />
+    <Compile Include="BO\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

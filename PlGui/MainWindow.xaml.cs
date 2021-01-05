@@ -89,7 +89,7 @@ namespace PlGui
                 else//הקלט תקין
                 {
                     errormessage.Text = "";
-                    BO.User u1 = new BO.User() { UserName = email, Password = password, FirstName = firstname, LastName = lastname, IsDeleted = false };
+                   // BO.User u1 = new BO.User() { UserName = email, Password = password, FirstName = firstname, LastName = lastname, IsDeleted = false };
 
                     //string address = textBoxAddress.Text;
                     SqlConnection con = new SqlConnection("Data Source=TESTPURU;Initial Catalog=Data;User ID=sa;Password=wintellect");

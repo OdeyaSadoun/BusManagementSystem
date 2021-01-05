@@ -29,18 +29,18 @@ namespace BO
         public bool Admin { get; set; }
         #endregion
 
-        #region UserProfile
-        /// <summary>
-        /// This user's profile
-        /// </summary>
-        public Profile UserProfile { get; set; }
-        #endregion
-
         #region IsDeleted
         /// <summary>
         /// Does this bus exist in the system or is it deleted from it
         /// </summary>
         public bool IsDeleted { get; set; }
+        #endregion
+
+        #region UserProfile
+        /// <summary>
+        /// This user's profile
+        /// </summary>
+        public Profile UserProfile { get; set; }
         #endregion
 
         #region ID
@@ -64,6 +64,7 @@ namespace BO
         public double Balance { get; set; }
         #endregion
 
+
         #region FirstName
         public string FirstName { get; set; }
         #endregion
@@ -71,5 +72,6 @@ namespace BO
         #region LastName
         public string LastName { get; set; }
         #endregion
+
     }
 }
