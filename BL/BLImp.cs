@@ -9,10 +9,12 @@ using DalApi;
 
 namespace BL
 {
-    //class BLImp : IBL
-    //{
-    //    //IDL dl = DLFactory.GetDL();
+    class BLImp : IBL //internal
+    {
+        IDL dl = DLFactory.GetDL();
 
 
-    //}
+
+
+    }
 }

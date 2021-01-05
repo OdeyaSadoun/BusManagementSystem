@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="BLApi\BLFactory.cs" />
     <Compile Include="BLImp.cs" />
-    <Compile Include="BO\AdjancentStations.cs" />
+    <Compile Include="BO\AdjacentStations.cs" />
     <Compile Include="BO\Bus.cs" />
     <Compile Include="BO\BusOnTrip.cs" />
     <Compile Include="BO\Enums.cs" />

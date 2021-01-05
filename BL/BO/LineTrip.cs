@@ -64,12 +64,12 @@ namespace BO
         public bool IsBench { get; set; }
         #endregion
 
-        #region ListOfLineStations
-        /// <summary>
-        /// the list of all the stations in this bus on trip
-        /// </summary>
-        public IEnumerable<LineStation> ListOfLineStations { get; set; }
-        #endregion
+        //#region ListOfLineStations
+        ///// <summary>
+        ///// the list of all the stations in this bus on trip
+        ///// </summary>
+        //public IEnumerable<LineStation> ListOfLineStations { get; set; }
+        //#endregion
 
     }
 }
