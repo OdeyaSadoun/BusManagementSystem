@@ -24,6 +24,11 @@ namespace DalObject
         //Implement IDL methods, CRUD
         #region Bus
         #region GetBus
+        /// <summary>
+        /// A function that return a bus
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public DO.Bus GetBus(int id)
         {
             DO.Bus b = DataSource.ListBuses.Find(p => ((p.LicenseNumber == id)&&(p.IsDeleted==false)));
@@ -36,14 +41,23 @@ namespace DalObject
         #endregion
 
         #region GetAllBuses
+        /// <summary>
+        /// A function that return all the buses 
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<DO.Bus> GetAllBuses()//פונקצית הרחבה
         {
             return from bus in DataSource.ListBuses
                    select bus.Clone();
         }
         #endregion
-        //**************************************************************************//
+    
         #region GetAllBusesBy
+        /// <summary>
+        /// A function that returns the buses that have the special thing that the predicat do
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         public IEnumerable<DO.Bus> GetAllBusesBy(Predicate<DO.Bus> predicate)
         {
             return from bus in DataSource.ListBuses
@@ -53,6 +67,10 @@ namespace DalObject
         #endregion
 
         #region AddBus
+        /// <summary>
+        /// A function that add a bus to the list
+        /// </summary>
+        /// <param name="bus"></param>
         public void AddBus(DO.Bus bus)
         {
             if (DataSource.ListBuses.FirstOrDefault(p => p.LicenseNumber == bus.LicenseNumber && p.IsDeleted) != null)
@@ -62,6 +80,10 @@ namespace DalObject
         #endregion
 
         #region DeleteBus
+        /// <summary>
+        /// A function that delete bus (mark the flag IsDeleted = true) 
+        /// </summary>
+        /// <param name="id"></param>
         public void DeleteBus(int id)
         {
             DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNumber == id && p.IsDeleted);
@@ -77,6 +99,10 @@ namespace DalObject
         #endregion
 
         #region UpdateBus
+        /// <summary>
+        /// A function that update the bus
+        /// </summary>
+        /// <param name="bus"></param>
 
         public void UpdateBus(DO.Bus bus)
         {
@@ -93,6 +119,11 @@ namespace DalObject
         #endregion
 
         #region UpdateBus
+        /// <summary>
+        /// method that knows to updt specific fields in bus
+        /// </summary>
+        /// <param name="licenseNumber"></param>
+        /// <param name="update"></param>
         public void UpdateBus(int licenseNumber, Action<DO.Bus> update)
         {
             DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNumber == licenseNumber && p.IsDeleted == false);
@@ -104,7 +135,14 @@ namespace DalObject
         #endregion
 
         #region BusOnTrip
+
         #region GetBusOnTrip
+        /// <summary>
+        ///  A function that return a bus on trip
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="licenseNumber"></param>
+        /// <returns></returns>
         public DO.BusOnTrip GetBusOnTrip(int id, int licenseNumber)
         {
             DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted);
@@ -117,6 +155,10 @@ namespace DalObject
         #endregion
 
         #region GetAllBusesOnTrip
+        /// <summary>
+        /// A function that return all the buses on trip
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<DO.BusOnTrip> GetAllBusesOnTrip()
         {
             return from bus in DataSource.ListBusesOnTrip
@@ -125,6 +167,11 @@ namespace DalObject
         #endregion
 
         #region GetAllBusesOnTripBy
+        /// <summary>
+        ///  A function that returns the buses on trip that have the special thing that the predicat do
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         public IEnumerable<DO.BusOnTrip> GetAllBusesOnTripBy(Predicate<DO.BusOnTrip> predicate)
         {
             return from bus in DataSource.ListBusesOnTrip
@@ -134,16 +181,24 @@ namespace DalObject
         #endregion
 
         #region AddBusOnTrip
+        /// <summary>
+        /// A function that add a bus on trip to the list
+        /// </summary>
+        /// <param name="bus"></param>
         public void AddBusOnTrip(DO.BusOnTrip bus)
-        {
-            /****************************************************************************************/
+        { 
             if (DataSource.ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && p.IsDeleted) != null)
                 throw new Exception();
+            bus.Id = DO.Configuration.BusOnTripID++;//המספר הרץ
             DataSource.ListBusesOnTrip.Add(bus.Clone());
         }
         #endregion
 
         #region UpdateBusOnTrip
+        /// <summary>
+        /// A function that update the bus on trip
+        /// </summary>
+        /// <param name="bus"></param>
         public void UpdateBusOnTrip(DO.BusOnTrip bus)
         {
             DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && p.IsDeleted);
@@ -175,13 +230,19 @@ namespace DalObject
         #endregion
 
         #region DeleteBusOnTrip
+        /// <summary>
+        /// A function that delete bus on trip (mark the flag IsDeleted = true) 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="licenseNumber"></param>
         public void DeleteBusOnTrip(int id, int licenseNumber)
         {
             DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted);
 
             if (b != null)
             {
-                DataSource.ListBusesOnTrip.Remove(b);
+                //DataSource.ListBusesOnTrip.Remove(b);
+                b.IsDeleted = true;
             }
             else
                 throw new Exception();
@@ -191,6 +252,10 @@ namespace DalObject
 
         #region LineTrip
         #region GetAllLinesTrip
+        /// <summary>
+        /// A function that return all the lines trip
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<DO.LineTrip> GetAllLinesTrip()
         {
             return from lt in DataSource.ListLinesTrip
@@ -199,6 +264,11 @@ namespace DalObject
         #endregion
 
         #region GetAllLinesTripBy
+        /// <summary>
+        /// A function that returns the lines trip that have the special thing that the predicat do
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         public IEnumerable<DO.LineTrip> GetAllLinesTripBy(Predicate<DO.LineTrip> predicate)
         {
             return from trip in DataSource.ListLinesTrip
@@ -208,6 +278,12 @@ namespace DalObject
         #endregion
 
         #region GetLineTrip
+        /// <summary>
+        /// A function that return a line trip
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="lineId"></param>
+        /// <returns></returns>
         public DO.LineTrip GetLineTrip(int id, int lineId)
         {
             DO.LineTrip lt = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId== lineId && p.IsDeleted);
@@ -220,6 +296,10 @@ namespace DalObject
         #endregion
 
         #region AddLineTrip
+        /// <summary>
+        /// A function that add a line trip to the list
+        /// </summary>
+        /// <param name="lt"></param>
         public void AddLineTrip(DO.LineTrip lt)
         {
             if (DataSource.ListLinesTrip.FirstOrDefault(p => p.Id == lt.Id && p.LineId == lt.LineId && p.IsDeleted) != null)
@@ -229,6 +309,10 @@ namespace DalObject
         #endregion
 
         #region UpdateLineTrip
+        /// <summary>
+        /// A function that update the line trip
+        /// </summary>
+        /// <param name="bus"></param>
         public void UpdateLineTrip(DO.LineTrip bus)
         {
 
@@ -245,7 +329,13 @@ namespace DalObject
         #endregion
 
         #region UpdateLineTrip
-        public void UpdateLineTrip(int id, int lineId, Action<DO.LineTrip> update) //method that knows to updt specific fields in LineTrip
+        /// <summary>
+        /// method that knows to updt specific fields in LineTrip
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="lineId"></param>
+        /// <param name="update"></param>
+        public void UpdateLineTrip(int id, int lineId, Action<DO.LineTrip> update)
         {
 
             DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId  && p.IsDeleted == false);
@@ -256,13 +346,19 @@ namespace DalObject
         #endregion
 
         #region DeleteLineTrip
+        /// <summary>
+        /// A function that delete line trip (mark the flag IsDeleted = true) 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="lineId"></param>
         public void DeleteLineTrip(int id, int lineId)
         {
             DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId  && p.IsDeleted);
 
             if (b != null)
             {
-                DataSource.ListLinesTrip.Remove(b);
+                //DataSource.ListLinesTrip.Remove(b);
+                b.IsDeleted = true;
             }
             else
                 throw new Exception();
@@ -273,6 +369,10 @@ namespace DalObject
         #region Station
 
         #region GetAllStationes
+        /// <summary>
+        /// A function that return all the stations
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<DO.Station> GetAllStationes()
         {
             return from bus in DataSource.ListStations
@@ -281,6 +381,11 @@ namespace DalObject
         #endregion
 
         #region GetAllStationesBy
+        /// <summary>
+        /// A function that returns the stations that have the special thing that the predicat do
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         public IEnumerable<DO.Station> GetAllStationesBy(Predicate<DO.Station> predicate)
         {
             return from station in DataSource.ListStations
@@ -290,6 +395,11 @@ namespace DalObject
         #endregion
 
         #region GetStation
+        /// <summary>
+        ///  A function that return a station
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         public DO.Station GetStation(int code)
         {
             DO.Station b = DataSource.ListStations.Find(p => p.Code == code && p.IsDeleted);
@@ -302,6 +412,10 @@ namespace DalObject
         #endregion
 
         #region AddStation
+        /// <summary>
+        /// A function that add a station to the list
+        /// </summary>
+        /// <param name="station"></param>
         public void AddStation(DO.Station station)
         {
             if (DataSource.ListStations.FirstOrDefault(p => p.Code == station.Code && p.IsDeleted) != null)
@@ -312,6 +426,10 @@ namespace DalObject
         #endregion
 
         #region UpdateStation
+        /// <summary>
+        /// A function that update the line trip
+        /// </summary>
+        /// <param name="station"></param>
         public void UpdateStation(DO.Station station)
         {
             DO.Station b = DataSource.ListStations.Find(p => p.Code == station.Code && p.IsDeleted);
@@ -327,7 +445,12 @@ namespace DalObject
         #endregion
 
         #region UpdateStation
-        public void UpdateStation(int id, Action<DO.Station> update) //method that knows to updt specific fields in station
+        /// <summary>
+        /// method that knows to updt specific fields in station
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="update"></param>
+        public void UpdateStation(int id, Action<DO.Station> update) 
             {
                 DO.Station station = DataSource.ListStations.Find(p => p.Code == id && p.IsDeleted == false);
                 if (station == null)
@@ -337,13 +460,18 @@ namespace DalObject
         #endregion
 
         #region DeleteStation
+        /// <summary>
+        /// A function that delete line trip (mark the flag IsDeleted = true) 
+        /// </summary>
+        /// <param name="code"></param>
         public void DeleteStation(int code)
         {
             DO.Station b = DataSource.ListStations.Find(p => p.Code == code && p.IsDeleted);
 
             if (b != null)
             {
-                DataSource.ListStations.Remove(b);
+                //DataSource.ListStations.Remove(b);
+                b.IsDeleted = true;
             }
             else
                 throw new Exception();
@@ -353,6 +481,10 @@ namespace DalObject
 
         #region Line
         #region GetAllLines
+        /// <summary>
+        /// A function that return all the lines
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<DO.Line> GetAllLines()
         {
             return from bus in DataSource.ListLines
@@ -362,6 +494,11 @@ namespace DalObject
         #endregion
 
         #region GetAllLinesBy
+        /// <summary>
+        ///  /// A function that returns the lines that have the special thing that the predicat do
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         public IEnumerable<DO.Line> GetAllLinesBy(Predicate<DO.Line> predicate)
         {
                 return from line in DataSource.ListLines
@@ -372,6 +509,11 @@ namespace DalObject
         #endregion
 
         #region GetLine
+        /// <summary>
+        ///  A function that return a line
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public DO.Line GetLine(int id)
         {
             DO.Line l = DataSource.ListLines.Find(p => p.Id == id && p.IsDeleted);
@@ -384,15 +526,24 @@ namespace DalObject
         #endregion
 
         #region AddLine
+        /// <summary>
+        /// A function that add a line to the list
+        /// </summary>
+        /// <param name="line"></param>
         public void AddLine(DO.Line line)
         {
             if (DataSource.ListLines.FirstOrDefault(p => p.Id == line.Id && p.IsDeleted) != null)
                 throw new Exception();
+            line.Id = DO.Configuration.LineID++; //המספר הרץ
             DataSource.ListLines.Add(line.Clone());
         }
         #endregion
 
         #region UpdateLine
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="line"></param>
         public void UpdateLine(DO.Line line)
         {
             DO.Line l = DataSource.ListLines.Find(p => p.Id == line.Id && p.IsDeleted);
