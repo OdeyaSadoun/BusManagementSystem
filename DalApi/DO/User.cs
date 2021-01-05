@@ -43,13 +43,6 @@ namespace DO
         public Profile UserProfile { get; set; }
         #endregion
 
-        #region ID
-        /// <summary>
-        /// the user's id
-        /// </summary>
-        public int ID { get; set; }
-        #endregion
-
         #region Birthday
         /// <summary>
         /// Date of birth
