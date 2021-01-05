@@ -66,15 +66,15 @@ namespace BLApi
         void DeleteLine(int id);
         #endregion
 
-        #region LineStation
-        IEnumerable<BO.LineStation> GetAllLinesStation();
-        IEnumerable<BO.LineStation> GetAllLinesStationBy(Predicate<DO.LineStation> predicate);
-        BO.LineStation GetLineStation(int id);
-        void AddLineStation(BO.LineStation lineStation);
-        void UpdateLineStation(BO.LineStation lineStation);
-        void UpdateLineStation(int id, Action<BO.LineStation> update); //method that knows to updt specific fields in LineStation
-        void DeleteLineStation(int id);
-        #endregion
+        //#region LineStation
+        //IEnumerable<BO.LineStation> GetAllLinesStation();
+        //IEnumerable<BO.LineStation> GetAllLinesStationBy(Predicate<DO.LineStation> predicate);
+        //BO.LineStation GetLineStation(int id);
+        //void AddLineStation(BO.LineStation lineStation);
+        //void UpdateLineStation(BO.LineStation lineStation);
+        //void UpdateLineStation(int id, Action<BO.LineStation> update); //method that knows to updt specific fields in LineStation
+        //void DeleteLineStation(int id);
+        //#endregion
 
         #region User
         IEnumerable<BO.User> GetAllUsers();
