@@ -68,7 +68,8 @@ namespace DalObject
 
             if (b != null)
             {
-                DataSource.ListBuses.Remove(b);
+                //DataSource.ListBuses.Remove(b);
+                b.IsDeleted = true;
             }
             else
                 throw new Exception();

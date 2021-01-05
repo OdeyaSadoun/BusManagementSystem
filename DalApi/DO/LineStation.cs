@@ -29,20 +29,6 @@ namespace DO
         public int LineStationIndex { get; set; }
         #endregion
 
-        #region PrevStation
-        /// <summary>
-        /// The number of the previous station within the route of the line
-        /// </summary>
-        public int PrevStation { get; set; }
-        #endregion
-
-        #region NextStation
-        /// <summary>
-        /// The next stop number within the line route
-        /// </summary>
-        public int NextStation { get; set; }
-        #endregion
-
         #region IsDeleted
         /// <summary>
         /// Does this bus exist in the system or is it deleted from it

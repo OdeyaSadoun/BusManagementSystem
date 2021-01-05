@@ -27,6 +27,7 @@ namespace PlGui
     /// </summary>
     public partial class MainWindow : Window
     {
+        IBL bl = BLFactory.getBL();
         public MainWindow()
         {
             InitializeComponent();
@@ -91,14 +92,14 @@ namespace PlGui
                 else//הקלט תקין
                 {
                     errormessage.Text = "";
-                   BO.User u1 = new BO.User() { UserName = email, Password = password, FirstName = firstname, LastName = lastname, IsDeleted = false,Birthday=dataPickerBirthday.DisplayDate, Admin=false, Balance=0 };
+                    BO.User u1 = new BO.User() { UserName = email, Password = password, FirstName = firstname, LastName = lastname, IsDeleted = false,Birthday=dataPickerBirthday.DisplayDate, Admin=false, Balance=0 };
                     if (YearsPassed18())
                     {
                         u1.UserProfile = Profile.Normal;
                     }
                     else
                         u1.UserProfile = Profile.Youth;
-                    
+                    bl.add(BO.u1);
                     //string address = textBoxAddress.Text;
                     SqlConnection con = new SqlConnection("Data Source=TESTPURU;Initial Catalog=Data;User ID=sa;Password=wintellect");
                     con.Open();
