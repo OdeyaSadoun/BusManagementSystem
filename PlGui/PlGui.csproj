@@ -108,6 +108,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\DataSources\BO.User.datasource" />
+    <None Include="Properties\DataSources\BO.User1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -120,14 +121,6 @@
     <ProjectReference Include="..\BL\BL.csproj">
       <Project>{ebcf69da-086f-402d-957f-3e15595437b4}</Project>
       <Name>BL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DalApi\DalApi.csproj">
-      <Project>{293b75fc-3615-4473-9c7a-68cd83f5072f}</Project>
-      <Name>DalApi</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DalObject\DalObject.csproj">
-      <Project>{03969a91-498f-463c-99a9-7485ed4fc6a4}</Project>
-      <Name>DalObject</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

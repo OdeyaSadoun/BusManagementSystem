@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    class Bus
+    public class Bus
     {
         #region LicenseNumber - uniqe number
         /// <summary>

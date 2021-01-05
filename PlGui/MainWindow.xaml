@@ -4,17 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlGui"
-        xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PlGui.MainWindow"
+        xmlns:BO="clr-namespace:BO;assembly=BL"  x:Class="PlGui.MainWindow"
         mc:Ignorable="d"
-        Title="Registration" Height="387" Width="528" Background="Black" Loaded="Window_Loaded">
+        Title="Registration" Height="387" Width="528" Background="Black" Loaded="Window_Loaded" >
     <Window.Resources>
+        <!--<CollectionViewSource x:Key="userViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:User}, CreateList=True}"/>-->
+
         <CollectionViewSource x:Key="userViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:User}, CreateList=True}"/>
+        <CollectionViewSource x:Key="busViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:Bus}, CreateList=True}"/>
+
     </Window.Resources>
     <!--<Grid KeyUp ="Grid_KeyUp" >
         <TextBox x:Name="UserNane" HorizontalAlignment="Left" Height="23" Margin="274,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="UserNane_TextChanged"/>
         <PasswordBox x:Name="Password" HorizontalAlignment="Left" Margin="274,145,0,0" VerticalAlignment="Top" Width="120" Height="27" PasswordChar="●"  MaxLength="8" PreviewTextInput="Password_PreviewTextInput"/>-->
     <!--</Grid>-->
-    <Grid Background="Bisque" Margin="0,4,-217.4,-251.4">
+    <Grid Background="Bisque" Margin="0,4,2,1">
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,5,0,0" x:Name="textBlockHeading" Text="Registration:" VerticalAlignment="Top" Width="110"  FontSize="17" FontStretch="ExtraCondensed"/>
         <!--Button as a Link button using style-->
         <Button Margin="451,5,12,288" Content="Login" Cursor="Hand" Click="Login_Click">
@@ -38,57 +42,76 @@
         </Button>
         <!--end Button as a Link button using style-->
         <Grid Margin="31,0,29,23" Background="White" Height="264" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="633*"/>
+                <ColumnDefinition Width="44*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="252*" />
                 <!--   <RowDefinition Height="12*" />-->
             </Grid.RowDefinitions>
             <TextBlock Height="20" HorizontalAlignment="Left" Margin="67,0,0,0" x:Name ="errormessage" VerticalAlignment="Top" Width="247"  OpacityMask="Crimson" Foreground="#FFE5572C" />
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,20,0,0" x:Name="textBlockFirstname" Text="First Name:" VerticalAlignment="Top" Width="110" />
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,50,0,0" x:Name="textBlockLastName" Text="Last Name:" VerticalAlignment="Top" Width="110" />
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,80,0,0" x:Name="textBlockEmailId" Text="EmailId" VerticalAlignment="Top" Width="110" />
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,107,0,0" x:Name="textBlockPassword" Text="Password:" VerticalAlignment="Top" Width="110"  />
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,136,0,0" x:Name="textBlockConfirmPwd" Text="ConfirmPassword:" VerticalAlignment="Top" Width="110" Grid.RowSpan="2" />
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,166,0,0" x:Name="textBlockAddress" Text="Address" VerticalAlignment="Top" Width="110" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,20,0,0" x:Name="textBoxFirstName" VerticalAlignment="Top" Width="222" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,50,0,0" x:Name="textBoxLastName" VerticalAlignment="Top" Width="222" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,80,0,0" x:Name="textBoxEmail" VerticalAlignment="Top" Width="222" />
-            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,107,0,0" x:Name="passwordBox1" VerticalAlignment="Top" Width="222" />
+            <!--<TextBlock Height="23" HorizontalAlignment="Left" Margin="67,136,0,0" x:Name="textBlockConfirmPwd" Text="ConfirmPassword:" VerticalAlignment="Top" Width="110" />-->
             <!--For password-->
-            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,136,0,0" x:Name="passwordBoxConfirm" VerticalAlignment="Top" Width="222" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,0,0,66" x:Name="textBoxAddress" VerticalAlignment="Bottom" Width="222" />
             <Button Content="Submit" Height="23" HorizontalAlignment="Left" Margin="183,204,0,0" x:Name="Submit" VerticalAlignment="Top" Width="70" Click="Submit_Click" />
             <Button Content="Reset" Height="23" HorizontalAlignment="Left" Margin="259,204,0,0" x:Name="Reset" VerticalAlignment="Top" Width="70" Click="Reset_Click" />
-            <Button Content="Cancel" Height="23" HorizontalAlignment="Right" Margin="0,204,60,0" x:Name="Cancel" VerticalAlignment="Top" Width="70" Click="Cancel_Click" />
-            <Grid x:Name="grid1" DataContext="{StaticResource userViewSource}" HorizontalAlignment="Left" Margin="440,-21,-181.2,0" VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-              
-                <CheckBox x:Name="adminCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Admin, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-                <Label Content="Balance:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-                <TextBox x:Name="balanceTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Balance, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-                <Label Content="Birthday:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-                <DatePicker x:Name="birthdayDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="2" SelectedDate="{Binding Birthday, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
-                <Label Content="ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-                <TextBox x:Name="iDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-                <Label Content="Password:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
-                <TextBox x:Name="passwordTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding Password, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-                <Label Content="User Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
-                <TextBox x:Name="userNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding UserName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-                <Label Content="User Profile:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
-                <TextBox x:Name="userProfileTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding UserProfile, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            </Grid>
+            <Button Content="Cancel" Height="23" HorizontalAlignment="Right" Margin="0,204,16.114,0" x:Name="Cancel" VerticalAlignment="Top" Width="70" Click="Cancel_Click" />
+        </Grid>
+        <Grid x:Name="grid2"  HorizontalAlignment="Left" Margin="467,171,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="29.238"/>
+                <ColumnDefinition Width="48.762"/>
+                <ColumnDefinition Width="1.025"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="grid1" DataContext="{StaticResource userViewSource}" HorizontalAlignment="Left" Margin="155,21,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="13"/>
+                <ColumnDefinition Width="95"/>
+                <ColumnDefinition Width="18"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Balance:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="1" VerticalAlignment="Center"/>
+            <TextBox x:Name="balanceTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="1" Text="{Binding Balance, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Grid.ColumnSpan="3"/>
+            <Label Content="Birthday:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="2" VerticalAlignment="Center"/>
+            <DatePicker x:Name="birthdayDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3,4,0,4" Grid.Row="2" SelectedDate="{Binding Birthday, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+            <Label Content="First Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="3" VerticalAlignment="Center"/>
+            <TextBox x:Name="textBoxFirstName" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="3" Text="{Binding FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Grid.ColumnSpan="3"/>
+            <Label Content="ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="4" VerticalAlignment="Center"/>
+            <TextBox x:Name="iDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="4" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Grid.ColumnSpan="3"/>
+            <Label Content="Last Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="6" VerticalAlignment="Center"/>
+            <TextBox x:Name="lastNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="6" Text="{Binding LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Grid.ColumnSpan="3"/>
+            <Label Content="Password:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="7" VerticalAlignment="Center"/>
+            <TextBox x:Name="passwordTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="7" Text="{Binding Password, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Grid.ColumnSpan="3"/>
+            <Label Content="User Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="8" VerticalAlignment="Center"/>
+            <TextBox x:Name="userNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="8" Text="{Binding UserName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Grid.ColumnSpan="3"/>
+            <Label Content="User Profile:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="9" VerticalAlignment="Center"/>
+            <TextBox x:Name="userProfileTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="9" Text="{Binding UserProfile, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Grid.ColumnSpan="3"/>
         </Grid>
     </Grid>
 

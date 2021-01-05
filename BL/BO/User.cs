@@ -72,6 +72,5 @@ namespace BO
         #region LastName
         public string LastName { get; set; }
         #endregion
-
     }
 }

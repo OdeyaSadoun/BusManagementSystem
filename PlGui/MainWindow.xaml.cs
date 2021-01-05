@@ -12,8 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DalApi;
-using DO;
+//using DalApi;
+//using DO;
+using BO;
+using BLApi;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
@@ -115,6 +117,20 @@ namespace PlGui
             System.Windows.Data.CollectionViewSource userViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("userViewSource")));
             // Load data by setting the CollectionViewSource.Source property:
             // userViewSource.Source = [generic data source]
+            System.Windows.Data.CollectionViewSource busViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("busViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // busViewSource.Source = [generic data source]
         }
+
+        //private void Window_Loaded(object sender, RoutedEventArgs e)
+        //{
+
+        //    System.Windows.Data.CollectionViewSource userViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("userViewSource")));
+        //    // Load data by setting the CollectionViewSource.Source property:
+        //    // userViewSource.Source = [generic data source]
+        //    System.Windows.Data.CollectionViewSource userViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("userViewSource1")));
+        //    // Load data by setting the CollectionViewSource.Source property:
+        //    // userViewSource1.Source = [generic data source]
+        //}
     }
 }

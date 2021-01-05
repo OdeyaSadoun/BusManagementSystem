@@ -68,5 +68,9 @@
       <Name>DalObject</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\BO.User.datasource" />
+    <None Include="Properties\DataSources\DO.User.datasource" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
