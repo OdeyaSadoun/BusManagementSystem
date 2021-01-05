@@ -6,66 +6,15 @@
         xmlns:local="clr-namespace:PlGui"
         xmlns:BO="clr-namespace:BO;assembly=BL"  x:Class="PlGui.MainWindow"
         mc:Ignorable="d"
-        Title="Registration" Height="400" Width="550" Background="Black" >
-    <Window.Resources>
-        <!--<CollectionViewSource x:Key="userViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:User}, CreateList=True}"/>-->
-
-        <!--<CollectionViewSource x:Key="userViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:User}, CreateList=True}"/>-->
-
-
-    </Window.Resources>
-    <!--<Grid KeyUp ="Grid_KeyUp" >
-        <TextBox x:Name="UserNane" HorizontalAlignment="Left" Height="23" Margin="274,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="UserNane_TextChanged"/>
-        <PasswordBox x:Name="Password" HorizontalAlignment="Left" Margin="274,145,0,0" VerticalAlignment="Top" Width="120" Height="27" PasswordChar="●"  MaxLength="8" PreviewTextInput="Password_PreviewTextInput"/>-->
-    <!--</Grid>-->
-
+        Title="MainWindow" Height="450" Width="600">
     <Grid  Height="350" Width="525" Background="Bisque">
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,5,0,0" Name="textBlockHeading" Text="Registration:" VerticalAlignment="Top" Width="110"  FontSize="17" FontStretch="ExtraCondensed"/>
-        <!--Button as a Link button using style-->
-        <Button Margin="451,5,12,288" Content="Login" Cursor="Hand" Click="Login_Click">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <TextBlock TextDecorations="Underline">  
-                    <ContentPresenter />
-                    </TextBlock>
-                </ControlTemplate>
-            </Button.Template>
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Foreground" Value="Navy" />
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Foreground" Value="Red" />
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
-        <!--end Button as a Link button using style-->
-        <Grid Margin="31,0,29,23" Background="White" Height="264" VerticalAlignment="Bottom">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="252*" />
-                <!--   <RowDefinition Height="12*" />-->
-            </Grid.RowDefinitions>
-            <TextBlock Height="20" HorizontalAlignment="Left" Margin="67,0,0,0" x:Name ="errormessage" VerticalAlignment="Top" Width="247"  OpacityMask="Crimson" Foreground="#FFE5572C" />
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,20,0,0" Name="textBlockFirstname" Text="First Name:" VerticalAlignment="Top" Width="110" />
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,50,0,0" Name="textBlockLastName" Text="Last Name:" VerticalAlignment="Top" Width="110" />
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,80,0,0" Name="textBlockEmailId" Text="User Name:" VerticalAlignment="Top" Width="110" />
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,107,0,0" Name="textBlockPassword" Text="Password:" VerticalAlignment="Top" Width="110"  />
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,136,0,0" Name="textBlockConfirmPwd" Text="ConfirmPassword:" VerticalAlignment="Top" Width="110" Grid.RowSpan="2" />
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,166,0,0" Name="textBlockBirthday" Text="Birthday:" VerticalAlignment="Top" Width="110" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,20,0,0" Name="textBoxFirstName" VerticalAlignment="Top" Width="222" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,50,0,0" Name="textBoxLastName" VerticalAlignment="Top" Width="222" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,80,0,0" Name="textBoxEmail" VerticalAlignment="Top" Width="222" Text="Enter your email " />
-            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,107,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="222" />
-            <!--For password-->
-            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,136,0,0" Name="passwordBoxConfirm" VerticalAlignment="Top" Width="222" />
-            <Button Content="Submit" Height="23" HorizontalAlignment="Left" Margin="183,204,0,0" Name="Submit" VerticalAlignment="Top" Width="70" Click="Submit_Click" />
-            <Button Content="Reset" Height="23" HorizontalAlignment="Left" Margin="259,204,0,0" Name="Reset" VerticalAlignment="Top" Width="70" Click="Reset_Click" />
-            <Button Content="Cancel" Height="23" HorizontalAlignment="Right" Margin="0,204,60,0" Name="Cancel" VerticalAlignment="Top" Width="70" Click="Cancel_Click" />
-            <DatePicker x:Name="dataPickerBirthday" HorizontalAlignment="Left" Margin="183,165,0,0" VerticalAlignment="Top"/>
-        </Grid>
-
+        <Label x:Name="labelWelcome" Content="Wellcome" HorizontalAlignment="Left" Margin="199,33,0,0" VerticalAlignment="Top" Width="115" FontWeight="Bold" FontSize="22"/>
+        <Button x:Name="LoginButton" Content="Log in" HorizontalAlignment="Left" Margin="249,112,0,0" VerticalAlignment="Top" Width="75" Click="LoginButton_Click"/>
+        <Button x:Name="UserButton" Content="Registration as a passenger" HorizontalAlignment="Left" Margin="336,177,0,0" VerticalAlignment="Top" Width="160" Click="UserButton_Click"/>
+        <Button x:Name="AdminButton" Content="Registration as an employee" HorizontalAlignment="Left" Margin="101,177,0,0" VerticalAlignment="Top" Width="179" Click="AdminButton_Click"/>
     </Grid>
+
+
+
 
 </Window>
