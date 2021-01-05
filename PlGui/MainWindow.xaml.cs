@@ -38,19 +38,19 @@ namespace PlGui
             
             Close();
         }
-        //public void Reset()
-        //{
-        //    textBoxFirstName.Text = "";
-        //    textBoxLastName.Text = "";
-        //    textBoxEmail.Text = "";
-        //    textBoxAddress.Text = "";
-        //    passwordBox1.Password = "";
-        //    passwordBoxConfirm.Password = "";
-        //}
+        public void ResetDetails()
+        {
+            textBoxFirstName.Text = "";
+            textBoxLastName.Text = "";
+            textBoxEmail.Text = "";
+            dataPickerBirthday.DisplayDate = DateTime.Today;
+            passwordBox1.Password = "";
+            passwordBoxConfirm.Password = "";
+        }
 
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
-           // Reset();
+            ResetDetails();
         }
         
         private void Submit_Click(object sender, RoutedEventArgs e)
@@ -91,8 +91,14 @@ namespace PlGui
                 else//הקלט תקין
                 {
                     errormessage.Text = "";
-                   // BO.User u1 = new BO.User() { UserName = email, Password = password, FirstName = firstname, LastName = lastname, IsDeleted = false };
-
+                   BO.User u1 = new BO.User() { UserName = email, Password = password, FirstName = firstname, LastName = lastname, IsDeleted = false,Birthday=dataPickerBirthday.DisplayDate, Admin=false, Balance=0 };
+                    if (YearsPassed18())
+                    {
+                        u1.UserProfile = Profile.Normal;
+                    }
+                    else
+                        u1.UserProfile = Profile.Youth;
+                    
                     //string address = textBoxAddress.Text;
                     SqlConnection con = new SqlConnection("Data Source=TESTPURU;Initial Catalog=Data;User ID=sa;Password=wintellect");
                     con.Open();
@@ -101,26 +107,40 @@ namespace PlGui
                     cmd.ExecuteNonQuery();
                     con.Close();
                     errormessage.Text = "You have Registered successfully.";
-                   // Reset();
+                    ResetDetails();
                 }
             }
         }
+        public bool YearsPassed18()
+        //A function that cheak if passed year from the date begin
+        {
+            DateTime zeroTime = new DateTime(1, 1, 1);
 
+            var diff = DateTime.Now - dataPickerBirthday.DisplayDate;
+            int years = (zeroTime + diff).Year - 1;
+            if (years >= 18)
+            {
+                return true;
+
+            }
+            return false;
+
+        }
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
+        //private void Window_Loaded(object sender, RoutedEventArgs e)
+        //{
 
-            System.Windows.Data.CollectionViewSource userViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("userViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // userViewSource.Source = [generic data source]
-            System.Windows.Data.CollectionViewSource busViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("busViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // busViewSource.Source = [generic data source]
-        }
+        //    System.Windows.Data.CollectionViewSource userViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("userViewSource")));
+        //    // Load data by setting the CollectionViewSource.Source property:
+        //    // userViewSource.Source = [generic data source]
+        //    System.Windows.Data.CollectionViewSource busViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("busViewSource")));
+        //    // Load data by setting the CollectionViewSource.Source property:
+        //    // busViewSource.Source = [generic data source]
+        //}
 
         //private void Window_Loaded(object sender, RoutedEventArgs e)
         //{
