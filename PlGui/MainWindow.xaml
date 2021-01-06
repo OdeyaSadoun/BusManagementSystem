@@ -9,9 +9,9 @@
         Title="MainWindow" Height="450" Width="600">
     <Grid  Height="350" Width="525" Background="Bisque">
         <Label x:Name="labelWelcome" Content="Wellcome" HorizontalAlignment="Left" Margin="199,33,0,0" VerticalAlignment="Top" Width="115" FontWeight="Bold" FontSize="22"/>
-        <Button x:Name="LoginButton" Content="Log in" HorizontalAlignment="Left" Margin="249,112,0,0" VerticalAlignment="Top" Width="75" Click="LoginButton_Click"/>
-        <Button x:Name="UserButton" Content="Registration as a passenger" HorizontalAlignment="Left" Margin="336,177,0,0" VerticalAlignment="Top" Width="160" Click="UserButton_Click"/>
-        <Button x:Name="AdminButton" Content="Registration as an employee" HorizontalAlignment="Left" Margin="101,177,0,0" VerticalAlignment="Top" Width="179" Click="AdminButton_Click"/>
+        <Button x:Name="LoginButton" Content="Log in" HorizontalAlignment="Left" Margin="180,112,0,0" VerticalAlignment="Top" Width="144" Click="LoginButton_Click" Height="37"/>
+        <Button x:Name="UserButton" Content="Registration as a passenger" HorizontalAlignment="Left" Margin="321,177,0,0" VerticalAlignment="Top" Width="175" Click="UserButton_Click" Height="95"/>
+        <Button x:Name="AdminButton" Content="Registration as an employee" HorizontalAlignment="Left" Margin="36,177,0,0" VerticalAlignment="Top" Width="188" Click="AdminButton_Click" Height="95"/>
     </Grid>
 
 
