@@ -55,13 +55,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CardWindow.xaml.cs">
+      <DependentUpon>CardWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContactWindow.xaml.cs">
+      <DependentUpon>ContactWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InfoWindow.xaml.cs">
+      <DependentUpon>InfoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CardWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContactWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,6 +168,30 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="manul.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bus-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="BUS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="responce2-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="D-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RES3-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Credit-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="BUS2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="BUS3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

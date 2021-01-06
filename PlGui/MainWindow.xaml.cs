@@ -51,6 +51,33 @@ namespace PlGui
             admin.ShowDialog();
         }
 
-        
+       
+        private void ButtonCard_Click(object sender, RoutedEventArgs e)
+        {
+            CardWindow card = new CardWindow();
+            card.ShowDialog();
+            
+        }
+
+        private void ButtonInfo_Click(object sender, RoutedEventArgs e)
+        {
+            InfoWindow info = new InfoWindow();
+            info.ShowDialog();
+          
+        }
+
+        private void ButtonAbout_Click(object sender, RoutedEventArgs e)
+        {
+            AboutWindow about = new AboutWindow();
+            about.ShowDialog();
+           
+        }
+
+        private void ButtonContact_Click(object sender, RoutedEventArgs e)
+        {
+            ContactWindow contact = new ContactWindow();
+            contact.ShowDialog();
+            
+        }
     }
 }
