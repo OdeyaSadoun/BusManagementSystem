@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DalApi
 {
-    public interface IDL/////
+    public interface IDL
     {
         #region Bus
         IEnumerable<DO.Bus> GetAllBuses(); //V

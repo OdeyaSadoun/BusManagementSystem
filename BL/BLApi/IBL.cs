@@ -11,11 +11,11 @@ namespace BLApi
     public interface IBL
     {
         #region Bus
-        IEnumerable<BO.Bus> GetAllBuses(); //V
+        IEnumerable<BO.Bus> GetAllBuses(); 
         IEnumerable<BO.Bus> GetAllBusesBy(Predicate<BO.Bus> predicate);
-        BO.Bus GetBus(int id);//V
-        void AddBus(BO.Bus bus);//V
-        void UpdateBus(BO.Bus bus);//V
+        BO.Bus GetBus(int id);
+        void AddBus(BO.Bus bus);
+        void UpdateBus(BO.Bus bus);
 
         /// <summary>
         /// method that knows to updt specific fields in Bus
