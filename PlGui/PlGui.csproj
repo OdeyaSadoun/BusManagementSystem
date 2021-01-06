@@ -123,5 +123,23 @@
       <Name>BL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="r2.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="r3.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="User2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="userWhite.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="userWhite-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="manul.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

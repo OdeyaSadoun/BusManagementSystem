@@ -28,6 +28,9 @@ namespace PlGui
         }
         UserWindow user = new UserWindow();
         AdminWindow admin = new AdminWindow();
+
+       
+
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
             if (textBoxEmail.Text.Length == 0)
@@ -77,6 +80,11 @@ namespace PlGui
         {
             admin.ShowDialog();
             Close();
+        }
+
+        private void textBoxEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
