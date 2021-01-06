@@ -7,56 +7,84 @@ using System.Threading.Tasks;
 namespace DO
 {
     [Serializable]
-
     public class IncorrectLicenseNumberException : Exception
     {
+        public int licenseNumber;
+        public IncorrectLicenseNumberException(int ln) : base() => licenseNumber = ln;
+        public IncorrectLicenseNumberException(int ln, string message) :
+            base(message) => licenseNumber = ln;
+        public IncorrectLicenseNumberException(int ln, string message, Exception innerException) :
+            base(message, innerException) => licenseNumber = ln;
 
+        public override string ToString() => base.ToString() + $", Incorrect license number: {licenseNumber}";
     }
 
-    public class IncorrectLineIDException : Exception
-    {
-
-    }
-
-    public class IncorrectCodeStationException : Exception
-    {
-
-    }
-
+    [Serializable]
     public class IncorrectInputException : Exception
     {
-
+        public IncorrectInputException(string message) : base(message) { }
+        public override string ToString() => base.ToString();
     }
 
-    public class IncorrectUserNameException : Exception
-    {
-
-    }
-    public class BadPersonIdException : Exception
+    [Serializable]
+    public class IncorrectLineIDException : Exception
     {
         public int ID;
-        public BadPersonIdException(int id) : base() => ID = id;
-        public BadPersonIdException(int id, string message) :
+        public IncorrectLineIDException(int id) : base() => ID = id;
+        public IncorrectLineIDException(int id, string message) :
             base(message) => ID = id;
-        public BadPersonIdException(int id, string message, Exception innerException) :
+        public IncorrectLineIDException(int id, string message, Exception innerException) :
             base(message, innerException) => ID = id;
 
-        public override string ToString() => base.ToString() + $", bad person id: {ID}";
+        public override string ToString() => base.ToString() + $", Incorrect Line ID number: {ID}";
     }
 
-    public class BadPersonIdCourseIDException : Exception
+    [Serializable]
+    public class IncorrectTripIDException : Exception
     {
-        public int personID;
-        public int courseID;
-        public BadPersonIdCourseIDException(int perID, int crsID) : base() { personID = perID; courseID = crsID; }
-        public BadPersonIdCourseIDException(int perID, int crsID, string message) :
-            base(message)
-        { personID = perID; courseID = crsID; }
-        public BadPersonIdCourseIDException(int perID, int crsID, string message, Exception innerException) :
-            base(message, innerException)
-        { personID = perID; courseID = crsID; }
+        public int ID;
+        public IncorrectTripIDException(int id) : base() => ID = id;
+        public IncorrectTripIDException(int id, string message) :
+            base(message) => ID = id;
+        public IncorrectTripIDException(int id, string message, Exception innerException) :
+            base(message, innerException) => ID = id;
 
-        public override string ToString() => base.ToString() + $", bad person id: {personID} and course id: {courseID}";
+        public override string ToString() => base.ToString() + $", Incorrect Line ID number: {ID}";
     }
+
+    [Serializable]
+    public class IncorrectCodeStationException : Exception
+    {
+        public int stationCode;
+        public IncorrectCodeStationException(int code) : base() => stationCode = code;
+        public IncorrectCodeStationException(int code, string message) :
+            base(message) => stationCode = code;
+
+        public IncorrectCodeStationException(int code1, int code2, string message) :
+           base(message)
+        {
+            stationCode = code1;
+            stationCode = code2;
+        }
+
+        public IncorrectCodeStationException(int code, string message, Exception innerException) :
+            base(message, innerException) => stationCode = code;
+
+        public override string ToString() => base.ToString() + $", Incorrect station code number: {stationCode}";
+    }
+
+    [Serializable]
+    public class IncorrectUserNameException : Exception
+    {
+        public string UserName;
+        public IncorrectUserNameException(string code) : base() => UserName = code;
+        public IncorrectUserNameException(string code, string message) :
+            base(message) => UserName = code;
+        public IncorrectUserNameException(string code, string message, Exception innerException) :
+            base(message, innerException) => UserName = code;
+
+        public override string ToString() => base.ToString() + $", Incorrect station code number: {UserName}";
+    }
+
 
 }

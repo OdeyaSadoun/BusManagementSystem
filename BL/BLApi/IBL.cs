@@ -86,16 +86,6 @@ namespace BLApi
         void DeleteUser(int id);
         #endregion
 
-        #region AdjacentStations
-        IEnumerable<BO.AdjacentStations> GetAllAdjacentStations();
-        IEnumerable<BO.AdjacentStations> GetAllAdjacentStationsBy(Predicate<BO.AdjacentStations> predicate);
-        BO.AdjacentStations GetAdjacentStationsr(int id);
-        void AddAdjacentStations(BO.AdjacentStations adjacentStations);
-        void UpdateAdjacentStations(BO.AdjacentStations adjacentStations);
-        void UpdateAdjacentStations(int id, Action<BO.AdjacentStations> update); //method that knows to updt specific fields in AdjacentStations
-        void DeleteAdjacentStations(int id);
-        #endregion
-
         #region Trip
         IEnumerable<BO.Trip> GetAllTrips();
         IEnumerable<BO.Trip> GetAllTripsBy(Predicate<BO.Trip> predicate);

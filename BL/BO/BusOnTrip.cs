@@ -85,7 +85,7 @@ namespace BO
         public bool IsDeleted { get; set; }
         #endregion
 
-        #region ListOfStations
+        #region ListOfStations //????
         /// <summary>
         /// the list of all the stations in this bus on trip
         /// </summary>

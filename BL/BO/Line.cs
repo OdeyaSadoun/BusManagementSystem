@@ -8,20 +8,6 @@ namespace BO
 {
     public class Line
     {
-        #region Id - uniqe number
-        /// <summary>
-        /// Line ID
-        /// </summary>
-        public int Id { get; set; }//uniqe number
-        #endregion
-
-        #region LineNumber
-        /// <summary>
-        /// Line number
-        /// </summary>
-        public int LineNumber { get; set; }
-        #endregion
-
         #region Area
         /// <summary>
         /// The area where the line travels
@@ -33,14 +19,7 @@ namespace BO
         /// <summary>
         /// The starting point of this line
         /// </summary>
-        public int FirstStation { get; set; }
-        #endregion
-
-        #region LastStation
-        /// <summary>
-        /// The destination station of this line
-        /// </summary>
-        public int LastStation { get; set; }
+        public BO.Station FirstStation { get; set; }
         #endregion
 
         #region Fare
@@ -57,18 +36,11 @@ namespace BO
         public TimeSpan TravelTimeInThisLine { get; set; }
         #endregion
 
-        #region IsDeleted
+        #region ListOfStationsInLine
         /// <summary>
-        /// Does this bus exist in the system or is it deleted from it
+        /// the list of all the stations in line in this bus on trip
         /// </summary>
-        public bool IsDeleted { get; set; }
+        public IEnumerable<StationInLine> ListOfStationsInLine { get; set; }
         #endregion
-
-        //#region ListOfLineStations
-        ///// <summary>
-        ///// the list of all the stations in this bus on trip
-        ///// </summary>
-        //public IEnumerable<LineStation> ListOfLineStations { get; set; }
-        //#endregion
     }
 }

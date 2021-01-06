@@ -77,7 +77,7 @@ namespace BO
         /// </summary>
         public bool IsDeleted { get; set; }
         #endregion
-
+  
         #region IsAccessible
         /// <summary>
         /// Is the bus accessible to the disabled or not

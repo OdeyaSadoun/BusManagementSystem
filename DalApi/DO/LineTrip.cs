@@ -50,19 +50,7 @@ namespace DO
         public bool IsDeleted { get; set; }
         #endregion
 
-        #region IsDigitalPanel
-        /// <summary>
-        /// Information whether there is a digital panel at the same station or not
-        /// </summary>
-        public bool IsDigitalPanel { get; set; }
-        #endregion
 
-        #region IsBench
-        /// <summary>
-        /// Is there a bench at the bus stop for the benefit of the residents
-        /// </summary>
-        public bool IsBench { get; set; }
-        #endregion
 
         /*************************/
 

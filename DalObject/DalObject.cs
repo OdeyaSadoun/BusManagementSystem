@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DS;
+using DO;
 using DalApi;
 
 namespace DalObject
@@ -36,7 +37,7 @@ namespace DalObject
             if (b != null)
                 return b.Clone();
             else
-                throw new Exception();
+                throw new DO.IncorrectLicenseNumberException(id, $"Incorrect license number: {id}. could not found this bus, try enter again");
         }
         #endregion
 
@@ -74,7 +75,7 @@ namespace DalObject
         public void AddBus(DO.Bus bus)
         {
             if (DataSource.ListBuses.FirstOrDefault(p => p.LicenseNumber == bus.LicenseNumber && p.IsDeleted) != null)
-                throw new Exception();
+                throw new IncorrectLicenseNumberException(bus.LicenseNumber, $"The bus {bus.LicenseNumber} is exsit in the system, could not add it again");
             DataSource.ListBuses.Add(bus.Clone());
         }
         #endregion
@@ -94,7 +95,7 @@ namespace DalObject
                 b.IsDeleted = true;
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectLicenseNumberException(id,$"Incorrect license number: {id}. could not found this bus, try enter again");
         }
         #endregion
 
@@ -114,7 +115,7 @@ namespace DalObject
                 DataSource.ListBuses.Add(bus.Clone());
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectLicenseNumberException(bus.LicenseNumber,$"The bus {bus.LicenseNumber} is not exsit in the system, could not update it");
         }
         #endregion
 
@@ -128,7 +129,7 @@ namespace DalObject
         {
             DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNumber == licenseNumber && p.IsDeleted == false);
             if (b == null)
-                throw new Exception();
+                throw new DO.IncorrectLicenseNumberException(licenseNumber,$"The bus {licenseNumber} is not exsit in the system, could not update it");
             update(b);
         }
         #endregion
@@ -150,7 +151,7 @@ namespace DalObject
             if (b != null)
                 return b.Clone();
             else
-                throw new Exception();
+                throw new DO.IncorrectInputException($"Incorrect license number: {licenseNumber} OR trip id: {id}. could not found this bus on trip, try enter again");
         }
         #endregion
 
@@ -188,7 +189,7 @@ namespace DalObject
         public void AddBusOnTrip(DO.BusOnTrip bus)
         { 
             if (DataSource.ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && p.IsDeleted) != null)
-                throw new Exception();
+                throw new IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is exsit in the system, could not add it again");
             bus.Id = DO.Configuration.BusOnTripID++;//המספר הרץ
             DataSource.ListBusesOnTrip.Add(bus.Clone());
         }
@@ -209,7 +210,7 @@ namespace DalObject
                 DataSource.ListBusesOnTrip.Add(bus.Clone());
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is not exsit in the system, could not update it");
         }
         #endregion UpdateBusOnTrip
 
@@ -224,7 +225,7 @@ namespace DalObject
         {
             DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber  && p.IsDeleted == false);
             if (b == null)
-                throw new Exception();
+                throw new DO.IncorrectInputException($"The bus on trip {licenseNumber} with the line ID:{id} is not exsit in the system, could not update it"); ;
             update(b);
         }
         #endregion
@@ -245,7 +246,7 @@ namespace DalObject
                 b.IsDeleted = true;
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectInputException($"Incorrect license number: {licenseNumber} OR line ID: {id} could not found this bus, try enter again");
         }
         #endregion
         #endregion
@@ -291,7 +292,7 @@ namespace DalObject
             if (lt != null)
                 return lt.Clone();
             else
-                throw new Exception();
+                throw new DO.IncorrectInputException($"Incorrect station code: {lineId} OR trip id: {id}. could not found this station, try enter again");
         }
         #endregion
 
@@ -303,7 +304,7 @@ namespace DalObject
         public void AddLineTrip(DO.LineTrip lt)
         {
             if (DataSource.ListLinesTrip.FirstOrDefault(p => p.Id == lt.Id && p.LineId == lt.LineId && p.IsDeleted) != null)
-                throw new Exception();
+                throw new IncorrectInputException($"The trip {lt.Id} with the line ID:{lt.LineId} is exsit in the system, could not add it again"); 
             DataSource.ListLinesTrip.Add(lt.Clone());
         }
         #endregion
@@ -313,18 +314,18 @@ namespace DalObject
         /// A function that update the line trip
         /// </summary>
         /// <param name="bus"></param>
-        public void UpdateLineTrip(DO.LineTrip bus)
+        public void UpdateLineTrip(DO.LineTrip lt)
         {
 
-            DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == bus.Id && p.LineId == bus.LineId && p.IsDeleted);
+            DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == lt.Id && p.LineId == lt.LineId && p.IsDeleted);
 
             if (b != null)
             {
                 DataSource.ListLinesTrip.Remove(b);
-                DataSource.ListLinesTrip.Add(bus.Clone());
+                DataSource.ListLinesTrip.Add(lt.Clone());
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectInputException($"The trip: {lt.Id} with the line ID: {lt.LineId} is not exsit in the system, could not update it"); 
         }
         #endregion
 
@@ -340,7 +341,7 @@ namespace DalObject
 
             DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId  && p.IsDeleted == false);
             if (b == null)
-                throw new Exception();
+                throw new DO.IncorrectInputException($"The trip: {id} with the line ID: {lineId} is not exsit in the system, could not update it");
             update(b);
         }
         #endregion
@@ -361,7 +362,7 @@ namespace DalObject
                 b.IsDeleted = true;
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectInputException($"The trip: {id} with the line ID: {lineId} is not exsit in the system. could not be deleted, try enter again");
         }
         #endregion
         #endregion
@@ -407,7 +408,7 @@ namespace DalObject
             if (b != null)
                 return b.Clone();
             else
-                throw new Exception();
+                throw new DO.IncorrectCodeStationException(code, $"Incorrect station code: {code}. could not found this station, try enter again");
         }
         #endregion
 
@@ -419,7 +420,7 @@ namespace DalObject
         public void AddStation(DO.Station station)
         {
             if (DataSource.ListStations.FirstOrDefault(p => p.Code == station.Code && p.IsDeleted) != null)
-                throw new Exception();
+                throw new IncorrectCodeStationException(station.Code, $"The station  {station.Code}  is exsit in the system, could not add it again");
             DataSource.ListStations.Add(station.Clone());
 
         }
@@ -440,7 +441,7 @@ namespace DalObject
                     DataSource.ListStations.Add(station.Clone());
                 }
                 else
-                throw new Exception();
+                throw new DO.IncorrectCodeStationException(station.Code,$"The station  {station.Code}  is not exsit in the system, could not update it");
         }
         #endregion
 
@@ -450,13 +451,13 @@ namespace DalObject
         /// </summary>
         /// <param name="id"></param>
         /// <param name="update"></param>
-        public void UpdateStation(int id, Action<DO.Station> update) 
-            {
-                DO.Station station = DataSource.ListStations.Find(p => p.Code == id && p.IsDeleted == false);
-                if (station == null)
-                    throw new Exception();
-                update(station);
-            }
+        public void UpdateStation(int id, Action<DO.Station> update)
+        {
+            DO.Station station = DataSource.ListStations.Find(p => p.Code == id && p.IsDeleted == false);
+            if (station == null)
+                throw new DO.IncorrectCodeStationException(id,$"The station {id}  is not exsit in the system, could not update it");
+            update(station);
+        }
         #endregion
 
         #region DeleteStation
@@ -474,7 +475,7 @@ namespace DalObject
                 b.IsDeleted = true;
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectCodeStationException(code, $"Incorrect station code: {code}. could not found this station, try enter again");
         }
         #endregion
         #endregion
@@ -521,7 +522,7 @@ namespace DalObject
             if (l != null)
                 return l.Clone();
             else
-                throw new Exception();
+                throw new DO.IncorrectLineIDException(id, $"Incorrect line: {id}. could not found this line, try enter again");
         }
         #endregion
 
@@ -533,7 +534,7 @@ namespace DalObject
         public void AddLine(DO.Line line)
         {
             if (DataSource.ListLines.FirstOrDefault(p => p.Id == line.Id && p.IsDeleted) != null)
-                throw new Exception();
+                throw new IncorrectLineIDException(line.Id,$"The line  {line.Id}  is exsit in the system, could not add it again");
             line.Id = DO.Configuration.LineID++; //המספר הרץ
             DataSource.ListLines.Add(line.Clone());
         }
@@ -554,7 +555,7 @@ namespace DalObject
                 DataSource.ListLines.Add(line.Clone());
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectLineIDException(line.Id,$"The line  {line.Id}  is not exsit in the system, could not update it");
 
         }
         #endregion
@@ -569,8 +570,8 @@ namespace DalObject
         {
                 DO.Line line = DataSource.ListLines.Find(p => p.Id == id && p.IsDeleted == false);
                 if (line == null)
-                    throw new Exception();
-                update(line);
+                throw new DO.IncorrectLineIDException(id,$"The line  {id}  is not exsit in the system, could not update it");
+            update(line);
         }
         #endregion
 
@@ -589,7 +590,7 @@ namespace DalObject
                 l.IsDeleted = true;
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectLineIDException(id, $"Incorrect line: {id}. could not found this line, try enter again");
         }
         #endregion
         #endregion
@@ -636,7 +637,7 @@ namespace DalObject
             if (b != null)
                 return b.Clone();
             else
-                throw new Exception();
+                throw new DO.IncorrectInputException($"Incorrect line: {lineId} OR  station code: {stationCode}. could not found this lineStation, try enter again");
         }
         #endregion
 
@@ -648,7 +649,7 @@ namespace DalObject
         public void AddLineStation(DO.LineStation lineStation)
         {
             if (DataSource.ListLineStations.FirstOrDefault(p => p.LineId == lineStation.LineId && p.StationCode==lineStation.StationCode && p.IsDeleted) != null)
-                throw new Exception();
+                throw new IncorrectInputException($"The line {lineStation.LineId} with the station code:{lineStation.StationCode} is exsit in the system, could not add it again");
             DataSource.ListLineStations.Add(lineStation.Clone());
         }
         #endregion
@@ -668,7 +669,7 @@ namespace DalObject
                 DataSource.ListLineStations.Add(lineStation.Clone());
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectInputException($"The line id: {lineStation.LineId} OR station code: {lineStation.StationCode} are not exsit in the system, could not update it");
         }
         #endregion
 
@@ -683,8 +684,8 @@ namespace DalObject
         {
                 DO.LineStation line = DataSource.ListLineStations.Find(p => (p.LineId == lineId && p.StationCode == stationCode && p.IsDeleted == false));
                 if (line == null)
-                    throw new Exception();
-                update(line);
+                throw new DO.IncorrectInputException($"The line id: {lineId} OR station code: {stationCode} are not exsit in the system, could not update it");
+            update(line);
         }
         #endregion
 
@@ -704,7 +705,7 @@ namespace DalObject
                 b.IsDeleted = true;
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectInputException($"Incorrect line id: {lineId} OR station code: {stationCode}. could not found this lineStation, try enter again");
         }
         #endregion
         #endregion
@@ -749,7 +750,7 @@ namespace DalObject
             if (u != null)
                 return u.Clone();
             else
-                throw new Exception();
+                throw new DO.IncorrectUserNameException(name, $"Incorrect user name: {name}. could not found this user name, try enter again");
         }
         #endregion
 
@@ -761,7 +762,7 @@ namespace DalObject
         public void AddUser(DO.User user)
         {
             if (DataSource.ListUsers.FirstOrDefault(p => p.UserName == user.UserName && p.IsDeleted) != null)
-                throw new Exception();
+                throw new IncorrectUserNameException(user.UserName, $"The user name:  {user.UserName}  is exsit in the system, could not add it again");
             DataSource.ListUsers.Add(user.Clone());
         }
         #endregion
@@ -781,7 +782,7 @@ namespace DalObject
                 DataSource.ListUsers.Add(user.Clone());
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectUserNameException(user.UserName, $"The user name:  {user.UserName}  is not exsit in the system, could not update it");
         }
         #endregion
 
@@ -795,8 +796,8 @@ namespace DalObject
         {
                 DO.User user = DataSource.ListUsers.Find(p => p.UserName == userName && p.IsDeleted == false);
                 if (user == null)
-                    throw new Exception();
-                update(user);
+                throw new DO.IncorrectUserNameException(userName, $"The user name:  {userName}  is not exsit in the system, could not update it");
+            update(user);
         }
         #endregion
 
@@ -815,7 +816,7 @@ namespace DalObject
                 u.IsDeleted = true;
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectUserNameException(userName, $"Incorrect user name: {userName}. could not delete this user, try enter again");
         }
         #endregion
         #endregion
@@ -862,7 +863,7 @@ namespace DalObject
                 if (a != null)
                     return a.Clone();
                 else
-                throw new Exception();
+                throw new DO.IncorrectCodeStationException(stationCode1, stationCode2, $"Incorrect station code: {stationCode1} or station code {stationCode2}. could not found thier stations, try enter again");
         }
         #endregion
 
@@ -874,7 +875,7 @@ namespace DalObject
         public void AddAdjacentStations(DO.AdjacentStations adjacentStations)
         {
             if (DataSource.ListAdjacentStations.FirstOrDefault(p => (p.CodeStation1== adjacentStations.CodeStation1) && (p.CodeStation2 == adjacentStations.CodeStation2)&& p.IsDeleted) != null)
-                      throw new Exception();
+                throw new DO.IncorrectCodeStationException(adjacentStations.CodeStation1, adjacentStations.CodeStation2, $"Incorrect station code: {adjacentStations.CodeStation1} or station code {adjacentStations.CodeStation2}. could not found thier stations, try enter again");
             else
                 DataSource.ListAdjacentStations.Add(adjacentStations.Clone());
         }
@@ -894,7 +895,7 @@ namespace DalObject
                     DataSource.ListAdjacentStations.Add(adjacentStations.Clone());
                 }
                 else
-                throw new Exception();
+                throw new DO.IncorrectCodeStationException(adjacentStations.CodeStation1, adjacentStations.CodeStation2, $"Incorrect station code: {adjacentStations.CodeStation1} or station code {adjacentStations.CodeStation2}. could not update, try enter again");
         }
         #endregion
 
@@ -909,8 +910,8 @@ namespace DalObject
         {
                 DO.AdjacentStations adjacentStations = DataSource.ListAdjacentStations.Find(p => ((p.CodeStation1 == stationCode1 && p.CodeStation2 == stationCode2 && p.IsDeleted == false || p.CodeStation1 == stationCode2 && p.CodeStation2 == stationCode1) && p.IsDeleted == false));
                 if (adjacentStations == null)
-                    throw new Exception();
-                update(adjacentStations);
+                throw new DO.IncorrectCodeStationException(stationCode1, stationCode2, $"Incorrect station code: {stationCode1} or station code {stationCode2}. could not update, try enter again");
+            update(adjacentStations);
         }
         #endregion
 
@@ -930,7 +931,8 @@ namespace DalObject
                 u.IsDeleted = true;
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectCodeStationException(stationCode1, stationCode2, $"Incorrect station code: {stationCode1} or station code {stationCode2}. could not delete the AdjacentStations, try enter again");
+
         }
         #endregion
         #endregion
@@ -975,7 +977,7 @@ namespace DalObject
             if (trip != null)
                 return trip.Clone();
             else
-                throw new Exception();
+                throw new DO. IncorrectTripIDException(id, $"Incorrect trip user id: {id}. could not found this trip, try enter again");
         }
         #endregion
 
@@ -987,7 +989,7 @@ namespace DalObject
         public void AddTrip(DO.Trip trip)
         {
             if (DataSource.ListTrips.FirstOrDefault(p => p.Id == trip.Id && p.IsDeleted) != null)
-                throw new Exception();
+                throw new DO.IncorrectTripIDException(trip.Id, $"The trip user id: {trip.Id} is exist in the system. could not add it again");
             trip.Id = DO.Configuration.TripID;
             DataSource.ListTrips.Add(trip.Clone());
         }
@@ -1008,7 +1010,7 @@ namespace DalObject
                 DataSource.ListTrips.Add(trip.Clone());
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectTripIDException(trip.Id, $"The trip user id: {trip.Id} is not exist in the system. could not update it");
         }
         #endregion
 
@@ -1022,8 +1024,8 @@ namespace DalObject
         {
                 DO.Trip trip = DataSource.ListTrips.Find(p => p.Id == id && p.IsDeleted == false);
                 if (trip == null)
-                    throw new Exception();
-                update(trip);
+                throw new DO.IncorrectTripIDException(id, $"The trip user id: {id} is not exist in the system. could not update it");
+            update(trip);
         }
         #endregion
 
@@ -1042,7 +1044,7 @@ namespace DalObject
                 u.IsDeleted = true;
             }
             else
-                throw new Exception();
+                throw new DO.IncorrectTripIDException(id, $"The trip user id: {id} is not exist in the system. could not detete it");
         }
         #endregion
         #endregion

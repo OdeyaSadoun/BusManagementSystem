@@ -50,26 +50,12 @@ namespace BO
         public bool IsDeleted { get; set; }
         #endregion
 
-        #region IsDigitalPanel
+        #region ListOfStationsInLine
         /// <summary>
-        /// Information whether there is a digital panel at the same station or not
+        /// the list of all the stations in line in this bus on trip
         /// </summary>
-        public bool IsDigitalPanel { get; set; }
+        public IEnumerable<StationInLine> ListOfStationsInLine { get; set; }
         #endregion
-
-        #region IsBench
-        /// <summary>
-        /// Is there a bench at the bus stop for the benefit of the residents
-        /// </summary>
-        public bool IsBench { get; set; }
-        #endregion
-
-        //#region ListOfLineStations
-        ///// <summary>
-        ///// the list of all the stations in this bus on trip
-        ///// </summary>
-        //public IEnumerable<LineStation> ListOfLineStations { get; set; }
-        //#endregion
 
     }
 }

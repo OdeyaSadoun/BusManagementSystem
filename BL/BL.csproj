@@ -43,13 +43,13 @@
   <ItemGroup>
     <Compile Include="BLApi\BLFactory.cs" />
     <Compile Include="BLImp.cs" />
-    <Compile Include="BO\AdjacentStations.cs" />
     <Compile Include="BO\Bus.cs" />
     <Compile Include="BO\BusOnTrip.cs" />
     <Compile Include="BO\Enums.cs" />
     <Compile Include="BO\Exceptions.cs" />
     <Compile Include="BO\Line.cs" />
-    <Compile Include="BO\StationsInLine.cs" />
+    <Compile Include="BO\ShortLine.cs" />
+    <Compile Include="BO\StationInLine.cs" />
     <Compile Include="BO\LineTrip.cs" />
     <Compile Include="BO\Station.cs" />
     <Compile Include="BO\Tools.cs" />
