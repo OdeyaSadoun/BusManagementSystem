@@ -26,7 +26,7 @@ namespace DO
         /// <summary>
         /// The distance between 2 stations
         /// </summary>
-        public double  Distance { get; set; }
+        public float  Distance { get; set; }
         #endregion
 
         #region TravelTime

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class Line
+    public class Line: ShortLine
     {
         #region Area
         /// <summary>
@@ -27,6 +27,21 @@ namespace BO
         /// How much do you have to pay for the trip
         /// </summary>
         public double Fare { get; set; }
+        #endregion
+
+        #region DistanceTo
+
+        /// <summary>
+        /// the distance from the current station to the next station 
+        /// </summary>
+        public float DistanceTo { get; set; }
+        #endregion
+
+        #region TimeTo
+        /// <summary>
+        /// the time travel from the current station to the next station
+        /// </summary>
+        public TimeSpan TimeTo { get; set; }
         #endregion
 
         #region TravelTimeInThisLine

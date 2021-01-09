@@ -27,12 +27,21 @@ namespace BL
             from.CopyPropertiesTo(to);
             return to;
         }
-        //public static BO.StudentCourse CopyToStudentCourse(this DO.Course course, DO.StudentInCourse sic)
+        public static BO.StationInLine CopyToStationInLine(this DO.Station st, DO.LineStation s)
+        {
+            BO.StationInLine stationInLine = new BO.StationInLine();
+            st.CopyPropertiesTo(stationInLine);
+            stationInLine.LineStationIndex = s.LineStationIndex;
+            stationInLine.StationCode = s.StationCode;
+            return stationInLine;
+        }
+
+        //public static BO.LinesInStation CopyToLineInStation(this DO.Line l, DO.LineStation s)
         //{
-        //    BO.StudentCourse result = (BO.StudentCourse)course.CopyPropertiesToNew(typeof(BO.StudentCourse));
-        //    // propertys' names changed? copy them here...
-        //    result.Grade = sic.Grade;
-        //    return result;
+        //    BO.LinesInStation lineInStation = new BO.LinesInStation();
+        //    l.CopyPropertiesTo(lineInStation);
+        //    lineInStation.LineStationIndex = s.LineStationIndex;
+        //    return lineInStation;
         //}
     }
 }
