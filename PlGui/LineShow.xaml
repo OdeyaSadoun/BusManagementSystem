@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="LineShow" Height="450" Width="800">
     <Grid>
-        <ListView HorizontalAlignment="Left" Height="100" Margin="358,187,0,0" ItemsSource="{Binding}" VerticalAlignment="Top" Width="100">
+        <ListView x:Name="lvLines" HorizontalAlignment="Left" Height="100" Margin="358,187,0,0" ItemsSource="{Binding}" VerticalAlignment="Top" Width="100">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

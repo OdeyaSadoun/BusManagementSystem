@@ -29,8 +29,8 @@ namespace PlGui
         public LineShow()
         {
             InitializeComponent();
-            //listOfLines=bl.G
-            
+            listOfLines = (ObservableCollection<BO.Line>)bl.GetAllLines();
+            lvLines.ItemsSource = listOfLines;
         }
         
     }

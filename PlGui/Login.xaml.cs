@@ -30,13 +30,9 @@ namespace PlGui
         public Login()
         {
             InitializeComponent();
-
+        
         }
-        
-        
-        
-
-
+  
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
             if (textBoxEmail.Text.Length == 0)
@@ -55,7 +51,7 @@ namespace PlGui
                 string email = textBoxEmail.Text;
                 string password = passwordBox1.Password;
                 BO.User u = new BO.User();
-                u = bl.FindUser(email);
+                //u = bl.FindUser(email);
                 if (u!=null)
                 {
                     if (u.Password == password)
