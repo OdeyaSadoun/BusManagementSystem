@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlGui"
         mc:Ignorable="d"
-        Title="CardWindow" Height="450" Width="800">
+        Title="CardWindow" Height="450" Width="700">
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="r3.jpeg"/>
+        </Grid.Background>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="30,33,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="30,86,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="30,145,0,0" VerticalAlignment="Top" Width="75"/>
+        <ComboBox HorizontalAlignment="Left" Margin="303,162,0,0" VerticalAlignment="Top" Width="120" Height="47"/>
     </Grid>
+
 </Window>

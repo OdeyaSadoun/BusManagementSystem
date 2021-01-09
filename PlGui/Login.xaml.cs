@@ -22,14 +22,16 @@ namespace PlGui
     /// </summary>
     public partial class Login : Window
     {
+        IBL bl= BLFactory.GetBL
+
         public Login()
         {
             InitializeComponent();
         }
-        UserWindow user = new UserWindow();
-        AdminWindow admin = new AdminWindow();
+        
+        
+        
 
-       
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -48,36 +50,42 @@ namespace PlGui
             {
                 string email = textBoxEmail.Text;
                 string password = passwordBox1.Password;
-                SqlConnection con = new SqlConnection("Data Source=TESTPURU;Initial Catalog=Data;User ID=sa;Password=wintellect");
-                con.Open();
-                SqlCommand cmd = new SqlCommand("Select * from Registration where Email='" + email + "'  and password='" + password + "'", con);
-                cmd.CommandType = CommandType.Text;
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = cmd;
-                DataSet dataSet = new DataSet();
-                adapter.Fill(dataSet);
-                if (dataSet.Tables[0].Rows.Count > 0)
+                BO.User u = new BO.User();
+                u = bl.FindUser(email);
+                if (u!=null)
                 {
-                    string username = dataSet.Tables[0].Rows[0]["FirstName"].ToString() + " " + dataSet.Tables[0].Rows[0]["LastName"].ToString();
-                    //welcome.TextBlockName.Text = username;//Sending value from one form to another form.  
-                    //welcome.Show();
-                    Close();
+                    if (u.Password == password)
+                    {
+                        if (u.Admin)
+                        {
+                            AdminShow adminShow = new AdminShow();
+                            adminShow.ShowDialog();
+                        }
+                        else
+                        {
+                            UserShow userShow = new UserShow();
+                            userShow.ShowDialog();
+                        }
+                                
+                    }
                 }
                 else
                 {
                     errormessage.Text = "Sorry! Please enter existing emailid/password.";
                 }
-                con.Close();
+                //con.Close();
             }
         }
         private void UserRegister_Click(object sender, RoutedEventArgs e)
         {
-           user.ShowDialog();
+            UserWindow user = new UserWindow();
+            user.ShowDialog();
             Close();
         }
 
         private void AdinRegister_Click(object sender, RoutedEventArgs e)
         {
+            AdminWindow admin = new AdminWindow();
             admin.ShowDialog();
             Close();
         }
