@@ -14,6 +14,9 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using BL;
+using BLApi;
+using BO;
 
 namespace PlGui
 {
@@ -22,7 +25,7 @@ namespace PlGui
     /// </summary>
     public partial class Login : Window
     {
-        IBL bl= BLFactory.GetBL
+        IBL bl = BLFactory.GetBL("1");
 
         public Login()
         {

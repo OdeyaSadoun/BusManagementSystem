@@ -11,7 +11,7 @@ namespace BL
 {
     class BLImp : IBL
     {
-        //        IDL dl = DLFactory.GetDL();
+                IDL dl = DLFactory.GetDL();
 
         //        #region Bus
 
@@ -495,50 +495,50 @@ namespace BL
 
         //        #region Line
 
-        //        #region lineDoBoAdapter
-        //        /// <summary>
-        //        /// A function that copy details from DO to BO
-        //        /// </summary>
-        //        /// <param name="lineDO"></param>
-        //        /// <returns></returns>
-        //        BO.Line lineDoBoAdapter(DO.Line lineDO)
-        //        {
-        //            BO.Line lineBO = new BO.Line();
-        //            int lineId = lineBO.Id;
-        //            lineDO.CopyPropertiesTo(lineBO);
+        #region lineDoBoAdapter
+        /// <summary>
+        /// A function that copy details from DO to BO
+        /// </summary>
+        /// <param name="lineDO"></param>
+        /// <returns></returns>
+        BO.Line lineDoBoAdapter(DO.Line lineDO)
+        {
+            BO.Line lineBO = new BO.Line();
+            int lineId = lineBO.Id;
+            lineDO.CopyPropertiesTo(lineBO);
 
-        //            List<BO.StationInLine> stations = (from stat in dl.GetAllLinesStationBy(stat => stat.LineId == lineId && stat.IsDeleted == false)
-        //                                               let station = dl.GetStation(stat.StationCode)
-        //                                               select station.CopyToStationInLine(stat)).ToList();
-        //            stations = (stations.OrderBy(s => s.LineStationIndex)).ToList();
-        //            foreach (BO.StationInLine s in stations)
-        //            {
-        //                if (s.LineStationIndex != stations[stations.Count - 1].LineStationIndex) // if this is not the end
-        //                {
-        //                    int sc1 = s.StationCode;//station code 1
-        //                    int sc2 = stations[s.LineStationIndex].StationCode;//station code 2
-        //                    DO.AdjacentStations adjStat = dl.GetAdjacentStations(sc1, sc2);
-        //                    s.DistanceTo = adjStat.Distance;
-        //                    s.TimeTo = adjStat.TravelTime;
-        //                }
-        //            }
-        //            lineBO.ListOfStationsInLine = stations;
-        //            return lineBO;
-        //        }
-        //        #endregion 
+            List<BO.StationInLine> stations = (from stat in dl.GetAllLinesStationBy(stat => stat.LineId == lineId && stat.IsDeleted == false)
+                                               let station = dl.GetStation(stat.StationCode)
+                                               select station.CopyToStationInLine(stat)).ToList();
+            stations = (stations.OrderBy(s => s.LineStationIndex)).ToList();
+            foreach (BO.StationInLine s in stations)
+            {
+                if (s.LineStationIndex != stations[stations.Count - 1].LineStationIndex) // if this is not the end
+                {
+                    int sc1 = s.StationCode;//station code 1
+                    int sc2 = stations[s.LineStationIndex].StationCode;//station code 2
+                    DO.AdjacentStations adjStat = dl.GetAdjacentStations(sc1, sc2);
+                    s.DistanceTo = adjStat.Distance;
+                    s.TimeTo = adjStat.TravelTime;
+                }
+            }
+            lineBO.ListOfStationsInLine = stations;
+            return lineBO;
+        }
+        #endregion
 
-        //        #region GetAllLines
-        //        /// <summary>
-        //        /// A function that return all the lines
-        //        /// </summary>
-        //        /// <returns></returns>
-        //        public IEnumerable<BO.Line> GetAllLines()
-        //        {
-        //            return from line in dl.GetAllLines()
-        //                   select lineDoBoAdapter(line);
+        #region GetAllLines
+        /// <summary>
+        /// A function that return all the lines
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<BO.Line> GetAllLines()
+        {
+            return from line in dl.GetAllLines()
+                   select lineDoBoAdapter(line);
 
-        //        }
-        //        #endregion
+        }
+        #endregion
 
         //        #region GetLine
         //        /// <summary>

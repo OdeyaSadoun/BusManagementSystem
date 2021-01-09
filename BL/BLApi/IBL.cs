@@ -10,7 +10,7 @@ namespace BLApi
 {
     public interface IBL
     {
-        //#region Bus
+        #region Bus
         //IEnumerable<BO.Bus> GetAllBuses(); 
 
         ////IEnumerable<BO.Bus> GetAllBusesBy(Predicate<BO.Bus> predicate);
@@ -19,7 +19,7 @@ namespace BLApi
         //void UpdateBus(BO.Bus bus);
         //void UpdateBus(int id, Action<BO.Bus> update);
         //void DeleteBus(int id);
-        //#endregion
+        #endregion
 
         //#region BusOnTrip
         //IEnumerable<BO.BusOnTrip> GetAllBusesOnTrip();
@@ -53,7 +53,7 @@ namespace BLApi
         //#endregion
 
         //#region Line
-        //IEnumerable<BO.Line> GetAllLines();
+        IEnumerable<BO.Line> GetAllLines();
         //IEnumerable<BO.Line> GetAllLinesBy(Predicate<DO.Line> predicate);
         //BO.Line GetLine(int id);
         //void AddLine(BO.Line line);
