@@ -25,11 +25,12 @@ namespace PlGui
     /// </summary>
     public partial class Login : Window
     {
-        IBL bl = BLFactory.GetBL("1");
-
+        IBL bl = BLFactory.GetBL("2");
+        
         public Login()
         {
             InitializeComponent();
+
         }
         
         
