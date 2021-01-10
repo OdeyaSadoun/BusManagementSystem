@@ -63,7 +63,6 @@ namespace BLApi
         #endregion
 
 
-
         #region User
         //IEnumerable<BO.User> GetAllUsers();
         //IEnumerable<BO.User> GetAllUsersBy(Predicate<BO.User> predicate);
@@ -72,6 +71,7 @@ namespace BLApi
         //void UpdateUser(BO.User user);
         //void UpdateUser(int id, Action<BO.User> update); //method that knows to updt specific fields in User
         //void DeleteUser(int id);
+        void Charge(int balance, BO.User user);
         #endregion
 
         #region Trip

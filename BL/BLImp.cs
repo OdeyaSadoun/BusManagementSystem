@@ -943,6 +943,25 @@ namespace BL
         //        throw new Exception();
         //}
         //#endregion
+
+        public void Charge(int balance, BO.User user)
+        {
+            if (user == null)
+                throw new ArgumentNullException("User was null");
+            else if ((user.UserProfile == BO.Profile.Youth) || (user.UserProfile == BO.Profile.Veteran) || (user.UserProfile == BO.Profile.ExtendedStudent))
+            {
+                user.Balance = user.Balance + balance * 1.5;
+            }
+            else if (user.UserProfile == BO.Profile.Normal)
+            {
+                user.Balance = user.Balance + balance * 1.25;
+            }
+            else if (user.UserProfile == BO.Profile.OrdinaryStudent)
+            {
+                user.Balance = user.Balance + balance * 1.333;
+            }
+        }
+
         #endregion
 
         #region Trip
