@@ -33,7 +33,7 @@ namespace BO
         /// <summary>
         /// Passenger boarding station
         /// </summary>
-        public int StartStation { get; set; }
+        public BO.Station StartStation { get; set; }
         #endregion
 
         #region InAt
@@ -47,7 +47,7 @@ namespace BO
         /// <summary>
         /// Passenger drop-off station
         /// </summary>
-        public int DestinationStation { get; set; }
+        public BO.Station DestinationStation { get; set; }
         #endregion
 
         #region OutAt
