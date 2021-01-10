@@ -303,7 +303,12 @@ namespace DS
                 #endregion
         };
         public static List<LineStation> ListLineStations;
-        public static List<User> ListUsers;
+        public static List<User> ListUsers = new List<User>
+        {
+            new User { FirstName = "Odeya", LastName= "Sadoun", Birthday = new DateTime (2001,10,21), UserName = "odeya.sadoun@gmail.com", Password = "123456" , Admin = true, IsDeleted = false, Balance = 45.5, UserProfile = Profile.OrdinaryStudent},
+            new User { FirstName = "Tamar", LastName= "Gavrieli", Birthday = new DateTime (2001,02,20), UserName = "tamargavrieli18@gmail.com", Password = "56789" , Admin = true, IsDeleted = false, Balance = 30, UserProfile = Profile.OrdinaryStudent},
+            new User {FirstName = "Orit", LastName= "Stavski", Birthday = new DateTime (2001,12,11), UserName = "orit.stavsky@gmail.com", Password = "123456" , Admin = false, IsDeleted = false, Balance = 60, UserProfile = Profile.OrdinaryStudent}
+        };
         public static List<AdjacentStations> ListAdjacentStations;
         public static List<Trip> ListTrips;
     }
