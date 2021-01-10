@@ -15,21 +15,10 @@
         <Button x:Name="LoginButton" Content="Log in" HorizontalAlignment="Left" Margin="751,111,0,0" VerticalAlignment="Top" Width="180" Click="LoginButton_Click" Height="80" FontWeight="Bold" FontSize="25"/>
         <Button x:Name="UserButton" Content="Passenger" HorizontalAlignment="Left" Margin="751,223,0,0" VerticalAlignment="Top" Width="180" Click="UserButton_Click" Height="80" FontWeight="Bold" FontSize="25"/>
         <Button x:Name="AdminButton" Content="Employee" HorizontalAlignment="Left" Margin="751,338,0,0" VerticalAlignment="Top" Width="180" Click="AdminButton_Click" Height="80" FontWeight="Bold" FontSize="25"/>
-        <Button x:Name="ButtonAbout" Content="About" HorizontalAlignment="Left" Margin="310,524,0,0" VerticalAlignment="Top" Height="50" Width="120" FontWeight="Bold" Click="ButtonAbout_Click" FontSize="15"/>
-        <Button x:Name="ButtonInfo" Content="Information" HorizontalAlignment="Left" Margin="174,524,0,0" VerticalAlignment="Top" Height="50" Width="120" RenderTransformOrigin="-0.04,0.729" FontWeight="Bold" Click="ButtonInfo_Click" FontSize="15"/>
-        <Button x:Name="ButtonContact" Content="Contact" HorizontalAlignment="Left" Margin="443,524,0,0" VerticalAlignment="Top" Height="50" Width="120" FontWeight="Bold" Click="ButtonContact_Click" RenderTransformOrigin="1.267,1.238" FontSize="15"/>
-        <Button x:Name="ButtonCard" Content="Cards" HorizontalAlignment="Left" Margin="35,524,0,0" VerticalAlignment="Top" Height="50" Width="120" FontWeight="Bold" Click="ButtonCard_Click" FontSize="15"/>
-        <Image Margin="444,414,437,103" Source="RES3-removebg-preview.png" Stretch="Fill"/>
-        <Image Margin="184,423,722,105" Source="D-removebg-preview.png" Stretch="Fill" RenderTransformOrigin="0.422,0.874"/>
-        <Image Margin="49,412,858,105" Source="Credit-removebg-preview.png" Stretch="Fill"/>
-        <Image Margin="324,423,589,105" Source="BUS3.png" Stretch="Fill"/>
-        <ListView x:Name="lvLines" HorizontalAlignment="Left" Height="100" Margin="359,271,0,0" VerticalAlignment="Top" Width="100">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <Button x:Name="ButtonAbout" Content="About" HorizontalAlignment="Left" Margin="44,548,0,0" VerticalAlignment="Top" Height="50" Width="120" FontWeight="Bold" Click="ButtonAbout_Click" FontSize="15"/>
+        <Button x:Name="ButtonContact" Content="Contact" HorizontalAlignment="Left" Margin="177,548,0,0" VerticalAlignment="Top" Height="50" Width="120" FontWeight="Bold" Click="ButtonContact_Click" RenderTransformOrigin="1.267,1.238" FontSize="15"/>
+        <Image Margin="178,438,703,79" Source="RES3-removebg-preview.png" Stretch="Fill"/>
+        <Image Margin="57,446,849,82" Source="D-removebg-preview.png" Stretch="Fill" RenderTransformOrigin="0.422,0.874"/>
     </Grid>
 
 

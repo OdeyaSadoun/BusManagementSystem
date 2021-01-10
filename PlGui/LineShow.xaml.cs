@@ -23,13 +23,16 @@ namespace PlGui
     public partial class LineShow : Window
     {
         IBL bl = BLFactory.GetBL("2");
-
+        
         public ObservableCollection<BO.Line> listOfLines { get; set; } = new ObservableCollection<BO.Line>();
 
         public LineShow()
         {
-            InitializeComponent();
-            listOfLines = (ObservableCollection<BO.Line>)bl.GetAllLines();
+            InitializeComponent();            
+            foreach(BO.Line line in bl.GetAllLines())
+            {
+                listOfLines.Add(line);
+            }
             lvLines.ItemsSource = listOfLines;
         }
         

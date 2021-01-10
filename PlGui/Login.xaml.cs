@@ -58,22 +58,22 @@ namespace PlGui
                     {
                         if (u.Admin)
                         {
-                            AdminShow adminShow = new AdminShow();
+                            AdminShow adminShow = new AdminShow(u);
                             adminShow.ShowDialog();
                         }
                         else
                         {
-                            UserShow userShow = new UserShow();
+                            UserShow userShow = new UserShow(u);
                             userShow.ShowDialog();
                         }
                                 
-                    }//jjjjjjjjj
+                    }
                 }
                 else
                 {
                     errormessage.Text = "Sorry! Please enter existing emailid/password.";
                 }
-                //con.Close();
+              
             }
         }
         private void UserRegister_Click(object sender, RoutedEventArgs e)

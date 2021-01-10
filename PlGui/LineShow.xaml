@@ -6,34 +6,42 @@
         xmlns:local="clr-namespace:PlGui"
         mc:Ignorable="d"
         Title="LineShow" Height="450" Width="800">
-    <Grid>
-        <!--<ListView x:Name="lvLines" Margin="62,60,68,45" ItemsSource="{Binding}" ItemTemplate="{StaticResource listOfLines}"
-                  HorizontalContentAlignment="Stretch" MouseDoubleClick="Preview_Double_Click" HorizontalAlignment="Stretch"
-                  Grid.Row="0" VerticalContentAlignment="Stretch"   FontSize="14" Grid.ColumnSpan="2" >
-            <ListView.Resources>
-                <Style TargetType="{x:Type ListViewItem}">
-                    <Setter Property="Height" Value="40"/>
-                    <Style.Triggers>
-                        --><!-- Sets the color of the row according to bus' status --><!--
-                        <DataTrigger Binding="{Binding Status, Converter={StaticResource backCon}}" Value="Ready">
-                            <Setter Property="Background" Value="LightGreen" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding Status, Converter={StaticResource backCon}}"  Value="Else">
-                            <Setter Property="Background" Value="LightSalmon" />
-                        </DataTrigger>
+    <Window.Resources>
+        <DataTemplate x:Key="dtLines" DataType="local:ShortLine">
 
-                    </Style.Triggers>
-                </Style>
-            </ListView.Resources>
-
-        </ListView>-->
-        <ListView x:Name="lvLines" HorizontalAlignment="Left" Height="100" Margin="358,187,0,0" ItemsSource="{Binding}" VerticalAlignment="Top" Width="100">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-
-    </Grid>
+            <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                   Text="{Binding Path=ShortLine.Id}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="2"
+                   Text="{Binding Path=ShortLine.Id}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <!--<TextBlock Grid.Column="2"                  
+                   Text="{Binding Path=ShortLine.Id}" HorizontalAlignment="Center" VerticalAlignment="Center" />-->
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <ListView x:Name="lvLines" HorizontalAlignment="Left" Height="224" Margin="105,152,0,0" VerticalAlignment="Top" Width="627">
+        <ListView.View>
+            <GridView>
+                <GridViewColumn/>
+            </GridView>
+        </ListView.View>
+    </ListView>
 </Window>
+
+ 
+
+
+
+
+
+
+

@@ -5,15 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlGui"
         mc:Ignorable="d"
-        Title="CardWindow" Height="450" Width="700">
+        Title="CardWindow" Height="450" Width="550">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="30,33,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="30,86,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="30,145,0,0" VerticalAlignment="Top" Width="75"/>
-        <ComboBox HorizontalAlignment="Left" Margin="303,162,0,0" VerticalAlignment="Top" Width="120" Height="47"/>
+        <Button x:Name="Charging1" Content="30₪" HorizontalAlignment="Left" Margin="408,89,0,0" VerticalAlignment="Top" Height="27" Width="75" FontWeight="Bold" FontSize="20" Click="Charging1_Click"/>
+        <Button x:Name="Balance" Content="Balance" HorizontalAlignment="Left" Margin="226,89,0,0" VerticalAlignment="Top" Height="27" Width="104" FontWeight="Bold" FontSize="20" Click="Balance_Click"/>
+        <Button x:Name="Charging2" Content="50₪" HorizontalAlignment="Left" Margin="408,151,0,0" VerticalAlignment="Top" Width="75" Height="28" FontWeight="Bold" FontSize="20" Click="Charging2_Click"/>
+        <Label x:Name="ChargeCard" Content="Charging Card" HorizontalAlignment="Left" Margin="369,33,0,0" VerticalAlignment="Top" Width="152" Foreground="White" FontWeight="Bold" FontSize="20"/>
+        <Button x:Name="Charging3" Content="100₪" HorizontalAlignment="Left" Margin="408,210,0,0" VerticalAlignment="Top" Height="27" Width="75" FontWeight="Bold" FontSize="20" Click="Charging3_Click"/>
+        <Button x:Name="Charging4" Content="200₪" HorizontalAlignment="Left" Margin="408,267,0,0" VerticalAlignment="Top" Height="27" Width="75" FontWeight="Bold" FontSize="20" Click="Charging4_Click"/>
+        <Label x:Name="Balance1" Foreground="White" FontWeight="Bold" FontSize="20" Content="Blance inquiry" HorizontalAlignment="Left" Margin="208,33,0,0" VerticalAlignment="Top"/>
     </Grid>
 
 </Window>

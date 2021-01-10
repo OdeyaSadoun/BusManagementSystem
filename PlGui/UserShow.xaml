@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="UserShow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="r3.jpeg"/>
+        </Grid.Background>
+        <Button x:Name="Card" Content="Cards" HorizontalAlignment="Left" Margin="345,295,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" FontSize="20" Click="Card_Click"/>
     </Grid>
 </Window>

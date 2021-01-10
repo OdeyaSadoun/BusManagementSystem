@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="AdminShow" Height="450" Width="800">
     <Grid>
-        <Grid>               </Grid>
+        <Grid>            <Grid.Background>
+                <ImageBrush ImageSource="r3.jpeg"/>
+            </Grid.Background>        </Grid>
 
     </Grid>
 </Window>

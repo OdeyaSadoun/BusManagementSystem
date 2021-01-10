@@ -35,9 +35,14 @@ namespace PlGui
         public MainWindow()
         {
             InitializeComponent();
-            listOfLines = (ObservableCollection<BO.Line>)bl.GetAllLines();
-            lvLines.ItemsSource = listOfLines;
+            foreach (BO.Line line in bl.GetAllLines())
+            {
+                listOfLines.Add(line);
+            }
+           
         }
+    
+      
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
@@ -58,19 +63,7 @@ namespace PlGui
         }
 
        
-        private void ButtonCard_Click(object sender, RoutedEventArgs e)
-        {
-            CardWindow card = new CardWindow();
-            card.ShowDialog();
-            
-        }
-
-        private void ButtonInfo_Click(object sender, RoutedEventArgs e)
-        {
-            InfoWindow info = new InfoWindow();
-            info.ShowDialog();
-          
-        }
+      
 
         private void ButtonAbout_Click(object sender, RoutedEventArgs e)
         {
