@@ -29,11 +29,11 @@ namespace PlGui
         public LineShow()
         {
             InitializeComponent();            
-            foreach(BO.Line line in bl.GetAllLines())
-            {
-                listOfLines.Add(line);
-            }
-            lvLines.ItemsSource = listOfLines;
+            //foreach(BO.Line line in bl.GetAllLines())
+            //{
+            //    listOfLines.Add(line);
+            //}
+            //lvLines.ItemsSource = listOfLines;
         }
         
     }

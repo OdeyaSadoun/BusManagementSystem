@@ -35,10 +35,10 @@ namespace PlGui
         public MainWindow()
         {
             InitializeComponent();
-            foreach (BO.Line line in bl.GetAllLines())
-            {
-                listOfLines.Add(line);
-            }
+            //foreach (BO.Line line in bl.GetAllLines())
+            //{
+            //    listOfLines.Add(line);
+            //}
            
         }
     

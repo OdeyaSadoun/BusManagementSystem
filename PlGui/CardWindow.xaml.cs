@@ -35,29 +35,47 @@ namespace PlGui
         }
 
         private void Charging1_Click(object sender, RoutedEventArgs e)//30 שקל
-        {
-            user = sender as BO.User;
-            if ((user.Profile == BO.Enums.Profile.Youth)|| (user.Profile == BO.Enums.Veteran)|| (user.Profile == BO.Enums.ExtendedStudent))
+        {        
+            user = (sender as Button).DataContext as BO.User;
+            if ((user.UserProfile == BO.Profile.Youth)|| (user.UserProfile == BO.Profile.Veteran)|| (user.UserProfile == BO.Profile.ExtendedStudent))
                 user.Balance += 60;
-            else if(user.Profile == BO.Enums.Normal)
+            else if(user.UserProfile == BO.Profile.Normal)
                  user.Balance += 37.5;
-            else if (user.Profile == BO.Enums.OrdinaryStudent)
+            else if (user.UserProfile == BO.Profile.OrdinaryStudent)
                  user.Balance += 45;
-
+            
         }
 
-        private void Charging2_Click(object sender, RoutedEventArgs e)
+        private void Charging2_Click(object sender, RoutedEventArgs e)//50
         {
-
+            user = (sender as Button).DataContext as BO.User;
+            if ((user.UserProfile == BO.Profile.Youth) || (user.UserProfile == BO.Profile.Veteran) || (user.UserProfile == BO.Profile.ExtendedStudent))
+                user.Balance += 100;
+            else if (user.UserProfile == BO.Profile.Normal)
+                user.Balance += 62.5;
+            else if (user.UserProfile == BO.Profile.OrdinaryStudent)
+                user.Balance += 75;
         }
-        private void Charging3_Click(object sender, RoutedEventArgs e)
+        private void Charging3_Click(object sender, RoutedEventArgs e)//100
         {
-
+            user = (sender as Button).DataContext as BO.User;
+            if ((user.UserProfile == BO.Profile.Youth) || (user.UserProfile == BO.Profile.Veteran) || (user.UserProfile == BO.Profile.ExtendedStudent))
+                user.Balance += 200;
+            else if (user.UserProfile == BO.Profile.Normal)
+                user.Balance += 125;
+            else if (user.UserProfile == BO.Profile.OrdinaryStudent)
+                user.Balance += 150;
         }
 
-        private void Charging4_Click(object sender, RoutedEventArgs e)
+        private void Charging4_Click(object sender, RoutedEventArgs e)//200
         {
-
+            user = (sender as Button).DataContext as BO.User;
+            if ((user.UserProfile == BO.Profile.Youth) || (user.UserProfile == BO.Profile.Veteran) || (user.UserProfile == BO.Profile.ExtendedStudent))
+                user.Balance += 400;
+            else if (user.UserProfile == BO.Profile.Normal)
+                user.Balance += 250;
+            else if (user.UserProfile == BO.Profile.OrdinaryStudent)
+                user.Balance += 300;
         }
 
        

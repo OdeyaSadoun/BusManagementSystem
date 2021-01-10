@@ -51,7 +51,7 @@ namespace PlGui
                 string email = textBoxEmail.Text;
                 string password = passwordBox1.Password;
                 BO.User u = new BO.User();
-                //u = bl.FindUser(email);
+                u = bl.GetUser(email);
                 if (u!=null)
                 {
                     if (u.Password == password)

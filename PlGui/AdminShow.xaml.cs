@@ -19,9 +19,17 @@ namespace PlGui
     /// </summary>
     public partial class AdminShow : Window
     {
-        public AdminShow()
+        public BO.User user { get; set; }
+        public AdminShow(BO.User u)
         {
             InitializeComponent();
+            user = u;
+        }
+
+        private void Card_Click(object sender, RoutedEventArgs e)
+        {
+            CardWindow window = new CardWindow(user);
+            window.ShowDialog();
         }
     }
 }
