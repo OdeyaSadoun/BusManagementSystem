@@ -47,7 +47,7 @@ namespace BO
         /// <summary>
         /// Last stop number on the line that the bus passed
         /// </summary>
-        public int PrevStation { get; set; }
+        public BO.Station PrevStation { get; set; }
         #endregion
 
         #region PrevStationAt

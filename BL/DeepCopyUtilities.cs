@@ -36,12 +36,12 @@ namespace BL
             return stationInLine;
         }
 
-        //public static BO.LinesInStation CopyToLineInStation(this DO.Line l, DO.LineStation s)
-        //{
-        //    BO.LinesInStation lineInStation = new BO.LinesInStation();
-        //    l.CopyPropertiesTo(lineInStation);
-        //    lineInStation.LineStationIndex = s.LineStationIndex;
-        //    return lineInStation;
-        //}
+        public static BO.ShortLine CopyToLineInStation(this DO.Line l, DO.LineStation s)
+        {
+            BO.ShortLine lineInStation = new BO.ShortLine();
+            l.CopyPropertiesTo(lineInStation);
+            lineInStation.Id = s.LineStationIndex;
+            return lineInStation;
+        }
     }
 }
