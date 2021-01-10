@@ -28,11 +28,23 @@ namespace BO
     {
         public int licenseNumber;
         public DateTime day;
-        public IncorrectLicenseNumberOrDateException(int ln) : base() => licenseNumber = ln;
-        public IncorrectLicenseNumberOrDateException(int ln, string message) :
-            base(message) => licenseNumber = ln;
-        public IncorrectLicenseNumberOrDateException(int ln, string message, Exception innerException) :
-            base(message, innerException) => licenseNumber = ln;
+        public IncorrectLicenseNumberOrDateException(int ln, DateTime dt) : base()
+        {
+            licenseNumber = ln;
+            day = dt;
+        }
+        public IncorrectLicenseNumberOrDateException(int ln, DateTime dt, string message) :
+            base(message)
+        {
+            licenseNumber = ln;
+            day = dt;
+        }
+        public IncorrectLicenseNumberOrDateException(int ln, DateTime dt, string message, Exception innerException) :
+            base(message, innerException)
+        {
+            licenseNumber = ln;
+            day = dt;
+        }
 
         public override string ToString() => base.ToString() + $", Incorrect license number: {licenseNumber} OR date begine: {day}";
     }
@@ -94,6 +106,19 @@ namespace BO
             base(message, innerException) => ID = id;
 
         public override string ToString() => base.ToString() + $", Incorrect Line ID number: {ID}";
+    }
+
+    [Serializable]
+    public class IncorrectDateException : Exception
+    {
+        public DateTime dadetime;
+        public IncorrectDateException(DateTime dt) : base() => dadetime = dt;
+        public IncorrectDateException(DateTime dt, string message) :
+            base(message) => dadetime = dt;
+        public IncorrectDateException(DateTime dt, string message, Exception innerException) :
+            base(message, innerException) => dadetime = dt;
+
+        public override string ToString() => base.ToString() + $", Incorrect license number: {dadetime}";
     }
 
 

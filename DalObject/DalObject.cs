@@ -49,6 +49,7 @@ namespace DalObject
         public IEnumerable<DO.Bus> GetAllBuses()//פונקצית הרחבה
         {
             return from bus in DataSource.ListBuses
+                   where bus.IsDeleted == false
                    select bus.Clone();
         }
         #endregion
@@ -163,6 +164,7 @@ namespace DalObject
         public IEnumerable<DO.BusOnTrip> GetAllBusesOnTrip()
         {
             return from bus in DataSource.ListBusesOnTrip
+                   where bus.IsDeleted == false
                    select bus.Clone();
         }
         #endregion
@@ -260,6 +262,7 @@ namespace DalObject
         public IEnumerable<DO.LineTrip> GetAllLinesTrip()
         {
             return from lt in DataSource.ListLinesTrip
+                   where lt.IsDeleted == false
                    select lt.Clone();
         }
         #endregion
@@ -317,11 +320,11 @@ namespace DalObject
         public void UpdateLineTrip(DO.LineTrip lt)
         {
 
-            DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == lt.Id && p.LineId == lt.LineId && p.IsDeleted);
+            DO.LineTrip l = DataSource.ListLinesTrip.Find(p => p.Id == lt.Id && p.LineId == lt.LineId && p.IsDeleted);
 
-            if (b != null)
+            if (l != null)
             {
-                DataSource.ListLinesTrip.Remove(b);
+                DataSource.ListLinesTrip.Remove(l);
                 DataSource.ListLinesTrip.Add(lt.Clone());
             }
             else
@@ -339,10 +342,10 @@ namespace DalObject
         public void UpdateLineTrip(int id, int lineId, Action<DO.LineTrip> update)
         {
 
-            DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId  && p.IsDeleted == false);
-            if (b == null)
+            DO.LineTrip l = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId  && p.IsDeleted == false);
+            if (l == null)
                 throw new DO.IncorrectInputException($"The trip: {id} with the line ID: {lineId} is not exsit in the system, could not update it");
-            update(b);
+            update(l);
         }
         #endregion
 
@@ -354,12 +357,12 @@ namespace DalObject
         /// <param name="lineId"></param>
         public void DeleteLineTrip(int id, int lineId)
         {
-            DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId  && p.IsDeleted);
+            DO.LineTrip l = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId  && p.IsDeleted);
 
-            if (b != null)
+            if (l != null)
             {
                 //DataSource.ListLinesTrip.Remove(b);
-                b.IsDeleted = true;
+                l.IsDeleted = true;
             }
             else
                 throw new DO.IncorrectInputException($"The trip: {id} with the line ID: {lineId} is not exsit in the system. could not be deleted, try enter again");
@@ -376,8 +379,9 @@ namespace DalObject
         /// <returns></returns>
         public IEnumerable<DO.Station> GetAllStationes()
         {
-            return from bus in DataSource.ListStations
-                   select bus.Clone();
+            return from station in DataSource.ListStations
+                   where station.IsDeleted == false
+                   select station.Clone();
         }
         #endregion
 
@@ -403,10 +407,10 @@ namespace DalObject
         /// <returns></returns>
         public DO.Station GetStation(int code)
         {
-            DO.Station b = DataSource.ListStations.Find(p => p.Code == code && p.IsDeleted);
+            DO.Station station = DataSource.ListStations.Find(p => p.Code == code && p.IsDeleted);
 
-            if (b != null)
-                return b.Clone();
+            if (station != null)
+                return station.Clone();
             else
                 throw new DO.IncorrectCodeStationException(code, $"Incorrect station code: {code}. could not found this station, try enter again");
         }
@@ -433,11 +437,11 @@ namespace DalObject
         /// <param name="station"></param>
         public void UpdateStation(DO.Station station)
         {
-            DO.Station b = DataSource.ListStations.Find(p => p.Code == station.Code && p.IsDeleted);
+            DO.Station s = DataSource.ListStations.Find(p => p.Code == station.Code && p.IsDeleted);
 
-                if (b != null)
+                if (s != null)
                 {
-                    DataSource.ListStations.Remove(b);
+                    DataSource.ListStations.Remove(s);
                     DataSource.ListStations.Add(station.Clone());
                 }
                 else
@@ -467,12 +471,12 @@ namespace DalObject
         /// <param name="code"></param>
         public void DeleteStation(int code)
         {
-            DO.Station b = DataSource.ListStations.Find(p => p.Code == code && p.IsDeleted);
+            DO.Station s = DataSource.ListStations.Find(p => p.Code == code && p.IsDeleted);
 
-            if (b != null)
+            if (s != null)
             {
                 //DataSource.ListStations.Remove(b);
-                b.IsDeleted = true;
+                s.IsDeleted = true;
             }
             else
                 throw new DO.IncorrectCodeStationException(code, $"Incorrect station code: {code}. could not found this station, try enter again");
@@ -488,8 +492,9 @@ namespace DalObject
         /// <returns></returns>
         public IEnumerable<DO.Line> GetAllLines()
         {
-            return from bus in DataSource.ListLines
-                   select bus.Clone();
+            return from line in DataSource.ListLines
+                   where line.IsDeleted == false
+                   select line.Clone();
 
         }
         #endregion
@@ -603,8 +608,9 @@ namespace DalObject
         /// <returns></returns>
         public IEnumerable<DO.LineStation> GetAllLinesStation()
         {
-            return from bus in DataSource.ListLineStations
-                   select bus.Clone();
+            return from linestation in DataSource.ListLineStations
+                   where linestation.IsDeleted == false
+                   select linestation.Clone();
         }
         #endregion
 
@@ -616,9 +622,9 @@ namespace DalObject
         /// <returns></returns>
         public IEnumerable<DO.LineStation> GetAllLinesStationBy(Predicate<DO.LineStation> predicate)
         {
-                return from line in DataSource.ListLineStations
-                       where predicate(line)
-                       select line.Clone();
+                return from linestation in DataSource.ListLineStations
+                       where predicate(linestation)
+                       select linestation.Clone();
 
         }
         #endregion
@@ -632,10 +638,10 @@ namespace DalObject
         /// <returns></returns>
         public DO.LineStation GetLineStation(int lineId, int stationCode)
         {
-            DO.LineStation b = DataSource.ListLineStations.Find(p => p.LineId == lineId && p.StationCode== stationCode && p.IsDeleted);
+            DO.LineStation linestation = DataSource.ListLineStations.Find(p => p.LineId == lineId && p.StationCode== stationCode && p.IsDeleted);
 
-            if (b != null)
-                return b.Clone();
+            if (linestation != null)
+                return linestation.Clone();
             else
                 throw new DO.IncorrectInputException($"Incorrect line: {lineId} OR  station code: {stationCode}. could not found this lineStation, try enter again");
         }
@@ -661,11 +667,11 @@ namespace DalObject
         /// <param name="lineStation"></param>
         public void UpdateLineStation(DO.LineStation lineStation)
         {
-            DO.LineStation b = DataSource.ListLineStations.Find(p => p.LineId == lineStation.LineId && p.StationCode == lineStation.StationCode && p.IsDeleted);
+            DO.LineStation linestation = DataSource.ListLineStations.Find(p => p.LineId == lineStation.LineId && p.StationCode == lineStation.StationCode && p.IsDeleted);
 
-            if (b != null)
+            if (linestation != null)
             {
-                DataSource.ListLineStations.Remove(b);
+                DataSource.ListLineStations.Remove(linestation);
                 DataSource.ListLineStations.Add(lineStation.Clone());
             }
             else
@@ -682,10 +688,10 @@ namespace DalObject
         /// <param name="update"></param>
         public void UpdateLineStation(int lineId,int stationCode, Action<DO.LineStation> update) 
         {
-                DO.LineStation line = DataSource.ListLineStations.Find(p => (p.LineId == lineId && p.StationCode == stationCode && p.IsDeleted == false));
-                if (line == null)
+                DO.LineStation linestation = DataSource.ListLineStations.Find(p => (p.LineId == lineId && p.StationCode == stationCode && p.IsDeleted == false));
+                if (linestation == null)
                 throw new DO.IncorrectInputException($"The line id: {lineId} OR station code: {stationCode} are not exsit in the system, could not update it");
-            update(line);
+            update(linestation);
         }
         #endregion
 
@@ -697,12 +703,12 @@ namespace DalObject
         /// <param name="stationCode"></param>
         public void DeleteLineStation(int lineId, int stationCode)
         {
-            DO.LineStation b = DataSource.ListLineStations.Find(p => p.LineId == lineId && p.StationCode== stationCode && p.IsDeleted);
+            DO.LineStation linestation = DataSource.ListLineStations.Find(p => p.LineId == lineId && p.StationCode== stationCode && p.IsDeleted);
 
-            if (b != null)
+            if (linestation != null)
             {
                 //DataSource.ListLineStations.Remove(b);
-                b.IsDeleted = true;
+                linestation.IsDeleted = true;
             }
             else
                 throw new DO.IncorrectInputException($"Incorrect line id: {lineId} OR station code: {stationCode}. could not found this lineStation, try enter again");
@@ -719,6 +725,7 @@ namespace DalObject
         public IEnumerable<DO.User> GetAllUsers()
         {
             return from user in DataSource.ListUsers
+                   where user.IsDeleted == false
                    select user.Clone();
         }
         #endregion
@@ -831,6 +838,7 @@ namespace DalObject
         public IEnumerable<DO.AdjacentStations> GetAllAdjacentStations()
         {
             return from adjacentStations in DataSource.ListAdjacentStations
+                   where adjacentStations.IsDeleted == false
                    select adjacentStations.Clone();
         }
         #endregion
@@ -923,12 +931,12 @@ namespace DalObject
         /// <param name="stationCode2"></param>
         public void DeleteAdjacentStations(int stationCode1, int stationCode2)
         {
-            DO.AdjacentStations u = DataSource.ListAdjacentStations.Find(p => (p.CodeStation1 == stationCode1) && (p.CodeStation2 == stationCode1) && p.IsDeleted);
+            DO.AdjacentStations a = DataSource.ListAdjacentStations.Find(p => (p.CodeStation1 == stationCode1) && (p.CodeStation2 == stationCode1) && p.IsDeleted);
 
-            if (u != null)
+            if (a != null)
             {
                 //DataSource.ListAdjacentStations.Remove(u);
-                u.IsDeleted = true;
+                a.IsDeleted = true;
             }
             else
                 throw new DO.IncorrectCodeStationException(stationCode1, stationCode2, $"Incorrect station code: {stationCode1} or station code {stationCode2}. could not delete the AdjacentStations, try enter again");
@@ -945,8 +953,9 @@ namespace DalObject
         /// <returns></returns>
         public IEnumerable<DO.Trip> GetAllTrips()
         {
-            return from user in DataSource.ListTrips
-                   select user.Clone();
+            return from trip in DataSource.ListTrips
+                   where trip.IsDeleted == false
+                   select trip.Clone();
         }
         #endregion
 
@@ -1002,11 +1011,11 @@ namespace DalObject
         /// <param name="trip"></param>
         public void UpdateTrip(DO.Trip trip)
         {
-            DO.Trip u = DataSource.ListTrips.Find(p => p.Id == trip.Id && p.IsDeleted);
+            DO.Trip t = DataSource.ListTrips.Find(p => p.Id == trip.Id && p.IsDeleted);
 
-            if (u != null)
+            if (t != null)
             {
-                DataSource.ListTrips.Remove(u);
+                DataSource.ListTrips.Remove(t);
                 DataSource.ListTrips.Add(trip.Clone());
             }
             else
@@ -1036,12 +1045,12 @@ namespace DalObject
         /// <param name="id"></param>
         public void DeleteTrip(int id)
         {
-            DO.Trip u = DataSource.ListTrips.Find(p => p.Id == id && p.IsDeleted);
+            DO.Trip trip = DataSource.ListTrips.Find(p => p.Id == id && p.IsDeleted);
 
-            if (u != null)
+            if (trip != null)
             {
                 //DataSource.ListTrips.Remove(u);
-                u.IsDeleted = true;
+                trip.IsDeleted = true;
             }
             else
                 throw new DO.IncorrectTripIDException(id, $"The trip user id: {id} is not exist in the system. could not detete it");
