@@ -752,7 +752,7 @@ namespace DalObject
         /// <returns></returns>
         public DO.User GetUser(string name)
         {
-            DO.User u = DataSource.ListUsers.Find(p => p.UserName == name && p.IsDeleted);
+            DO.User u = DataSource.ListUsers.Find(p => p.UserName == name && p.IsDeleted==false);
 
             if (u != null)
                 return u.Clone();
