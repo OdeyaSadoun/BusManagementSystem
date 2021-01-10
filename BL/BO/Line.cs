@@ -38,18 +38,18 @@ namespace BO
         #endregion
 
         #region TimeTo
-        /// <summary>
-        /// the time travel from the current station to the next station
-        /// </summary>
+        / <summary>
+        / the time travel from the current station to the next station
+        / </summary>
         public TimeSpan TimeTo { get; set; }
         #endregion
 
-        //#region TravelTimeInThisLine
-        ///// <summary>
-        ///// Estimated travel time of the route
-        ///// </summary>
-        //public TimeSpan TravelTimeInThisLine { get; set; }
-        //#endregion
+        #region TravelTimeInThisLine
+        /// <summary>
+        /// Estimated travel time of the route
+        /// </summary>
+        public TimeSpan TravelTimeInThisLine { get; set; }
+        #endregion
 
         #region ListOfStationsInLine
         /// <summary>
