@@ -29,7 +29,7 @@ namespace PlGui
       
         private void Balance_Click(object sender, RoutedEventArgs e)
         {
-            string b = "Your balance is:";
+            string b = "Your balance is: ";
             MessageBox.Show(b+user.Balance+ "₪");
 
         }
