@@ -17,3 +17,20 @@
 
     </Grid>
 </Window>
+<!--<ListView.Resources>
+    <Style TargetType="{x:Type ListViewItem}">
+        <Setter Property="Height" Value="40"/>
+        <Style.Triggers>
+            --><!-- Sets the color of the row according to bus' status --><!--
+            <DataTrigger Binding="{Binding Status, Converter={StaticResource backCon}}" Value="Ready">
+                <Setter Property="Background" Value="LightGreen" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Status, Converter={StaticResource backCon}}"  Value="Else">
+                <Setter Property="Background" Value="LightSalmon" />
+            </DataTrigger>
+
+        </Style.Triggers>
+    </Style>
+</ListView.Resources>
+
+</ListView>-->

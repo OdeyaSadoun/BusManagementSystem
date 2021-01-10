@@ -23,6 +23,13 @@
         <Image Margin="184,423,722,105" Source="D-removebg-preview.png" Stretch="Fill" RenderTransformOrigin="0.422,0.874"/>
         <Image Margin="49,412,858,105" Source="Credit-removebg-preview.png" Stretch="Fill"/>
         <Image Margin="324,423,589,105" Source="BUS3.png" Stretch="Fill"/>
+        <ListView x:Name="lvLines" HorizontalAlignment="Left" Height="100" Margin="359,271,0,0" VerticalAlignment="Top" Width="100">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 
 

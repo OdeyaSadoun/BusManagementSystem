@@ -20,17 +20,23 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 
+using System.Collections.ObjectModel;
+
 namespace PlGui
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
-        //IBL bl = BLFactory.getBL();
+        public ObservableCollection<BO.Line> listOfLines { get; set; } = new ObservableCollection<BO.Line>();
+        IBL bl = BLFactory.GetBL("2");
         public MainWindow()
         {
             InitializeComponent();
+            listOfLines = (ObservableCollection<BO.Line>)bl.GetAllLines();
+            lvLines.ItemsSource = listOfLines;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
