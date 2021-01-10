@@ -44,12 +44,12 @@ namespace BO
         public TimeSpan TimeTo { get; set; }
         #endregion
 
-        #region TravelTimeInThisLine
-        /// <summary>
-        /// Estimated travel time of the route
-        /// </summary>
-        public TimeSpan TravelTimeInThisLine { get; set; }
-        #endregion
+        //#region TravelTimeInThisLine
+        ///// <summary>
+        ///// Estimated travel time of the route
+        ///// </summary>
+        //public TimeSpan TravelTimeInThisLine { get; set; }
+        //#endregion
 
         #region ListOfStationsInLine
         /// <summary>

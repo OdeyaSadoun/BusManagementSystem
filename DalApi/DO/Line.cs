@@ -50,12 +50,12 @@ namespace DO
         public double Fare { get; set; }
         #endregion
 
-        #region TravelTimeInThisLine
-        /// <summary>
-        /// Estimated travel time of the route
-        /// </summary>
-        public TimeSpan TravelTimeInThisLine { get; set; }
-        #endregion
+        //#region TravelTimeInThisLine
+        ///// <summary>
+        ///// Estimated travel time of the route
+        ///// </summary>
+        //public TimeSpan TravelTimeInThisLine { get; set; }
+        //#endregion
 
         #region IsDeleted
         /// <summary>
