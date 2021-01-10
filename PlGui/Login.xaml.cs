@@ -67,7 +67,7 @@ namespace PlGui
                             userShow.ShowDialog();
                         }
                                 
-                    }
+                    }//jjjjjjjjj
                 }
                 else
                 {
