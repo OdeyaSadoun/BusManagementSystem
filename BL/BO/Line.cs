@@ -38,9 +38,9 @@ namespace BO
         #endregion
 
         #region TimeTo
-        / <summary>
-        / the time travel from the current station to the next station
-        / </summary>
+        /// <summary>
+        /// the time travel from the current station to the next station
+        /// </summary>
         public TimeSpan TimeTo { get; set; }
         #endregion
 
