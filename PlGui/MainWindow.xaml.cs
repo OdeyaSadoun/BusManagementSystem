@@ -39,6 +39,7 @@ namespace PlGui
             {
                 listOfLines.Add(line);
             }
+            lv.ItemsSource = listOfLines;
 
         }
     
@@ -78,5 +79,7 @@ namespace PlGui
             contact.ShowDialog();
             
         }
+
+        
     }
 }

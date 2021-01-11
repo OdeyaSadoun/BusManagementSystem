@@ -190,9 +190,9 @@ namespace BL
         {
             BO.Line lineBO = new BO.Line();
             int lineId = lineBO.Id;
-            lineDO.CopyPropertiesTo(lineBO);
 
-            List<BO.StationInLine> stations = (from stat in dl.GetAllLinesStationBy(stat => stat.LineId == lineId && stat.IsDeleted == false)
+            List<BO.StationInLine> stations = new List<BO.StationInLine>();
+            stations = (from stat in dl.GetAllLinesStationBy(stat => stat.LineId == lineId && stat.IsDeleted == false)
                                                let station = dl.GetStation(stat.StationCode)
                                                select station.CopyToStationInLine(stat)).ToList();
             stations = (stations.OrderBy(s => s.LineStationIndex)).ToList();
@@ -208,6 +208,7 @@ namespace BL
                 }
             }
             lineBO.ListOfStationsInLine = stations;
+            lineDO.CopyPropertiesTo(lineBO);
             return lineBO;
         }
         #endregion

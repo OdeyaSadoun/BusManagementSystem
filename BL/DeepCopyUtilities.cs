@@ -17,7 +17,7 @@ namespace BL
                 if (propFrom == null)
                     continue;
                 var value = propFrom.GetValue(from, null);
-                if (value is ValueType || value is string || value is BO.ShortLine)
+                if (value is ValueType || value is string || value is BO.Station || value is IEnumerable<BO.StationInLine>)
                     propTo.SetValue(to, value);
             }
         }

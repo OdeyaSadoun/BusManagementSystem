@@ -302,7 +302,13 @@ namespace DS
                 /*13*/new Line { Id = 14, LineNumber = 392, Area= Area.Center ,FirstStation= ListStations[218].Code, LastStation= ListStations[240].Code, Fare = 5.90 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(00,50,00)},//פתח תקווה
                 #endregion
         };
-        public static List<LineStation> ListLineStations;
+        public static List<LineStation> ListLineStations = new List<LineStation>
+        {
+            new LineStation{LineId=2, StationCode=20001, IsDeleted=false, LineStationIndex=0},
+            new LineStation{LineId=2, StationCode=640, IsDeleted=false, LineStationIndex=1},
+
+        };
+
         public static List<User> ListUsers = new List<User>
         {
             new User { FirstName = "Odeya", LastName= "Sadoun", Birthday = new DateTime (2001,10,21), UserName = "odeya.sadoun@gmail.com", Password = "123456" , Admin = true, IsDeleted = false, Balance = 45.5, UserProfile = Profile.OrdinaryStudent},

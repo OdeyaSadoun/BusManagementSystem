@@ -19,6 +19,13 @@
         <Button x:Name="ButtonContact" Content="Contact" HorizontalAlignment="Left" Margin="177,548,0,0" VerticalAlignment="Top" Height="50" Width="120" FontWeight="Bold" Click="ButtonContact_Click" RenderTransformOrigin="1.267,1.238" FontSize="15"/>
         <Image Margin="178,438,703,79" Source="RES3-removebg-preview.png" Stretch="Fill"/>
         <Image Margin="57,446,849,82" Source="D-removebg-preview.png" Stretch="Fill" RenderTransformOrigin="0.422,0.874"/>
+        <ListView x:Name="lv" HorizontalAlignment="Left" Height="100" Margin="448,223,0,0" VerticalAlignment="Top" Width="100">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 
 
