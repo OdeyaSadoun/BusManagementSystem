@@ -41,7 +41,11 @@ namespace BO
         /// A to string function
         /// </summary>
         /// <returns></returns>
-        public override string ToString() => this.ToStringProperty();
+        public override string ToString()
+        {
+            return string.Format("The line id is:" + Id + "\t line number:" + LineNumber + "\t to:" + LastStation);
+
+        }
         #endregion
     }
 }
