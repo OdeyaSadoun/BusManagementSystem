@@ -407,7 +407,7 @@ namespace DalObject
         /// <returns></returns>
         public DO.Station GetStation(int code)
         {
-            DO.Station station = DataSource.ListStations.Find(p => p.Code == code && p.IsDeleted);
+            DO.Station station = DataSource.ListStations.Find(p => p.Code == code && !p.IsDeleted);
 
             if (station != null)
                 return station.Clone();
@@ -522,7 +522,7 @@ namespace DalObject
         /// <returns></returns>
         public DO.Line GetLine(int id)
         {
-            DO.Line l = DataSource.ListLines.Find(p => p.Id == id && p.IsDeleted);
+            DO.Line l = DataSource.ListLines.Find(p => p.Id == id && !p.IsDeleted);
 
             if (l != null)
                 return l.Clone();
@@ -866,7 +866,7 @@ namespace DalObject
         /// <returns></returns>
         public DO.AdjacentStations GetAdjacentStations(int stationCode1, int stationCode2)
         {
-                DO.AdjacentStations a = DataSource.ListAdjacentStations.Find(p =>( p.CodeStation1 == stationCode1) &&(p.CodeStation2 == stationCode2) && p.IsDeleted);
+                DO.AdjacentStations a = DataSource.ListAdjacentStations.Find(p =>( p.CodeStation1 == stationCode1) &&(p.CodeStation2 == stationCode2) && !p.IsDeleted);
 
                 if (a != null)
                     return a.Clone();

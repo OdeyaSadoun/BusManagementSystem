@@ -286,26 +286,27 @@ namespace DS
         public static List<Line> ListLines = new List<Line>
         {
             #region Boot lines //אתחול קווים
-                /*0*/ new Line { Id = 1, LineNumber = 480, Area= Area.JerusalemCenter ,FirstStation= ListStations[0].Code, LastStation= ListStations[3].Code, Fare = 30, IsDeleted = false , TravelTimeInThisLine = new TimeSpan(01,30,00)}, //תל אביב - ירושלים
-                /*1*/ new Line { Id = 2, LineNumber = 921, Area= Area.NorthCenter ,FirstStation= ListStations[4].Code, LastStation= ListStations[62].Code, Fare = 29.5 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(02,40,00)}, //רעננה- חיפה
-                /*2*/ new Line { Id = 3, LineNumber = 790, Area= Area.SouthCenter ,FirstStation= ListStations[63].Code, LastStation= ListStations[66].Code, Fare = 75.30  , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(05,40,00)},//אילת- תל אביב
-                /*3*/ new Line { Id = 4, LineNumber = 380, Area= Area.SouthCenter ,FirstStation= ListStations[67].Code , LastStation= ListStations[0].Code , Fare = 46.20 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(03,00,00)}, //באר שבע- תל אביב
-                /*4*/ new Line { Id = 5,LineNumber = 431, Area= Area.JerusalemCenter,FirstStation= ListStations[3].Code, LastStation= ListStations[71].Code, Fare = 25.60  , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(01,25,30)}, //ירושלים-ראשון לציון
-                /*5*/ new Line { Id = 6,LineNumber = 691, Area= Area.North, FirstStation= ListStations[72].Code, LastStation=  ListStations[62].Code , Fare = 15 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(00,52,12)},//מרכז מיר"ב-חיפה
-                /*6*/ new Line { Id = 7,LineNumber = 41, Area= Area.North ,FirstStation= ListStations[79].Code, LastStation= ListStations[98].Code , Fare = 8.90 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(01,05,00)}, //אלמגור- חצור הגלילית
-                /*7*/ new Line { Id = 8,LineNumber = 59, Area= Area.North,FirstStation= ListStations[99].Code, LastStation= ListStations[115].Code , Fare = 8.90, IsDeleted = false, TravelTimeInThisLine = new TimeSpan(01,00,00)},//חצור הגלילית- טבריה
-                /*8*/ new Line { Id = 9,LineNumber = 53, Area= Area.Center ,FirstStation= ListStations[116].Code, LastStation=ListStations[139].Code  , Fare = 5.90, IsDeleted = false, TravelTimeInThisLine = new TimeSpan(01,10,00)},// בני ברק- תל אביב
-                /*9*/ new Line { Id = 10,LineNumber = 60, Area=  Area.Center,FirstStation= ListStations[139].Code, LastStation= ListStations[158].Code, Fare = 5.90 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(00,30,56)},// תל אביב- רמת גן
-                /*10*/new Line { Id = 11,LineNumber = 150, Area= Area.South,FirstStation= ListStations[159].Code, LastStation=ListStations[182].Code , Fare = 12, IsDeleted = false, TravelTimeInThisLine = new TimeSpan(00,45,00)},//אשדוד- אשקלון
-                /*11*/new Line { Id = 12 ,LineNumber = 115, Area= Area.Center,FirstStation= ListStations[183].Code, LastStation= ListStations[202].Code , Fare = 8.90 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(00,30,00)},//קרית אונו- תל אביב
-                /*12*/new Line { Id = 13, LineNumber = 2, Area= Area.Center,FirstStation= ListStations[203].Code, LastStation= ListStations[203].Code , Fare = 5.90, IsDeleted = false, TravelTimeInThisLine = new TimeSpan(00,45,00)},//רמת גן- סיבובי, מתחיל ונגמר באותו מקום
-                /*13*/new Line { Id = 14, LineNumber = 392, Area= Area.Center ,FirstStation= ListStations[218].Code, LastStation= ListStations[240].Code, Fare = 5.90 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(00,50,00)},//פתח תקווה
+                /*0*/ new Line { Id = 0, LineNumber = 480, Area= Area.JerusalemCenter ,FirstStation= ListStations[0].Code, LastStation= ListStations[3].Code, Fare = 30, IsDeleted = false , TravelTimeInThisLine = new TimeSpan(01,30,00)}, //תל אביב - ירושלים
+                /*1*/ new Line { Id = 1, LineNumber = 921, Area= Area.NorthCenter ,FirstStation= ListStations[4].Code, LastStation= ListStations[62].Code, Fare = 29.5 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(02,40,00)}, //רעננה- חיפה
+                /*2*/ new Line { Id = 2, LineNumber = 790, Area= Area.SouthCenter ,FirstStation= ListStations[63].Code, LastStation= ListStations[66].Code, Fare = 75.30  , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(05,40,00)},//אילת- תל אביב
+                /*3*/ new Line { Id = 3, LineNumber = 380, Area= Area.SouthCenter ,FirstStation= ListStations[67].Code , LastStation= ListStations[0].Code , Fare = 46.20 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(03,00,00)}, //באר שבע- תל אביב
+                /*4*/ new Line { Id = 4,LineNumber = 431, Area= Area.JerusalemCenter,FirstStation= ListStations[3].Code, LastStation= ListStations[71].Code, Fare = 25.60  , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(01,25,30)}, //ירושלים-ראשון לציון
+                /*5*/ new Line { Id = 5,LineNumber = 691, Area= Area.North, FirstStation= ListStations[72].Code, LastStation=  ListStations[62].Code , Fare = 15 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(00,52,12)},//מרכז מיר"ב-חיפה
+                /*6*/ new Line { Id = 6,LineNumber = 41, Area= Area.North ,FirstStation= ListStations[79].Code, LastStation= ListStations[98].Code , Fare = 8.90 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(01,05,00)}, //אלמגור- חצור הגלילית
+                /*7*/ new Line { Id = 7,LineNumber = 59, Area= Area.North,FirstStation= ListStations[99].Code, LastStation= ListStations[115].Code , Fare = 8.90, IsDeleted = false, TravelTimeInThisLine = new TimeSpan(01,00,00)},//חצור הגלילית- טבריה
+                /*8*/ new Line { Id = 8,LineNumber = 53, Area= Area.Center ,FirstStation= ListStations[116].Code, LastStation=ListStations[139].Code  , Fare = 5.90, IsDeleted = false, TravelTimeInThisLine = new TimeSpan(01,10,00)},// בני ברק- תל אביב
+                /*9*/ new Line { Id = 9,LineNumber = 60, Area=  Area.Center,FirstStation= ListStations[139].Code, LastStation= ListStations[158].Code, Fare = 5.90 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(00,30,56)},// תל אביב- רמת גן
+                /*10*/new Line { Id = 10,LineNumber = 150, Area= Area.South,FirstStation= ListStations[159].Code, LastStation=ListStations[182].Code , Fare = 12, IsDeleted = false, TravelTimeInThisLine = new TimeSpan(00,45,00)},//אשדוד- אשקלון
+                /*11*/new Line { Id = 11 ,LineNumber = 115, Area= Area.Center,FirstStation= ListStations[183].Code, LastStation= ListStations[202].Code , Fare = 8.90 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(00,30,00)},//קרית אונו- תל אביב
+                /*12*/new Line { Id = 12, LineNumber = 2, Area= Area.Center,FirstStation= ListStations[203].Code, LastStation= ListStations[217].Code , Fare = 5.90, IsDeleted = false, TravelTimeInThisLine = new TimeSpan(00,45,00)},//רמת גן- סיבובי, מתחיל ונגמר באותו מקום
+                /*13*/new Line { Id = 13, LineNumber = 392, Area= Area.Center ,FirstStation= ListStations[218].Code, LastStation= ListStations[240].Code, Fare = 5.90 , IsDeleted = false, TravelTimeInThisLine = new TimeSpan(00,50,00)},//פתח תקווה
                 #endregion
         };
         public static List<LineStation> ListLineStations = new List<LineStation>
         {
-            new LineStation{LineId=2, StationCode=20001, IsDeleted=false, LineStationIndex=0},
-            new LineStation{LineId=2, StationCode=640, IsDeleted=false, LineStationIndex=1},
+            new LineStation{LineId=0, StationCode=20001, IsDeleted=false, LineStationIndex=0},
+            new LineStation{LineId=0, StationCode=640, IsDeleted=false, LineStationIndex=1},
+
 
         };
 
@@ -315,7 +316,10 @@ namespace DS
             new User { FirstName = "Tamar", LastName= "Gavrieli", Birthday = new DateTime (2001,02,20), UserName = "tamargavrieli18@gmail.com", Password = "56789" , Admin = true, IsDeleted = false, Balance = 30, UserProfile = Profile.OrdinaryStudent},
             new User {FirstName = "Orit", LastName= "Stavski", Birthday = new DateTime (2001,12,11), UserName = "orit.stavsky@gmail.com", Password = "122135" , Admin = false, IsDeleted = false, Balance = 60, UserProfile = Profile.OrdinaryStudent}
         };
-        public static List<AdjacentStations> ListAdjacentStations;
+        public static List<AdjacentStations> ListAdjacentStations = new List<AdjacentStations>
+        {
+            new AdjacentStations { CodeStation1 = 20001, CodeStation2= 640, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)}
+        };
         public static List<Trip> ListTrips;
     }
 }

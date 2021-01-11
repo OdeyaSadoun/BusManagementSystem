@@ -201,14 +201,20 @@ namespace BL
                 if (s.LineStationIndex != stations[stations.Count - 1].LineStationIndex) // if this is not the end
                 {
                     int sc1 = s.StationCode;//station code 1
-                    int sc2 = stations[s.LineStationIndex].StationCode;//station code 2
+                    int sc2 = stations[s.LineStationIndex+1].StationCode;//station code 2
                     DO.AdjacentStations adjStat = dl.GetAdjacentStations(sc1, sc2);
                     s.DistanceTo = adjStat.Distance;
                     s.TimeTo = adjStat.TravelTime;
                 }
             }
             lineBO.ListOfStationsInLine = stations;
-            lineDO.CopyPropertiesTo(lineBO);
+            BO.Station sBO;
+            DO.Station sDO = dl.GetStation(lineDO.FirstStation);
+            lineBO.FirstStation = stationDoBoAdapter(sDO);
+            sDO = dl.GetStation(lineDO.LastStation);
+            lineBO.LastStation = stationDoBoAdapter(sDO);
+            lineBO = lineDO.CopyToLine();
+
             return lineBO;
         }
         #endregion
@@ -627,7 +633,8 @@ namespace BL
         {
             BO.Station stationBO = new BO.Station();
             int stationCode = stationDO.Code;
-            stationDO.CopyPropertiesTo(stationBO);
+            stationBO = stationDO.CopyToStation();
+
 
             stationBO.ListOfLines = (from stat in dl.GetAllLinesStationBy(stat => stat.StationCode == stationCode && stat.IsDeleted == false)
                                let line = dl.GetLine(stat.LineId)
