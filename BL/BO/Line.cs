@@ -58,12 +58,6 @@ namespace BO
         public IEnumerable<StationInLine> ListOfStationsInLine { get; set; }
         #endregion
 
-        #region ToString
-        /// <summary>
-        /// A to string function
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString() => this.ToStringProperty();
-        #endregion
+
     }
 }

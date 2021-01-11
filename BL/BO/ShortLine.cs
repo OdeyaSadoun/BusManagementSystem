@@ -35,5 +35,13 @@ namespace BO
         /// </summary>
         public bool IsDeleted { get; set; }
         #endregion
+
+        #region ToString
+        /// <summary>
+        /// A to string function
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString() => this.ToStringProperty();
+        #endregion
     }
 }
