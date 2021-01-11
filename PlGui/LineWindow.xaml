@@ -6,11 +6,69 @@
         xmlns:local="clr-namespace:PlGui"
         mc:Ignorable="d"
         Title="LineWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="line"
+                  DataType="local:BO.ShortLine">
+            <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                   Text="{Binding Path=Id}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="2" 
+                   Text="{Binding Path=LineNumber}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <!--<Button x:Name="Drive_Button" Grid.Column="7"
+                    Height="40" Width ="45" Click="drive_click_button" BorderBrush="{x:Null}" >
+                    --><!--<Button.Background>
+                        <ImageBrush ImageSource="drive.png" Stretch="UniformToFill"/>
+                    </Button.Background>--><!--
+                </Button>
+                <Button x:Name="Refuel_Button" Grid.Column="8"  Height="40" Width ="45" Click="refuel_click_button" BorderBrush="{x:Null}"  >
+                    --><!--<Button.Background>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="d3.jpg"/>
+                    </Button.Background>--><!--
+
+                </Button>
+                <Button x:Name="Care_Button" Grid.Column="9"
+                   Height="40" Width ="45"  Click="care_click_button" BorderBrush="{x:Null}" ClickMode="Release" >
+                    --><!--<Button.Background>
+                        <ImageBrush ImageSource="cl.jpg" Stretch="Uniform" TileMode="None"/>
+                    </Button.Background>--><!--
+                </Button>
+                <Button x:Name="Remove_Button" Grid.Column="10"
+                    Height="40" Width ="45"  Click="remove_click_button" BorderBrush="{x:Null}"   >
+                    --><!--<Button.Background>
+                        <ImageBrush ImageSource="pach.png" Stretch="Uniform"/>
+                    </Button.Background>--><!--
+                </Button>-->
+
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+
+
+
+
+
+
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <ListView x:Name="lv" HorizontalAlignment="Left" Height="100" Margin="402,163,0,0" VerticalAlignment="Top" Width="100">
+        <ListView x:Name="lv" HorizontalAlignment="Left" Height="324" Margin="60,54,0,0" VerticalAlignment="Top" Width="667">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
