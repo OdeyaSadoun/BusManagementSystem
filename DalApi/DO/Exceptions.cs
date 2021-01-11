@@ -19,8 +19,6 @@ namespace DO
         public override string ToString() => base.ToString() + $", Incorrect license number: {licenseNumber}";
     }
 
-   
-
     [Serializable]
     public class IncorrectInputException : Exception
     {

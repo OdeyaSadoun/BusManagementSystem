@@ -18,7 +18,7 @@ namespace BL
 
         #region busDoBoAdapter
         /// <summary>
-        /// A function that copy details from DO to BO
+        /// A function that copy details of bus from DO to BO
         /// </summary>
         /// <param name="busDO"></param>
         /// <returns></returns>
@@ -32,7 +32,7 @@ namespace BL
 
         #region GetBus
         /// <summary>
-        /// A BO function that return a bus
+        /// A BO function that return a BO bus
         /// </summary>
         /// <param name = "id" ></ param >
         /// < returns ></ returns >
@@ -51,20 +51,19 @@ namespace BL
         }
         #endregion
 
+        #region GetAllBuses
+        /// <summary>
+        /// A BO function that return all the buses 
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<BO.Bus> GetAllBuses()//פונקצית הרחבה
+        {
+            return from bus in dl.GetAllBuses()
+                   select busDoBoAdapter(bus);
+        }
+        #endregion
         ///////////////////////////////////////////
 
-        //#region GetAllBuses
-        ///// <summary>
-        ///// A BO function that return all the buses 
-        ///// </summary>
-        ///// <returns></returns>
-        //public IEnumerable<BO.Bus> GetAllBuses()//פונקצית הרחבה
-        //{
-
-        //    return from bus in dl.GetAllBuses()
-        //           select busDoBoAdapter(bus);
-        //}
-        //#endregion
 
         //#region GetAllBusesBy
         ///// <summary>
@@ -237,20 +236,20 @@ namespace BL
         }
         #endregion
 
+        #region GetAllLines
+        /// <summary>
+        /// A BO function that return all the lines
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<BO.Line> GetAllLines()
+        {
+            return from line in dl.GetAllLines()
+                   select lineDoBoAdapter(line);
+
+        }
+        #endregion
         //////////////////////////////////////////
 
-        //#region GetAllLines
-        ///// <summary>
-        ///// A function that return all the lines
-        ///// </summary>
-        ///// <returns></returns>
-        //public IEnumerable<BO.Line> GetAllLines()
-        //{
-        //    return from line in dl.GetAllLines()
-        //           select lineDoBoAdapter(line);
-
-        //}
-        //#endregion
 
         //#region AddLine
         ///// <summary>
@@ -322,7 +321,6 @@ namespace BL
         //#endregion
 
         #endregion
-
 
         #region BusOnTrip
 
@@ -517,19 +515,19 @@ namespace BL
         }
         #endregion
 
+        #region GetAllLinesTrip
+        /// <summary>
+        /// A BO function that return all the lines trip
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<BO.LineTrip> GetAllLinesTrip()
+        {
+            return from linetrip in dl.GetAllLinesTrip()
+                   select lineTripDoBoAdapter(linetrip);
+        }
+        #endregion
         ////////////////////////////////////////////
 
-        //#region GetAllLinesTrip
-        ///// <summary>
-        ///// A function that return all the lines trip
-        ///// </summary>
-        ///// <returns></returns>
-        //public IEnumerable<DO.LineTrip> GetAllLinesTrip()
-        //{
-        //    return from lt in DataSource.ListLinesTrip
-        //           select lt.Clone();
-        //}
-        //#endregion
 
         //#region GetAllLinesTripBy
         ///// <summary>
@@ -1096,8 +1094,6 @@ namespace BL
         //}
         //#endregion
        #endregion
-
-
 
     }
 }
