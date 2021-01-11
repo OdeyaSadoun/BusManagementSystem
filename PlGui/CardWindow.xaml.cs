@@ -62,6 +62,14 @@ namespace PlGui
             MessageBox.Show("Charging 200₪ was performed successfuly");
         }
 
-       
+        //private void Back_Click(object sender, RoutedEventArgs e)
+        //{
+        //    MainWindow main = new MainWindow();
+        //    main.ShowDialog();
+        //    Close();
+        //}
+
+
+
     }
 }

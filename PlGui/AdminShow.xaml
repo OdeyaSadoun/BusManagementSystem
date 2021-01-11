@@ -11,7 +11,9 @@
             <Grid.Background>
                 <ImageBrush ImageSource="r3.jpeg"/>
             </Grid.Background>
-            <Button x:Name="Card" Content="Cards" HorizontalAlignment="Left" Margin="308,175,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.979,-0.291" Click="Card_Click" FontWeight="Bold" FontSize="20"/>
+            <Button x:Name="Card" Content="Cards" HorizontalAlignment="Left" Margin="41,66,0,0" VerticalAlignment="Top" Width="144" RenderTransformOrigin="-0.979,-0.291" Click="Card_Click" FontWeight="Bold" FontSize="20"/>
+            <Button x:Name="lvBus" Content="Buses" HorizontalAlignment="Left" Margin="41,131,0,0" VerticalAlignment="Top" Width="144" FontWeight="Bold" FontSize="20" Click="lvBus_Click"/>
+            <Button x:Name="lvLine" Content="Lines" HorizontalAlignment="Left" Margin="41,190,0,0" VerticalAlignment="Top" Width="144" FontWeight="Bold" FontSize="20" Click="lvLine_Click"/>
         </Grid>
 
     </Grid>

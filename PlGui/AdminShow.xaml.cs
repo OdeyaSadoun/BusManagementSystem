@@ -31,5 +31,17 @@ namespace PlGui
             CardWindow window = new CardWindow(user);
             window.ShowDialog();
         }
+
+        private void lvBus_Click(object sender, RoutedEventArgs e)
+        {
+            BusWindow bus = new BusWindow();
+            bus.ShowDialog();
+        }
+
+        private void lvLine_Click(object sender, RoutedEventArgs e)
+        {
+            LineWindow line = new LineWindow();
+            line.ShowDialog();
+        }
     }
 }

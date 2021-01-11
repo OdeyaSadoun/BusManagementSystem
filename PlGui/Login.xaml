@@ -17,9 +17,9 @@
             <ColumnDefinition Width="117*"/>
         </Grid.ColumnDefinitions>
         <TextBlock Height="32" HorizontalAlignment="Left" Margin="144.6,356,0,0" x:Name="textBlockHeading" VerticalAlignment="Top" FontSize="12" FontStyle="Italic" Padding="5" Grid.Column="2"><InlineUIContainer>
-<!--textblock as a Hyperlink.-->  
                 <TextBlock TextDecorations="Underline"><Hyperlink Click="UserRegister_Click" FontSize="14" FontStyle="Normal"><Run Foreground="Black" Text="Register as user"/></Hyperlink></TextBlock>  
-            </InlineUIContainer><Run Text=" "/></TextBlock>
+            </InlineUIContainer><Run Text=" "/>
+        </TextBlock>
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="141.4,178,0,0" Name="emailTextBlock1" Text="Email:" Foreground="White" VerticalAlignment="Top" Width="34" FontWeight="Bold" Grid.Column="2" RenderTransformOrigin="2.082,-0.635" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="141.4,226,0,0" Name="passwordTextBlock2" Text="Password:"  Foreground="White" VerticalAlignment="Top" Width="57" FontWeight="Bold" Grid.Column="2" >
             <TextBlock.Background>

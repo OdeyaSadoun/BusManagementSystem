@@ -18,7 +18,7 @@ namespace BL
                     continue;
                 var value = propFrom.GetValue(from, null);
                 if (value is ValueType || value is string || value is BO.Station || value is IEnumerable<BO.StationInLine>)
-                    propTo.SetValue(to, value);
+                        propTo.SetValue(to, value);
             }
         }
         public static object CopyPropertiesToNew<S>(this S from, Type type)

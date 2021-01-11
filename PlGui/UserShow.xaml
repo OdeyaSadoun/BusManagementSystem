@@ -10,6 +10,8 @@
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <Button x:Name="Card" Content="Cards" HorizontalAlignment="Left" Margin="345,295,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" FontSize="20" Click="Card_Click"/>
+        <Button x:Name="Card" Content="Cards" HorizontalAlignment="Left" Margin="35,70,0,0" VerticalAlignment="Top" Width="150" FontWeight="Bold" FontSize="20" Click="Card_Click"/>
+        <Button x:Name="lvBus" Content="List Of Buses" HorizontalAlignment="Left" Margin="35,125,0,0" VerticalAlignment="Top" Width="150" FontWeight="Bold" FontSize="20" Click="lvBus_Click"/>
+        <Button x:Name="lvLines" Content="List Of Lines" HorizontalAlignment="Left" Margin="35,175,0,0" VerticalAlignment="Top" Width="150" FontWeight="Bold" FontSize="20" Click="lvLines_Click"/>
     </Grid>
 </Window>
