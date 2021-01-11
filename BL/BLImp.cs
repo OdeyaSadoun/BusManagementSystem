@@ -62,6 +62,57 @@ namespace BL
                    select busDoBoAdapter(bus);
         }
         #endregion
+
+        #region CountDigit - help function
+        /// <summary>
+        /// A function that count how many digits in the number
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        private int CountDigit(int num)
+        {
+            int counter = 0;
+            while (num != 0)
+            {
+                num = num / 10;
+                counter++;
+            }
+            return counter;
+        }
+        #endregion
+
+        #region AddBus
+        /// <summary>
+        /// A function that add a bus to the list
+        /// </summary>
+        /// <param name="bus"></param>
+        public void AddBus(BO.Bus bus)
+        {
+            DO.Bus busDOtemp;
+            try
+            {
+                busDOtemp = dl.GetBus(bus.LicenseNumber);
+            }
+            catch (DO.IncorrectLicenseNumberException ex)
+            {
+                throw new BO.IncorrectLicenseNumberException(ex.licenseNumber, ex.Message);
+            }
+            if (bus.DateBegin > DateTime.Now) //נבדוק האם התאריך תקין
+                throw new BO.IncorrectDateException(bus.DateBegin, "The date begin not valid");
+            if (bus.TotalMileage < 0) // אם הקילומטראז פחות מ-0 אזי נשים 0 כברירת מחדל
+                bus.TotalMileage = 0;
+            if (bus.FuelRemain < 0 || bus.FuelRemain > 1200) //אם הדלק לא תקין נמלא את המיכל עד 1200
+                bus.FuelRemain = 1200;
+            int lengthLicenceNumber = CountDigit(bus.LicenseNumber); //נבדוק האם מספר הספרות בלוחית רישוי תואמת את שנת הייצור
+            if (((lengthLicenceNumber == 7 && bus.DateBegin.Year >= 2018) || (lengthLicenceNumber == 8 && bus.DateBegin.Year < 2018)))
+                throw new BO.IncorrectLicenseNumberOrDateException(bus.LicenseNumber, bus.DateBegin, "The license number or the date begin isn't correct");
+            if (bus.LastTreatment > DateTime.Now || bus.LastTreatment < bus.DateBegin)
+                throw new BO.IncorrectDateException(bus.LastTreatment, "The date of last treatment is not valid");
+            if (bus.KmBeforTreatment < 0 || bus.KmBeforTreatment > bus.TotalMileage)
+                throw new BO.IncorrectInputException("The kilometrage of last treatment is not valid");
+            dl.AddBus(busDOtemp);
+        }
+        #endregion
         ///////////////////////////////////////////
 
 
@@ -80,49 +131,7 @@ namespace BL
         //}
         //#endregion
 
-        //#region CountDigit - help function
-        ///// <summary>
-        ///// A function that count how many digits in the number
-        ///// </summary>
-        ///// <param name="num"></param>
-        ///// <returns></returns>
-        //private int CountDigit(int num)
-        //{
-        //    int counter = 0;
-        //    while (num != 0)
-        //    {
-        //        num = num / 10;
-        //        counter++;
-        //    }
-        //    return counter;
-        //}
-        //#endregion
 
-        //#region AddBus
-        ///// <summary>
-        ///// A function that add a bus to the list
-        ///// </summary>
-        ///// <param name="bus"></param>
-        //public void AddBus(DO.Bus bus)
-        //{
-        //    if (DataSource.ListBuses.FirstOrDefault(p => p.LicenseNumber == bus.LicenseNumber && p.IsDeleted) != null)
-        //        throw new Exception();
-        //    if (bus.DateBegin > DateTime.Now) //נבדוק האם התאריך תקין
-        //        throw new IncorrectDateException(bus.DateBegin, "The date begin not valid");
-        //    if (bus.TotalMileage < 0) // אם הקילומטראז פחות מ-0 אזי נשים 0 כברירת מחדל
-        //        bus.TotalMileage = 0;
-        //    if (bus.FuelRemain < 0 || bus.FuelRemain > 1200) //אם הדלק לא תקין נמלא את המיכל עד 1200
-        //        bus.FuelRemain = 1200;
-        //    int lengthLicenceNumber = CountDigit(bus.LicenseNumber); //נבדוק האם מספר הספרות בלוחית רישוי תואמת את שנת הייצור
-        //    if (!((lengthLicenceNumber == 7 && bus.DateBegin.Year >= 2018) || (lengthLicenceNumber == 8 && bus.DateBegin.Year < 2018)))
-        //        throw new IncorrectLicenseNumberOrDateException(bus.LicenseNumber, bus.DateBegin, "The license number or the date begin isn't correct");
-        //    if (bus.LastTreatment > DateTime.Now || bus.LastTreatment < bus.DateBegin)
-        //        throw new IncorrectDateException(bus.LastTreatment, "The date of last treatment is not valid");
-        //    if (bus.KmBeforTreatment < 0 || bus.KmBeforTreatment > bus.TotalMileage)
-        //        throw new IncorrectInputException("The kilometrage of last treatment is not valid");
-        //    DataSource.ListBuses.Add(bus.Clone());
-        //}
-        //#endregion
 
         //#region DeleteBus
         ///// <summary>
@@ -208,11 +217,11 @@ namespace BL
                 }
             }
             lineBO.ListOfStationsInLine = stations;
-            BO.Station sBO;
-            DO.Station sDO = dl.GetStation(lineDO.FirstStation);
-            lineBO.FirstStation = stationDoBoAdapter(sDO);
-            sDO = dl.GetStation(lineDO.LastStation);
-            lineBO.LastStation = stationDoBoAdapter(sDO);
+            //BO.Station sBO;
+            //DO.Station sDO = dl.GetStation(lineDO.FirstStation);
+            //lineBO.FirstStation = stationDoBoAdapter(sDO);
+            //sDO = dl.GetStation(lineDO.LastStation);
+            //lineBO.LastStation = stationDoBoAdapter(sDO);
             lineBO = lineDO.CopyToLine();
 
             return lineBO;
@@ -258,20 +267,44 @@ namespace BL
         //////////////////////////////////////////
 
 
-        //#region AddLine
-        ///// <summary>
-        ///// A function that add a line to the list
-        ///// </summary>
-        ///// <param name="line"></param>
-        //public void AddLine(DO.Line line)
-        //{
-        //    if (DataSource.ListLines.FirstOrDefault(p => p.Id == line.Id && p.IsDeleted) != null)
-        //        throw new Exception();
+        #region AddLine
+        /// <summary>
+        /// A function that add a line to the list
+        /// </summary>
+        /// <param name="line"></param>
+        public void AddLine(BO.Line line)
+        {
+            DO.Line lineDOtemp;
+            try
+            {
+                lineDOtemp = dl.GetLine(line.Id);
+            }
+            catch (DO.IncorrectLineIDException ex)
+            {
+                throw new BO.IncorrectLineIDException(ex.ID, ex.Message);
+            }
+            if (line.LineNumber < 0 || line.Fare < 0 || line.TravelTimeInThisLine == TimeSpan.Zero) //מספר הקו שלילי ולא תקין או מחיר הנסיעה שלילי או זמן הנסיעה 0
+                throw new BO.IncorrectInputException("The line number not valid");
 
-        //    line.Id = DO.Configuration.LineID++; //המספר הרץ
-        //    DataSource.ListLines.Add(line.Clone());
-        //}
-        //#endregion
+            DO.Station sDO1 = dl.GetStation(line.FirstStation.Code);
+            DO.Station sDO2 = dl.GetStation(line.LastStation.Code);
+
+            if ((sDO1 == null)|| (sDO2 == null))
+                throw new BO.IncorrectCodeStationException(line.FirstStation.Code, "This station code could not found");
+            line.FirstStation = sDO1.CopyToStation();
+            line.LastStation = sDO2.CopyToStation();
+            
+
+            line.Id = BO.Configuration.LineID++; //המספר הרץ
+
+            //לעבור על רשימת התחנות ולשאול האם אני בתחנה מסוימת ובאותה תחנה להוסיף את הקו לרשימת הקווים
+            //if (line.ListOfStationsInLine.Count == 0)
+            //    throw new ArgumentNullException("The list of the bus is empty");
+           // foreach ()
+
+            dl.AddLine(lineDOtemp);
+        }
+        #endregion
 
         //#region UpdateLine
         ///// <summary>

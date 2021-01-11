@@ -84,5 +84,17 @@ namespace BO
         /// </summary>
         public bool IsAccessible { get; set; }
         #endregion
+
+        #region ToString
+        /// <summary>
+        /// A to string function
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return string.Format("The license number is: " + LicenseNumber + "\t the status: " + Status + "\t total milage: " + TotalMileage);
+
+        }
+        #endregion
     }
 }

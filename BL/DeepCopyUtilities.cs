@@ -53,10 +53,10 @@ namespace BL
 
             line.Area = (BO.Area)s.Area;
 
-            //DO.Station sDO = dl.GetStation(s.FirstStation);
-            //line.FirstStation.CopyPropertiesTo(sDO);
-            //sDO = dl.GetStation(s.LastStation);
-            //line.LastStation.CopyPropertiesTo(sDO);
+            DO.Station sDO = dl.GetStation(s.FirstStation);
+            line.FirstStation= CopyToStation(sDO);
+            sDO = dl.GetStation(s.LastStation);
+            line.LastStation= CopyToStation(sDO);
 
 
             line.Id = s.Id;

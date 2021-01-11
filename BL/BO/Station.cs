@@ -81,5 +81,17 @@ namespace BO
         #region ListOfStationsInLines
         public IEnumerable<StationInLine> ListOfStationsInLines { get; set; }
         #endregion
+
+
+        #region ToString
+        /// <summary>
+        /// A to string function
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return string.Format("The station code is: " + Code + "\t name: " + Name + "\t address: " + Address);
+        }
+        #endregion
     }
 }
