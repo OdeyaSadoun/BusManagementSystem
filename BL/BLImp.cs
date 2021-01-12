@@ -126,13 +126,18 @@ namespace BL
                     bus.TotalMileage = 0;
                 if (bus.FuelRemain < 0 || bus.FuelRemain > 1200) //אם הדלק לא תקין נמלא את המיכל עד 1200
                     bus.FuelRemain = 1200;
+
                 int lengthLicenceNumber = CountDigit(bus.LicenseNumber); //נבדוק האם מספר הספרות בלוחית רישוי תואמת את שנת הייצור
+                if (lengthLicenceNumber != 7 && lengthLicenceNumber != 8)
+                    throw new BO.IncorrectLicenseNumberException(bus.LicenseNumber, "The license number isn't correct");
                 if (((lengthLicenceNumber == 7 && bus.DateBegin.Year >= 2018) || (lengthLicenceNumber == 8 && bus.DateBegin.Year < 2018)))
                     throw new BO.IncorrectLicenseNumberOrDateException(bus.LicenseNumber, bus.DateBegin, "The license number or the date begin isn't correct");
                 if (bus.LastTreatment > DateTime.Now || bus.LastTreatment < bus.DateBegin)
                     throw new BO.IncorrectDateException(bus.LastTreatment, "The date of last treatment is not valid");
                 if (bus.KmBeforTreatment < 0 || bus.KmBeforTreatment > bus.TotalMileage)
                     throw new BO.IncorrectInputException("The kilometrage of last treatment is not valid");
+                if(bus.KmBeforeFuel < 0 || bus.KmBeforeFuel > 1200)
+                    throw new BO.IncorrectInputException("The kilometrage of last fuel is not valid");
 
                 dl.AddBus(busDOtemp);
             }
@@ -203,7 +208,7 @@ namespace BL
         BO.Line lineDoBoAdapter(DO.Line lineDO)
         {
             BO.Line lineBO = new BO.Line();
-            int lineId = lineBO.Id;
+            int lineId = lineDO.Id;
 
             List<BO.StationInLine> stations = new List<BO.StationInLine>();
             stations = (from stat in dl.GetAllLinesStationBy(stat => stat.LineId == lineId && stat.IsDeleted == false)
@@ -283,7 +288,7 @@ namespace BL
                 lineDOtemp.CopyPropertiesTo(line);
 
                 if (line.LineNumber < 0 || line.Fare < 0 || line.TravelTimeInThisLine == TimeSpan.Zero) //מספר הקו שלילי ולא תקין או מחיר הנסיעה שלילי או זמן הנסיעה 0
-                    throw new BO.IncorrectInputException("The line number not valid");
+                    throw new BO.IncorrectInputException("The line number or fare of trabel time not valid");
 
                 DO.Station sDO1 = dl.GetStation(line.FirstStation.Code);
                 DO.Station sDO2 = dl.GetStation(line.LastStation.Code);
@@ -296,7 +301,7 @@ namespace BL
                 //לעבור על רשימת התחנות ולשאול האם אני בתחנה מסוימת ובאותה תחנה להוסיף את הקו לרשימת הקווים
                 List<BO.StationInLine> tempListStations = new List<StationInLine>();
                 if (line.ListOfStationsInLine.Count() == 0)
-                    throw new ArgumentNullException("The list of the bus is empty");
+                    throw new ArgumentNullException("The list of the line is empty");
 
                 dl.AddLine(lineDOtemp);
                 foreach (BO.StationInLine station in line.ListOfStationsInLine)
