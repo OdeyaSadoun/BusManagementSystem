@@ -15,11 +15,11 @@ namespace BLApi
 
         //IEnumerable<BO.Bus> GetAllBusesBy(Predicate<BO.Bus> predicate);
         BO.Bus GetBus(int id);
-        //void AddBus(BO.Bus bus);
-        //void UpdateBus(BO.Bus bus);
+        void AddBus(BO.Bus bus);
+        void UpdateBus(BO.Bus bus);
         //void UpdateBus(int id, Action<BO.Bus> update);
-        //void DeleteBus(int id);
-       #endregion
+        void DeleteBus(BO.Bus busBO);
+        #endregion
 
         //#region BusOnTrip
         //IEnumerable<BO.BusOnTrip> GetAllBusesOnTrip();
@@ -65,13 +65,13 @@ namespace BLApi
 
 
         #region User
-        //IEnumerable<BO.User> GetAllUsers();
+        IEnumerable<BO.User> GetAllUsers();
         //IEnumerable<BO.User> GetAllUsersBy(Predicate<BO.User> predicate);
         BO.User GetUser(string name);
-        //void AddUser(BO.User user);
-        //void UpdateUser(BO.User user);
+        void AddUser(BO.User user);
+        void UpdateUser(BO.User user);
         //void UpdateUser(int id, Action<BO.User> update); //method that knows to updt specific fields in User
-        //void DeleteUser(int id);
+        void DeleteUser(BO.User userBO);
         void Charge(int balance, BO.User user);
         #endregion
 

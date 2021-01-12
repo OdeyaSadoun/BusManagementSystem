@@ -110,28 +110,30 @@ namespace BL
 
         #region AddBus
         /// <summary>
-        /// A function that add a bus to the list
+        /// A BO function that add a bus to the list
         /// </summary>
         /// <param name="bus"></param>
         public void AddBus(BO.Bus bus)
         {
-            DO.Bus busDOtemp = new DO.Bus();
-            bus.CopyPropertiesTo(busDOtemp);
-            if (bus.DateBegin > DateTime.Now) //נבדוק האם התאריך תקין
-                throw new BO.IncorrectDateException(bus.DateBegin, "The date begin not valid");
-            if (bus.TotalMileage < 0) // אם הקילומטראז פחות מ-0 אזי נשים 0 כברירת מחדל
-                bus.TotalMileage = 0;
-            if (bus.FuelRemain < 0 || bus.FuelRemain > 1200) //אם הדלק לא תקין נמלא את המיכל עד 1200
-                bus.FuelRemain = 1200;
-            int lengthLicenceNumber = CountDigit(bus.LicenseNumber); //נבדוק האם מספר הספרות בלוחית רישוי תואמת את שנת הייצור
-            if (((lengthLicenceNumber == 7 && bus.DateBegin.Year >= 2018) || (lengthLicenceNumber == 8 && bus.DateBegin.Year < 2018)))
-                throw new BO.IncorrectLicenseNumberOrDateException(bus.LicenseNumber, bus.DateBegin, "The license number or the date begin isn't correct");
-            if (bus.LastTreatment > DateTime.Now || bus.LastTreatment < bus.DateBegin)
-                throw new BO.IncorrectDateException(bus.LastTreatment, "The date of last treatment is not valid");
-            if (bus.KmBeforTreatment < 0 || bus.KmBeforTreatment > bus.TotalMileage)
-                throw new BO.IncorrectInputException("The kilometrage of last treatment is not valid");
             try
             {
+                DO.Bus busDOtemp = new DO.Bus();
+                bus.CopyPropertiesTo(busDOtemp);
+                bus.IsDeleted = false;//אם מוסיפיםם זה וודאי לא מחוק
+                if (bus.DateBegin > DateTime.Now) //נבדוק האם התאריך תקין
+                    throw new BO.IncorrectDateException(bus.DateBegin, "The date begin not valid");
+                if (bus.TotalMileage < 0) // אם הקילומטראז פחות מ-0 אזי נשים 0 כברירת מחדל
+                    bus.TotalMileage = 0;
+                if (bus.FuelRemain < 0 || bus.FuelRemain > 1200) //אם הדלק לא תקין נמלא את המיכל עד 1200
+                    bus.FuelRemain = 1200;
+                int lengthLicenceNumber = CountDigit(bus.LicenseNumber); //נבדוק האם מספר הספרות בלוחית רישוי תואמת את שנת הייצור
+                if (((lengthLicenceNumber == 7 && bus.DateBegin.Year >= 2018) || (lengthLicenceNumber == 8 && bus.DateBegin.Year < 2018)))
+                    throw new BO.IncorrectLicenseNumberOrDateException(bus.LicenseNumber, bus.DateBegin, "The license number or the date begin isn't correct");
+                if (bus.LastTreatment > DateTime.Now || bus.LastTreatment < bus.DateBegin)
+                    throw new BO.IncorrectDateException(bus.LastTreatment, "The date of last treatment is not valid");
+                if (bus.KmBeforTreatment < 0 || bus.KmBeforTreatment > bus.TotalMileage)
+                    throw new BO.IncorrectInputException("The kilometrage of last treatment is not valid");
+
                 dl.AddBus(busDOtemp);
             }
             catch (DO.IncorrectLicenseNumberException ex)
@@ -141,79 +143,54 @@ namespace BL
 
         }
         #endregion
-        ///////////////////////////////////////////
+
+        #region UpdateBus
+        /// <summary>
+        /// A BO function that update the bus
+        /// </summary>
+        /// <param name="bus"></param>
+
+        public void UpdateBus(BO.Bus bus)
+        {
+            DO.Bus busDO;
+            try
+            {
+                busDO = dl.GetBus(bus.LicenseNumber);
+                bus.CopyPropertiesTo(busDO);
+                dl.DeleteBus(bus.LicenseNumber);
+                dl.AddBus(busDO);
+            }
+
+            catch (DO.IncorrectLicenseNumberException ex)
+            {
+                throw new BO.IncorrectLicenseNumberException(ex.licenseNumber, ex.Message);
+            }
+
+        }
+        #endregion
+
+        #region DeleteBus
+        /// <summary>
+        /// A BO function that delete bus 
+        /// </summary>
+        /// <param name="id"></param>
+        public void DeleteBus(BO.Bus busBO)
+        {
+            try
+            {
+                dl.DeleteBus(busBO.LicenseNumber);
+            }
+            catch (DO.IncorrectLicenseNumberException ex)
+            {
+                throw new BO.IncorrectLicenseNumberException(ex.licenseNumber, ex.Message);
+            }
+        }
+        #endregion
 
 
-        //#region GetAllBusesBy
-        ///// <summary>
-        ///// A function that returns the buses that have the special thing that the predicat do
-        ///// </summary>
-        ///// <param name="predicate"></param>
-        ///// <returns></returns>
-        //public IEnumerable<BO.Bus> GetAllBusesBy(Predicate<DO.Bus> predicate)
-        //{
-        //    BO.Bus busBO = new BO.Bus();
-        //    return from bus in dl.GetAllBusesBy(predicate)
-        //           where predicate(bus)
-        //           select busBO.CopyPropertiesTo(bus);
-        //}
-        //#endregion
 
 
 
-        //#region DeleteBus
-        ///// <summary>
-        ///// A BO function that delete bus (mark the flag IsDeleted = true) 
-        ///// </summary>
-        ///// <param name="id"></param>
-        //public void DeleteBus(int id)
-        //{
-        //    //try
-        //    //{
-        //    dl.DeleteBus(id);
-        //    //}
-        //    //catch (DO.BadLicenseNumException ex)
-        //    //{
-        //    //    throw new BO.BadLicenseNumException(ex.licenseNum, ex.Message);
-        //    //}
-        //}
-        //#endregion
-
-        //#region UpdateBus
-        ///// <summary>
-        ///// A function that update the bus
-        ///// </summary>
-        ///// <param name="bus"></param>
-
-        //public void UpdateBus(DO.Bus bus)
-        //{
-        //    DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNumber == bus.LicenseNumber && p.IsDeleted);
-
-        //    if (b != null)
-        //    {
-        //        DataSource.ListBuses.Remove(b);
-        //        DataSource.ListBuses.Add(bus.Clone());
-        //    }
-        //    else
-        //        throw new Exception();
-        //}
-        //#endregion
-
-        //#region UpdateBus
-        ///// <summary>
-        ///// method that knows to updt specific fields in bus
-        ///// </summary>
-        ///// <param name="licenseNumber"></param>
-        ///// <param name="update"></param>
-        //public void UpdateBus(int licenseNumber, Action<DO.Bus> update)
-        //{
-        //    DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNumber == licenseNumber && p.IsDeleted == false);
-        //    if (b == null)
-        //        throw new Exception();
-        //    update(b);
-
-        //}
-        //#endregion
         #endregion
 
         #region Line
@@ -300,26 +277,27 @@ namespace BL
         /// <param name="line"></param>
         public void AddLine(BO.Line line)
         {
-            DO.Line lineDOtemp = new DO.Line();
-            lineDOtemp.CopyPropertiesTo(line);
-           
-            if (line.LineNumber < 0 || line.Fare < 0 || line.TravelTimeInThisLine == TimeSpan.Zero) //מספר הקו שלילי ולא תקין או מחיר הנסיעה שלילי או זמן הנסיעה 0
-                throw new BO.IncorrectInputException("The line number not valid");
-
-            DO.Station sDO1 = dl.GetStation(line.FirstStation.Code);
-            DO.Station sDO2 = dl.GetStation(line.LastStation.Code);
-
-            if ((sDO1 == null)|| (sDO2 == null))
-                throw new BO.IncorrectCodeStationException(line.FirstStation.Code, "This station code could not found");
-            line.FirstStation = sDO1.CopyToStation();
-            line.LastStation = sDO2.CopyToStation();
-
-            //לעבור על רשימת התחנות ולשאול האם אני בתחנה מסוימת ובאותה תחנה להוסיף את הקו לרשימת הקווים
-            List<BO.StationInLine> tempListStations = new List<StationInLine>();
-            if (line.ListOfStationsInLine.Count() == 0)
-                throw new ArgumentNullException("The list of the bus is empty");
             try
             {
+                DO.Line lineDOtemp = new DO.Line();
+                lineDOtemp.CopyPropertiesTo(line);
+
+                if (line.LineNumber < 0 || line.Fare < 0 || line.TravelTimeInThisLine == TimeSpan.Zero) //מספר הקו שלילי ולא תקין או מחיר הנסיעה שלילי או זמן הנסיעה 0
+                    throw new BO.IncorrectInputException("The line number not valid");
+
+                DO.Station sDO1 = dl.GetStation(line.FirstStation.Code);
+                DO.Station sDO2 = dl.GetStation(line.LastStation.Code);
+
+                if ((sDO1 == null) || (sDO2 == null))
+                    throw new BO.IncorrectCodeStationException(line.FirstStation.Code, "This station code could not found");
+                line.FirstStation = sDO1.CopyToStation();
+                line.LastStation = sDO2.CopyToStation();
+
+                //לעבור על רשימת התחנות ולשאול האם אני בתחנה מסוימת ובאותה תחנה להוסיף את הקו לרשימת הקווים
+                List<BO.StationInLine> tempListStations = new List<StationInLine>();
+                if (line.ListOfStationsInLine.Count() == 0)
+                    throw new ArgumentNullException("The list of the bus is empty");
+
                 dl.AddLine(lineDOtemp);
                 foreach (BO.StationInLine station in line.ListOfStationsInLine)
                     if (station.LineId == line.Id)
@@ -910,7 +888,7 @@ namespace BL
 
         #region userDoBoAdapter
         /// <summary>
-        /// A function that copy details from DO to BO
+        /// A function that copy user's details from DO to BO
         /// </summary>
         /// <param name="busDO"></param>
         /// <returns></returns>
@@ -924,7 +902,7 @@ namespace BL
 
         #region GetUser
         /// <summary>
-        /// A function that return a user
+        /// A BO function that return a user
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
@@ -936,109 +914,58 @@ namespace BL
                 userDO = dl.GetUser(name);
             }
 
-            catch (DO.IncorrectLineIDException ex)
+            catch (DO.IncorrectUserNameException ex)
             {
-                throw new BO.IncorrectLineIDException(ex.ID, ex.Message);
+                throw new BO.IncorrectUserNameException(ex.UserName, ex.Message);
             }
 
             return userDoBoAdapter(userDO);
         }
         #endregion
-        ////////////////////////////////////////////
 
-        //#region GetAllUsers
-        ///// <summary>
-        ///// A function that return all the users
-        ///// </summary>
-        ///// <returns></returns>
-        //public IEnumerable<DO.User> GetAllUsers()
-        //{
-        //    return from user in DataSource.ListUsers
-        //           select user.Clone();
-        //}
-        //#endregion
+        #region GetAllUsers
+        /// <summary>
+        /// A BO function that return all the users
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<BO.User> GetAllUsers()
+        {
+            {
+                return from user in dl.GetAllUsers()
+                       select userDoBoAdapter(user);
+            }
+        }
+        #endregion
 
-        //#region GetAllUsersBy
-        ///// <summary>
-        /////  A function that returns the users that have the special thing that the predicat do
-        ///// </summary>
-        ///// <param name="predicate"></param>
-        ///// <returns></returns>
-        //public IEnumerable<DO.User> GetAllUsersBy(Predicate<DO.User> predicate)
-        //{
-        //    return from user in DataSource.ListUsers
-        //           where predicate(user)
-        //           select user.Clone();
-        //}
-        //#endregion
+        #region AddUser
+        /// <summary>
+        /// A BO function that add a user to the list
+        /// </summary>
+        /// <param name="user"></param>
+        public void AddUser(BO.User userBO)
 
+        {
+            try
+            {
+                DO.User userDO = new DO.User();
+                userBO.CopyPropertiesTo(userDO);
+                userDO.IsDeleted = false;
+                dl.AddUser(userDO);
+            }
+            catch (DO.IncorrectUserNameException ex)
+            {
+                throw new BO.IncorrectUserNameException(ex.UserName, ex.Message);
+            }
 
-        //#region AddUser
-        ///// <summary>
-        ///// A function that add a user to the list
-        ///// </summary>
-        ///// <param name="user"></param>
-        //public void AddUser(DO.User user)
-        //{
-        //    if (DataSource.ListUsers.FirstOrDefault(p => p.UserName == user.UserName && p.IsDeleted) != null)
-        //        throw new Exception();
-        //    DataSource.ListUsers.Add(user.Clone());
-        //}
-        //#endregion
+        }
+        #endregion
 
-        //#region UpdateUser
-        ///// <summary>
-        ///// A function that update the user
-        ///// </summary>
-        ///// <param name="user"></param>
-        //public void UpdateUser(DO.User user)
-        //{
-        //    DO.User u = DataSource.ListUsers.Find(p => p.UserName == user.UserName && p.IsDeleted);
-
-        //    if (u != null)
-        //    {
-        //        DataSource.ListUsers.Remove(u);
-        //        DataSource.ListUsers.Add(user.Clone());
-        //    }
-        //    else
-        //        throw new Exception();
-        //}
-        //#endregion
-
-        //#region UpdateUser
-        ///// <summary>
-        ///// method that knows to updt specific fields in User
-        ///// </summary>
-        ///// <param name="userName"></param>
-        ///// <param name="update"></param>
-        //public void UpdateUser(string userName, Action<DO.User> update)
-        //{
-        //    DO.User user = DataSource.ListUsers.Find(p => p.UserName == userName && p.IsDeleted == false);
-        //    if (user == null)
-        //        throw new Exception();
-        //    update(user);
-        //}
-        //#endregion
-
-        //#region DeleteUser
-        ///// <summary>
-        ///// A function that delete user (mark the flag IsDeleted = true)
-        ///// </summary>
-        ///// <param name="userName"></param>
-        //public void DeleteUser(string userName)
-        //{
-        //    DO.User u = DataSource.ListUsers.Find(p => p.UserName == userName && p.IsDeleted);
-
-        //    if (u != null)
-        //    {
-        //        //DataSource.ListUsers.Remove(u);
-        //        u.IsDeleted = true;
-        //    }
-        //    else
-        //        throw new Exception();
-        //}
-        //#endregion
-
+        #region Charge
+        /// <summary>
+        /// A function that charge the balance of the user
+        /// </summary>
+        /// <param name="balance"></param>
+        /// <param name="user"></param>
         public void Charge(int balance, BO.User user)
         {
             if (user == null)
@@ -1056,8 +983,50 @@ namespace BL
                 user.Balance = user.Balance + balance * 1.333;
             }
         }
-
         #endregion
+
+        #region UpdateUser
+        /// <summary>
+        /// A BO function that update the user
+        /// </summary>
+        /// <param name="user"></param>
+        public void UpdateUser(BO.User user)
+        {
+            DO.User userDO;
+            try
+            {
+                userDO = dl.GetUser(user.UserName);
+                user.CopyPropertiesTo(userDO);
+                dl.DeleteUser(user.UserName);
+                dl.AddUser(userDO);
+            }
+
+            catch (DO.IncorrectUserNameException ex)
+            {
+                throw new BO.IncorrectUserNameException(ex.UserName, ex.Message);
+            }
+        }
+        #endregion
+
+        #region DeleteUser
+        /// <summary>
+        /// A Bo function that delete user 
+        /// </summary>
+        /// <param name="userName"></param>
+        public void DeleteUser(BO.User userBO)
+        {
+            try
+            {
+                dl.DeleteUser(userBO.UserName);
+            }
+            catch (DO.IncorrectUserNameException ex)
+            {
+                throw new BO.IncorrectUserNameException(ex.UserName, ex.Message);
+            }
+        }
+        #endregion
+
+        #endregion 
 
         #region Trip
 
