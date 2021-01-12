@@ -59,11 +59,13 @@ namespace PlGui
                         if (u.Admin)
                         {
                             AdminShow adminShow = new AdminShow(u);
+                            Close();
                             adminShow.ShowDialog();
                         }
                         else
                         {
                             UserShow userShow = new UserShow(u);
+                            Close();
                             userShow.ShowDialog();
                         }
                                 

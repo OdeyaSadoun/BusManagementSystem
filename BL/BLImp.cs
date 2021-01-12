@@ -293,16 +293,16 @@ namespace BL
                 throw new BO.IncorrectCodeStationException(line.FirstStation.Code, "This station code could not found");
             line.FirstStation = sDO1.CopyToStation();
             line.LastStation = sDO2.CopyToStation();
-            
 
-            line.Id = BO.Configuration.LineID++; //המספר הרץ
+
+            // line.Id = BO.Configuration.LineID++; //המספר הרץ
 
             //לעבור על רשימת התחנות ולשאול האם אני בתחנה מסוימת ובאותה תחנה להוסיף את הקו לרשימת הקווים
-            //if (line.ListOfStationsInLine.Count == 0)
-            //    throw new ArgumentNullException("The list of the bus is empty");
-           // foreach ()
+            if (line.ListOfStationsInLine.Count() == 0)
+                throw new ArgumentNullException("The list of the bus is empty");
+            //foreach ()
 
-            dl.AddLine(lineDOtemp);
+                dl.AddLine(lineDOtemp);
         }
         #endregion
 
