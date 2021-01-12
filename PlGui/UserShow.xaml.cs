@@ -64,17 +64,17 @@ namespace PlGui
 
         private void Grid_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
-            {
-                var temp = Searching.Text;
-                foreach (BO.Bus bus in listOfBuses)
-                {
-                    if (temp == bus.LicenseNumber)
+            //if (e.Key == Key.Enter)
+            ////{
+            ////    int temp = int.Parse(Searching.Text);
+            ////    foreach (BO.Bus bus in listOfBuses)
+            ////    {
+            ////        if (temp == bus.LicenseNumber)
+                        
+            ////    }
 
-                }
-
-                this.Close();
-            }
+            ////    this.Close();
+            //}
         }
 
         
