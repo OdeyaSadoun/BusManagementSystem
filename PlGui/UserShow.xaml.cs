@@ -21,7 +21,7 @@ namespace PlGui
     public partial class UserShow : Window
     {
         public ObservableCollection<BO.Bus> listOfBuses { get; set; } = new ObservableCollection<BO.Bus>();
-        //public ObservableCollection<BO.Line> listOfLines { get; set; } = new ObservableCollection<BO.Line>();
+        public ObservableCollection<BO.Line> listOfLines { get; set; } = new ObservableCollection<BO.Line>();
         IBL bl = BLFactory.GetBL("2");
         public BO.User user{ get; set; }
        
@@ -32,9 +32,9 @@ namespace PlGui
         {
             InitializeComponent();
             user = u;
-            foreach (BO.Bus bus in bl.GetAllBuses())
+            foreach (BO.Line line in bl.GetAllLines())
             {
-                listOfBuses.Add(bus);
+                listOfLines.Add(line);
             }
 
         }
@@ -64,17 +64,21 @@ namespace PlGui
 
         private void Grid_KeyUp(object sender, KeyEventArgs e)
         {
-            //if (e.Key == Key.Enter)
-            //{
-            //    int temp = int.Parse(Searching.Text);
-            //    foreach (BO.Bus bus in listOfBuses)
-            //    {
-            //        if (temp == bus.LicenseNumber)
+            if (e.Key == Key.Enter)
+            {
+                int temp = int.Parse(Searching.Text);
+                foreach (BO.Line line in listOfLines)
+                {
+                    if (temp == line.LineNumber)
+                    {
+                        SearchIdWindow search = new SearchIdWindow(line);
+                        search.ShowDialog();
+                    }
 
-            //    }
+                }
 
-            //    this.Close();
-            //}
+                this.Close();
+            }
         }
 
         

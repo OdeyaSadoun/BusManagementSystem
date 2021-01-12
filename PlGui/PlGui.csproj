@@ -85,6 +85,9 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SearchIdWindow.xaml.cs">
+      <DependentUpon>SearchIdWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserShow.xaml.cs">
       <DependentUpon>UserShow.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SearchIdWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserShow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
