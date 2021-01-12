@@ -10,30 +10,7 @@
 
     <Window.Resources>
       
-        <DataTemplate x:Key="dtLine" DataType="ShortLine">
-            <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0"
-                   Text="{Binding Path=Id}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <TextBlock Grid.Column="2" 
-                   Text="{Binding Path=LineNumber}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            </Grid>
-        </DataTemplate>
+
         
     </Window.Resources>
     <Grid>
@@ -44,12 +21,37 @@
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <ListView x:Name="lv" HorizontalAlignment="Left" Height="336" Margin="65,36,0,0" VerticalAlignment="Top" Width="662" ItemsSource="{Binding}" ItemTemplate="{StaticResource dtLine}" Grid.ColumnSpan="2">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
+        <ListView x:Name="lv" HorizontalAlignment="Left" Height="336" Margin="65,36,0,0" VerticalAlignment="Top" Width="662"  Grid.ColumnSpan="2">
+            <ListView.ItemTemplate >
+            <!--<ListView.View>
+                <GridView>-->
+                    <DataTemplate>
+                        <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0"
+                   Text="{Binding Path=Id}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="2" 
+                   Text="{Binding Path=LineNumber}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="2" 
+                   Text="{Binding Path=LastStation}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </DataTemplate>
+                    <!--<GridViewColumn/>-->
+            <!--</GridView>
+            </ListView.View>-->
+            </ListView.ItemTemplate>
         </ListView>
 
     </Grid>

@@ -31,7 +31,7 @@ namespace PlGui
             {
                 listOfLines.Add(line);
             }
-            lv.ItemsSource = listOfLines;
+            lv.ItemsSource= listOfLines;
         }
         
     }

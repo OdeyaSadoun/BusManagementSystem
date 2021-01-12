@@ -24,23 +24,23 @@ namespace PlGui
         public ObservableCollection<BO.Line> listOfLines { get; set; } = new ObservableCollection<BO.Line>();
         public ObservableCollection<BO.Station> listOfStations { get; set; } = new ObservableCollection<BO.Station>();
         IBL bl = BLFactory.GetBL("2");
-        public BO.User user{ get; set; }
-       
+        public BO.User user { get; set; }
+
 
 
 
         public UserShow(BO.User u)
         {
             InitializeComponent();
-            user = u;
-            foreach (BO.Line line in bl.GetAllLines())
-            {
-                listOfLines.Add(line);
-            }
-            foreach (BO.Station station in bl.GetAllStations())
-            {
-                listOfStations.Add(station);
-            }
+            //user = u;
+            //foreach (BO.Line line in bl.GetAllLines())
+            //{
+            //    listOfLines.Add(line);
+            //}
+            //foreach (BO.Station station in bl.GetAllStations())
+            //{
+            //    listOfStations.Add(station);
+            //}
 
         }
 
@@ -51,7 +51,7 @@ namespace PlGui
             window.ShowDialog();
         }
 
-        
+
 
         private void lvBus_Click(object sender, RoutedEventArgs e)
         {
@@ -88,33 +88,37 @@ namespace PlGui
 
         private void Grid_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
-            {
-                int code = int.Parse(Searching.Text);
-                foreach (BO.Station station in listOfstations)
-                {
-                    if (temp == line.LineNumber)
-                    {
-                        SearchIdWindow search = new SearchIdWindow(line);
-                        search.ShowDialog();
-                    }
+            //if (e.Key == Key.Enter)
+            //{
+            //    int code = int.Parse(Searching.Text);
+            //    foreach (BO.Station station in listOfstations)
+            //    {
+            //        if (temp == line.LineNumber)
+            //        {
+            //            SearchIdWindow search = new SearchIdWindow(line);
+            //            search.ShowDialog();
+            //        }
 
-                }
+            //    }
 
-                this.Close();
-            }
+            this.Close();
         }
 
+        //private void PreviewTextInputSearch(object sender, TextCompositionEventArgs e)
+        //{
 
-
-        private void PreviewTextInputSearch(object sender, TextCompositionEventArgs e)
-        {
-
-        }
-
-        private void TextChangedSearching(object sender, TextChangedEventArgs e)
-        {
-
-        }
+        //}
     }
 }
+
+
+        //private void PreviewTextInputSearch(object sender, TextCompositionEventArgs e)
+        //{
+
+        //}
+
+        //private void TextChangedSearching(object sender, TextChangedEventArgs e)
+        //{
+
+        //}
+

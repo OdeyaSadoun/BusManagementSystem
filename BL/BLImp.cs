@@ -386,308 +386,6 @@ namespace BL
 
         #endregion
 
-        #region BusOnTrip
-
-        //#region BusOnTripDoBoAdapter
-        ///// <summary>
-        ///// A function that copy details from DO to BO
-        ///// </summary>
-        ///// <param name="busDO"></param>
-        ///// <returns></returns>
-        //BO.BusOnTrip BusOnTripDoBoAdapter(DO.BusOnTrip BusOnTripDO)
-        //{
-        //    BO.BusOnTrip BusOnTripBO = new BO.BusOnTrip();
-        //    BusOnTripDO.CopyPropertiesTo(BusOnTripBO);
-        //    return BusOnTripBO;
-        //}
-        //#endregion 
-
-        //#region GetBusOnTrip
-        ///// <summary>
-        /////  A function that return a bus on trip
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <param name="licenseNumber"></param>
-        ///// <returns></returns>
-        //public DO.BusOnTrip GetBusOnTrip(int id, int licenseNumber)
-        //{
-        //    DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted);
-
-        //    if (b != null)
-        //        return b.Clone();
-        //    else
-
-        //        throw new Exception();
-        //}
-        //#endregion
-
-        //#region GetAllBusesOnTrip
-        ///// <summary>
-        ///// A function that return all the buses on trip
-        ///// </summary>
-        ///// <returns></returns>
-        //public IEnumerable<DO.BusOnTrip> GetAllBusesOnTrip()
-        //{
-        //    return from bus in DataSource.ListBusesOnTrip
-        //           select bus.Clone();
-        //}
-        //#endregion
-
-        //#region GetAllBusesOnTripBy
-        ///// <summary>
-        /////  A function that returns the buses on trip that have the special thing that the predicat do
-        ///// </summary>
-        ///// <param name="predicate"></param>
-        ///// <returns></returns>
-        //public IEnumerable<DO.BusOnTrip> GetAllBusesOnTripBy(Predicate<DO.BusOnTrip> predicate)
-        //{
-        //    return from bus in DataSource.ListBusesOnTrip
-        //           where predicate(bus)
-        //           select bus.Clone();
-        //}
-        //#endregion
-
-        //#region AddBusOnTrip
-        ///// <summary>
-        ///// A function that add a bus on trip to the list
-        ///// </summary>
-        ///// <param name="bus"></param>
-        //public void AddBusOnTrip(DO.BusOnTrip bus)
-        //{
-
-        //    if (DataSource.ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && p.IsDeleted) != null)
-        //        throw new Exception();
-        //    bus.Id = DO.Configuration.BusOnTripID++;//המספר הרץ
-        //    DataSource.ListBusesOnTrip.Add(bus.Clone());
-        //}
-        //#endregion
-
-        //#region UpdateBusOnTrip
-        ///// <summary>
-        ///// A function that update the bus on trip
-        ///// </summary>
-        ///// <param name="bus"></param>
-        //public void UpdateBusOnTrip(DO.BusOnTrip bus)
-        //{
-        //    DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && p.IsDeleted);
-
-        //    if (b != null)
-        //    {
-        //        DataSource.ListBusesOnTrip.Remove(b);
-        //        DataSource.ListBusesOnTrip.Add(bus.Clone());
-        //    }
-        //    else
-        //        throw new Exception();
-        //}
-        //#endregion UpdateBusOnTrip
-
-        //#region UpdateBusOnTrip
-
-        ///// <summary>
-        ///// method that knows to updt specific fields in BusOnTrip
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <param name="update"></param>
-        //public void UpdateBusOnTrip(int id, int licenseNumber, Action<DO.BusOnTrip> update)
-        //{
-        //    DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted == false);
-        //    if (b == null)
-        //        throw new Exception();
-        //    update(b);
-        //}
-        //#endregion
-
-        //#region DeleteBusOnTrip
-        ///// <summary>
-        ///// A function that delete bus on trip (mark the flag IsDeleted = true) 
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <param name="licenseNumber"></param>
-        //public void DeleteBusOnTrip(int id, int licenseNumber)
-        //{
-        //    DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted);
-
-        //    if (b != null)
-        //    {
-        //        //DataSource.ListBusesOnTrip.Remove(b);
-        //        b.IsDeleted = true;
-        //    }
-        //    else
-        //        throw new Exception();
-        //}
-        //#endregion
-        #endregion
-
-        #region LineTrip
-
-        #region lineTripDoBoAdapter
-        /// <summary>
-        /// A function that copy details from DO to BO
-        /// </summary>
-        /// <param name="busDO"></param>
-        /// <returns></returns>
-        BO.LineTrip lineTripDoBoAdapter(DO.LineTrip lineTripDO)
-        {
-            BO.LineTrip lineTripBO = new BO.LineTrip();
-            int tripId = lineTripBO.Id;
-            int lineId = lineTripBO.LineId;
-
-            lineTripDO.CopyPropertiesTo(lineTripBO);
-
-            List<BO.StationInLine> stations = (from stat in dl.GetAllLinesStationBy(stat => stat.LineId == lineId && stat.IsDeleted == false)
-                                               let station = dl.GetStation(stat.StationCode)
-                                               select station.CopyToStationInLine(stat)).ToList();
-            stations = (stations.OrderBy(s => s.LineStationIndex)).ToList();
-            //foreach (BO.StationInLine s in stations)
-            //{
-            //    if (s.LineStationIndex != stations[stations.Count - 1].LineStationIndex) // if this is not the end
-            //    {
-            //        int sc1 = s.StationCode;//station code 1
-            //        int sc2 = stations[s.LineStationIndex].StationCode;//station code 2
-            //        DO.AdjacentStations adjStat = dl.GetAdjacentStations(sc1, sc2);
-            //        s.DistanceTo = adjStat.Distance;
-            //        s.TimeTo = adjStat.TravelTime;
-            //    }
-            //}
-            lineTripBO.ListOfStationsInLine = stations;
-            return lineTripBO;
-
-        }
-        #endregion
-
-        #region GetLineTrip
-        /// <summary>
-        /// A function that return a line trip
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="lineId"></param>
-        /// <returns></returns>
-        public BO.LineTrip GetLineTrip(int id, int lineId)
-        {
-            DO.LineTrip lineTripDO;
-            try
-            {
-                lineTripDO = dl.GetLineTrip(id,lineId);
-            }
-
-            catch (DO.IncorrectInputException ex)
-            {
-                throw new BO.IncorrectInputException(ex.Message);
-            }
-
-            return lineTripDoBoAdapter(lineTripDO);
-        }
-        #endregion
-
-        #region GetAllLinesTrip
-        /// <summary>
-        /// A BO function that return all the lines trip
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<BO.LineTrip> GetAllLinesTrip()
-        {
-            return from linetrip in dl.GetAllLinesTrip()
-                   select lineTripDoBoAdapter(linetrip);
-        }
-        #endregion
-
-        ////////////////////////////////////////////
-
-
-        //#region GetAllLinesTripBy
-        ///// <summary>
-        ///// A function that returns the lines trip that have the special thing that the predicat do
-        ///// </summary>
-        ///// <param name="predicate"></param>
-        ///// <returns></returns>
-        //public IEnumerable<DO.LineTrip> GetAllLinesTripBy(Predicate<DO.LineTrip> predicate)
-        //{
-        //    return from trip in DataSource.ListLinesTrip
-        //           where predicate(trip)
-        //           select trip.Clone();
-        //}
-        //#endregion
-
-        //#region AddLineTrip
-        ///// <summary>
-        ///// A function that add a line trip to the list
-        ///// </summary>
-        ///// <param name="lt"></param>
-        //public void AddLineTrip(BO.LineTrip lt)
-        //{
-        //    DO.LineTrip linetripDOtemp;
-        //    try
-        //    {
-        //        linetripDOtemp = dl.GetLineTrip(lt.Id,lt.LineId);
-        //    }
-        //    catch (DO.IncorrectLicenseNumberException ex)
-        //    {
-        //        throw new BO.IncorrectLicenseNumberException(ex.licenseNumber, ex.Message);
-        //    }
-        //    if (DataSource.ListLinesTrip.FirstOrDefault(p => p.Id == lt.Id && p.LineId == lt.LineId && p.IsDeleted) != null)
-        //        throw new Exception();
-        //    DataSource.ListLinesTrip.Add(lt.Clone());
-        //}
-        //#endregion
-
-        //#region UpdateLineTrip
-        ///// <summary>
-        ///// A function that update the line trip
-        ///// </summary>
-        ///// <param name="bus"></param>
-        //public void UpdateLineTrip(DO.LineTrip bus)
-        //{
-
-        //    DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == bus.Id && p.LineId == bus.LineId && p.IsDeleted);
-
-        //    if (b != null)
-        //    {
-        //        DataSource.ListLinesTrip.Remove(b);
-        //        DataSource.ListLinesTrip.Add(bus.Clone());
-        //    }
-        //    else
-        //        throw new Exception();
-        //}
-        //#endregion
-
-        //#region UpdateLineTrip
-        ///// <summary>
-        ///// method that knows to updt specific fields in LineTrip
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <param name="lineId"></param>
-        ///// <param name="update"></param>
-        //public void UpdateLineTrip(int id, int lineId, Action<DO.LineTrip> update)
-        //{
-
-        //    DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId && p.IsDeleted == false);
-        //    if (b == null)
-        //        throw new Exception();
-        //    update(b);
-        //}
-        //#endregion
-
-        //#region DeleteLineTrip
-        ///// <summary>
-        ///// A function that delete line trip (mark the flag IsDeleted = true) 
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <param name="lineId"></param>
-        //public void DeleteLineTrip(int id, int lineId)
-        //{
-        //    DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId && p.IsDeleted);
-
-        //    if (b != null)
-        //    {
-        //        //DataSource.ListLinesTrip.Remove(b);
-        //        b.IsDeleted = true;
-        //    }
-        //    else
-        //        throw new Exception();
-        //}
-        //#endregion
-        #endregion
-
         #region Station
 
         #region stationDoBoAdapter
@@ -704,8 +402,8 @@ namespace BL
 
 
             stationBO.ListOfLines = (from stat in dl.GetAllLinesStationBy(stat => stat.StationCode == stationCode && stat.IsDeleted == false)
-                               let line = dl.GetLine(stat.LineId)
-                               select line.CopyToLineInStation(stat)).ToList();
+                                     let line = dl.GetLine(stat.LineId)
+                                     select line.CopyToLineInStation(stat)).ToList();
 
             stationBO.ListOfStationsInLines = (from stat in dl.GetAllLinesStationBy(stat => stat.StationCode == stationCode && stat.IsDeleted == false)
                                                let station = dl.GetStation(stat.StationCode)
@@ -1159,7 +857,314 @@ namespace BL
         //        throw new Exception();
         //}
         //#endregion
-       #endregion
+        #endregion
+
+
+        ////////////////////////////////////////////////////////////   
+
+        #region BusOnTrip
+
+        //#region BusOnTripDoBoAdapter
+        ///// <summary>
+        ///// A function that copy details from DO to BO
+        ///// </summary>
+        ///// <param name="busDO"></param>
+        ///// <returns></returns>
+        //BO.BusOnTrip BusOnTripDoBoAdapter(DO.BusOnTrip BusOnTripDO)
+        //{
+        //    BO.BusOnTrip BusOnTripBO = new BO.BusOnTrip();
+        //    BusOnTripDO.CopyPropertiesTo(BusOnTripBO);
+        //    return BusOnTripBO;
+        //}
+        //#endregion 
+
+        //#region GetBusOnTrip
+        ///// <summary>
+        /////  A function that return a bus on trip
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="licenseNumber"></param>
+        ///// <returns></returns>
+        //public DO.BusOnTrip GetBusOnTrip(int id, int licenseNumber)
+        //{
+        //    DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted);
+
+        //    if (b != null)
+        //        return b.Clone();
+        //    else
+
+        //        throw new Exception();
+        //}
+        //#endregion
+
+        //#region GetAllBusesOnTrip
+        ///// <summary>
+        ///// A function that return all the buses on trip
+        ///// </summary>
+        ///// <returns></returns>
+        //public IEnumerable<DO.BusOnTrip> GetAllBusesOnTrip()
+        //{
+        //    return from bus in DataSource.ListBusesOnTrip
+        //           select bus.Clone();
+        //}
+        //#endregion
+
+        //#region GetAllBusesOnTripBy
+        ///// <summary>
+        /////  A function that returns the buses on trip that have the special thing that the predicat do
+        ///// </summary>
+        ///// <param name="predicate"></param>
+        ///// <returns></returns>
+        //public IEnumerable<DO.BusOnTrip> GetAllBusesOnTripBy(Predicate<DO.BusOnTrip> predicate)
+        //{
+        //    return from bus in DataSource.ListBusesOnTrip
+        //           where predicate(bus)
+        //           select bus.Clone();
+        //}
+        //#endregion
+
+        //#region AddBusOnTrip
+        ///// <summary>
+        ///// A function that add a bus on trip to the list
+        ///// </summary>
+        ///// <param name="bus"></param>
+        //public void AddBusOnTrip(DO.BusOnTrip bus)
+        //{
+
+        //    if (DataSource.ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && p.IsDeleted) != null)
+        //        throw new Exception();
+        //    bus.Id = DO.Configuration.BusOnTripID++;//המספר הרץ
+        //    DataSource.ListBusesOnTrip.Add(bus.Clone());
+        //}
+        //#endregion
+
+        //#region UpdateBusOnTrip
+        ///// <summary>
+        ///// A function that update the bus on trip
+        ///// </summary>
+        ///// <param name="bus"></param>
+        //public void UpdateBusOnTrip(DO.BusOnTrip bus)
+        //{
+        //    DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && p.IsDeleted);
+
+        //    if (b != null)
+        //    {
+        //        DataSource.ListBusesOnTrip.Remove(b);
+        //        DataSource.ListBusesOnTrip.Add(bus.Clone());
+        //    }
+        //    else
+        //        throw new Exception();
+        //}
+        //#endregion UpdateBusOnTrip
+
+        //#region UpdateBusOnTrip
+
+        ///// <summary>
+        ///// method that knows to updt specific fields in BusOnTrip
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="update"></param>
+        //public void UpdateBusOnTrip(int id, int licenseNumber, Action<DO.BusOnTrip> update)
+        //{
+        //    DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted == false);
+        //    if (b == null)
+        //        throw new Exception();
+        //    update(b);
+        //}
+        //#endregion
+
+        //#region DeleteBusOnTrip
+        ///// <summary>
+        ///// A function that delete bus on trip (mark the flag IsDeleted = true) 
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="licenseNumber"></param>
+        //public void DeleteBusOnTrip(int id, int licenseNumber)
+        //{
+        //    DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted);
+
+        //    if (b != null)
+        //    {
+        //        //DataSource.ListBusesOnTrip.Remove(b);
+        //        b.IsDeleted = true;
+        //    }
+        //    else
+        //        throw new Exception();
+        //}
+        //#endregion
+        #endregion
+
+        #region LineTrip
+
+        #region lineTripDoBoAdapter
+        /// <summary>
+        /// A function that copy details from DO to BO
+        /// </summary>
+        /// <param name="busDO"></param>
+        /// <returns></returns>
+        BO.LineTrip lineTripDoBoAdapter(DO.LineTrip lineTripDO)
+        {
+            BO.LineTrip lineTripBO = new BO.LineTrip();
+            int tripId = lineTripBO.Id;
+            int lineId = lineTripBO.LineId;
+
+            lineTripDO.CopyPropertiesTo(lineTripBO);
+
+            List<BO.StationInLine> stations = (from stat in dl.GetAllLinesStationBy(stat => stat.LineId == lineId && stat.IsDeleted == false)
+                                               let station = dl.GetStation(stat.StationCode)
+                                               select station.CopyToStationInLine(stat)).ToList();
+            stations = (stations.OrderBy(s => s.LineStationIndex)).ToList();
+            //foreach (BO.StationInLine s in stations)
+            //{
+            //    if (s.LineStationIndex != stations[stations.Count - 1].LineStationIndex) // if this is not the end
+            //    {
+            //        int sc1 = s.StationCode;//station code 1
+            //        int sc2 = stations[s.LineStationIndex].StationCode;//station code 2
+            //        DO.AdjacentStations adjStat = dl.GetAdjacentStations(sc1, sc2);
+            //        s.DistanceTo = adjStat.Distance;
+            //        s.TimeTo = adjStat.TravelTime;
+            //    }
+            //}
+            lineTripBO.ListOfStationsInLine = stations;
+            return lineTripBO;
+
+        }
+        #endregion
+
+        #region GetLineTrip
+        /// <summary>
+        /// A function that return a line trip
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="lineId"></param>
+        /// <returns></returns>
+        public BO.LineTrip GetLineTrip(int id, int lineId)
+        {
+            DO.LineTrip lineTripDO;
+            try
+            {
+                lineTripDO = dl.GetLineTrip(id,lineId);
+            }
+
+            catch (DO.IncorrectInputException ex)
+            {
+                throw new BO.IncorrectInputException(ex.Message);
+            }
+
+            return lineTripDoBoAdapter(lineTripDO);
+        }
+        #endregion
+
+        #region GetAllLinesTrip
+        /// <summary>
+        /// A BO function that return all the lines trip
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<BO.LineTrip> GetAllLinesTrip()
+        {
+            return from linetrip in dl.GetAllLinesTrip()
+                   select lineTripDoBoAdapter(linetrip);
+        }
+        #endregion
+
+        ////////////////////////////////////////////
+
+
+        //#region GetAllLinesTripBy
+        ///// <summary>
+        ///// A function that returns the lines trip that have the special thing that the predicat do
+        ///// </summary>
+        ///// <param name="predicate"></param>
+        ///// <returns></returns>
+        //public IEnumerable<DO.LineTrip> GetAllLinesTripBy(Predicate<DO.LineTrip> predicate)
+        //{
+        //    return from trip in DataSource.ListLinesTrip
+        //           where predicate(trip)
+        //           select trip.Clone();
+        //}
+        //#endregion
+
+        //#region AddLineTrip
+        ///// <summary>
+        ///// A function that add a line trip to the list
+        ///// </summary>
+        ///// <param name="lt"></param>
+        //public void AddLineTrip(BO.LineTrip lt)
+        //{
+        //    DO.LineTrip linetripDOtemp;
+        //    try
+        //    {
+        //        linetripDOtemp = dl.GetLineTrip(lt.Id,lt.LineId);
+        //    }
+        //    catch (DO.IncorrectLicenseNumberException ex)
+        //    {
+        //        throw new BO.IncorrectLicenseNumberException(ex.licenseNumber, ex.Message);
+        //    }
+        //    if (DataSource.ListLinesTrip.FirstOrDefault(p => p.Id == lt.Id && p.LineId == lt.LineId && p.IsDeleted) != null)
+        //        throw new Exception();
+        //    DataSource.ListLinesTrip.Add(lt.Clone());
+        //}
+        //#endregion
+
+        //#region UpdateLineTrip
+        ///// <summary>
+        ///// A function that update the line trip
+        ///// </summary>
+        ///// <param name="bus"></param>
+        //public void UpdateLineTrip(DO.LineTrip bus)
+        //{
+
+        //    DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == bus.Id && p.LineId == bus.LineId && p.IsDeleted);
+
+        //    if (b != null)
+        //    {
+        //        DataSource.ListLinesTrip.Remove(b);
+        //        DataSource.ListLinesTrip.Add(bus.Clone());
+        //    }
+        //    else
+        //        throw new Exception();
+        //}
+        //#endregion
+
+        //#region UpdateLineTrip
+        ///// <summary>
+        ///// method that knows to updt specific fields in LineTrip
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="lineId"></param>
+        ///// <param name="update"></param>
+        //public void UpdateLineTrip(int id, int lineId, Action<DO.LineTrip> update)
+        //{
+
+        //    DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId && p.IsDeleted == false);
+        //    if (b == null)
+        //        throw new Exception();
+        //    update(b);
+        //}
+        //#endregion
+
+        //#region DeleteLineTrip
+        ///// <summary>
+        ///// A function that delete line trip (mark the flag IsDeleted = true) 
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="lineId"></param>
+        //public void DeleteLineTrip(int id, int lineId)
+        //{
+        //    DO.LineTrip b = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId && p.IsDeleted);
+
+        //    if (b != null)
+        //    {
+        //        //DataSource.ListLinesTrip.Remove(b);
+        //        b.IsDeleted = true;
+        //    }
+        //    else
+        //        throw new Exception();
+        //}
+        //#endregion
+        #endregion
+
+
 
     }
 }

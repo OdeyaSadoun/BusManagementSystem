@@ -27,17 +27,17 @@ namespace PlGui
         public SearchIdWindow(BO.Line line)
         {
             InitializeComponent();
-            l = line;
-            foreach (BO.Station station in bl.GetAllStations())
-            {
-                    foreach (BO.Line lines in station.ListOfLines)
-                    {
-                        if (lines == l)
-                            Stations.Add(station);
-                    }
+            //l = line;
+            //foreach (BO.Station station in bl.GetAllStations())
+            //{
+            //        foreach (BO.Line lines in station.ListOfLines)
+            //        {
+            //            if (lines == l)
+            //                Stations.Add(station);
+            //        }
                 
-            }
-            lvStation.ItemsSource = Stations;
+            //}
+            //lvStation.ItemsSource = Stations;
         }
 
     }

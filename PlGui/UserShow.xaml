@@ -15,9 +15,8 @@
         <Button x:Name="Card" Content="Cards" HorizontalAlignment="Left" Margin="35,70,0,0" VerticalAlignment="Top" Width="150" FontWeight="Bold" FontSize="20" Click="Card_Click"/>
         <Button x:Name="lvBus" Content="Buses" HorizontalAlignment="Left" Margin="35,125,0,0" VerticalAlignment="Top" Width="150" FontWeight="Bold" FontSize="20" Click="lvBus_Click"/>
         <Button x:Name="lvLines" Content="Lines" HorizontalAlignment="Left" Margin="35,175,0,0" VerticalAlignment="Top" Width="150" FontWeight="Bold" FontSize="20" Click="lvLines_Click"/>
-        <TextBox x:Name="Searching" PreviewTextInput="PreviewTextInputSearch" HorizontalAlignment="Stretch" Margin="35,228,608.6,139" TextWrapping="Wrap" VerticalAlignment="Stretch" FontSize="18" TextAlignment="Center" 
-         TextChanged="TextChangedSearching" Text="Enter LineNumber" RenderTransformOrigin="-0.416,0.545" FontWeight="Bold"/>
-        <TextBox x:Name="Searching2" HorizontalAlignment="Left" Height="57" Margin="35,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontWeight="Bold" FontSize="20" Text="  Enter Station"
-                 TextAlignment="Center" TextChanged="TextChangedSearching2"/>
+        <TextBox x:Name="Searching" HorizontalAlignment="Stretch" Margin="35,228,608.6,139" TextWrapping="Wrap" VerticalAlignment="Stretch" FontSize="18" TextAlignment="Center" Text="Enter LineNumber" RenderTransformOrigin="-0.416,0.545" FontWeight="Bold"/>
+        <!--<TextBox x:Name="Searching2" HorizontalAlignment="Left" Height="57" Margin="35,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontWeight="Bold" FontSize="20" Text="  Enter Station"
+                 TextAlignment="Center" TextChanged="TextChangedSearching2"/>-->
     </Grid>
 </Window>
