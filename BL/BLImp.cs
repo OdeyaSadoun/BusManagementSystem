@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BL;
 using BLApi;
 using BO;
+using DO;
 using DalApi;
 
 namespace BL
@@ -13,6 +14,32 @@ namespace BL
     class BLImp : IBL
     {
         IDL dl = DLFactory.GetDL();
+
+       
+
+        //#region GetStationInLine
+        ///// <summary>
+        ///// A BO function that return a BO bus
+        ///// </summary>
+        ///// <param name = "id" ></ param >
+        ///// < returns ></ returns >
+        //public BO.StationInLine GetStationInLine(int stationCode, int lineId)
+        //{
+        //    DO.LineStation lineStationDO;
+        //    BO.StationInLine stationinlineBO;
+        //    try
+        //    {
+        //        lineStationDO = dl.GetLineStation(lineId, stationCode);
+        //    }
+        //    catch (DO.IncorrectInputException ex)
+        //    {
+        //        throw new BO.IncorrectInputException(ex.Message);
+        //    }
+            
+        //    stationinlineBO = DeepCopyUtilities.CopyToStationInLine(lineStationDO);
+        //    return stationinlineBO;
+        //}
+        //#endregion
 
         #region Bus
 
@@ -88,15 +115,8 @@ namespace BL
         /// <param name="bus"></param>
         public void AddBus(BO.Bus bus)
         {
-            DO.Bus busDOtemp;
-            try
-            {
-                busDOtemp = dl.GetBus(bus.LicenseNumber);
-            }
-            catch (DO.IncorrectLicenseNumberException ex)
-            {
-                throw new BO.IncorrectLicenseNumberException(ex.licenseNumber, ex.Message);
-            }
+            DO.Bus busDOtemp = new DO.Bus();
+            bus.CopyPropertiesTo(busDOtemp);
             if (bus.DateBegin > DateTime.Now) //נבדוק האם התאריך תקין
                 throw new BO.IncorrectDateException(bus.DateBegin, "The date begin not valid");
             if (bus.TotalMileage < 0) // אם הקילומטראז פחות מ-0 אזי נשים 0 כברירת מחדל
@@ -110,7 +130,15 @@ namespace BL
                 throw new BO.IncorrectDateException(bus.LastTreatment, "The date of last treatment is not valid");
             if (bus.KmBeforTreatment < 0 || bus.KmBeforTreatment > bus.TotalMileage)
                 throw new BO.IncorrectInputException("The kilometrage of last treatment is not valid");
-            dl.AddBus(busDOtemp);
+            try
+            {
+                dl.AddBus(busDOtemp);
+            }
+            catch (DO.IncorrectLicenseNumberException ex)
+            {
+                throw new BO.IncorrectLicenseNumberException(ex.licenseNumber, ex.Message);
+            }
+
         }
         #endregion
         ///////////////////////////////////////////
@@ -264,8 +292,6 @@ namespace BL
 
         }
         #endregion
-        //////////////////////////////////////////
-
 
         #region AddLine
         /// <summary>
@@ -274,15 +300,9 @@ namespace BL
         /// <param name="line"></param>
         public void AddLine(BO.Line line)
         {
-            DO.Line lineDOtemp;
-            try
-            {
-                lineDOtemp = dl.GetLine(line.Id);
-            }
-            catch (DO.IncorrectLineIDException ex)
-            {
-                throw new BO.IncorrectLineIDException(ex.ID, ex.Message);
-            }
+            DO.Line lineDOtemp = new DO.Line();
+            lineDOtemp.CopyPropertiesTo(line);
+           
             if (line.LineNumber < 0 || line.Fare < 0 || line.TravelTimeInThisLine == TimeSpan.Zero) //מספר הקו שלילי ולא תקין או מחיר הנסיעה שלילי או זמן הנסיעה 0
                 throw new BO.IncorrectInputException("The line number not valid");
 
@@ -294,20 +314,43 @@ namespace BL
             line.FirstStation = sDO1.CopyToStation();
             line.LastStation = sDO2.CopyToStation();
 
-
-            // line.Id = BO.Configuration.LineID++; //המספר הרץ
-
             //לעבור על רשימת התחנות ולשאול האם אני בתחנה מסוימת ובאותה תחנה להוסיף את הקו לרשימת הקווים
+            List<BO.StationInLine> tempListStations = new List<StationInLine>();
             if (line.ListOfStationsInLine.Count() == 0)
                 throw new ArgumentNullException("The list of the bus is empty");
-            
-            //foreach (BO.StationInLine station in line.ListOfStationsInLine)
-            //    if (station.LineId == line.Id)
-
-
+            try
+            {
                 dl.AddLine(lineDOtemp);
+                foreach (BO.StationInLine station in line.ListOfStationsInLine)
+                    if (station.LineId == line.Id)
+                        tempListStations.Add(station);
+                BO.Station bs;
+                BO.ShortLine sline = new ShortLine();
+                for (int i = 0; i < tempListStations.Count(); i++) //נעבור על רשימת התחנות קו שיש בקו הזה
+                {
+                    foreach (DO.Station station in dl.GetAllStationes())//נעבור על כל רשימת התחנות הקיימות
+                        if (station.Code == tempListStations[i].StationCode)
+                        {
+                            bs = GetStation(station.Code);
+                            sline.Id = line.Id;
+                            sline.IsDeleted = line.IsDeleted;
+                            sline.LastStation = line.LastStation;
+                            sline.LineNumber = line.LineNumber;
+
+                            bs.ListOfLines.ToList().Add(sline); //עדכון הקו הרצוי ברשימת התחנות שהוא עובר בה
+                        }
+                }
+            }
+            catch (DO.IncorrectLineIDException ex)
+            {
+                throw new BO.IncorrectLineIDException(ex.ID, ex.Message);
+            }
+            
         }
         #endregion
+        //////////////////////////////////////////
+
+
 
         //#region UpdateLine
         ///// <summary>
@@ -569,6 +612,7 @@ namespace BL
                    select lineTripDoBoAdapter(linetrip);
         }
         #endregion
+
         ////////////////////////////////////////////
 
 
@@ -591,8 +635,17 @@ namespace BL
         ///// A function that add a line trip to the list
         ///// </summary>
         ///// <param name="lt"></param>
-        //public void AddLineTrip(DO.LineTrip lt)
+        //public void AddLineTrip(BO.LineTrip lt)
         //{
+        //    DO.LineTrip linetripDOtemp;
+        //    try
+        //    {
+        //        linetripDOtemp = dl.GetLineTrip(lt.Id,lt.LineId);
+        //    }
+        //    catch (DO.IncorrectLicenseNumberException ex)
+        //    {
+        //        throw new BO.IncorrectLicenseNumberException(ex.licenseNumber, ex.Message);
+        //    }
         //    if (DataSource.ListLinesTrip.FirstOrDefault(p => p.Id == lt.Id && p.LineId == lt.LineId && p.IsDeleted) != null)
         //        throw new Exception();
         //    DataSource.ListLinesTrip.Add(lt.Clone());
