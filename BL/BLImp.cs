@@ -300,7 +300,10 @@ namespace BL
             //לעבור על רשימת התחנות ולשאול האם אני בתחנה מסוימת ובאותה תחנה להוסיף את הקו לרשימת הקווים
             if (line.ListOfStationsInLine.Count() == 0)
                 throw new ArgumentNullException("The list of the bus is empty");
-            //foreach ()
+            
+            //foreach (BO.StationInLine station in line.ListOfStationsInLine)
+            //    if (station.LineId == line.Id)
+
 
                 dl.AddLine(lineDOtemp);
         }

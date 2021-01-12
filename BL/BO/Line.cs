@@ -58,6 +58,5 @@ namespace BO
         public IEnumerable<StationInLine> ListOfStationsInLine { get; set; }
         #endregion
 
-
     }
 }

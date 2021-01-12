@@ -15,6 +15,13 @@ namespace BO
         public int StationCode { get; set; }
         #endregion
 
+        #region LineId
+        /// <summary>
+        /// the id of the line that exist in the station
+        /// </summary>
+        public int LineId { get; set; }
+        #endregion
+
         #region StationName
         /// <summary>
         /// the name of the station
