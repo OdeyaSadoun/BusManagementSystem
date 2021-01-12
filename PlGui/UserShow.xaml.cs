@@ -22,6 +22,7 @@ namespace PlGui
     {
         public ObservableCollection<BO.Bus> listOfBuses { get; set; } = new ObservableCollection<BO.Bus>();
         public ObservableCollection<BO.Line> listOfLines { get; set; } = new ObservableCollection<BO.Line>();
+        public ObservableCollection<BO.Station> listOfStations { get; set; } = new ObservableCollection<BO.Station>();
         IBL bl = BLFactory.GetBL("2");
         public BO.User user{ get; set; }
        
@@ -35,6 +36,10 @@ namespace PlGui
             foreach (BO.Line line in bl.GetAllLines())
             {
                 listOfLines.Add(line);
+            }
+            foreach (BO.Station station in bl.GetAllStations())
+            {
+                listOfStations.Add(station);
             }
 
         }
@@ -60,14 +65,33 @@ namespace PlGui
             line.ShowDialog();
         }
 
-        
+
+
+        //private void Grid_KeyUp(object sender, KeyEventArgs e)
+        //{
+        //    if (e.Key == Key.Enter)
+        //    {
+        //        int temp = int.Parse(Searching.Text);
+        //        foreach (BO.Line line in listOfLines)
+        //        {
+        //            if (temp == line.LineNumber)
+        //            {
+        //                SearchIdWindow search = new SearchIdWindow(line);
+        //                search.ShowDialog();
+        //            }
+
+        //        }
+
+        //        this.Close();
+        //    }
+        //}
 
         private void Grid_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                int temp = int.Parse(Searching.Text);
-                foreach (BO.Line line in listOfLines)
+                int code = int.Parse(Searching.Text);
+                foreach (BO.Station station in listOfstations)
                 {
                     if (temp == line.LineNumber)
                     {
@@ -81,7 +105,7 @@ namespace PlGui
             }
         }
 
-        
+
 
         private void PreviewTextInputSearch(object sender, TextCompositionEventArgs e)
         {
