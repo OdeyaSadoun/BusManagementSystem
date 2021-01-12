@@ -66,12 +66,12 @@ namespace PlGui
         {
             if (e.Key == Key.Enter)
             {
-                //var temp = Searching.Text;
-                //foreach (BO.Bus bus in bl.listOfBuses())
-                //{
-                //    if(temp==bus.LicenseNumber)
+                var temp = Searching.Text;
+                foreach (BO.Bus bus in listOfBuses)
+                {
+                    if (temp == bus.LicenseNumber)
 
-                //}
+                }
 
                 this.Close();
             }

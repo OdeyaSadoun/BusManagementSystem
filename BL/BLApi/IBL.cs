@@ -45,6 +45,8 @@ namespace BLApi
         //IEnumerable<BO.Station> GetAllStationes();
         //IEnumerable<BO.Station> GetAllStationesBy(Predicate<BO.Station> predicate);
         BO.Station GetStation(int id);
+        IEnumerable<Bus> listOfBuses();
+
         //void AddStation(BO.Station station);
         //void UpdateStation(BO.Station station);
         //void UpdateStation(int id, Action<BO.Station> update); //method that knows to updt specific fields in station
