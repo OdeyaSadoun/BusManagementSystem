@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLApi;
+
+
 namespace PlGui
 {
     /// <summary>
@@ -31,5 +33,6 @@ namespace PlGui
             }
             lv.ItemsSource = listOfLines;
         }
+        
     }
 }

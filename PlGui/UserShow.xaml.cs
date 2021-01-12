@@ -20,14 +20,23 @@ namespace PlGui
     /// </summary>
     public partial class UserShow : Window
     {
-        public ObservableCollection<BO.Line> listOfLines { get; set; } = new ObservableCollection<BO.Line>();
+        public ObservableCollection<BO.Bus> listOfBuses { get; set; } = new ObservableCollection<BO.Bus>();
+        //public ObservableCollection<BO.Line> listOfLines { get; set; } = new ObservableCollection<BO.Line>();
         IBL bl = BLFactory.GetBL("2");
         public BO.User user{ get; set; }
+       
+
+
+
         public UserShow(BO.User u)
         {
             InitializeComponent();
             user = u;
-            
+            foreach (BO.Bus bus in bl.GetAllBuses())
+            {
+                listOfBuses.Add(bus);
+            }
+
         }
 
         private void Card_Click(object sender, RoutedEventArgs e)
@@ -49,6 +58,35 @@ namespace PlGui
         {
             LineWindow line = new LineWindow();
             line.ShowDialog();
+        }
+
+        
+
+        private void Grid_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                //var temp = Searching.Text;
+                //foreach (BO.Bus bus in bl.listOfBuses())
+                //{
+                //    if(temp==bus.LicenseNumber)
+
+                //}
+
+                this.Close();
+            }
+        }
+
+        
+
+        private void PreviewTextInputSearch(object sender, TextCompositionEventArgs e)
+        {
+
+        }
+
+        private void TextChangedSearching(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -34,11 +34,11 @@ namespace PlGui
         public MainWindow()
         {
             InitializeComponent();
-            foreach (BO.Line line in bl.GetAllLines())
-            {
-                listOfLines.Add(line);
-            }
-            lv.ItemsSource = listOfLines;
+            //foreach (BO.Line line in bl.GetAllLines())
+            //{
+            //    listOfLines.Add(line);
+            //}
+            //lv.ItemsSource = listOfLines;
 
         }
     

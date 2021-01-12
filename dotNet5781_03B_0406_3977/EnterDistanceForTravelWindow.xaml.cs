@@ -46,7 +46,7 @@ namespace dotNet5781_03B_0406_3977
             e.Handled = regex.IsMatch(e.Text);
         }
 
-    private void Grid_KeyUp(object sender, KeyEventArgs e)
+        private void Grid_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {

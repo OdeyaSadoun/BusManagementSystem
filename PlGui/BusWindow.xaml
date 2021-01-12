@@ -3,19 +3,56 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:PlGui"
         mc:Ignorable="d"
         Title="BusWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="bus"
+                  DataType="local:BO.Bus">
+            <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                   Text="{Binding Path=LineNumber}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="2" 
+                   Text="{Binding Path=Status}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="4" 
+                   Text="{Binding Path=TotalMileage}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+
+
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <ListView x:Name="lv" HorizontalAlignment="Left" Height="100" Margin="295,138,0,0" VerticalAlignment="Top" Width="100">
+        <ListView x:Name="lv" Height="324" Margin="69,51,57.6,0" VerticalAlignment="Top" Width="667"
+                  HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch"
+                  Grid.Row="0" VerticalContentAlignment="Stretch" ItemsSource="{Binding}" ItemTemplate="{StaticResource bus}"   FontSize="14">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
+
     </Grid>
 </Window>
+

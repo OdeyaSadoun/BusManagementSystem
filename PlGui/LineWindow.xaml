@@ -3,12 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:PlGui"
         mc:Ignorable="d"
+        
+
         Title="LineWindow" Height="450" Width="800">
     <Window.Resources>
         <DataTemplate x:Key="line"
-                  DataType="local:BO.ShortLine">
+                  >
             <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -30,50 +33,14 @@
                    Text="{Binding Path=Id}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <TextBlock Grid.Column="2" 
                    Text="{Binding Path=LineNumber}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <!--<Button x:Name="Drive_Button" Grid.Column="7"
-                    Height="40" Width ="45" Click="drive_click_button" BorderBrush="{x:Null}" >
-                    -->
-                <!--<Button.Background>
-                        <ImageBrush ImageSource="drive.png" Stretch="UniformToFill"/>
-                    </Button.Background>-->
-                <!--
-                </Button>
-                <Button x:Name="Refuel_Button" Grid.Column="8"  Height="40" Width ="45" Click="refuel_click_button" BorderBrush="{x:Null}"  >
-                    -->
-                <!--<Button.Background>
-                        <ImageBrush Stretch="UniformToFill" ImageSource="d3.jpg"/>
-                    </Button.Background>-->
-                <!--
-
-                </Button>
-                <Button x:Name="Care_Button" Grid.Column="9"
-                   Height="40" Width ="45"  Click="care_click_button" BorderBrush="{x:Null}" ClickMode="Release" >
-                    -->
-                <!--<Button.Background>
-                        <ImageBrush ImageSource="cl.jpg" Stretch="Uniform" TileMode="None"/>
-                    </Button.Background>-->
-                <!--
-                </Button>
-                <Button x:Name="Remove_Button" Grid.Column="10"
-                    Height="40" Width ="45"  Click="remove_click_button" BorderBrush="{x:Null}"   >
-                    -->
-                <!--<Button.Background>
-                        <ImageBrush ImageSource="pach.png" Stretch="Uniform"/>
-                    </Button.Background>-->
-                <!--
-                </Button>-->
-
             </Grid>
         </DataTemplate>
     </Window.Resources>
-
-
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <ListView x:Name="lv" Height="324" Margin="69,51,57.6,0" VerticalAlignment="Top" Width="667"
-                  ItemsSource="{Binding}" ItemTemplate="{StaticResource line}"
+        <ListView x:Name="lv" Height="324" Margin="69,51,57.6,0" VerticalAlignment="Top" Width="667" ItemsSource="{Binding}" ItemTemplate="{StaticResource line}"
                   HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch"
                   Grid.Row="0" VerticalContentAlignment="Stretch"   FontSize="14">
             <ListView.View>
@@ -82,27 +49,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <!--<ListView x:Name="lbBuses" Margin="62,60,68,45" ItemsSource="{Binding}" ItemTemplate="{StaticResource BusesList}"
-                  HorizontalContentAlignment="Stretch" MouseDoubleClick="Preview_Double_Click" HorizontalAlignment="Stretch"
-                  Grid.Row="0" VerticalContentAlignment="Stretch"   FontSize="14" Grid.ColumnSpan="2" >
-            <ListView.Resources>
-                <Style TargetType="{x:Type ListViewItem}">
-                    <Setter Property="Height" Value="40"/>
-                    <Style.Triggers>
-                        -->
-        <!-- Sets the color of the row according to bus' status -->
-        <!--
-                        <DataTrigger Binding="{Binding Status, Converter={StaticResource backCon}}" Value="Ready">
-                            <Setter Property="Background" Value="LightGreen" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding Status, Converter={StaticResource backCon}}"  Value="Else">
-                            <Setter Property="Background" Value="LightSalmon" />
-                        </DataTrigger>
-
-                    </Style.Triggers>
-                </Style>
-            </ListView.Resources>
-
-        </ListView>-->
+    
     </Grid>
 </Window>
