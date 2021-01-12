@@ -85,7 +85,7 @@ namespace PlGui
         //        this.Close();
         //    }
         //}
-
+        //
         private void Grid_KeyUp(object sender, KeyEventArgs e)
         {
             //if (e.Key == Key.Enter)
