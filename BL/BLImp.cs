@@ -416,7 +416,7 @@ namespace BL
       
         #region AddStation
         /// <summary>
-        /// A function that add a station to the list
+        /// A function that add a station to 
         /// </summary>
         /// <param name="station"></param>
         public void AddStation(BO.Station station)
