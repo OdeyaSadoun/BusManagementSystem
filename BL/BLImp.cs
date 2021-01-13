@@ -486,10 +486,6 @@ namespace BL
         #endregion
         #endregion
 
-
-
-
-
         #region User
 
         #region userDoBoAdapter
@@ -922,7 +918,25 @@ namespace BL
         //    return stationinlineBO;
         //}
         //#endregion
+
+        public void Refuel(BO.Bus bus)
+        {
+            bus.FuelRemain = 1200;
+            bus.Status = BO.BusStatus.Refueling;
+            bus.KmBeforeFuel = 1200;
+           
+        }
+
+        public void Care(BO.Bus bus)
+        {
+            DateTime currentDate = DateTime.Now;
+            bus.LastTreatment= currentDate;
+            bus.Status = BO.BusStatus.InTreatment;
+            bus.KmBeforTreatment = 20000;
+            bus.FuelRemain = 1200;           
+            bus.KmBeforeFuel = 1200;
     }
 }
+
 
 

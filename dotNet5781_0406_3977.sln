@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalObject", "DalObject\DalO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlGui", "PlGui\PlGui.csproj", "{DBF40BA1-2C64-4135-9CC1-80D7925091C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLXML", "DLXML\DLXML.csproj", "{ED5F454C-062C-4BA0-9209-D94C10E4D66E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,10 @@ Global
 		{DBF40BA1-2C64-4135-9CC1-80D7925091C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBF40BA1-2C64-4135-9CC1-80D7925091C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBF40BA1-2C64-4135-9CC1-80D7925091C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED5F454C-062C-4BA0-9209-D94C10E4D66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED5F454C-062C-4BA0-9209-D94C10E4D66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED5F454C-062C-4BA0-9209-D94C10E4D66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED5F454C-062C-4BA0-9209-D94C10E4D66E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,6 +19,8 @@ namespace BLApi
         void UpdateBus(BO.Bus bus);
         //void UpdateBus(int id, Action<BO.Bus> update);
         void DeleteBus(BO.Bus busBO);
+        void Care(BO.Bus bus);
+        void Refuel(BO.Bus bus);
         #endregion
 
         //#region BusOnTrip
