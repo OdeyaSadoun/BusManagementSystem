@@ -309,7 +309,7 @@ namespace BL
         /// A function that update the line 
         /// </summary>
         /// <param name="line"></param>
-        public void UpdateLineDetails(BO.Line line)
+        public void UpdateLine(BO.Line line)
         {
             DO.Line lineDO = new DO.Line();
             line.CopyPropertiesTo(lineDO);

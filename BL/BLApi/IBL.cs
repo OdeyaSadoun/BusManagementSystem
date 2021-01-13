@@ -49,7 +49,7 @@ namespace BLApi
         void AddStation(BO.Station station);
         void UpdateStation(BO.Station station);
         //void UpdateStation(int id, Action<BO.Station> update); //method that knows to updt specific fields in station
-        void DeleteStation(int id);
+        void DeleteStation(BO.Station station);
 
         #endregion
 
@@ -60,7 +60,7 @@ namespace BLApi
         void AddLine(BO.Line line);
         void UpdateLine(BO.Line line);
         //void UpdateLine(int id, Action<BO.Line> update); //method that knows to updt specific fields in Line
-        void DeleteLine(int id);
+        void DeleteLine(BO.Line line);
         #endregion
 
 

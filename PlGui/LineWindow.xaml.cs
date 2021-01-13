@@ -58,7 +58,7 @@ namespace PlGui
             {
                 BO.Line line = (sender as Button).DataContext as BO.Line;
 
-                bl.DeleteLine(line.Id);
+                bl.DeleteLine(line);
             }
             catch(BO.IncorrectLineIDException ex)
             {
