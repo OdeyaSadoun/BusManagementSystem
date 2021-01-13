@@ -24,7 +24,10 @@ namespace PlGui
     public partial class LineWindow : Window
     {
         public ObservableCollection<BO.Line> listOfLines { get; set; } = new ObservableCollection<BO.Line>();
+
         IBL bl = BLFactory.GetBL("2");
+
+        #region constructor
         public LineWindow()
         {
             InitializeComponent();
@@ -34,31 +37,62 @@ namespace PlGui
             }
             listViewLine.ItemsSource= listOfLines;
         }
+        #endregion
 
+        #region update_click_button
         private void update_click_button(object sender, RoutedEventArgs e)
         {
            
         }
+        #endregion
 
+        #region delete_click_button
+        /// <summary>
+        /// A function that delete line when the administor click on the button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void delete_click_button(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                BO.Line line = (sender as Button).DataContext as BO.Line;
 
-            BO.Line line = (sender as Button).DataContext as BO.Line;
-
-           
+                bl.DeleteLine(line.Id);
+            }
+            catch(BO.IncorrectLineIDException ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
+        #endregion
 
+        #region details_click_button
         private void details_click_button(object sender, RoutedEventArgs e)
         {
 
         }
+        #endregion
 
+        #region NumberValidationTextBox
+        /// <summary>
+        /// A function that dont anable anter chars other numbers
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+        #endregion
 
+        #region Grid_KeyUp
+        /// <summary>
+        /// A function that when do enter the input in to the system
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Grid_KeyUp(object sender, KeyEventArgs e)
         {
             try
@@ -80,16 +114,27 @@ namespace PlGui
                 MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        #endregion
+
+        #region searchLine_TextChanged
         private void searchLine_TextChanged(object sender, TextChangedEventArgs e)
         {
 
 
         }
+        #endregion
 
+        #region addLine_Click
+        /// <summary>
+        /// A function that add line when click on button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addLine_Click(object sender, RoutedEventArgs e)
         {
             AddLine window = new AddLine();
             window.ShowDialog();
         }
+        #endregion
     }
 }
