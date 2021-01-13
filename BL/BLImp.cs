@@ -335,13 +335,14 @@ namespace BL
         {
             try
             {
-                dl.DeleteLine(line.Id);
+                
                 //delete fron the line station list
                 List<DO.LineStation> listLineStations = dl.GetAllLinesStationBy(s => s.LineId == line.Id && line.IsDeleted == false).ToList();
                 foreach (DO.LineStation s in listLineStations)
                 {
                     dl.DeleteLineStation(s.LineId, s.StationCode);
                 }
+                dl.DeleteLine(line.Id);
             }
             catch (DO.IncorrectLineIDException ex)
             {
@@ -927,7 +928,7 @@ namespace BL
            
         }
 
-        public void Care(BO.Bus bus)
+        public void Threatment(BO.Bus bus)
         {
             DateTime currentDate = DateTime.Now;
             bus.LastTreatment = currentDate;

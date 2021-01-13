@@ -587,7 +587,7 @@ namespace DalObject
         /// <param name="id"></param>
         public void DeleteLine(int id)
         {
-            DO.Line l = DataSource.ListLines.Find(p => p.Id == id && p.IsDeleted);
+            DO.Line l = DataSource.ListLines.Find(p => p.Id == id && !p.IsDeleted);
 
             if (l != null)
             {
@@ -703,7 +703,7 @@ namespace DalObject
         /// <param name="stationCode"></param>
         public void DeleteLineStation(int lineId, int stationCode)
         {
-            DO.LineStation linestation = DataSource.ListLineStations.Find(p => p.LineId == lineId && p.StationCode== stationCode && p.IsDeleted);
+            DO.LineStation linestation = DataSource.ListLineStations.Find(p => p.LineId == lineId && p.StationCode== stationCode && !p.IsDeleted);
 
             if (linestation != null)
             {

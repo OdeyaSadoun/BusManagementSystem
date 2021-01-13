@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace PlGui
 {
     /// <summary>
-    /// Interaction logic for BusShow.xaml
+    /// Interaction logic for AddBus.xaml
     /// </summary>
-    public partial class BusShow : Window
+    public partial class AddBus : Window
     {
-        public BusShow(BO.Bus bus)
+        public AddBus()
         {
             InitializeComponent();
         }

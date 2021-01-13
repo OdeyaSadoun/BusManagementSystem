@@ -31,18 +31,24 @@ namespace PlGui
         public LineWindow()
         {
             InitializeComponent();
-            foreach (BO.Line line in bl.GetAllLines())
-            {
-                listOfLines.Add(line);
-            }
-            listViewLine.ItemsSource= listOfLines;
+            listViewLine.ItemsSource = bl.GetAllLines().ToList();
         }
         #endregion
 
         #region update_click_button
         private void update_click_button(object sender, RoutedEventArgs e)
         {
-           
+            try
+            {
+                BO.Line line = (sender as Button).DataContext as BO.Line;
+
+                bl.UpdateLine(line);
+                listViewLine.ItemsSource = bl.GetAllLines().ToList(); //reftesh
+            }
+            catch (BO.IncorrectLineIDException ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         #endregion
 
@@ -59,6 +65,7 @@ namespace PlGui
                 BO.Line line = (sender as Button).DataContext as BO.Line;
 
                 bl.DeleteLine(line);
+                listViewLine.ItemsSource = bl.GetAllLines().ToList(); //reftesh
             }
             catch(BO.IncorrectLineIDException ex)
             {
@@ -70,7 +77,9 @@ namespace PlGui
         #region details_click_button
         private void details_click_button(object sender, RoutedEventArgs e)
         {
-
+            BO.Line line = (sender as Button).DataContext as BO.Line;
+            LineShow win = new LineShow(line);
+            win.ShowDialog();
         }
         #endregion
 
