@@ -36,16 +36,17 @@ namespace BO
         public bool IsDeleted { get; set; }
         #endregion
 
-        #region ToString
-        /// <summary>
-        /// A to string function
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return string.Format("The line id is: " + Id + "\t line number: " + LineNumber + "\t to: " + LastStation.Name);
+        //    #region ToString
+        //    /// <summary>
+        //    /// A to string function
+        //    /// </summary>
+        //    /// <returns></returns>
+        //    public override string ToString()
+        //    {
+        //        return string.Format("The line id is: " + Id + "\t line number: " + LineNumber + "\t to: " + LastStation.Name);
 
-        }
-        #endregion
+        //    }
+        //    #endregion
+        //}
     }
 }

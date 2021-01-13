@@ -9,11 +9,9 @@
         Title="LineWindow" Height="450" Width="800">
 
     <Window.Resources>
-      
-
-        
     </Window.Resources>
-    <Grid>
+
+    <Grid KeyUp ="Grid_KeyUp">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="54*"/>
@@ -21,38 +19,64 @@
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <ListView x:Name="lv" HorizontalAlignment="Left" Height="336" Margin="65,36,0,0" VerticalAlignment="Top" Width="662"  Grid.ColumnSpan="2">
-            <ListView.ItemTemplate >
-            <!--<ListView.View>
-                <GridView>-->
-                    <DataTemplate>
-                        <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0"
-                   Text="{Binding Path=Id}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            <TextBlock Grid.Column="2" 
-                   Text="{Binding Path=LineNumber}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            <TextBlock Grid.Column="2" 
-                   Text="{Binding Path=LastStation}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        </Grid>
-                    </DataTemplate>
-                    <!--<GridViewColumn/>-->
-            <!--</GridView>
-            </ListView.View>-->
+        <ListView x:Name ="listViewLine" Height="278" Margin="32,99,31,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
+
+
+
+            <ListView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0"  Text="{Binding Path=Id}" Margin="15,0,0,0" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" />
+                        <TextBlock Grid.Column="1"  Text="{Binding Path=LineNumber}" Margin="15,0,0,0" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="13" />
+                        <TextBlock Grid.Column="2" Text="{Binding Path=LastStation.Name}" Margin="15,0,0,0" Width="370" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="13" />
+                        <Button x:Name="Update_Button" Content="update" Grid.Column="6" Height="30" Width ="55"  Click="update_click_button" BorderBrush="{x:Null}" ClickMode="Release" ></Button>
+                        <Button x:Name="Delete_Button" Content="delete" Grid.Column="8" Height="30" Width ="55"  Click="delete_click_button" BorderBrush="{x:Null}" ClickMode="Release" ></Button>
+                        <Button x:Name="Detailes_Button" Content="details" Grid.Column="10" Height="30" Width ="55"  Click="details_click_button" BorderBrush="{x:Null}" ClickMode="Release" ></Button>
+
+                    </Grid>
+
+                </DataTemplate>
+
             </ListView.ItemTemplate>
         </ListView>
+        <ListView HorizontalAlignment="Left" Height="22" Margin="32,74,0,0" VerticalAlignment="Top" Width="722" Grid.ColumnSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Line ID" Width="52"/>
+                    <GridViewColumn Header="Number" Width="52"/>
+                    <GridViewColumn Header="To:" Width="395"/>
+                    <GridViewColumn Header="Update" Width="53"/>
+                    <GridViewColumn Header="Delete" Width="53" />
+                    <GridViewColumn Header="Details" Width="53" />
+
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="addLine" Content="Add Line" HorizontalAlignment="Left" Margin="32,28,0,0" VerticalAlignment="Top" Width="159" Height="33" Grid.ColumnSpan="2" FontWeight="Bold" Background="#FFF1F1F1" Click="addLine_Click"/>
+        <TextBox x:Name="searchLine"  HorizontalAlignment="Left" Height="26" Margin="488,28,-2,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="133" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" TextChanged="searchLine_TextChanged" PreviewTextInput="NumberValidationTextBox"/>
+        <Image Margin="628,28,38,358" Source="search3.png" Stretch="Fill" RenderTransformOrigin="11.959,1.229" Grid.Column="1"/>
+
+
 
     </Grid>
 </Window>

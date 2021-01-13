@@ -522,7 +522,7 @@ namespace DalObject
         /// <returns></returns>
         public DO.Line GetLine(int id)
         {
-            DO.Line l = DataSource.ListLines.Find(p => p.Id == id && !p.IsDeleted);
+            DO.Line l = DataSource.ListLines.Find(p => p.LineNumber == id && !p.IsDeleted);
 
             if (l != null)
                 return l.Clone();

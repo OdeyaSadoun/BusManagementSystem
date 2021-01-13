@@ -29,7 +29,36 @@ namespace PlGui
             {
                 listOfBuses.Add(bus);
             }
-            lv.ItemsSource = listOfBuses;
+            listViewBus.ItemsSource = listOfBuses;
+        }
+        private void refule_click_button(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void threatment_click_button(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void update_click_button(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void delete_click_button(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void details_click_button(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void searchLine_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void addLine_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

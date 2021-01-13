@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,25 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using BL;
-using BO;
-using BLApi;
+
 namespace PlGui
 {
     /// <summary>
-    /// Interaction logic for LineShow.xaml
+    /// Interaction logic for AddLine.xaml
     /// </summary>
-    public partial class LineShow : Window
+    public partial class AddLine : Window
     {
-        IBL bl = BLFactory.GetBL("2");
-        
-
-
-        public LineShow(BO.Line line)
+        public AddLine()
         {
-            InitializeComponent();            
-
+            InitializeComponent();
         }
-        
     }
 }
