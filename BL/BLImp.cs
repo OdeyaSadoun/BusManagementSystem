@@ -930,11 +930,12 @@ namespace BL
         public void Care(BO.Bus bus)
         {
             DateTime currentDate = DateTime.Now;
-            bus.LastTreatment= currentDate;
+            bus.LastTreatment = currentDate;
             bus.Status = BO.BusStatus.InTreatment;
             bus.KmBeforTreatment = 20000;
-            bus.FuelRemain = 1200;           
+            bus.FuelRemain = 1200;
             bus.KmBeforeFuel = 1200;
+        }
     }
 }
 
