@@ -29,21 +29,6 @@ namespace BO
         public double Fare { get; set; }
         #endregion
 
-        #region DistanceTo
-
-        /// <summary>
-        /// the distance from the current station to the next station 
-        /// </summary>
-        public float DistanceTo { get; set; }
-        #endregion
-
-        #region TimeTo
-        /// <summary>
-        /// the time travel from the current station to the next station
-        /// </summary>
-        public TimeSpan TimeTo { get; set; }
-        #endregion
-
         #region TravelTimeInThisLine
         /// <summary>
         /// Estimated travel time of the route

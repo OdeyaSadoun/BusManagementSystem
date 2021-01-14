@@ -44,7 +44,7 @@ namespace BLApi
         #endregion
 
         #region Station
-        //IEnumerable<BO.Station> GetAllStationes();
+        IEnumerable<BO.Station> GetAllStations();
         //IEnumerable<BO.Station> GetAllStationesBy(Predicate<BO.Station> predicate);
         BO.Station GetStation(int id);
 

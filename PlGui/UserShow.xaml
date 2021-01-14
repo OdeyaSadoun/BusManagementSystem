@@ -6,7 +6,7 @@
         WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:PlGui"
         mc:Ignorable="d"
-        Title="UserShow" Height="450" Width="800" >
+        Title="UserShow" Height="450" Width="800">
     <Grid KeyUp ="Grid_KeyUp" HorizontalAlignment="Stretch" Height="auto" Grid.Row="0"
         VerticalAlignment="Stretch" Width="auto">
         <Grid.Background>

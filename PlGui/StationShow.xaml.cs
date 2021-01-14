@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace PlGui
 {
     /// <summary>
-    /// Interaction logic for AboutWindow.xaml
+    /// Interaction logic for StationShow.xaml
     /// </summary>
-    public partial class AboutWindow : Window
+    public partial class StationShow : Window
     {
-        public AboutWindow()
+        public StationShow(BO.Station station)
         {
             InitializeComponent();
-        }
-
-        private void about_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

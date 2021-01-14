@@ -78,9 +78,9 @@ namespace BO
         public IEnumerable<ShortLine> ListOfLines { get; set; }
         #endregion
 
-        #region ListOfStationsInLines
-        public IEnumerable<StationInLine> ListOfStationsInLines { get; set; }
-        #endregion
+        //#region ListOfStationsInLines
+        //public IEnumerable<StationInLine> ListOfStationsInLines { get; set; }
+        //#endregion
 
 
         #region ToString

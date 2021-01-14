@@ -43,5 +43,11 @@ namespace PlGui
             LineWindow line = new LineWindow();
             line.ShowDialog();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            StationWindow station = new StationWindow();
+            station.ShowDialog();
+        }
     }
 }

@@ -398,9 +398,9 @@ namespace BL
                                      let line = dl.GetLine(stat.LineId)
                                      select line.CopyToLineInStation(stat)).ToList();
 
-            stationBO.ListOfStationsInLines = (from stat in dl.GetAllLinesStationBy(stat => stat.StationCode == stationCode && stat.IsDeleted == false)
-                                               let station = dl.GetStation(stat.StationCode)
-                                               select station.CopyToStationInLine(stat)).ToList();
+            //stationBO.ListOfStationsInLines = (from stat in dl.GetAllLinesStationBy(stat => stat.StationCode == stationCode && stat.IsDeleted == false)
+            //                                   let station = dl.GetStation(stat.StationCode)
+            //                                   select station.CopyToStationInLine(stat)).ToList();
             return stationBO;
         }
         #endregion
@@ -428,7 +428,7 @@ namespace BL
         }
         #endregion
 
-        #region GetAllStationes
+        #region GetAllStations
         /// <summary>
         /// A function that return all the stations
         /// </summary>

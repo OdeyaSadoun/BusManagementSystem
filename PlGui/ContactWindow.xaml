@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlGui"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="ContactWindow" Height="450" Width="700">
+        Title="ContactWindow" Height="450" Width="800">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>

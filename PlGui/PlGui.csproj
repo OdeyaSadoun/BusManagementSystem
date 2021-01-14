@@ -64,6 +64,9 @@
     <Compile Include="AddLine.xaml.cs">
       <DependentUpon>AddLine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddStation.xaml.cs">
+      <DependentUpon>AddStation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminShow.xaml.cs">
       <DependentUpon>AdminShow.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,12 @@
     <Compile Include="SearchIdWindow.xaml.cs">
       <DependentUpon>SearchIdWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StationShow.xaml.cs">
+      <DependentUpon>StationShow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StationWindow.xaml.cs">
+      <DependentUpon>StationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserShow.xaml.cs">
       <DependentUpon>UserShow.xaml</DependentUpon>
     </Compile>
@@ -109,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddStation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,6 +184,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="StationShow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserShow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -198,6 +219,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\BO.Bus.datasource" />
+    <None Include="Properties\DataSources\BO.Line.datasource" />
+    <None Include="Properties\DataSources\BO.ShortLine.datasource" />
     <None Include="Properties\DataSources\BO.User.datasource" />
     <None Include="Properties\DataSources\BO.User1.datasource" />
     <None Include="Properties\Settings.settings">

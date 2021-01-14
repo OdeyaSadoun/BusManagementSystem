@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlGui"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="AdminWindow"  Height="450" Width="700" Icon="User2.png">
-    <Grid  Height="450" Width="700" Margin="0,1,-6.4,-31">
+        Title="AdminWindow"  Height="400" Width="700" Icon="User2.png">
+    <Grid  HorizontalAlignment="Stretch" Margin="0,1,-6.4,-31">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="13*"/>
             <ColumnDefinition Width="687*"/>
@@ -18,9 +19,9 @@
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <TextBlock Height="33" HorizontalAlignment="Left" Margin="37.2,32,0,0" Name="textBlockHeading" Text="Registration:" VerticalAlignment="Top" Width="168"  FontSize="25" Foreground="White" FontStretch="ExtraCondensed" FontWeight="Bold" Grid.Column="1"/>
+        <TextBlock Height="43" HorizontalAlignment="Left" Margin="37,32,0,0" Name="textBlockHeading" Text="Registration:" VerticalAlignment="Top" Width="168"  FontSize="25" Foreground="White" FontStretch="ExtraCondensed" FontWeight="Bold" Grid.Column="1" RenderTransformOrigin="0.536,0.667"/>
         <!--Button as a Link button using style-->
-        <Button Margin="575.2,37,55,57.2" Content="Login" Cursor="Hand" Click="Login_Click" Foreground="White" Background="White" FontWeight="Bold" FontSize="20" Grid.Column="1">
+        <Button Margin="568,37,55,38" Content="Login" Cursor="Hand" Click="Login_Click" Foreground="White" Background="White" FontWeight="Bold" FontSize="20" Grid.Column="1">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <TextBlock TextDecorations="Underline">  
@@ -40,7 +41,7 @@
             </Button.Style>
         </Button>
         <!--end Button as a Link button using style-->
-        <Grid Margin="37.2,0,55,91.6" Background="White" Height="282" VerticalAlignment="Bottom" Grid.RowSpan="2" Grid.Column="1">
+        <Grid Margin="37,0,55,37" HorizontalAlignment="Stretch" Background="White" Height="282" VerticalAlignment="Bottom" Grid.RowSpan="2" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="66*"/>
                 <ColumnDefinition Width="57*"/>
@@ -72,7 +73,7 @@
             <Button Content="Reset" Height="27" HorizontalAlignment="Left" Margin="4.8,219,0,0"  Foreground="White" Name="Reset" VerticalAlignment="Top" Width="70" Click="Reset_Click" FontWeight="Bold" Background="#FFAC3EA2" Grid.Column="4" Grid.ColumnSpan="2" />
             <Button Content="Cancel" Height="27" HorizontalAlignment="Right" Margin="0,219,9.2,0"  Foreground="White" Name="Cancel" VerticalAlignment="Top" Width="70" Click="Cancel_Click" FontWeight="Bold" Background="#FFAC3EA2" Grid.Column="5" RenderTransformOrigin="0.846,0.541" />
             <DatePicker x:Name="dataPickerBirthday" HorizontalAlignment="Left" Margin="92.8,165,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.ColumnSpan="3"/>
-            <Image Margin="45.8,-42,62.2,287.6" Source="userWhite-removebg-preview.png" Stretch="Fill" Grid.Column="6"/>
+            <Image Margin="40,-42,68,288" Source="userWhite-removebg-preview.png" Stretch="Fill" Grid.Column="6"/>
         </Grid>
 
     </Grid>

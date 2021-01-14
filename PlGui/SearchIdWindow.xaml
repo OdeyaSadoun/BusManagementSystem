@@ -6,7 +6,7 @@
         WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:PlGui"
         mc:Ignorable="d"
-        Title="SearchIdWindow" Height="400" Width="600">
+        Title="SearchIdWindow" Height="450" Width="800">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>

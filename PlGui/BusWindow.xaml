@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:PlGui"
         mc:Ignorable="d"
         Title="BusWindow" Height="450" Width="800">
-    <Grid>
+    <Grid KeyUp ="Grid_KeyUp">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="54*"/>
@@ -66,7 +66,7 @@
                     <GridViewColumn Header="Delete" Width="72" />
                     <GridViewColumn Header="Details" Width="72" />
                   
-                    <GridViewColumn/>
+                  
                 </GridView>
             </ListView.View>
         </ListView>

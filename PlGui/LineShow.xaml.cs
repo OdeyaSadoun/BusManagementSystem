@@ -28,9 +28,19 @@ namespace PlGui
 
         public LineShow(BO.Line line)
         {
-            InitializeComponent();            
+            InitializeComponent();
+            grid1.DataContext = line;
+            times.DataContext = line.ListOfTripTime;
+            times.SelectedItem = 0;
 
         }
-        
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            System.Windows.Data.CollectionViewSource lineViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("lineViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // lineViewSource.Source = [generic data source]
+        }
     }
 }
