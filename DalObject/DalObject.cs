@@ -253,6 +253,7 @@ namespace DalObject
         #endregion
         #endregion
 
+        
         #region LineTrip
         #region GetAllLinesTrip
         /// <summary>
