@@ -522,12 +522,29 @@ namespace DalObject
         /// <returns></returns>
         public DO.Line GetLine(int id)
         {
-            DO.Line l = DataSource.ListLines.Find(p => p.LineNumber == id && !p.IsDeleted);
+            DO.Line l = DataSource.ListLines.Find(p => p.Id == id && !p.IsDeleted);
 
             if (l != null)
                 return l.Clone();
             else
                 throw new DO.IncorrectLineIDException(id, $"Incorrect line: {id}. could not found this line, try enter again");
+        }
+        #endregion
+
+        #region GetLineNumber
+        /// <summary>
+        ///  A function that return a line
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public DO.Line GetLineNumber(int num)
+        {
+            DO.Line l = DataSource.ListLines.Find(p => p.LineNumber == num && !p.IsDeleted);
+
+            if (l != null)
+                return l.Clone();
+            else
+                throw new DO.IncorrectInputException( $"Incorrect line number: {num}. could not found this line, try enter again");
         }
         #endregion
 

@@ -204,7 +204,7 @@ namespace BL
             //lineBO.FirstStation = stationDoBoAdapter(sDO);
             //sDO = dl.GetStation(lineDO.LastStation);
             //lineBO.LastStation = stationDoBoAdapter(sDO);
-            lineBO = lineDO.CopyToLine();
+            lineBO = lineDO.CopyToLineDOToBO();
 
             return lineBO;
         }
@@ -223,6 +223,30 @@ namespace BL
             try
             {
                 lineDO = dl.GetLine(id);
+            }
+
+            catch (DO.IncorrectLineIDException ex)
+            {
+                throw new BO.IncorrectLineIDException(ex.ID, ex.Message);
+            }
+
+            return lineDoBoAdapter(lineDO);
+        }
+        #endregion
+
+        #region GetLineNumber
+        /// <summary>
+        ///  A function that return a line
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public BO.Line GetLineNumber(int num)
+        {
+
+            DO.Line lineDO;
+            try
+            {
+                lineDO = dl.GetLineNumber(num);
             }
 
             catch (DO.IncorrectLineIDException ex)
@@ -267,8 +291,8 @@ namespace BL
 
                 if ((sDO1 == null) || (sDO2 == null))
                     throw new BO.IncorrectCodeStationException(line.FirstStation.Code, "This station code could not found");
-                line.FirstStation = sDO1.CopyToStation();
-                line.LastStation = sDO2.CopyToStation();
+                line.FirstStation = sDO1.CopyToStationDOToBO();
+                line.LastStation = sDO2.CopyToStationDOToBO();
 
                 //לעבור על רשימת התחנות ולשאול האם אני בתחנה מסוימת ובאותה תחנה להוסיף את הקו לרשימת הקווים
                 List<BO.StationInLine> tempListStations = new List<StationInLine>();
@@ -312,7 +336,8 @@ namespace BL
         public void UpdateLine(BO.Line line)
         {
             DO.Line lineDO = new DO.Line();
-            line.CopyPropertiesTo(lineDO);
+            //line.CopyPropertiesTo(lineDO);
+            lineDO = line.CopyToLineBOToDO();
             try
             {
                 dl.UpdateLine(lineDO);
@@ -366,7 +391,7 @@ namespace BL
         {
             BO.Station stationBO = new BO.Station();
             int stationCode = stationDO.Code;
-            stationBO = stationDO.CopyToStation();
+            stationBO = stationDO.CopyToStationDOToBO();
 
 
             stationBO.ListOfLines = (from stat in dl.GetAllLinesStationBy(stat => stat.StationCode == stationCode && stat.IsDeleted == false)

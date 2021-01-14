@@ -22,7 +22,9 @@ namespace DO
     [Serializable]
     public class IncorrectInputException : Exception
     {
+        public int temp;
         public IncorrectInputException(string message) : base(message) { }
+        public IncorrectInputException(int ln) : base() => temp = ln;
         public override string ToString() => base.ToString();
     }
 

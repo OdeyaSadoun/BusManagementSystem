@@ -58,6 +58,7 @@ namespace DalApi
         IEnumerable<DO.Line> GetAllLines();
         IEnumerable<DO.Line> GetAllLinesBy(Predicate<DO.Line> predicate);
         DO.Line GetLine(int id);
+        DO.Line GetLineNumber(int num);
         void AddLine(DO.Line line);
         void UpdateLine(DO.Line line);
         void UpdateLine(int id, Action<DO.Line> update); //method that knows to updt specific fields in Line

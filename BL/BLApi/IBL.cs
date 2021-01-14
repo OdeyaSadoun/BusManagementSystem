@@ -59,6 +59,7 @@ namespace BLApi
         IEnumerable<BO.Line> GetAllLines();
         //IEnumerable<BO.Line> GetAllLinesBy(Predicate<DO.Line> predicate);
         BO.Line GetLine(int id);
+        BO.Line GetLineNumber(int num);
         void AddLine(BO.Line line);
         void UpdateLine(BO.Line line);
         //void UpdateLine(int id, Action<BO.Line> update); //method that knows to updt specific fields in Line

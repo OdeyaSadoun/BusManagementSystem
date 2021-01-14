@@ -112,7 +112,7 @@ namespace PlGui
                     var temp = searchLine.Text;
 
                     var numberLine = int.Parse(searchLine.Text);
-                    BO.Line line = bl.GetLine(numberLine);
+                    BO.Line line = bl.GetLineNumber(numberLine);
                     LineShow win = new LineShow(line);
                     win.ShowDialog();
                     this.Close();

@@ -12,6 +12,7 @@ namespace BL
     public static class DeepCopyUtilities
     {
         static IDL dl = DLFactory.GetDL();
+        static IBL bl = BLFactory.GetBL("2");
 
         public static void CopyPropertiesTo<T, S>(this S from, T to)
         {
@@ -43,20 +44,20 @@ namespace BL
         public static BO.ShortLine CopyToLineInStation(this DO.Line l, DO.LineStation s)
         {
             BO.ShortLine lineInStation = new BO.ShortLine();
-            lineInStation = l.CopyToLine();
+            lineInStation = l.CopyToLineDOToBO();
             lineInStation.Id = s.LineStationIndex;
             return lineInStation;
         }
-        public static BO.Line CopyToLine(this DO.Line s)
+        public static BO.Line CopyToLineDOToBO(this DO.Line s)
         {
             BO.Line line = new BO.Line();
 
             line.Area = (BO.Area)s.Area;
 
             DO.Station sDO = dl.GetStation(s.FirstStation);
-            line.FirstStation= CopyToStation(sDO);
+            line.FirstStation= CopyToStationDOToBO(sDO);
             sDO = dl.GetStation(s.LastStation);
-            line.LastStation= CopyToStation(sDO);
+            line.LastStation= CopyToStationDOToBO(sDO);
 
 
             line.Id = s.Id;
@@ -65,11 +66,33 @@ namespace BL
             line.LineNumber = s.LineNumber;
             line.IsDeleted = s.IsDeleted;
             
-
+            //לבדוק מה קורה לגבי כל הרשימות
             return line;
         }
 
-        public static BO.Station CopyToStation(this DO.Station s)
+        public static DO.Line CopyToLineBOToDO(this BO.Line lineBO)
+        {
+            DO.Line lineDO = new DO.Line();
+
+            lineDO.Area = (DO.Area)lineBO.Area;
+
+            BO.Station sBO = bl.GetStation(lineBO.FirstStation.Code);
+            lineDO.FirstStation = sBO.Code;
+            sBO = bl.GetStation(lineBO.LastStation.Code);
+            lineDO.LastStation = sBO.Code;
+
+
+            lineDO.Id = lineBO.Id;
+            lineDO.Fare = lineBO.Fare;
+            lineDO.TravelTimeInThisLine = lineBO.TravelTimeInThisLine;
+            lineDO.LineNumber = lineBO.LineNumber;
+            lineDO.IsDeleted = lineBO.IsDeleted;
+
+
+            return lineDO;
+        }
+
+        public static BO.Station CopyToStationDOToBO(this DO.Station s)
         {
             BO.Station station = new BO.Station();
             station.Address = s.Address;
@@ -82,9 +105,25 @@ namespace BL
             station.Longitude = s.Longitude;
             station.Name = s.Name;
 
-
+            //לבדוק מה לעשות לגבי רשימת התחנות
 
             return station;
         }
+
+        //public static DO.Station CopyToStationBOToDO(this BO.Station stationBO)
+        //{
+        //    DO.Station stationDO = new DO.Station();
+        //    stationDO.Address = stationBO.Address;
+        //    stationDO.Code = stationBO.Code;
+        //    stationDO.IsAccessible = stationBO.IsAccessible;
+        //    stationDO.IsBench = stationBO.IsBench;
+        //    stationDO.IsDeleted = stationBO.IsDeleted;
+        //    stationDO.IsDigitalPanel = stationBO.IsDigitalPanel;
+        //    stationDO.Latitude = stationBO.Latitude;
+        //    stationDO.Longitude = stationBO.Longitude;
+        //    stationDO.Name = stationBO.Name;
+        //    return stationDO;
+        //}
+
     }
 }
