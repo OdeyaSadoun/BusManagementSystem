@@ -159,7 +159,7 @@ namespace DS
                 /*117*/new Station { Code = 26504, Name = "בירנבוים/הרב עוזיאל", Address = "רחוב: ד''ר נתן בירנבוים 19, בני ברק", Latitude = 32.071681, Longitude = 34.840713,IsDeleted = false, IsAccessible = true},
                 /*118*/new Station { Code = 26490, Name = "הרב יצחק ניסים/קהילות יעקב", Address = "רחוב: הרב יצחק ניסים 22, בני ברק", Latitude = 32.073339, Longitude = 34.83865,IsDeleted = false, IsAccessible = true},
                 /*119*/new Station { Code = 26487, Name = "דמשק אליעזר/האדמו''ר מויז'ניץ", Address = "רחוב: דמשק אליעזר 21, בני ברק", Latitude = 32.074832, Longitude = 34.837276,IsDeleted = false, IsAccessible = true},
-                /*120*/new Station { Code = 23051, Name = "האדמור מנדבורנא/חזון אי''ש", Address = "רחוב: האדמו''ר רבי חיים מרדכי מנדבורנא 74, בני ברק", Latitude = 32.075852, Longitude = 34.833822,IsDeleted = false, IsAccessible = true},
+                /*120*/new Station { Code = 23051, Name = "האדמור מנדבורנא/חזון אי''ש", Address = "רחוב: האדמו''ר מנדבורנא 74, בני ברק", Latitude = 32.075852, Longitude = 34.833822,IsDeleted = false, IsAccessible = true},
                 /*121*/new Station { Code = 20059, Name = "חזון אי''ש/דבורה הנביאה", Address = "רחוב: חזון אי''ש 65, בני ברק", Latitude = 32.078652, Longitude = 34.834037,IsDeleted = false, IsAccessible = true},
                 /*122*/new Station { Code = 20340, Name = "חזון אי''ש/האדמו''ר מגור", Address = "רחוב: חזון אי''ש 23, בני ברק", Latitude = 32.082834, Longitude = 34.835564,IsDeleted = false, IsAccessible = true},
                 /*123*/new Station { Code = 26520, Name = "חזון אי''ש/רבנו תם", Address = "רחוב: חזון אי''ש 11, בני ברק", Latitude = 32.084589, Longitude = 34.836367,IsDeleted = false, IsAccessible = true},
