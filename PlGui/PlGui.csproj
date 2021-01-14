@@ -88,6 +88,9 @@
     <Compile Include="LineShow.xaml.cs">
       <DependentUpon>LineShow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LineShowInStation.xaml.cs">
+      <DependentUpon>LineShowInStation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LineWindow.xaml.cs">
       <DependentUpon>LineWindow.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LineShow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LineShowInStation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

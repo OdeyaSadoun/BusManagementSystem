@@ -48,6 +48,26 @@ namespace PlGui
         }
         #endregion
 
+        #region update_click_button
+        private void lines_click_button(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                BO.Station station = (sender as Button).DataContext as BO.Station;
+                //bl.GetStation(station.Code);
+                List<BO.ShortLine> linesInStation = station.ListOfLines.ToList();
+                //listViewStations.ItemsSource = bl.GetAllStations().ToList(); //reftesh
+                LineShowInStation win = new LineShowInStation(linesInStation);
+                win.ShowDialog();
+                
+            }
+            catch (BO.IncorrectCodeStationException ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        #endregion
+
         #region delete_click_button
         /// <summary>
         /// A function that delete line when the administor click on the button
@@ -141,5 +161,6 @@ namespace PlGui
             window.ShowDialog();
         }
         #endregion
+
     }
 }
