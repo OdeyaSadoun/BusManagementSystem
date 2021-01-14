@@ -13,9 +13,19 @@ using System.Threading;
 
 namespace BL
 {
-    class BLImp : IBL
+    sealed class BLImp : IBL
     {
         IDL dl = DLFactory.GetDL();
+        #region singelton
+        /// <summary>
+        /// singleton pattern is a software design pattern that restricts the instantiation of a class to one "single" instance.
+        /// This is useful when exactly one object is needed to coordinate actions across the system.
+        /// </summary>
+        static readonly BLImp instance = new BLImp();
+        static BLImp() { }// static ctor to ensure instance init is done just before first usage
+        BLImp() { } // default => private
+        public static BLImp Instance { get => instance; }// The public Instance property to use
+        #endregion
 
         #region Bus
 
@@ -962,6 +972,201 @@ namespace BL
             bus.FuelRemain = 1200;
             bus.KmBeforeFuel = 1200;
         }
+
+
+
+
+        //#region StationInLine
+        //public void UpdateTimeAndDistance(BO.StationInLine first, BO.StationInLine second)
+        //{
+        //    try
+        //    {
+        //        DO.AdjacentStations adj = new DO.AdjacentStations() { StationCode1 = first.StationCode, StationCode2 = second.StationCode, Distance = first.Distance, Time = first.Time, IsDeleted = false };
+        //        dl.UpdateAdjacentStations(adj);
+        //    }
+        //    catch (DO.BadAdjacentStationsException ex)
+        //    {
+        //        throw new BO.BadAdjacentStationsException(ex.stationCode1, ex.stationCode2, ex.Message);
+        //    }
+        //    {
+        //        throw new Exception("Error, it cannot be update");
+        //    }
+        //}
+        //#endregion
+
+
+
+
+
+        //#region LineStation
+        //public bool IsExistLineStation(DO.LineStation s)
+        //{
+        //    try
+        //    {
+        //        DO.LineStation linestation = dl.GetLineStation(s.LineId, s.StationCode);
+        //        return true;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return false;
+        //    }
+
+        //}
+        //public void AddLineStation(BO.LineStation s)
+        //{
+        //    DO.LineStation sDO = (DO.LineStation)s.CopyPropertiesToNew(typeof(DO.LineStation));
+        //    try
+        //    {
+        //        if (IsExistLineStation(sDO))
+        //            throw new BO.BadLineStationException(sDO.LineId, sDO.StationCode, "The station is already exist in the line");
+        //        //עידכון של כל האינדקסים של התחנות הבאות בקו
+        //        List<DO.LineStation> lSList = ((dl.GetAllLineStationsBy(stat => stat.LineId == sDO.LineId && stat.IsDeleted == false)).OrderBy(stat => stat.LineStationIndex)).ToList();
+        //        int indexlast = lSList[lSList.Count - 1].LineStationIndex;
+        //        if (sDO.LineStationIndex != indexlast + 1)//if we didnt add a last station
+        //        {
+        //            for (int i = sDO.LineStationIndex; i < indexlast + 1; i++)
+        //            {
+        //                lSList[i - 1].LineStationIndex++;
+        //            }
+        //        }
+        //        //עידכון תחנה קודמת והבאה וגם את התחנה הראשונה והאחרונה של היישות קו
+        //        DO.LineStation prev;
+        //        DO.LineStation next;
+        //        if (sDO.LineStationIndex > 1)//its not the first station
+        //        {
+        //            prev = lSList[sDO.LineStationIndex - 2];
+        //            prev.NextStationCode = sDO.StationCode;
+        //            sDO.PrevStationCode = prev.StationCode;
+        //        }
+        //        else//if its the first station-we need to update the first ans last station in the DO.Line
+        //        {
+        //            DO.Line line = dl.GetLine(sDO.LineId);
+        //            line.FirstStation = sDO.StationCode;
+        //            dl.UpdateLine(line);
+        //        }
+        //        if (sDO.LineStationIndex != indexlast + 1)//if its not the last station
+        //        {
+        //            next = lSList[sDO.LineStationIndex];
+        //            next.PrevStationCode = sDO.StationCode;
+        //            sDO.NextStationCode = next.StationCode;
+        //        }
+        //        else//if its the last station we need to update the last station in the DO.Line
+        //        {
+        //            DO.Line line = dl.GetLine(sDO.LineId);
+        //            line.LastStation = sDO.StationCode;
+        //            dl.UpdateLine(line);
+        //        }
+        //        foreach (DO.LineStation item in lSList)
+        //        {
+        //            dl.UpdateLineStation(item);
+        //        }
+
+        //        dl.AddLineStation(sDO);
+
+        //        //טיפול בתחנות עוקבות לאחר ההוספה
+        //        List<DO.LineStation> lst = ((dl.GetAllLineStationsBy(stat => stat.LineId == sDO.LineId && stat.IsDeleted == false)).OrderBy(stat => stat.LineStationIndex)).ToList();
+        //        if (s.LineStationIndex != 1)//if its the first station- it doesnt have prev
+        //        {
+        //            prev = lst[s.LineStationIndex - 2];
+        //            if (!IsExistAdjacentStations(prev.StationCode, s.StationCode))
+        //            {
+        //                DO.AdjacentStations adjPrev = new DO.AdjacentStations() { StationCode1 = prev.StationCode, StationCode2 = s.StationCode };
+        //                dl.AddAdjacentStations(adjPrev);
+        //            }
+        //        }
+        //        if (s.LineStationIndex != lst[lst.Count - 1].LineStationIndex)//if its the last station- it doesnt have next
+        //        {
+        //            next = lst[s.LineStationIndex];
+        //            if (!IsExistAdjacentStations(s.StationCode, next.StationCode))
+        //            {
+        //                DO.AdjacentStations adjNext = new DO.AdjacentStations() { StationCode1 = s.StationCode, StationCode2 = next.StationCode };
+        //                dl.AddAdjacentStations(adjNext);
+        //            }
+        //        }
+
+        //    }
+        //    catch (DO.BadLineStationException ex)
+        //    {
+        //        throw new BO.BadLineStationException(ex.lineId, ex.stationCode, ex.Message);
+        //    }
+        //    catch (DO.BadAdjacentStationsException ex)
+        //    {
+        //        throw new BO.BadAdjacentStationsException(ex.stationCode1, ex.stationCode2, ex.Message);
+        //    }
+        //}
+        //public void DeleteLineStation(int lineId, int stationCode)
+        //{
+        //    try
+        //    {
+        //        //AdjacentStation
+        //        DO.LineStation statDel = dl.GetLineStation(lineId, stationCode);//the station that we want to delete
+        //        BO.Line line = GetLine(lineId);
+        //        if (line.Stations.Count <= 2)
+        //            throw new BO.BadInputException("The Station cannot be deleted, there is only 2 stations in the line route");
+        //        if (line.Stations[0].StationCode != stationCode && line.Stations[line.Stations.Count - 1].StationCode != stationCode)//if its not the first or the last station
+        //        {
+        //            BO.StationInLine prev = line.Stations[statDel.LineStationIndex - 2];
+        //            BO.StationInLine next = line.Stations[statDel.LineStationIndex];
+        //            if (!dl.IsExistAdjacentStations(prev.StationCode, next.StationCode))
+        //            {
+        //                DO.AdjacentStations adj = new DO.AdjacentStations() { StationCode1 = prev.StationCode, StationCode2 = next.StationCode, IsDeleted = false };
+        //                dl.AddAdjacentStations(adj);
+        //            }
+        //        }
+        //        //delete the line station
+        //        List<DO.LineStation> lSList = ((dl.GetAllLineStationsBy(stat => stat.LineId == statDel.LineId && stat.IsDeleted == false)).OrderBy(stat => stat.LineStationIndex)).ToList();
+        //        DO.LineStation NextFind;
+        //        if (statDel.LineStationIndex > 1)//if its not the first station
+        //        {
+        //            DO.LineStation PrevFind = lSList[statDel.LineStationIndex - 2];
+        //            if (statDel.LineStationIndex != lSList[lSList.Count - 1].LineStationIndex)//if its not the last station
+        //            {
+        //                NextFind = lSList[statDel.LineStationIndex];
+        //                PrevFind.NextStationCode = NextFind.StationCode;
+        //                NextFind.PrevStationCode = PrevFind.StationCode;
+        //            }
+        //            else
+        //            {
+        //                PrevFind.NextStationCode = 0;
+        //            }
+        //        }
+        //        else//if its the first station
+        //        {
+        //            if (statDel.LineStationIndex != lSList[lSList.Count - 1].LineStationIndex)
+        //            {
+        //                NextFind = lSList[statDel.LineStationIndex];
+        //                NextFind.PrevStationCode = 0;
+        //            }
+        //        }
+        //        //update index;
+        //        if (statDel.LineStationIndex != lSList[lSList.Count - 1].LineStationIndex)//update all the indexes of all the next stations if its not the last station
+        //        {
+        //            for (int i = statDel.LineStationIndex; i < lSList.Count; i++)
+        //            {
+        //                lSList[i].LineStationIndex--;
+        //            }
+        //        }
+        //        foreach (DO.LineStation item in lSList)
+        //        {
+        //            dl.UpdateLineStation(item);
+        //        }
+
+        //        dl.DeleteLineStation(lineId, stationCode);
+        //    }
+        //    catch (DO.BadLineStationException ex)
+        //    {
+        //        throw new BO.BadLineStationException(ex.lineId, ex.stationCode, ex.Message);
+        //    }
+        //    catch (BO.BadLineIdException ex)
+        //    {
+        //        throw new BO.BadLineIdException(ex.ID, ex.Message);
+        //    }
+        //    catch (DO.BadAdjacentStationsException ex)
+        //    {
+        //        throw new BO.BadAdjacentStationsException(ex.stationCode1, ex.stationCode2);
+        //    }
+        //}
+        //#endregion
     }
 }
 
