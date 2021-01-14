@@ -75,7 +75,7 @@ namespace DalObject
         /// <param name="bus"></param>
         public void AddBus(DO.Bus bus)
         {
-            if (DataSource.ListBuses.FirstOrDefault(p => p.LicenseNumber == bus.LicenseNumber && p.IsDeleted) != null)
+            if (DataSource.ListBuses.FirstOrDefault(p => p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted) != null)
                 throw new IncorrectLicenseNumberException(bus.LicenseNumber, $"The bus {bus.LicenseNumber} is exsit in the system, could not add it again");
             DataSource.ListBuses.Add(bus.Clone());
         }
@@ -88,7 +88,7 @@ namespace DalObject
         /// <param name="id"></param>
         public void DeleteBus(int id)
         {
-            DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNumber == id && p.IsDeleted);
+            DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNumber == id && !p.IsDeleted);
 
             if (b != null)
             {
@@ -108,7 +108,7 @@ namespace DalObject
 
         public void UpdateBus(DO.Bus bus)
         {
-            DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNumber == bus.LicenseNumber && p.IsDeleted);
+            DO.Bus b = DataSource.ListBuses.Find(p => p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted);
 
             if (b != null)
             {
@@ -147,7 +147,7 @@ namespace DalObject
         /// <returns></returns>
         public DO.BusOnTrip GetBusOnTrip(int id, int licenseNumber)
         {
-            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted);
+            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && !p.IsDeleted);
 
             if (b != null)
                 return b.Clone();
@@ -190,7 +190,7 @@ namespace DalObject
         /// <param name="bus"></param>
         public void AddBusOnTrip(DO.BusOnTrip bus)
         { 
-            if (DataSource.ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && p.IsDeleted) != null)
+            if (DataSource.ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted) != null)
                 throw new IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is exsit in the system, could not add it again");
             bus.Id = DO.Configuration.BusOnTripID++;//המספר הרץ
             DataSource.ListBusesOnTrip.Add(bus.Clone());
@@ -204,7 +204,7 @@ namespace DalObject
         /// <param name="bus"></param>
         public void UpdateBusOnTrip(DO.BusOnTrip bus)
         {
-            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && p.IsDeleted);
+            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted);
 
             if (b != null)
             {
@@ -240,7 +240,7 @@ namespace DalObject
         /// <param name="licenseNumber"></param>
         public void DeleteBusOnTrip(int id, int licenseNumber)
         {
-            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted);
+            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && !p.IsDeleted);
 
             if (b != null)
             {
@@ -290,7 +290,7 @@ namespace DalObject
         /// <returns></returns>
         public DO.LineTrip GetLineTrip(int id, int lineId)
         {
-            DO.LineTrip lt = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId== lineId && p.IsDeleted);
+            DO.LineTrip lt = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId== lineId && !p.IsDeleted);
 
             if (lt != null)
                 return lt.Clone();
@@ -306,7 +306,7 @@ namespace DalObject
         /// <param name="lt"></param>
         public void AddLineTrip(DO.LineTrip lt)
         {
-            if (DataSource.ListLinesTrip.FirstOrDefault(p => p.Id == lt.Id && p.LineId == lt.LineId && p.IsDeleted) != null)
+            if (DataSource.ListLinesTrip.FirstOrDefault(p => p.Id == lt.Id && p.LineId == lt.LineId && !p.IsDeleted) != null)
                 throw new IncorrectInputException($"The trip {lt.Id} with the line ID:{lt.LineId} is exsit in the system, could not add it again"); 
             DataSource.ListLinesTrip.Add(lt.Clone());
         }
@@ -320,7 +320,7 @@ namespace DalObject
         public void UpdateLineTrip(DO.LineTrip lt)
         {
 
-            DO.LineTrip l = DataSource.ListLinesTrip.Find(p => p.Id == lt.Id && p.LineId == lt.LineId && p.IsDeleted);
+            DO.LineTrip l = DataSource.ListLinesTrip.Find(p => p.Id == lt.Id && p.LineId == lt.LineId && !p.IsDeleted);
 
             if (l != null)
             {
@@ -357,7 +357,7 @@ namespace DalObject
         /// <param name="lineId"></param>
         public void DeleteLineTrip(int id, int lineId)
         {
-            DO.LineTrip l = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId  && p.IsDeleted);
+            DO.LineTrip l = DataSource.ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId  && !p.IsDeleted);
 
             if (l != null)
             {
@@ -423,7 +423,7 @@ namespace DalObject
         /// <param name="station"></param>
         public void AddStation(DO.Station station)
         {
-            if (DataSource.ListStations.FirstOrDefault(p => p.Code == station.Code && p.IsDeleted) != null)
+            if (DataSource.ListStations.FirstOrDefault(p => p.Code == station.Code && !p.IsDeleted) != null)
                 throw new IncorrectCodeStationException(station.Code, $"The station  {station.Code}  is exsit in the system, could not add it again");
             DataSource.ListStations.Add(station.Clone());
 
@@ -437,7 +437,7 @@ namespace DalObject
         /// <param name="station"></param>
         public void UpdateStation(DO.Station station)
         {
-            DO.Station s = DataSource.ListStations.Find(p => p.Code == station.Code && p.IsDeleted);
+            DO.Station s = DataSource.ListStations.Find(p => p.Code == station.Code && !p.IsDeleted);
 
                 if (s != null)
                 {
@@ -471,7 +471,7 @@ namespace DalObject
         /// <param name="code"></param>
         public void DeleteStation(int code)
         {
-            DO.Station s = DataSource.ListStations.Find(p => p.Code == code && p.IsDeleted);
+            DO.Station s = DataSource.ListStations.Find(p => p.Code == code && !p.IsDeleted);
 
             if (s != null)
             {
@@ -552,7 +552,7 @@ namespace DalObject
         /// <param name="line"></param>
         public void UpdateLine(DO.Line line)
         {
-            DO.Line l = DataSource.ListLines.Find(p => p.Id == line.Id && p.IsDeleted);
+            DO.Line l = DataSource.ListLines.Find(p => p.Id == line.Id && !p.IsDeleted);
 
             if (l != null)
             {
@@ -638,7 +638,7 @@ namespace DalObject
         /// <returns></returns>
         public DO.LineStation GetLineStation(int lineId, int stationCode)
         {
-            DO.LineStation linestation = DataSource.ListLineStations.Find(p => p.LineId == lineId && p.StationCode== stationCode && p.IsDeleted);
+            DO.LineStation linestation = DataSource.ListLineStations.Find(p => p.LineId == lineId && p.StationCode== stationCode && !p.IsDeleted);
 
             if (linestation != null)
                 return linestation.Clone();
@@ -654,7 +654,7 @@ namespace DalObject
         /// <param name="lineStation"></param>
         public void AddLineStation(DO.LineStation lineStation)
         {
-            if (DataSource.ListLineStations.FirstOrDefault(p => p.LineId == lineStation.LineId && p.StationCode==lineStation.StationCode && p.IsDeleted) != null)
+            if (DataSource.ListLineStations.FirstOrDefault(p => p.LineId == lineStation.LineId && p.StationCode==lineStation.StationCode && !p.IsDeleted) != null)
                 throw new IncorrectInputException($"The line {lineStation.LineId} with the station code:{lineStation.StationCode} is exsit in the system, could not add it again");
             DataSource.ListLineStations.Add(lineStation.Clone());
         }
@@ -667,7 +667,7 @@ namespace DalObject
         /// <param name="lineStation"></param>
         public void UpdateLineStation(DO.LineStation lineStation)
         {
-            DO.LineStation linestation = DataSource.ListLineStations.Find(p => p.LineId == lineStation.LineId && p.StationCode == lineStation.StationCode && p.IsDeleted);
+            DO.LineStation linestation = DataSource.ListLineStations.Find(p => p.LineId == lineStation.LineId && p.StationCode == lineStation.StationCode && !p.IsDeleted);
 
             if (linestation != null)
             {
@@ -768,7 +768,7 @@ namespace DalObject
         /// <param name="user"></param>
         public void AddUser(DO.User user)
         {
-            if (DataSource.ListUsers.FirstOrDefault(p => p.UserName == user.UserName && p.IsDeleted) != null)
+            if (DataSource.ListUsers.FirstOrDefault(p => p.UserName == user.UserName && !p.IsDeleted) != null)
                 throw new IncorrectUserNameException(user.UserName, $"The user name:  {user.UserName}  is exsit in the system, could not add it again");
             DataSource.ListUsers.Add(user.Clone());
         }
@@ -781,7 +781,7 @@ namespace DalObject
         /// <param name="user"></param>
         public void UpdateUser(DO.User user)
         {
-            DO.User u = DataSource.ListUsers.Find(p => p.UserName == user.UserName && p.IsDeleted);
+            DO.User u = DataSource.ListUsers.Find(p => p.UserName == user.UserName && !p.IsDeleted);
 
             if (u != null)
             {
@@ -815,7 +815,7 @@ namespace DalObject
         /// <param name="userName"></param>
         public void DeleteUser(string userName)
         {
-            DO.User u = DataSource.ListUsers.Find(p => p.UserName == userName && p.IsDeleted);
+            DO.User u = DataSource.ListUsers.Find(p => p.UserName == userName && !p.IsDeleted);
 
             if (u != null)
             {
@@ -882,7 +882,7 @@ namespace DalObject
         /// <param name="adjacentStations"></param>
         public void AddAdjacentStations(DO.AdjacentStations adjacentStations)
         {
-            if (DataSource.ListAdjacentStations.FirstOrDefault(p => (p.CodeStation1== adjacentStations.CodeStation1) && (p.CodeStation2 == adjacentStations.CodeStation2)&& p.IsDeleted) != null)
+            if (DataSource.ListAdjacentStations.FirstOrDefault(p => (p.CodeStation1== adjacentStations.CodeStation1) && (p.CodeStation2 == adjacentStations.CodeStation2)&& !p.IsDeleted) != null)
                 throw new DO.IncorrectCodeStationException(adjacentStations.CodeStation1, adjacentStations.CodeStation2, $"Incorrect station code: {adjacentStations.CodeStation1} or station code {adjacentStations.CodeStation2}. could not found thier stations, try enter again");
             else
                 DataSource.ListAdjacentStations.Add(adjacentStations.Clone());
@@ -896,7 +896,7 @@ namespace DalObject
         /// <param name="adjacentStations"></param>
         public void UpdateAdjacentStations(DO.AdjacentStations adjacentStations)
         {
-            DO.AdjacentStations u = DataSource.ListAdjacentStations.Find(p => ((p.CodeStation1 == adjacentStations.CodeStation1) && (p.CodeStation2 == adjacentStations.CodeStation2))&& p.IsDeleted);
+            DO.AdjacentStations u = DataSource.ListAdjacentStations.Find(p => ((p.CodeStation1 == adjacentStations.CodeStation1) && (p.CodeStation2 == adjacentStations.CodeStation2))&& !p.IsDeleted);
                 if (u != null)
                 {
                     DataSource.ListAdjacentStations.Remove(u);
@@ -931,7 +931,7 @@ namespace DalObject
         /// <param name="stationCode2"></param>
         public void DeleteAdjacentStations(int stationCode1, int stationCode2)
         {
-            DO.AdjacentStations a = DataSource.ListAdjacentStations.Find(p => (p.CodeStation1 == stationCode1) && (p.CodeStation2 == stationCode1) && p.IsDeleted);
+            DO.AdjacentStations a = DataSource.ListAdjacentStations.Find(p => (p.CodeStation1 == stationCode1) && (p.CodeStation2 == stationCode1) && !p.IsDeleted);
 
             if (a != null)
             {
@@ -981,7 +981,7 @@ namespace DalObject
         /// <returns></returns>
         public DO.Trip GetTrip(int id)
         {
-            DO.Trip trip = DataSource.ListTrips.Find(p => p.Id == id && p.IsDeleted);
+            DO.Trip trip = DataSource.ListTrips.Find(p => p.Id == id && !p.IsDeleted);
 
             if (trip != null)
                 return trip.Clone();
@@ -997,7 +997,7 @@ namespace DalObject
         /// <param name="trip"></param>
         public void AddTrip(DO.Trip trip)
         {
-            if (DataSource.ListTrips.FirstOrDefault(p => p.Id == trip.Id && p.IsDeleted) != null)
+            if (DataSource.ListTrips.FirstOrDefault(p => p.Id == trip.Id && !p.IsDeleted) != null)
                 throw new DO.IncorrectTripIDException(trip.Id, $"The trip user id: {trip.Id} is exist in the system. could not add it again");
             trip.Id = DO.Configuration.TripID;
             DataSource.ListTrips.Add(trip.Clone());
@@ -1011,7 +1011,7 @@ namespace DalObject
         /// <param name="trip"></param>
         public void UpdateTrip(DO.Trip trip)
         {
-            DO.Trip t = DataSource.ListTrips.Find(p => p.Id == trip.Id && p.IsDeleted);
+            DO.Trip t = DataSource.ListTrips.Find(p => p.Id == trip.Id && !p.IsDeleted);
 
             if (t != null)
             {
@@ -1045,7 +1045,7 @@ namespace DalObject
         /// <param name="id"></param>
         public void DeleteTrip(int id)
         {
-            DO.Trip trip = DataSource.ListTrips.Find(p => p.Id == id && p.IsDeleted);
+            DO.Trip trip = DataSource.ListTrips.Find(p => p.Id == id && !p.IsDeleted);
 
             if (trip != null)
             {
