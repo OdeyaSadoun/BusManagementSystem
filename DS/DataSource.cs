@@ -281,7 +281,7 @@ namespace DS
                 /*239*/new Station { Code = 38663, Name = "בית ספר עלומים/בן גוריון", Address = "רחוב: בן גוריון 22, פתח תקווה", Latitude = 32.080025, Longitude = 34.870331 ,IsDeleted = false, IsAccessible = true , IsBench=true, IsDigitalPanel=false},
                 /*240*/new Station { Code = 32241, Name = "חטיבת ביניים עלומים/דגל ראובן", Address = "רחוב: דגל ראובן 67, פתח תקווה", Latitude = 32.081612, Longitude = 34.869173  ,IsDeleted = false, IsAccessible = false, IsBench= true, IsDigitalPanel=true}
 
-                       #endregion
+                 #endregion
         };
         public static List<Line> ListLines = new List<Line>
         {
@@ -304,6 +304,7 @@ namespace DS
         };
         public static List<LineStation> ListLineStations = new List<LineStation>
         {
+            #region// LineStation איתחול
             //קו 480
             new LineStation{LineId=0, StationCode=20001, IsDeleted=false, LineStationIndex=0},
             new LineStation{LineId=0, StationCode=640, IsDeleted=false, LineStationIndex=1},
@@ -586,6 +587,7 @@ namespace DS
             new LineStation{LineId=13, StationCode=32881, IsDeleted=false, LineStationIndex=21},
             new LineStation{LineId=13, StationCode=38663, IsDeleted=false, LineStationIndex=22},
             new LineStation{LineId=13, StationCode=32241, IsDeleted=false, LineStationIndex=23},
+#endregion
 
         };
 
@@ -597,7 +599,70 @@ namespace DS
         };
         public static List<AdjacentStations> ListAdjacentStations = new List<AdjacentStations>
         {
-            new AdjacentStations { CodeStation1 = 20001, CodeStation2= 640, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)}
+            //קו 480
+            new AdjacentStations { CodeStation1 = 20001, CodeStation2= 640, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 640, CodeStation2= 5602, Distance = 10, IsDeleted= false, TravelTime = new TimeSpan (0,42,0)},
+            new AdjacentStations { CodeStation1 = 5602, CodeStation2= 4170, Distance = 31, IsDeleted= false, TravelTime = new TimeSpan (1,0,0)},
+            //קו 921
+            new AdjacentStations { CodeStation1 = 33079, CodeStation2= 33711, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 33711, CodeStation2=34236, Distance = 10, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 34236, CodeStation2= 34206, Distance = 12, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 34206, CodeStation2= 34237, Distance = 17, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 34237, CodeStation2= 36472, Distance = 10, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 36472, CodeStation2= 30316, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 30316, CodeStation2= 30331, Distance = 6, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 30331, CodeStation2= 30345, Distance = 14, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 30345, CodeStation2= 37800, Distance = 8, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 37800, CodeStation2= 30386, Distance = 7, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 30386, CodeStation2= 30401, Distance = 9, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 30401, CodeStation2= 32782, Distance = 10, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 32782, CodeStation2= 30404, Distance = 11, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 30404, CodeStation2= 32784, Distance = 21, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 32784, CodeStation2= 30358, Distance = 15, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 30358, CodeStation2= 30352, Distance = 12, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 30352, CodeStation2= 48139, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 48139, CodeStation2= 47962, Distance = 28, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 47962, CodeStation2= 40095, Distance = 35, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40095, CodeStation2= 42133, Distance = 13, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 42133, CodeStation2= 42626, Distance = 7, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 42626, CodeStation2= 40073, Distance = 13, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40073, CodeStation2= 42465, Distance = 10, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 42465, CodeStation2= 40059, Distance = 2, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40059, CodeStation2= 40117, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40117, CodeStation2= 40161, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40161, CodeStation2= 40758, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40758, CodeStation2= 41705, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 41705, CodeStation2= 40240, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40240, CodeStation2= 40253, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40253, CodeStation2= 46181, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 46181, CodeStation2= 46182, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 46182, CodeStation2= 46183, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 46183, CodeStation2= 46184, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 46184, CodeStation2= 46185, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 46185, CodeStation2= 40841, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40841, CodeStation2= 40844, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40844, CodeStation2= 40831, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40831, CodeStation2= 40834, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40834, CodeStation2= 40836, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40836, CodeStation2= 40838, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40838, CodeStation2= 40839, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40839, CodeStation2= 40845, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40845, CodeStation2= 40847, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40847, CodeStation2= 40849, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40849, CodeStation2= 40850, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40850, CodeStation2= 41622, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 41622, CodeStation2= 41621, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 41621, CodeStation2= 41456, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 41456, CodeStation2= 41891, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 41891, CodeStation2= 40851, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40851, CodeStation2= 42286, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 42286, CodeStation2= 40852, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40852, CodeStation2= 40900, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40900, CodeStation2= 40957, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40957, CodeStation2= 40965, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 40965, CodeStation2= 42656, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+            new AdjacentStations { CodeStation1 = 42656, CodeStation2= 42657, Distance = 25, IsDeleted= false, TravelTime = new TimeSpan (0,25,0)},
+      
         };
         public static List<Trip> ListTrips;
     }
