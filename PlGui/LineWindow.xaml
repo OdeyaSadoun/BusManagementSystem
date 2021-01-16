@@ -19,13 +19,13 @@
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <ListView x:Name ="listViewLine" Height="278" Margin="32,99,31,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
+        <ListView x:Name ="listViewLine" Height="278" Margin="32,99,31,0" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionChanged="listViewLine_SelectionChanged" PreviewMouseDoubleClick="listViewLine_PreviewMouseDoubleClick">
 
 
 
             <ListView.ItemTemplate>
 
-                <DataTemplate>
+                <DataTemplate x:Name="myDataTemplate">
 
                     <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto">
 
@@ -48,8 +48,8 @@
                         <TextBlock Grid.Column="0"  Text="{Binding Path=Id}" Margin="15,0,0,0" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" />
                         <TextBlock Grid.Column="1"  Text="{Binding Path=LineNumber}" Margin="15,0,0,0" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="13" />
                         <TextBlock Grid.Column="2" Text="{Binding Path=LastStation.Name}" Margin="15,0,0,0" Width="370" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="13" />
-                        <Button x:Name="Update_Button" Content="update" Grid.Column="6" Height="30" Width ="55"  Click="update_click_button" BorderBrush="{x:Null}" ClickMode="Release" ></Button>
-                        <Button x:Name="Delete_Button" Content="delete" Grid.Column="8" Height="30" Width ="55"  Click="delete_click_button" BorderBrush="{x:Null}" ClickMode="Release" ></Button>
+                        <Button x:Name="Update_Button" Content="update" Grid.Column="6" Height="30" Width ="55"  Click="update_click_button" BorderBrush="{x:Null}" ClickMode="Release"  ></Button>
+                        <Button x:Name="Delete_Button" Content="delete" Grid.Column="8" Height="30" Width ="55"  Click="delete_click_button" BorderBrush="{x:Null}" ClickMode="Release"  ></Button>
                         <Button x:Name="Detailes_Button" Content="details" Grid.Column="10" Height="30" Width ="55"  Click="details_click_button" BorderBrush="{x:Null}" ClickMode="Release" ></Button>
 
                     </Grid>

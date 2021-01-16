@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLApi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,35 @@ namespace PlGui
     /// </summary>
     public partial class AddBus : Window
     {
+        IBL bl = BLFactory.GetBL("2");
         public AddBus()
         {
             InitializeComponent();
+            
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            System.Windows.Data.CollectionViewSource busViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("busViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // busViewSource.Source = [generic data source]
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                BO.Bus bus = new BO.Bus() { LicenseNumber = int.Parse(licenseNumberTextBox1.Text), DateBegin = dateBeginDatePicker1.DisplayDate, LastTreatment = lastTreatmentDatePicker1.DisplayDate, TotalMileage = int.Parse(totalMileageTextBox.Text) };
+                bl.AddBus(bus);
+                Close();
+
+            }
+            catch (BO.IncorrectLicenseNumberException ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
     }
 }

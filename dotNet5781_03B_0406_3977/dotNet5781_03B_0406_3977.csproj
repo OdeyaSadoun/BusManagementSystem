@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="MyBackground.cs" />
     <Compile Include="ObservableCollection.cs" />
+    <Compile Include="StationWindowPassnger.cs" />
     <Compile Include="StatusColorConverter.cs" />
     <Compile Include="WindowAddBus.xaml.cs">
       <DependentUpon>WindowAddBus.xaml</DependentUpon>

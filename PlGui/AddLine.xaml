@@ -1,13 +1,53 @@
-﻿<Window x:Class="PlGui.AddLine"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlGui"
+        xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PlGui.AddLine"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="AddLine" Height="450" Width="800">
+        Title="AddLine" Height="450" Width="600" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="lineViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:Line}, CreateList=True}"/>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="r3.jpeg"/>
+    </Window.Background>
     <Grid>
-        
+        <Grid x:Name="grid1" DataContext="{StaticResource lineViewSource}" HorizontalAlignment="Left" Margin="109,115,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Line Number:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"  FontWeight="Bold" FontSize="15" Foreground="White"/>
+            <TextBox x:Name="lineNumberTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding LineNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" FontSize="14" />
+            <Label Content="First Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"  FontWeight="Bold" FontSize="15" Foreground="White"/>
+            <TextBox x:Name="firstStationTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding FirstStation.Code, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" FontSize="14" />
+            <Label Content="Last Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"  FontWeight="Bold" FontSize="15" Foreground="White"/>
+            <TextBox x:Name="lastStationTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding LastStation.Code, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"  FontSize="14"/>
+            <Label Content="Area:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"  FontWeight="Bold" FontSize="15" Foreground="White"/>
+            <ComboBox x:Name="areaComboBox" Grid.Column="1" DisplayMemberPath="Area" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Margin="3" Grid.Row="3" VerticalAlignment="Center" Width="120"  FontSize="14" >
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+            </ComboBox>
+            <Label Content="Fare:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"  FontWeight="Bold" FontSize="15" Foreground="White"/>
+            <TextBox x:Name="fareTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding Fare, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"  FontSize="14" />
+            <Label Content="Travel Time In This Line:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"  FontWeight="Bold" FontSize="15" Foreground="White"/>
+            <TextBox x:Name="travelTimeInThisLineTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding TravelTimeInThisLine, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"  FontSize="14" />
+        </Grid>
+        <Label Content="Enter detailes for new line:" HorizontalAlignment="Left" Margin="52,52,0,0" VerticalAlignment="Top" Width="301" FontWeight="Bold" FontSize="22" Foreground="White"/>
+        <Button Content="SUBMIT" HorizontalAlignment="Left" Margin="457,360,0,0" VerticalAlignment="Top" Width="119" Height="45" Click="Button_Click" FontWeight="Bold" Background="#FFF0ECEC" FontSize="14"/>
     </Grid>
 </Window>

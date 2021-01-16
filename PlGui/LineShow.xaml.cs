@@ -29,6 +29,7 @@ namespace PlGui
         public LineShow(BO.Line line)
         {
             InitializeComponent();
+            //stations.ItemsSource = bl.get
             grid1.DataContext = line;
             times.DataContext = line.ListOfTripTime;
             times.SelectedItem = 0;

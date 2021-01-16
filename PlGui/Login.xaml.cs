@@ -56,18 +56,18 @@ namespace PlGui
                 {
                     if (u.Password == password)
                     {
-                        if (u.Admin)
-                        {
+                        //if (u.Admin)
+                        //{
                             AdminShow adminShow = new AdminShow(u);
                             Close();
                             adminShow.ShowDialog();
-                        }
-                        else
-                        {
-                            UserShow userShow = new UserShow(u);
-                            Close();
-                            userShow.ShowDialog();
-                        }
+                        //}
+                        //else
+                        //{
+                        //    UserShow userShow = new UserShow(u);
+                        //    Close();
+                        //    userShow.ShowDialog();
+                        //}
                                 
                     }
                 }

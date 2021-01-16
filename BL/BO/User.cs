@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class User
+    public class User 
     {
         #region UserName - uniqe user name
         /// <summary>
@@ -27,6 +27,9 @@ namespace BO
         /// Administrator permission
         /// </summary>
         public bool Admin { get; set; }
+
+
+     
         #endregion
 
         #region IsDeleted

@@ -76,6 +76,9 @@
     <Compile Include="BusWindow.xaml.cs">
       <DependentUpon>BusWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BusWindowPassnger.xaml.cs">
+      <DependentUpon>BusWindowPassnger.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CardWindow.xaml.cs">
       <DependentUpon>CardWindow.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,7 @@
     <Compile Include="InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IsEnabledConverter.cs" />
     <Compile Include="LineShow.xaml.cs">
       <DependentUpon>LineShow.xaml</DependentUpon>
     </Compile>
@@ -93,6 +97,9 @@
     </Compile>
     <Compile Include="LineWindow.xaml.cs">
       <DependentUpon>LineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LineWindowPassenger.xaml.cs">
+      <DependentUpon>LineWindowPassenger.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -106,8 +113,11 @@
     <Compile Include="StationWindow.xaml.cs">
       <DependentUpon>StationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserShow.xaml.cs">
-      <DependentUpon>UserShow.xaml</DependentUpon>
+    <Compile Include="StationWindowPassnger.xaml.cs">
+      <DependentUpon>StationWindowPassnger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UsersWindow.xaml.cs">
+      <DependentUpon>UsersWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
@@ -144,6 +154,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="BusWindowPassnger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -165,6 +179,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LineWindowPassenger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,7 +217,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserShow.xaml">
+    <Page Include="StationWindowPassnger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UsersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -229,6 +251,7 @@
     <None Include="Properties\DataSources\BO.Bus.datasource" />
     <None Include="Properties\DataSources\BO.Line.datasource" />
     <None Include="Properties\DataSources\BO.ShortLine.datasource" />
+    <None Include="Properties\DataSources\BO.Station.datasource" />
     <None Include="Properties\DataSources\BO.User.datasource" />
     <None Include="Properties\DataSources\BO.User1.datasource" />
     <None Include="Properties\Settings.settings">
@@ -295,6 +318,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="search3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="busblue.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

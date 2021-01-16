@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLApi;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,15 +14,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using BLApi;
-
 
 namespace PlGui
 {
     /// <summary>
-    /// Interaction logic for LineWindow.xaml
+    /// Interaction logic for LineWindowPassenger.xaml
     /// </summary>
-    public partial class LineWindow : Window
+    public partial class LineWindowPassenger : Window
     {
         public ObservableCollection<BO.Line> listOfLines { get; set; } = new ObservableCollection<BO.Line>();
 
@@ -32,52 +31,16 @@ namespace PlGui
 
 
         #region constructor
-        public LineWindow()
+        public LineWindowPassenger()
         {
             InitializeComponent();
             listViewLine.ItemsSource = bl.GetAllLines().ToList();
+
         }
         #endregion
 
 
-        #region update_click_button
-        private void update_click_button(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                BO.Line line = (sender as Button).DataContext as BO.Line;
 
-                bl.UpdateLine(line);
-                listViewLine.ItemsSource = bl.GetAllLines().ToList(); //reftesh
-            }
-            catch (BO.IncorrectLineIDException ex)
-            {
-                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        #endregion
-
-        #region delete_click_button
-        /// <summary>
-        /// A function that delete line when the administor click on the button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void delete_click_button(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                BO.Line line = (sender as Button).DataContext as BO.Line;
-
-                bl.DeleteLine(line);
-                listViewLine.ItemsSource = bl.GetAllLines().ToList(); //reftesh
-            }
-            catch(BO.IncorrectLineIDException ex)
-            {
-                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        #endregion
 
         #region details_click_button
         private void details_click_button(object sender, RoutedEventArgs e)
@@ -138,18 +101,7 @@ namespace PlGui
         }
         #endregion
 
-        #region addLine_Click
-        /// <summary>
-        /// A function that add line when click on button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void addLine_Click(object sender, RoutedEventArgs e)
-        {
-            AddLine window = new AddLine();
-            window.ShowDialog();
-        }
-        #endregion
+ 
 
         #region listViewLine_SelectionChanged
         private void listViewLine_SelectionChanged(object sender, SelectionChangedEventArgs e)

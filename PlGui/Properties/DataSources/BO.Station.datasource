@@ -5,21 +5,14 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="User" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>BO.User, BL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+<GenericObjectDataSource DisplayName="Station" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>BO.Station, BL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
    <TypeUISetting>
       <PropertyUISettings>
-         <PropertyUISetting Name="Admin">
+         <PropertyUISetting Name="IsBench">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
-               </ControlSetting>
-            </ControlSettings>
-         </PropertyUISetting>
-         <PropertyUISetting Name="Balance">
-            <ControlSettings>
-               <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                  <BindableControlInfo Name="CheckBox" Type="System.Windows.Controls.CheckBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
@@ -30,45 +23,52 @@
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
-         <PropertyUISetting Name="Password">
+         <PropertyUISetting Name="IsDigitalPanel">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                  <BindableControlInfo Name="CheckBox" Type="System.Windows.Controls.CheckBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
-         <PropertyUISetting Name="Birthday">
+         <PropertyUISetting Name="Latitude">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="TextBlock" Type="System.Windows.Controls.TextBlock" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
-         <PropertyUISetting Name="FirstName">
+         <PropertyUISetting Name="Name">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="TextBlock" Type="System.Windows.Controls.TextBlock" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
-         <PropertyUISetting Name="LastName">
+         <PropertyUISetting Name="Longitude">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="Label" Type="System.Windows.Controls.Label" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
-         <PropertyUISetting Name="UserName">
+         <PropertyUISetting Name="Code">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="TextBlock" Type="System.Windows.Controls.TextBlock" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
-         <PropertyUISetting Name="UserProfile">
+         <PropertyUISetting Name="IsAccessible">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="TextBlock" Type="System.Windows.Controls.TextBlock" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="CheckBox" Type="System.Windows.Controls.CheckBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
+         <PropertyUISetting Name="Address">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+                  <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>

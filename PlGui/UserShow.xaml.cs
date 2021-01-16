@@ -32,7 +32,7 @@ namespace PlGui
         public UserShow(BO.User u)
         {
             InitializeComponent();
-            //user = u;
+            user = u;
             //foreach (BO.Line line in bl.GetAllLines())
             //{
             //    listOfLines.Add(line);
@@ -61,7 +61,7 @@ namespace PlGui
 
         private void lvLines_Click(object sender, RoutedEventArgs e)
         {
-            LineWindow line = new LineWindow();
+            LineWindow line = new LineWindow(user);
             line.ShowDialog();
         }
 
@@ -102,6 +102,14 @@ namespace PlGui
             //    }
 
             this.Close();
+        }
+
+
+
+        private void Station_Button_Click(object sender, RoutedEventArgs e)
+        {
+            StationWindow win = new StationWindow(user);
+            win.ShowDialog();
         }
 
         //private void PreviewTextInputSearch(object sender, TextCompositionEventArgs e)

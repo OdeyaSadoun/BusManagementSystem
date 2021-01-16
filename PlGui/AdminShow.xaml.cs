@@ -24,6 +24,7 @@ namespace PlGui
         {
             InitializeComponent();
             user = u;
+            grid1.DataContext = u;
         }
 
         private void Card_Click(object sender, RoutedEventArgs e)
@@ -34,20 +35,54 @@ namespace PlGui
 
         private void lvBus_Click(object sender, RoutedEventArgs e)
         {
-            BusWindow bus = new BusWindow();
-            bus.ShowDialog();
+            if(user.Admin)
+            {
+                BusWindow bus = new BusWindow();
+                bus.ShowDialog();
+            }
+            else
+            {
+                BusWindowPassnger bus = new BusWindowPassnger();
+                bus.ShowDialog();
+            }
         }
 
         private void lvLine_Click(object sender, RoutedEventArgs e)
         {
-            LineWindow line = new LineWindow();
-            line.ShowDialog();
+            if (user.Admin)
+            {
+                LineWindow line = new LineWindow();
+                line.ShowDialog();
+            }
+            else
+            {
+                LineWindowPassenger line = new LineWindowPassenger();
+                line.ShowDialog();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            StationWindow station = new StationWindow();
-            station.ShowDialog();
+            if (user.Admin)
+            {
+                StationWindow station = new StationWindow(user);
+                station.ShowDialog();
+            }
+            else
+            {
+                StationWindowPassnger station = new StationWindowPassnger(user);
+
+                station.ShowDialog();
+
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            System.Windows.Data.CollectionViewSource userViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("userViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // userViewSource.Source = [generic data source]
         }
     }
 }

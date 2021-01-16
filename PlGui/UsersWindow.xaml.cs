@@ -15,14 +15,13 @@ using System.Windows.Shapes;
 namespace PlGui
 {
     /// <summary>
-    /// Interaction logic for LineShowInStation.xaml
+    /// Interaction logic for UsersWindow.xaml
     /// </summary>
-    public partial class LineShowInStation : Window
+    public partial class UsersWindow : Window
     {
-        public LineShowInStation(List<BO.ShortLine> linesInStation)
+        public UsersWindow()
         {
             InitializeComponent();
-            listViewLine.ItemsSource = linesInStation;
         }
     }
 }

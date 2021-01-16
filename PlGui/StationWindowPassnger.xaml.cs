@@ -1,5 +1,4 @@
 ﻿using BLApi;
-using BO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,32 +17,22 @@ using System.Windows.Shapes;
 namespace PlGui
 {
     /// <summary>
-    /// Interaction logic for StationWindow.xaml
+    /// Interaction logic for StationWindowPassnger.xaml
     /// </summary>
-    public partial class StationWindow : Window
+    public partial class StationWindowPassnger : Window
     {
+        public BO.User User { get; set; }
         IBL bl = BLFactory.GetBL("2");
-        public BO.User User1 { get; set; }
         #region constructor
-        public StationWindow(BO.User u)
+        public StationWindowPassnger(BO.User u)
         {
             InitializeComponent();
-            User1 = u;
-            listViewStations.ItemsSource = bl.GetAllStations().ToList();
-            if (User1.Admin)
-            {
-                addStation.Visibility = Visibility.Visible;
-                
+        
+ 
+            User = u;
 
-            }
-           
-                IsEnabled = true;
             listViewStations.ItemsSource = bl.GetAllStations().ToList();
-            //if (u.Admin)
-            //{
-            //   listViewStations.FindName("Delete_Button")= Visibility.Visible;
-            //}
-            //listViewStations.ItemsSource = bl.GetAllStations().ToList();
+
         }
         #endregion
 
@@ -120,7 +109,7 @@ namespace PlGui
                 //listViewStations.ItemsSource = bl.GetAllStations().ToList(); //reftesh
                 LineShowInStation win = new LineShowInStation(linesInStation);
                 win.ShowDialog();
-                
+
             }
             catch (BO.IncorrectCodeStationException ex)
             {
@@ -139,7 +128,7 @@ namespace PlGui
         {
             try
             {
-                
+
                 BO.Station station = (sender as Button).DataContext as BO.Station;
                 //if (User.Admin)
                 //{

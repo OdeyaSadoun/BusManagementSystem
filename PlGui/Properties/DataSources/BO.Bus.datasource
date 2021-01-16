@@ -12,42 +12,42 @@
          <PropertyUISetting Name="Status">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="TextBlock" Type="System.Windows.Controls.TextBlock" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
          <PropertyUISetting Name="TotalMileage">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="TextBlock" Type="System.Windows.Controls.TextBlock" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
          <PropertyUISetting Name="LicenseNumber">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="TextBlock" Type="System.Windows.Controls.TextBlock" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
          <PropertyUISetting Name="LastTreatment">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="TextBlock" Type="System.Windows.Controls.TextBlock" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="DatePicker" Type="System.Windows.Controls.DatePicker" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
          <PropertyUISetting Name="KmBeforTreatment">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="TextBlock" Type="System.Windows.Controls.TextBlock" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
          <PropertyUISetting Name="KmBeforeFuel">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="TextBlock" Type="System.Windows.Controls.TextBlock" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
@@ -61,28 +61,28 @@
          <PropertyUISetting Name="IsAccessible">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="CheckBox" Type="System.Windows.Controls.CheckBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
          <PropertyUISetting Name="FuelRemain">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="TextBlock" Type="System.Windows.Controls.TextBlock" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
          <PropertyUISetting Name="DateBegin">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="TextBlock" Type="System.Windows.Controls.TextBlock" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="DatePicker" Type="System.Windows.Controls.DatePicker" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
          <PropertyUISetting Name="CurrentMileage">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                  <BindableControlInfo Name="TextBlock" Type="System.Windows.Controls.TextBlock" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                  <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>

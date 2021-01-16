@@ -1,13 +1,47 @@
-﻿<Window x:Class="PlGui.AddBus"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlGui"
+        xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PlGui.AddBus"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="AddBus" Height="450" Width="800">
-    <Grid>
-        
+        Title="AddBus" Height="400" Width="600" Loaded="Window_Loaded" Icon="BUS3.png">
+    <Window.Resources>
+        <CollectionViewSource x:Key="busViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:Bus}, CreateList=True}"/>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="r3.jpeg"/>
+    </Window.Background>
+    <Grid DataContext="{StaticResource busViewSource}">
+        <Label Content="Enter detailes for new bus:" HorizontalAlignment="Left" Margin="36,39,0,0" VerticalAlignment="Top" Width="293" FontWeight="Bold" FontSize="22" Foreground="White"/>
+        <Grid x:Name="grid2" HorizontalAlignment="Left" Margin="84,98,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="License Number:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="15" Foreground="White"/>
+            <TextBox x:Name="licenseNumberTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding LicenseNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"  FontSize="14"/>
+            <Label Content="Date Begin:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontWeight="Bold" FontSize="15" Foreground="White"/>
+            <DatePicker x:Name="dateBeginDatePicker1" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" SelectedDate="{Binding DateBegin, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+            <Label Content="Last Treatment:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontWeight="Bold" FontSize="15" Foreground="White"/>
+            <DatePicker x:Name="lastTreatmentDatePicker1" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="2" SelectedDate="{Binding LastTreatment, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+            <Label Content="Total Mileage:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontWeight="Bold" FontSize="15" Foreground="White"/>
+            <TextBox x:Name="totalMileageTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding TotalMileage, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"  FontSize="14"/>
+            <Label Content="Fuel Remain:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontWeight="Bold" FontSize="15" Foreground="White"/>
+            <TextBox x:Name="fuelRemainTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding FuelRemain, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"  FontSize="14"/>
+            <Label Content="Is Accessible:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" FontWeight="Bold" FontSize="15" Foreground="White"/>
+            <CheckBox x:Name="isAccessibleCheckBox1" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding IsAccessible, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="5" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" />
+        </Grid>
+        <Button Content="SUBMIT" HorizontalAlignment="Left" Margin="470,315,0,0" VerticalAlignment="Top" Width="104" Height="38" FontWeight="Bold" Background="#FFF0ECEC" FontSize="14" Click="Button_Click"/>
     </Grid>
 </Window>

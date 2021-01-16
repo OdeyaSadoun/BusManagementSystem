@@ -16,16 +16,16 @@ namespace BL
     sealed class BLImp : IBL
     {
         IDL dl = DLFactory.GetDL();
-        #region singelton
-        /// <summary>
-        /// singleton pattern is a software design pattern that restricts the instantiation of a class to one "single" instance.
-        /// This is useful when exactly one object is needed to coordinate actions across the system.
-        /// </summary>
-        static readonly BLImp instance = new BLImp();
-        static BLImp() { }// static ctor to ensure instance init is done just before first usage
-        BLImp() { } // default => private
-        public static BLImp Instance { get => instance; }// The public Instance property to use
-        #endregion
+        //#region singelton
+        ///// <summary>
+        ///// singleton pattern is a software design pattern that restricts the instantiation of a class to one "single" instance.
+        ///// This is useful when exactly one object is needed to coordinate actions across the system.
+        ///// </summary>
+        //static readonly BLImp instance = new BLImp();
+        //static BLImp() { }// static ctor to ensure instance init is done just before first usage
+        //BLImp() { } // default => private
+        //public static BLImp Instance { get => instance; }// The public Instance property to use
+        //#endregion
 
         #region Bus
 
@@ -106,6 +106,7 @@ namespace BL
                 DO.Bus busDOtemp = new DO.Bus();
                 bus.CopyPropertiesTo(busDOtemp);
                 bus.IsDeleted = false;//אם מוסיפיםם זה וודאי לא מחוק
+                bus.Status = BO.BusStatus.Ready;
                 if (bus.DateBegin > DateTime.Now) //נבדוק האם התאריך תקין
                     throw new BO.IncorrectDateException(bus.DateBegin, "The date begin not valid");
                 if (bus.TotalMileage < 0) // אם הקילומטראז פחות מ-0 אזי נשים 0 כברירת מחדל
@@ -524,6 +525,7 @@ namespace BL
 
         #region User
 
+
         #region userDoBoAdapter
         /// <summary>
         /// A function that copy user's details from DO to BO
@@ -622,6 +624,13 @@ namespace BL
             }
         }
         #endregion
+
+        public bool IsAdmin(BO.User user)
+        {
+            if (user.Admin)
+                return true;
+            return false;
+        }
 
         #region UpdateUser
         /// <summary>
