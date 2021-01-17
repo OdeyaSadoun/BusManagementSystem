@@ -17,10 +17,32 @@ namespace DL
         /// </summary>
         static readonly DLXML instance = new DLXML();
         static DLXML() { }// static ctor to ensure instance init is done just before first usage
-        DLXML() { } // default => private
+        DLXML() 
+        {
+            if (!File.Exists(BusFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.Bus>(DS.DataSource.ListBuses, BusFilePath);
+
+            if (!File.Exists(courseFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.Course>(DS.DataSource.courseList, courseFilePath);
+
+            if (!File.Exists(studentInCourseFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.StudentInCourse>(DS.DataSource.studentInCourseList, studentInCourseFilePath);
+        }
         public static DLXML Instance { get => instance; }// The public Instance property to use
         #endregion
 
+
+        #region DS XML Files
+
+        string personsPath = @"PersonsXml.xml"; //XElement
+        string BusPath = @"StudentsXml.xml"; //XMLSerializer
+        string coursesPath = @"CoursesXml.xml"; //XMLSerializer
+        string lecturersPath = @"LecturersXml.xml"; //XMLSerializer
+        string lectInCoursesPath = @"LecturerInCourseXml.xml"; //XMLSerializer
+        string studInCoursesPath = @"StudentInCoureseXml.xml"; //XMLSerializer
+
+
+        //#endregion
         //Implement IDL methods, CRUD
         #region Bus
         #region GetBus
