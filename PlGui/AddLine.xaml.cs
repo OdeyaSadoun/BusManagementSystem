@@ -47,7 +47,7 @@ namespace PlGui
                 line.FirstStation = bl.GetStation(int.Parse(firstStationTextBox.Text));
                 line.LastStation = bl.GetStation(int.Parse(lastStationTextBox.Text));
                 bl.AddLine(line);
-                MessageBox.Show("The line added successfuly");
+                MessageBox.Show("The line added successfuly", "information", MessageBoxButton.OK, MessageBoxImage.Information);           
                 Close();
 
             }

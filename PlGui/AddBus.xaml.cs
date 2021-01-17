@@ -41,7 +41,7 @@ namespace PlGui
             {
                 BO.Bus bus = new BO.Bus() { LicenseNumber = int.Parse(licenseNumberTextBox1.Text), DateBegin = dateBeginDatePicker1.DisplayDate, LastTreatment = lastTreatmentDatePicker1.DisplayDate, TotalMileage = int.Parse(totalMileageTextBox.Text) };
                 bl.AddBus(bus);
-                MessageBox.Show("The bus added successfuly");
+                MessageBox.Show("The bus added successfuly", "information", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
 
 

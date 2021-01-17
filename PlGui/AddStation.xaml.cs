@@ -40,7 +40,7 @@ namespace PlGui
             {
                 BO.Station station = new BO.Station() { Address = addressTextBox.Text, Code = int.Parse(codeTextBox.Text), IsAccessible = isAccessibleCheckBox.IsEnabled, IsBench = isBenchCheckBox.IsEnabled, IsDigitalPanel = isDigitalPanelCheckBox.IsEnabled, Latitude = double.Parse(latitudeTextBox.Text), Longitude = double.Parse(longitudeTextBox.Text), Name = nameTextBox.Text };
                 bl.AddStation(station);
-                MessageBox.Show("The station added successfuly");
+                MessageBox.Show("The station added successfuly", "information", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
 
             }

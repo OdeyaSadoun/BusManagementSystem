@@ -22,6 +22,7 @@ namespace PlGui
         public BusShow(BO.Bus bus)
         {
             InitializeComponent();
+            grid2.DataContext = bus;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
