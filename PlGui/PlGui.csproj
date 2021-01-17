@@ -323,5 +323,11 @@
   <ItemGroup>
     <Resource Include="busblue.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="busblue-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="BUS33.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

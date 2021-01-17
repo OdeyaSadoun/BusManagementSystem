@@ -49,7 +49,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Line Number:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" Foreground="White"/>
+            <Label Content="Line Number:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"  FontSize="18" FontWeight="Bold" Foreground="White"/>
             <TextBlock x:Name="lineNumberTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="1" Grid.Row="0" Text="{Binding LineNumber}" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" Foreground="White"/>
             <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontWeight="Bold" Foreground="White"/>
             <TextBlock x:Name="idTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" Text="{Binding Id}" VerticalAlignment="Center" FontWeight="Bold" Foreground="White"/>
@@ -57,7 +57,7 @@
             <TextBlock x:Name="areaTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="2" Text="{Binding Area}" VerticalAlignment="Center" FontWeight="Bold" Foreground="White"/>
             <Label Content="To:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontWeight="Bold" Foreground="White"/>
             <TextBlock x:Name="lastStationTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="3" Text="{Binding LastStation.Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  VerticalAlignment="Center" FontWeight="Bold" Foreground="White"/>
-            <Label Content="Fare:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontWeight="Bold" Foreground="White"/>
+            <Label Content="Fare:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
             <TextBlock x:Name="fareTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="4" Text="{Binding Fare}" VerticalAlignment="Center" FontWeight="Bold" Foreground="White"/>
             <Label Content="Travel Time In This Line:" Grid.Column="0" HorizontalAlignment="Left" Margin="5" Grid.Row="5" VerticalAlignment="Center" FontWeight="Bold" Foreground="White"/>
             <TextBox x:Name="travelTimeInThisLineTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding TravelTimeInThisLine, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" FontWeight="Bold" Background="Transparent" Foreground="White" TextAlignment="Center"/>

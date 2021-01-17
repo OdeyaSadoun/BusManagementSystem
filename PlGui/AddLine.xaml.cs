@@ -48,8 +48,8 @@ namespace PlGui
                 BO.Line line = new BO.Line() { LineNumber = int.Parse(lineNumberTextBox.Text), Area = (BO.Area)areaComboBox.SelectedItem, IsDeleted = false, Fare = int.Parse(fareTextBox.Text), TravelTimeInThisLine = TimeSpan.Parse(travelTimeInThisLineTextBox.Text)  };
                 line.FirstStation = bl.GetStation(int.Parse(firstStationTextBox.Text));
                 line.LastStation = bl.GetStation(int.Parse(lastStationTextBox.Text));
-
                 bl.AddLine(line);
+                MessageBox.Show("The line added successfuly");
                 Close();
 
             }
