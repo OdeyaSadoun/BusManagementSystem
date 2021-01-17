@@ -22,14 +22,12 @@ namespace PlGui
     {
         IBL bl = BLFactory.GetBL("2");
 
-        List<BO.Area> areaList = new List<BO.Area> { BO.Area.Center, BO.Area.Jerusalem, BO.Area.JerusalemCenter, BO.Area.JerusalemNorth, BO.Area.JerusalemSouth, BO.Area.North, BO.Area.NorthCenter, BO.Area.NorthSouth, BO.Area.South, BO.Area.SouthCenter };
+       // List<BO.Area> areaList = new List<BO.Area> { BO.Area.Center, BO.Area.Jerusalem, BO.Area.JerusalemCenter, BO.Area.JerusalemNorth, BO.Area.JerusalemSouth, BO.Area.North, BO.Area.NorthCenter, BO.Area.NorthSouth, BO.Area.South, BO.Area.SouthCenter };
         public AddLine()
         {
             InitializeComponent();
-
             areaComboBox.ItemsSource = Enum.GetValues(typeof(BO.Area));
-
-            areaComboBox.DisplayMemberPath = "Area";
+            //areaComboBox.ItemsSource = areaList;
             areaComboBox.SelectedIndex = 0;
         }
 
