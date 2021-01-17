@@ -443,6 +443,19 @@ namespace BL
 
         #endregion
 
+        public void DeleteStationInLine(BO.StationInLine sInL)
+        {
+            try
+            {
+                //DO.LineStation ls = dl.GetLineStation(sInL.LineId, sInL.StationCode);
+                dl.DeleteLineStation(sInL.LineId, sInL.StationCode);
+            }
+            catch(DO.IncorrectInputException ex)
+            {
+                throw new BO.IncorrectInputException( ex.Message);
+            }
+        }
+
         #region Station
 
         #region stationDoBoAdapter
@@ -557,15 +570,57 @@ namespace BL
             {
                 DO.Station statDO = dl.GetStation(station.Code);
                 BO.Station statBO = stationDoBoAdapter(statDO);
-                if (statBO.ListOfLines.Count() != 0)//if there are lines that stop in the station
-                    throw new BO.IncorrectCodeStationException(station.Code, "Station cant be deleted because other buses stop there");
+                //if (statBO.ListOfLines.Count() != 0)//if there are lines that stop in the station
+                //    throw new BO.IncorrectCodeStationException(station.Code, "Station cant be deleted because other buses stop there");
                 dl.DeleteStation(station.Code);
                 List<DO.AdjacentStations> listAdj = dl.GetAllAdjacentStations().ToList();
-                foreach (DO.AdjacentStations s in listAdj)//delete from adjacent Station list
+                int i = 0;
+                DO.AdjacentStations tempAdj = listAdj[i];
+                DO.AdjacentStations adjToAdd = new AdjacentStations() ;
+                //מה קורה שזו תחנה ראשונה???
+                if(tempAdj.CodeStation1 == station.Code)
                 {
-                    if (s.CodeStation1 == station.Code || s.CodeStation2 == station.Code)
-                        dl.DeleteAdjacentStations(s.CodeStation1, s.CodeStation2);
+                    dl.DeleteAdjacentStations(tempAdj.CodeStation1, tempAdj.CodeStation2);
+                    i++;
+                    tempAdj = listAdj[i];
                 }
+                //לראות מה הולך עם הזמנים
+                for(int j = i; j < listAdj.Count(); j ++)
+                {
+                    if (listAdj[j].CodeStation1 == station.Code)//התחנה הראשונה בזוג תחנות עוקבות היא התחנה שנמחקה
+                    {
+                        dl.DeleteAdjacentStations(listAdj[j].CodeStation1, listAdj[j].CodeStation2);
+                        adjToAdd.CodeStation1 = tempAdj.CodeStation1;
+                        adjToAdd.CodeStation2 = listAdj[j].CodeStation2;
+                        adjToAdd.Distance = tempAdj.Distance + listAdj[j].Distance;
+                        adjToAdd.TravelTime = tempAdj.TravelTime + listAdj[j].TravelTime;
+                        dl.AddAdjacentStations(adjToAdd);
+
+                        tempAdj = listAdj[j];
+
+                    }
+                    //else if (listAdj[i].CodeStation2 == statBO.Code)
+                    //{
+                    //}
+                }
+                //נעבור על רשימת הקווים, בכל קו נבדוק האם התחנה היתה קיימת, ופשוט נמחק אותה, (ןנעדכן את הזמן והמרחק לתחנה הבאה)
+                List<BO.Line> listLines = GetAllLines().ToList();
+                foreach( BO.Line l in listLines)
+                {
+                    foreach(BO.StationInLine sl in l.ListOfStationsInLine)
+                    {
+                        if (sl.StationCode == station.Code)
+                            DeleteStationInLine(sl);
+                    }
+                }
+                //foreach (DO.AdjacentStations s in listAdj)//delete from adjacent Station list
+                //{
+
+                //    //if (s.CodeStation1 == station.Code || s.CodeStation2 == station.Code)
+                //    //    dl.DeleteAdjacentStations(s.CodeStation1, s.CodeStation2);
+                //    if(s.CodeStation1 == statBO.Code)//התחנה הראשונה בזוג תחנות עוקבות היא התחנה שנמחקה
+
+                // }
 
             }
             catch (DO.IncorrectCodeStationException ex)
