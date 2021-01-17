@@ -10,7 +10,11 @@
         Title="AddLine" Height="450" Width="600" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="lineViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:Line}, CreateList=True}"/>
+
+        <local:ConvertFromEnumToString x:Key="MyEnumConverter"/>
+
     </Window.Resources>
+    
     <Window.Background>
         <ImageBrush ImageSource="r3.jpeg"/>
     </Window.Background>
@@ -35,7 +39,7 @@
             <Label Content="Last Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"  FontWeight="Bold" FontSize="15" Foreground="White"/>
             <TextBox x:Name="lastStationTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding LastStation.Code, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"  FontSize="14"/>
             <Label Content="Area:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"  FontWeight="Bold" FontSize="15" Foreground="White"/>
-            <ComboBox x:Name="areaComboBox" Grid.Column="1" DisplayMemberPath="Area" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Margin="3" Grid.Row="3" VerticalAlignment="Center" Width="120"  FontSize="14" >
+            <ComboBox x:Name="areaComboBox" Grid.Column="1" DisplayMemberPath="Area" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource AlignmentValues}}"  SelectedValue="{Binding Path=Area, Converter={StaticResource MyEnumConverter}}" Height="Auto"  Margin="3" Grid.Row="3" VerticalAlignment="Center" Width="120"  FontSize="14" >
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel/>

@@ -26,6 +26,7 @@ namespace PlGui
         public AddLine()
         {
             InitializeComponent();
+
             areaComboBox.ItemsSource = Enum.GetValues(typeof(BO.Area));
 
             areaComboBox.DisplayMemberPath = "Area";

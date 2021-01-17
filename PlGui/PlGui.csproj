@@ -85,6 +85,7 @@
     <Compile Include="ContactWindow.xaml.cs">
       <DependentUpon>ContactWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConvertFromEnumToString.cs" />
     <Compile Include="InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>
