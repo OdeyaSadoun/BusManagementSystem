@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlGui"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PlGui.AddStation"
+     WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="AddStation" Height="450" Width="600" Loaded="Window_Loaded">
     <Window.Resources>

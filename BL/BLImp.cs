@@ -179,6 +179,29 @@ namespace BL
         }
         #endregion
 
+        #region Refuel
+        public void Refuel(BO.Bus bus)
+        {
+            bus.FuelRemain = 1200;
+            bus.Status = BO.BusStatus.Refueling;
+            bus.KmBeforeFuel = 1200;
+           
+        }
+        #endregion
+
+        #region Threatment
+
+        public void Threatment(BO.Bus bus)
+        {
+            DateTime currentDate = DateTime.Now;
+            bus.LastTreatment = currentDate;
+            bus.Status = BO.BusStatus.InTreatment;
+            bus.KmBeforTreatment = 20000;
+            bus.FuelRemain = 1200;
+            bus.KmBeforeFuel = 1200;
+        }
+
+        #endregion
         #endregion
 
         #region Line
@@ -197,7 +220,8 @@ namespace BL
             stations = (from stat in dl.GetAllLinesStationBy(stat => stat.LineId == lineId && stat.IsDeleted == false)
                                                let station = dl.GetStation(stat.StationCode)
                                                select station.CopyToStationInLine(stat)).ToList();
-            stations = (stations.OrderBy(s => s.LineStationIndex)).ToList();
+            //stations = (stations.OrderBy(s => s.LineStationIndex)).ToList();
+            TimeSpan count = TimeSpan.Zero;
             foreach (BO.StationInLine s in stations)
             {
                 if (s.LineStationIndex != stations[stations.Count - 1].LineStationIndex) // if this is not the end
@@ -207,15 +231,17 @@ namespace BL
                     DO.AdjacentStations adjStat = dl.GetAdjacentStations(sc1, sc2);
                     s.DistanceTo = adjStat.Distance;
                     s.TimeTo = adjStat.TravelTime;
+                    count = count + s.TimeTo;
                 }
             }
+            lineBO = lineDO.CopyToLineDOToBO();
             lineBO.ListOfStationsInLine = stations;
+            lineBO.TravelTimeInThisLine = count;
             //BO.Station sBO;
             //DO.Station sDO = dl.GetStation(lineDO.FirstStation);
             //lineBO.FirstStation = stationDoBoAdapter(sDO);
             //sDO = dl.GetStation(lineDO.LastStation);
             //lineBO.LastStation = stationDoBoAdapter(sDO);
-            lineBO = lineDO.CopyToLineDOToBO();
 
             return lineBO;
         }
@@ -292,49 +318,76 @@ namespace BL
             try
             {
                 DO.Line lineDOtemp = new DO.Line();
-                lineDOtemp.CopyPropertiesTo(line);
+                lineDOtemp = DeepCopyUtilities.CopyToLineBOToDO(line);
 
                 if (line.LineNumber < 0 || line.Fare < 0 || line.TravelTimeInThisLine == TimeSpan.Zero) //מספר הקו שלילי ולא תקין או מחיר הנסיעה שלילי או זמן הנסיעה 0
                     throw new BO.IncorrectInputException("The line number or fare of trabel time not valid");
 
-                DO.Station sDO1 = dl.GetStation(line.FirstStation.Code);
-                DO.Station sDO2 = dl.GetStation(line.LastStation.Code);
+                //DO.Station sDO1 = dl.GetStation(line.FirstStation.Code);
+                //DO.Station sDO2 = dl.GetStation(line.LastStation.Code);
 
-                if ((sDO1 == null) || (sDO2 == null))
-                    throw new BO.IncorrectCodeStationException(line.FirstStation.Code, "This station code could not found");
-                line.FirstStation = sDO1.CopyToStationDOToBO();
-                line.LastStation = sDO2.CopyToStationDOToBO();
-
-                //לעבור על רשימת התחנות ולשאול האם אני בתחנה מסוימת ובאותה תחנה להוסיף את הקו לרשימת הקווים
-                List<BO.StationInLine> tempListStations = new List<StationInLine>();
-                if (line.ListOfStationsInLine.Count() == 0)
-                    throw new ArgumentNullException("The list of the line is empty");
+                //if ((sDO1 == null) || (sDO2 == null))
+                //    throw new BO.IncorrectCodeStationException(line.FirstStation.Code, "This station code could not found");
+                //line.FirstStation = sDO1.CopyToStationDOToBO();
+                //line.LastStation = sDO2.CopyToStationDOToBO();
+                lineDOtemp.FirstStation = line.FirstStation.Code;
+                lineDOtemp.LastStation = line.LastStation.Code;
 
                 dl.AddLine(lineDOtemp);
-                foreach (BO.StationInLine station in line.ListOfStationsInLine)
-                    if (station.LineId == line.Id)
-                        tempListStations.Add(station);
-                BO.Station bs;
-                BO.ShortLine sline = new ShortLine();
-                for (int i = 0; i < tempListStations.Count(); i++) //נעבור על רשימת התחנות קו שיש בקו הזה
-                {
-                    foreach (DO.Station station in dl.GetAllStationes())//נעבור על כל רשימת התחנות הקיימות
-                        if (station.Code == tempListStations[i].StationCode)
-                        {
-                            bs = GetStation(station.Code);
-                            sline.Id = line.Id;
-                            sline.IsDeleted = line.IsDeleted;
-                            sline.LastStation = line.LastStation;
-                            sline.LineNumber = line.LineNumber;
 
-                            bs.ListOfLines.ToList().Add(sline); //עדכון הקו הרצוי ברשימת התחנות שהוא עובר בה
-                        }
-                }
+
+                //עידכונים של תחנות עוקבות ותחנות קו
+                lineDOtemp.Id = dl.GetAllLinesBy(s => s.LineNumber == lineDOtemp.LineNumber && s.IsDeleted==false /*&& s.Area == lineDOtemp.Area*/).FirstOrDefault().Id;
+                //int sc1 = line.Stations[0].StationCode;//stationCode of the first station
+                //int sc2 = line.Stations[1].StationCode;//station Code of the last station
+                //lineDo.FirstStation = sc1;
+                //lineDo.LastStation = sc2;
+                //try
+                //{
+                    if (dl.GetAdjacentStations(lineDOtemp.FirstStation, lineDOtemp.LastStation) == null)//add to adjcenct stations if its not exists
+                    {
+                        DO.AdjacentStations adj = new DO.AdjacentStations() { CodeStation1 = lineDOtemp.FirstStation, CodeStation2 = lineDOtemp.LastStation,  TravelTime = (line.ListOfStationsInLine.FirstOrDefault()).TimeTo, Distance = (line.ListOfStationsInLine.FirstOrDefault()).DistanceTo };
+                        dl.AddAdjacentStations(adj);
+                    }
+                    DO.LineStation first = new DO.LineStation() { LineId = lineDOtemp.Id, StationCode = lineDOtemp.FirstStation, LineStationIndex = 0, IsDeleted = false };
+                    DO.LineStation last = new DO.LineStation() { LineId = lineDOtemp.Id, StationCode = lineDOtemp.LastStation, LineStationIndex = 1, IsDeleted = false};
+                    dl.AddLineStation(first);//add first line station
+                    dl.AddLineStation(last);//add last line ststion
+               // }
+
+
+                ////לעבור על רשימת התחנות ולשאול האם אני בתחנה מסוימת ובאותה תחנה להוסיף את הקו לרשימת הקווים
+                //List<BO.StationInLine> tempListStations = new List<StationInLine>();
+                //if (line.ListOfStationsInLine.Count() == 0)
+                //    throw new ArgumentNullException("The list of the line is empty");
+
+
+                //foreach (BO.StationInLine station in line.ListOfStationsInLine)
+                //    if (station.LineId == line.Id)
+                //        tempListStations.Add(station);
+                //BO.Station bs;
+                //BO.ShortLine sline = new ShortLine();
+                //for (int i = 0; i < tempListStations.Count(); i++) //נעבור על רשימת התחנות קו שיש בקו הזה
+                //{
+                //    foreach (DO.Station station in dl.GetAllStationes())//נעבור על כל רשימת התחנות הקיימות
+                //        if (station.Code == tempListStations[i].StationCode)
+                //        {
+                //            bs = GetStation(station.Code);
+                //            sline.Id = line.Id;
+                //            sline.IsDeleted = line.IsDeleted;
+                //            sline.LastStation = line.LastStation;
+                //            sline.LineNumber = line.LineNumber;
+
+                //            bs.ListOfLines.ToList().Add(sline); //עדכון הקו הרצוי ברשימת התחנות שהוא עובר בה
+                //        }
+                //}
             }
             catch (DO.IncorrectLineIDException ex)
             {
                 throw new BO.IncorrectLineIDException(ex.ID, ex.Message);
             }
+
+
 
         }
         #endregion
@@ -963,24 +1016,6 @@ namespace BL
         //    return stationinlineBO;
         //}
         //#endregion
-
-        public void Refuel(BO.Bus bus)
-        {
-            bus.FuelRemain = 1200;
-            bus.Status = BO.BusStatus.Refueling;
-            bus.KmBeforeFuel = 1200;
-           
-        }
-
-        public void Threatment(BO.Bus bus)
-        {
-            DateTime currentDate = DateTime.Now;
-            bus.LastTreatment = currentDate;
-            bus.Status = BO.BusStatus.InTreatment;
-            bus.KmBeforTreatment = 20000;
-            bus.FuelRemain = 1200;
-            bus.KmBeforeFuel = 1200;
-        }
 
 
 

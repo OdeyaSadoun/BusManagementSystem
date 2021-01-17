@@ -23,5 +23,11 @@ namespace PlGui
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            MessageBox.Show("Thank you for your inquiry, we are glad you chose our service.\nGood Day!", " ", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 }

@@ -38,6 +38,7 @@ namespace BL
             st.CopyPropertiesTo(stationInLine);
             stationInLine.LineStationIndex = s.LineStationIndex;
             stationInLine.StationCode = s.StationCode;
+            stationInLine.StationName = st.Name;
             return stationInLine;
         }
 
@@ -55,9 +56,11 @@ namespace BL
             line.Area = (BO.Area)s.Area;
 
             DO.Station sDO = dl.GetStation(s.FirstStation);
-            line.FirstStation= CopyToStationDOToBO(sDO);
+            line.FirstStation = CopyToStationDOToBO(sDO);
+            //line.FirstStation = bl.GetStation(s.FirstStation);
             sDO = dl.GetStation(s.LastStation);
-            line.LastStation= CopyToStationDOToBO(sDO);
+            line.LastStation = CopyToStationDOToBO(sDO);
+            //line.LastStation = bl.GetStation(s.LastStation);
 
 
             line.Id = s.Id;
@@ -65,7 +68,19 @@ namespace BL
             line.TravelTimeInThisLine = s.TravelTimeInThisLine;
             line.LineNumber = s.LineNumber;
             line.IsDeleted = s.IsDeleted;
-            
+
+            //רשימה של זמני יציאה- לברר
+            //List<TimeSpan> times = new List<TimeSpan>();
+            //line.ListOfTripTime = times;
+
+            //רשימה של תחנות קו
+
+            //List<BO.StationInLine> stations = new List<BO.StationInLine>();
+            //stations = (from stat in dl.GetAllLinesStationBy(stat => stat.LineId == line.Id && stat.IsDeleted == false)
+            //            let station = dl.GetStation(stat.StationCode)
+            //            select station.CopyToStationInLine(stat)).ToList();
+            //line.ListOfStationsInLine = stations;
+
             //לבדוק מה קורה לגבי כל הרשימות
             return line;
         }
@@ -105,25 +120,30 @@ namespace BL
             station.Longitude = s.Longitude;
             station.Name = s.Name;
 
+            //List<BO.Line> line = new List<BO.Line>();
+            //foreach(BO.Line l in bl.GetAllLines())
+            //{
+            //    foreach (BO.StationInLine stationInLine in l.ListOfStationsInLine.ToList())
+            //    {
+            //        if (stationInLine.StationCode == station.Code)
+            //            line.Add(l);
+            //    }
+            //}
+
+
+
+
+
+
+
+            //List<BO.StationInLine> line = new List<BO.StationInLine>();
+            //line = (from l in dl.GetAllLinesStationBy(l => l.StationCode == station.Code && l.IsDeleted == false)
+            //            let line = dl.GetStation(stat.StationCode)
+            //            select station.CopyToStationInLine(stat)).ToList();
             //לבדוק מה לעשות לגבי רשימת התחנות
 
             return station;
         }
-
-        //public static DO.Station CopyToStationBOToDO(this BO.Station stationBO)
-        //{
-        //    DO.Station stationDO = new DO.Station();
-        //    stationDO.Address = stationBO.Address;
-        //    stationDO.Code = stationBO.Code;
-        //    stationDO.IsAccessible = stationBO.IsAccessible;
-        //    stationDO.IsBench = stationBO.IsBench;
-        //    stationDO.IsDeleted = stationBO.IsDeleted;
-        //    stationDO.IsDigitalPanel = stationBO.IsDigitalPanel;
-        //    stationDO.Latitude = stationBO.Latitude;
-        //    stationDO.Longitude = stationBO.Longitude;
-        //    stationDO.Name = stationBO.Name;
-        //    return stationDO;
-        //}
 
     }
 }

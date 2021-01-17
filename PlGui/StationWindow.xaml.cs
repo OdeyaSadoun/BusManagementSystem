@@ -29,15 +29,15 @@ namespace PlGui
         {
             InitializeComponent();
             User1 = u;
-            listViewStations.ItemsSource = bl.GetAllStations().ToList();
-            if (User1.Admin)
-            {
-                addStation.Visibility = Visibility.Visible;
+            //listViewStations.ItemsSource = bl.GetAllStations().ToList();
+            //if (User1.Admin)
+            //{
+            //    addStation.Visibility = Visibility.Visible;
                 
 
-            }
+            //}
            
-                IsEnabled = true;
+            //    IsEnabled = true;
             listViewStations.ItemsSource = bl.GetAllStations().ToList();
             //if (u.Admin)
             //{
@@ -47,51 +47,9 @@ namespace PlGui
         }
         #endregion
 
-        public static DependencyObject FindChild(DependencyObject parent, Func<DependencyObject, bool> predicate)
-        {
-            if (parent == null) return null;
+  
 
-            int childrenCount = VisualTreeHelper.GetChildrenCount(parent);
-            for (int i = 0; i < childrenCount; i++)
-            {
-                var child = VisualTreeHelper.GetChild(parent, i);
-
-                if (predicate(child))
-                {
-                    return child;
-                }
-                else
-                {
-                    var foundChild = FindChild(child, predicate);
-                    if (foundChild != null)
-                        return foundChild;
-                }
-            }
-
-            return null;
-        }
-
-        #region FindVisualChild
-
-        private childItem FindVisualChild<childItem>(DependencyObject obj) where childItem : DependencyObject
-        {
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
-            {
-                DependencyObject child = VisualTreeHelper.GetChild(obj, i);
-                if (child != null && child is childItem)
-                {
-                    return (childItem)child;
-                }
-                else
-                {
-                    childItem childOfChild = FindVisualChild<childItem>(child);
-                    if (childOfChild != null)
-                        return childOfChild;
-                }
-            }
-            return null;
-        }
-        #endregion
+   
         #region update_click_button
         private void update_click_button(object sender, RoutedEventArgs e)
         {
@@ -103,6 +61,10 @@ namespace PlGui
                 listViewStations.ItemsSource = bl.GetAllStations().ToList(); //reftesh
             }
             catch (BO.IncorrectCodeStationException ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -123,6 +85,10 @@ namespace PlGui
                 
             }
             catch (BO.IncorrectCodeStationException ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -150,6 +116,10 @@ namespace PlGui
                 listViewStations.ItemsSource = bl.GetAllStations().ToList(); //reftesh
             }
             catch (BO.IncorrectCodeStationException ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -201,6 +171,10 @@ namespace PlGui
                 }
             }
             catch (BO.IncorrectCodeStationException ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }

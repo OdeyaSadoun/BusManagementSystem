@@ -31,6 +31,10 @@ namespace PlGui
             InitializeComponent();
             //stations.ItemsSource = bl.get
             grid1.DataContext = line;
+            grid3.DataContext = line;
+            stations.ItemsSource = line.ListOfStationsInLine.ToList();
+            //stations.DataContext = line.ListOfStationsInLine.ToList();
+            stations.Visibility = Visibility.Visible;
             times.DataContext = line.ListOfTripTime;
             times.SelectedItem = 0;
 

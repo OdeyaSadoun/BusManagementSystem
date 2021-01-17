@@ -13,13 +13,13 @@
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
         <Label x:Name="labelWelcome" Content="Wellcome" Foreground="White" HorizontalAlignment="Left" Margin="45,102,0,0" VerticalAlignment="Top" Width="243" FontWeight="Bold" FontSize="50"/>
-        <Button x:Name="LoginButton" Content="Log in" HorizontalAlignment="Left" Margin="751,111,0,0" VerticalAlignment="Top" Width="180" Click="LoginButton_Click" Height="80" FontWeight="Bold" FontSize="25"/>
-        <Button x:Name="UserButton" Content="Passenger" HorizontalAlignment="Left" Margin="751,223,0,0" VerticalAlignment="Top" Width="180" Click="UserButton_Click" Height="80" FontWeight="Bold" FontSize="25"/>
-        <Button x:Name="AdminButton" Content="Employee" HorizontalAlignment="Left" Margin="751,338,0,0" VerticalAlignment="Top" Width="180" Click="AdminButton_Click" Height="80" FontWeight="Bold" FontSize="25"/>
-        <Button x:Name="ButtonAbout" Content="About" HorizontalAlignment="Left" Margin="44,548,0,0" VerticalAlignment="Top" Height="50" Width="120" FontWeight="Bold" Click="ButtonAbout_Click" FontSize="15"/>
-        <Button x:Name="ButtonContact" Content="Contact" HorizontalAlignment="Left" Margin="177,548,0,0" VerticalAlignment="Top" Height="50" Width="120" FontWeight="Bold" Click="ButtonContact_Click" RenderTransformOrigin="1.267,1.238" FontSize="15"/>
-        <Image Margin="178,438,703,79" Source="RES3-removebg-preview.png" Stretch="Fill"/>
-        <Image Margin="57,446,849,82" Source="D-removebg-preview.png" Stretch="Fill" RenderTransformOrigin="0.422,0.874"/>
+        <Button x:Name="LoginButton" Content="Log in" HorizontalAlignment="Left" Margin="751,96,0,0" VerticalAlignment="Top" Width="180" Click="LoginButton_Click" Height="107" FontWeight="Bold" FontSize="25"/>
+        <Button x:Name="UserButton" Content="Passenger" HorizontalAlignment="Left" Margin="751,244,0,0" VerticalAlignment="Top" Width="180" Click="UserButton_Click" Height="107" FontWeight="Bold" FontSize="25"/>
+        <Button x:Name="AdminButton" Content="Employee" HorizontalAlignment="Left" Margin="751,387,0,0" VerticalAlignment="Top" Width="180" Click="AdminButton_Click" Height="107" FontWeight="Bold" FontSize="25"/>
+        <Button x:Name="ButtonAbout" Content="About" HorizontalAlignment="Left" Margin="56,530,0,0" VerticalAlignment="Top" Height="50" Width="120" FontWeight="Bold" Click="ButtonAbout_Click" FontSize="15"/>
+        <Button x:Name="ButtonContact" Content="Contact" HorizontalAlignment="Left" Margin="189,530,0,0" VerticalAlignment="Top" Height="50" Width="120" FontWeight="Bold" Click="ButtonContact_Click" RenderTransformOrigin="1.267,1.238" FontSize="15"/>
+        <Image Margin="190,420,691,97" Source="RES3-removebg-preview.png" Stretch="Fill"/>
+        <Image Margin="69,428,837,100" Source="D-removebg-preview.png" Stretch="Fill" RenderTransformOrigin="0.422,0.874"/>
     </Grid>
 
 

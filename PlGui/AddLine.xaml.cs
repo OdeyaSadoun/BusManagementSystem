@@ -26,7 +26,8 @@ namespace PlGui
         public AddLine()
         {
             InitializeComponent();
-            areaComboBox.ItemsSource = areaList;
+            areaComboBox.ItemsSource = Enum.GetValues(typeof(BO.Area));
+
             areaComboBox.DisplayMemberPath = "Area";
             areaComboBox.SelectedIndex = 0;
         }
@@ -52,6 +53,10 @@ namespace PlGui
 
             }
             catch (BO.IncorrectInputException ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }

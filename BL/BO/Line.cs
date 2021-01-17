@@ -43,12 +43,7 @@ namespace BO
         public IEnumerable<StationInLine> ListOfStationsInLine { get; set; }
         #endregion
 
-        #region ListOfTripTime
-        /// <summary>
-        /// the list of all the 
-        /// </summary>
-        public IEnumerable<StationInLine> ListOfTripTime { get; set; }
-        #endregion
+
 
 
     }

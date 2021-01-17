@@ -26,6 +26,7 @@ namespace PlGui
     /// </summary>
     public partial class AdminWindow : Window
     {
+        IBL bl = BLFactory.GetBL("2");
         public AdminWindow()
         {
             InitializeComponent();
@@ -97,7 +98,7 @@ namespace PlGui
                     }
                     else
                         u1.UserProfile = Profile.Youth;
-                    //bl.add(BO.u1);
+                    bl.AddUser(u1);
                     //string address = textBoxAddress.Text;                
                     errormessage.Text = "You have Registered successfully.";
                     ResetDetails();

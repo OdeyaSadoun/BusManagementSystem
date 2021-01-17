@@ -6,11 +6,13 @@
         xmlns:local="clr-namespace:PlGui"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="ContactWindow" Height="450" Width="800">
+        Title="ContactWindow" Height="400" Width="600">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <TextBox HorizontalAlignment="Left" Height="230" Margin="206,129,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="342"/>
+        <TextBox HorizontalAlignment="Left" Height="217" Margin="93,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="408" Background="#99FFFFFF"/>
+        <Button Content="Send" HorizontalAlignment="Left" Margin="224,312,0,0" VerticalAlignment="Top" Width="163" Click="Button_Click" Height="36"/>
+        <Label Content="we'll be glad to hear from you..." HorizontalAlignment="Left" Margin="93,39,0,0" VerticalAlignment="Top" Width="244" Foreground="White" FontWeight="Bold"/>
     </Grid>
 </Window>

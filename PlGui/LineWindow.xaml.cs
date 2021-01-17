@@ -54,6 +54,10 @@ namespace PlGui
             {
                 MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         #endregion
 
@@ -73,6 +77,10 @@ namespace PlGui
                 listViewLine.ItemsSource = bl.GetAllLines().ToList(); //reftesh
             }
             catch(BO.IncorrectLineIDException ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -127,6 +135,10 @@ namespace PlGui
             {
                 MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         #endregion
 
@@ -148,6 +160,7 @@ namespace PlGui
         {
             AddLine window = new AddLine();
             window.ShowDialog();
+            listViewLine.ItemsSource = bl.GetAllLines().ToList();
         }
         #endregion
 
