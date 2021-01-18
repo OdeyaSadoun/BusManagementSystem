@@ -571,6 +571,17 @@ namespace BL
                 //BO.Station statBO = stationDoBoAdapter(statDO);
                 //if (statBO.ListOfLines.Count() != 0)//if there are lines that stop in the station
                 //    throw new BO.IncorrectCodeStationException(station.Code, "Station cant be deleted because other buses stop there");
+                ////נעבור על רשימת הקווים, בכל קו נבדוק האם התחנה היתה קיימת, ופשוט נמחק אותה, (ןנעדכן את הזמן והמרחק לתחנה הבאה)
+                List<BO.Line> listLines = GetAllLines().ToList();
+                foreach (BO.Line l in listLines)
+                {
+                    foreach (BO.StationInLine sl in l.ListOfStationsInLine)
+                    {
+                        if (sl.StationCode == station.Code)
+                            DeleteStationInLine(sl);
+                    }
+                    //DO.Station statDO = dl.GetStation(station.Code);
+                }
                 List<DO.AdjacentStations> listAdj = dl.GetAllAdjacentStations().ToList();
                 int i = 0;
                 DO.AdjacentStations tempAdj = listAdj[i];
@@ -583,6 +594,7 @@ namespace BL
                     tempAdj = listAdj[i];
                 }
                 //לראות מה הולך עם הזמנים
+                bool isDeleteAdj = false;
                 for(int j = i; j < listAdj.Count(); j ++)
                 {
                     if (listAdj[j].CodeStation1 == station.Code)//התחנה הראשונה בזוג תחנות עוקבות היא התחנה שנמחקה
@@ -593,25 +605,19 @@ namespace BL
                         adjToAdd.Distance = tempAdj.Distance + listAdj[j].Distance;
                         adjToAdd.TravelTime = tempAdj.TravelTime + listAdj[j].TravelTime;
                         dl.AddAdjacentStations(adjToAdd);
-
+                        isDeleteAdj = true;
 
                     }
-                     tempAdj = listAdj[j];
+                    if(!isDeleteAdj)
+                        tempAdj = listAdj[j];
+                    else
+                        tempAdj = listAdj[j-1];
+
                     //else if (listAdj[i].CodeStation2 == statBO.Code)
                     //{
                     //}
                 }
-                ////נעבור על רשימת הקווים, בכל קו נבדוק האם התחנה היתה קיימת, ופשוט נמחק אותה, (ןנעדכן את הזמן והמרחק לתחנה הבאה)
-                //List<BO.Line> listLines = GetAllLines().ToList();
-                //foreach( BO.Line l in listLines)
-                //{
-                //    foreach(BO.StationInLine sl in l.ListOfStationsInLine)
-                //    {
-                //        if (sl.StationCode == station.Code)
-                //            DeleteStationInLine(sl);
-                //    }
-                ////DO.Station statDO = dl.GetStation(station.Code);
-                //}
+  
                 dl.DeleteStation(station.Code);
                 //foreach (DO.AdjacentStations s in listAdj)//delete from adjacent Station list
                 //{
