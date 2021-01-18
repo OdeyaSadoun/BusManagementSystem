@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace PlGui
 {
     /// <summary>
-    /// Interaction logic for BusShow.xaml
+    /// Interaction logic for BusShow.xam
     /// </summary>
     public partial class BusShow : Window
     {
