@@ -568,11 +568,9 @@ namespace BL
         {
             try
             {
-                DO.Station statDO = dl.GetStation(station.Code);
-                BO.Station statBO = stationDoBoAdapter(statDO);
+                //BO.Station statBO = stationDoBoAdapter(statDO);
                 //if (statBO.ListOfLines.Count() != 0)//if there are lines that stop in the station
                 //    throw new BO.IncorrectCodeStationException(station.Code, "Station cant be deleted because other buses stop there");
-                dl.DeleteStation(station.Code);
                 List<DO.AdjacentStations> listAdj = dl.GetAllAdjacentStations().ToList();
                 int i = 0;
                 DO.AdjacentStations tempAdj = listAdj[i];
@@ -596,23 +594,25 @@ namespace BL
                         adjToAdd.TravelTime = tempAdj.TravelTime + listAdj[j].TravelTime;
                         dl.AddAdjacentStations(adjToAdd);
 
-                        tempAdj = listAdj[j];
 
                     }
+                     tempAdj = listAdj[j];
                     //else if (listAdj[i].CodeStation2 == statBO.Code)
                     //{
                     //}
                 }
-                //נעבור על רשימת הקווים, בכל קו נבדוק האם התחנה היתה קיימת, ופשוט נמחק אותה, (ןנעדכן את הזמן והמרחק לתחנה הבאה)
-                List<BO.Line> listLines = GetAllLines().ToList();
-                foreach( BO.Line l in listLines)
-                {
-                    foreach(BO.StationInLine sl in l.ListOfStationsInLine)
-                    {
-                        if (sl.StationCode == station.Code)
-                            DeleteStationInLine(sl);
-                    }
-                }
+                ////נעבור על רשימת הקווים, בכל קו נבדוק האם התחנה היתה קיימת, ופשוט נמחק אותה, (ןנעדכן את הזמן והמרחק לתחנה הבאה)
+                //List<BO.Line> listLines = GetAllLines().ToList();
+                //foreach( BO.Line l in listLines)
+                //{
+                //    foreach(BO.StationInLine sl in l.ListOfStationsInLine)
+                //    {
+                //        if (sl.StationCode == station.Code)
+                //            DeleteStationInLine(sl);
+                //    }
+                ////DO.Station statDO = dl.GetStation(station.Code);
+                //}
+                dl.DeleteStation(station.Code);
                 //foreach (DO.AdjacentStations s in listAdj)//delete from adjacent Station list
                 //{
 

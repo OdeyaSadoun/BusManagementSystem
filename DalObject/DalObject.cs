@@ -949,7 +949,7 @@ namespace DalObject
         /// <param name="stationCode2"></param>
         public void DeleteAdjacentStations(int stationCode1, int stationCode2)
         {
-            DO.AdjacentStations a = DataSource.ListAdjacentStations.Find(p => (p.CodeStation1 == stationCode1) && (p.CodeStation2 == stationCode1) && !p.IsDeleted);
+            DO.AdjacentStations a = DataSource.ListAdjacentStations.Find(p => (p.CodeStation1 == stationCode1) && (p.CodeStation2 == stationCode2) && !p.IsDeleted);
 
             if (a != null)
             {
