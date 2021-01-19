@@ -29,19 +29,19 @@ namespace DO
         public TimeSpan StartAt { get; set; }
         #endregion
 
-        #region Frequency
-        /// <summary>
-        /// The frequency of this travel line
-        /// </summary>
-        public TimeSpan Frequency { get; set; }
-        #endregion
+        //#region Frequency
+        ///// <summary>
+        ///// The frequency of this travel line
+        ///// </summary>
+        //public TimeSpan Frequency { get; set; }
+        //#endregion
 
-        #region FinishAt
-        /// <summary>
-        /// The time of the end of this travel line
-        /// </summary>
-        public TimeSpan FinishAt { get; set; }
-        #endregion
+        //#region FinishAt
+        ///// <summary>
+        ///// The time of the end of this travel line
+        ///// </summary>
+        //public TimeSpan FinishAt { get; set; }
+        //#endregion
 
         #region IsDeleted
         /// <summary>

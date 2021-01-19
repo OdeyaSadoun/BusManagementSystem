@@ -43,8 +43,11 @@ namespace BO
         public IEnumerable<StationInLine> ListOfStationsInLine { get; set; }
         #endregion
 
-
-
-
+        #region ListOfLinesTrip
+        /// <summary>
+        /// the list of all the stations in line in this bus on trip
+        /// </summary>
+        public IEnumerable<LineTrip> ListOfLinesTrip { get; set; }
+        #endregion
     }
 }

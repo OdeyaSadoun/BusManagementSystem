@@ -238,6 +238,8 @@ namespace BL
             lineBO = lineDO.CopyToLineDOToBO();
             lineBO.ListOfStationsInLine = stations;
             lineBO.TravelTimeInThisLine = count;
+
+
             //BO.Station sBO;
             //DO.Station sDO = dl.GetStation(lineDO.FirstStation);
             //lineBO.FirstStation = stationDoBoAdapter(sDO);
