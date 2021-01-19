@@ -41,7 +41,7 @@ namespace BO
         /// <summary>
         /// the list of all the 
         /// </summary>
-        public IEnumerable<TimeSpan> ListOfTripTime { get; set; }
+        public IEnumerable<LineTrip> ListOfTripTime { get; set; }
         #endregion
 
         //    #region ToString
