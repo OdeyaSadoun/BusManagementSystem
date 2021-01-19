@@ -796,42 +796,42 @@ namespace BL
 
         #region Trip
 
-        #region tripDoBoAdapter
-        /// <summary>
-        /// A function that copy details from DO to BO
-        /// </summary>
-        /// <param name="tripDO"></param>
-        /// <returns></returns>
-        BO.Trip tripDoBoAdapter(DO.Trip tripDO)
-        {
-            BO.Trip tripBO = new BO.Trip();
-            tripDO.CopyPropertiesTo(tripBO);
-            return tripBO;
-        }
-        #endregion
+        //#region tripDoBoAdapter
+        ///// <summary>
+        ///// A function that copy details from DO to BO
+        ///// </summary>
+        ///// <param name="tripDO"></param>
+        ///// <returns></returns>
+        //BO.Trip tripDoBoAdapter(DO.Trip tripDO)
+        //{
+        //    BO.Trip tripBO = new BO.Trip();
+        //    tripDO.CopyPropertiesTo(tripBO);
+        //    return tripBO;
+        //}
+        //#endregion
 
-        #region GetTrip
-        /// <summary>
-        /// A function that return trip
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public BO.Trip GetTrip(int id)
-        {
-            DO.Trip tripDO;
-            try
-            {
-                tripDO = dl.GetTrip(id);
-            }
+        //#region GetTrip
+        ///// <summary>
+        ///// A function that return trip
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //public BO.Trip GetTrip(int id)
+        //{
+        //    DO.Trip tripDO;
+        //    try
+        //    {
+        //        tripDO = dl.GetTrip(id);
+        //    }
 
-            catch (DO.IncorrectTripIDException ex)
-            {
-                throw new BO.IncorrectTripIDException(ex.ID, ex.Message);
-            }
+        //    catch (DO.IncorrectTripIDException ex)
+        //    {
+        //        throw new BO.IncorrectTripIDException(ex.ID, ex.Message);
+        //    }
 
-            return tripDoBoAdapter(tripDO);
-        }
-        #endregion
+        //    return tripDoBoAdapter(tripDO);
+        //}
+        //#endregion
         //#region GetAllTrips
         ///// <summary>
         ///// A function that return all the trips
@@ -925,7 +925,7 @@ namespace BL
         //        throw new Exception();
         //}
         //#endregion
-        #endregion
+        //#endregion
 
         #region BusOnTrip
 
@@ -1276,9 +1276,6 @@ namespace BL
         //        throw new BO.BadAdjacentStationsException(ex.stationCode1, ex.stationCode2);
         //    }
         //}
-        //#endregion
+        #endregion
     }
 }
-
-
-

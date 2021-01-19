@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using DS;
+using System.IO;
 
 namespace DL
 {
@@ -22,28 +24,38 @@ namespace DL
             if (!File.Exists(BusFilePath))
                 DL.XMLTools.SaveListToXMLSerializer<DO.Bus>(DS.DataSource.ListBuses, BusFilePath);
 
-            if (!File.Exists(courseFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.Course>(DS.DataSource.courseList, courseFilePath);
+            if (!File.Exists(UserFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.User>(DS.DataSource.ListUsers, UserFilePath);
 
-            if (!File.Exists(studentInCourseFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.StudentInCourse>(DS.DataSource.studentInCourseList, studentInCourseFilePath);
+            if (!File.Exists(LineStationFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.LineStation>(DS.DataSource.ListLineStations, LineStationFilePath);
+
+            if (!File.Exists(LineFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.Line>(DS.DataSource.ListLines, LineFilePath);
+
+            if (!File.Exists(StationFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.Station>(DS.DataSource.ListStations, StationFilePath);
+
+            if (!File.Exists(AdjacentFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.AdjacentStations>(DS.DataSource.ListAdjacentStations, AdjacentFilePath);
+
+            if (!File.Exists(LinesTripFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.LineTrip>(DS.DataSource.ListLinesTrip, LinesTripFilePath);
         }
         public static DLXML Instance { get => instance; }// The public Instance property to use
         #endregion
 
 
         #region DS XML Files
+     
+        string BusFilePath = @"BusXml.xml"; //XMLSerializer
+        string UserFilePath = @"UserXml.xml"; //XMLSerializer
+        string LineStationFilePath = @"LineStationXml.xml"; //XMLSerializer
+        string LineFilePath = @"LineXml.xml"; //XMLSerializer
+        string StationFilePath = @"StationXml.xml"; //XMLSerializer
+        string AdjacentFilePath = @"AdjacentXml.xml"; //XMLSerializer
+        string LinesTripFilePath = @"LinesTripXml.xml"; //XMLSerializer
 
-        string personsPath = @"PersonsXml.xml"; //XElement
-        string BusPath = @"StudentsXml.xml"; //XMLSerializer
-        string coursesPath = @"CoursesXml.xml"; //XMLSerializer
-        string lecturersPath = @"LecturersXml.xml"; //XMLSerializer
-        string lectInCoursesPath = @"LecturerInCourseXml.xml"; //XMLSerializer
-        string studInCoursesPath = @"StudentInCoureseXml.xml"; //XMLSerializer
-
-
-        //#endregion
-        //Implement IDL methods, CRUD
         #region Bus
         #region GetBus
         /// <summary>
@@ -53,7 +65,7 @@ namespace DL
         /// <returns></returns>
         public DO.Bus GetBus(int id)
         {
-            List<DO.Bus> ListBuses = XMLTools.LoadListFromXMLSerializer<DO.Bus>(BusPath);
+            List<DO.Bus> ListBuses = XMLTools.LoadListFromXMLSerializer<DO.Bus>(BusFilePath);
             DO.Bus b = ListBuses.Find(p => ((p.LicenseNumber == id) && (p.IsDeleted == false)));
             if (b != null)
                 return b;
@@ -69,7 +81,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.Bus> GetAllBuses()//פונקצית הרחבה
         {
-            List<DO.Bus> ListBuses = XMLTools.LoadListFromXMLSerializer<DO.Bus>(BusPath);
+            List<DO.Bus> ListBuses = XMLTools.LoadListFromXMLSerializer<DO.Bus>(BusFilePath);
             return from bus in ListBuses
                    where bus.IsDeleted == false
                    select bus;
@@ -84,7 +96,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.Bus> GetAllBusesBy(Predicate<DO.Bus> predicate)
         {
-            List<DO.Bus> ListBuses = XMLTools.LoadListFromXMLSerializer<DO.Bus>(BusPath);
+            List<DO.Bus> ListBuses = XMLTools.LoadListFromXMLSerializer<DO.Bus>(BusFilePath);
             return from bus in ListBuses
                    where predicate(bus)
                    select bus;
@@ -98,12 +110,12 @@ namespace DL
         /// <param name="bus"></param>
         public void AddBus(DO.Bus bus)
         {
-            List<DO.Bus> ListBuses = XMLTools.LoadListFromXMLSerializer<DO.Bus>(BusPath);
+            List<DO.Bus> ListBuses = XMLTools.LoadListFromXMLSerializer<DO.Bus>(BusFilePath);
             if (ListBuses.FirstOrDefault(p => p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted) != null)
                 throw new DO.IncorrectLicenseNumberException(bus.LicenseNumber, $"The bus {bus.LicenseNumber} is exsit in the system, could not add it again");           
             ListBuses.Add(bus); //no need to Clone()
 
-            XMLTools.SaveListToXMLSerializer(ListBuses, BusPath);
+            XMLTools.SaveListToXMLSerializer(ListBuses, BusFilePath);
         }
         #endregion
 
@@ -114,7 +126,7 @@ namespace DL
         /// <param name="id"></param>
         public void DeleteBus(int id)
         {
-            List<DO.Bus> ListBuses = XMLTools.LoadListFromXMLSerializer<DO.Bus>(BusPath);
+            List<DO.Bus> ListBuses = XMLTools.LoadListFromXMLSerializer<DO.Bus>(BusFilePath);
             DO.Bus b = ListBuses.Find(p => p.LicenseNumber == id && !p.IsDeleted);
             if (b != null)
             {
@@ -122,7 +134,7 @@ namespace DL
             }
             else
                 throw new DO.IncorrectLicenseNumberException(id, $"Incorrect license number: {id}. could not found this bus, try enter again");
-            XMLTools.SaveListToXMLSerializer(ListBuses, BusPath);
+            XMLTools.SaveListToXMLSerializer(ListBuses, BusFilePath);
         }
         #endregion
 
@@ -134,7 +146,7 @@ namespace DL
 
         public void UpdateBus(DO.Bus bus)
         {
-            List<DO.Bus> ListBuses = XMLTools.LoadListFromXMLSerializer<DO.Bus>(BusPath);
+            List<DO.Bus> ListBuses = XMLTools.LoadListFromXMLSerializer<DO.Bus>(BusFilePath);
             DO.Bus b = ListBuses.Find(p => p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted);
 
             if (b != null)
@@ -144,7 +156,7 @@ namespace DL
             }
             else
                 throw new DO.IncorrectLicenseNumberException(bus.LicenseNumber, $"The bus {bus.LicenseNumber} is not exsit in the system, could not update it");
-            XMLTools.SaveListToXMLSerializer(ListBuses, BusPath);
+            XMLTools.SaveListToXMLSerializer(ListBuses, BusFilePath);
         }
         #endregion
 
@@ -156,142 +168,142 @@ namespace DL
         /// <param name="update"></param>
         public void UpdateBus(int licenseNumber, Action<DO.Bus> update)
         {
-            List<DO.Bus> ListBuses = XMLTools.LoadListFromXMLSerializer<DO.Bus>(BusPath);
+            List<DO.Bus> ListBuses = XMLTools.LoadListFromXMLSerializer<DO.Bus>(BusFilePath);
             DO.Bus b = ListBuses.Find(p => p.LicenseNumber == licenseNumber && p.IsDeleted == false);
             if (b == null)
                 throw new DO.IncorrectLicenseNumberException(licenseNumber, $"The bus {licenseNumber} is not exsit in the system, could not update it");
             update(b);
-            XMLTools.SaveListToXMLSerializer(ListBuses, BusPath);
+            XMLTools.SaveListToXMLSerializer(ListBuses, BusFilePath);
         }
         #endregion
         #endregion
 
         #region BusOnTrip
 
-        #region GetBusOnTrip
-        /// <summary>
-        ///  A function that return a bus on trip
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="licenseNumber"></param>
-        /// <returns></returns>
-        public DO.BusOnTrip GetBusOnTrip(int id, int licenseNumber)
-        {
-            List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
-            DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && !p.IsDeleted);
+        //#region GetBusOnTrip
+        ///// <summary>
+        /////  A function that return a bus on trip
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="licenseNumber"></param>
+        ///// <returns></returns>
+        //public DO.BusOnTrip GetBusOnTrip(int id, int licenseNumber)
+        //{
+        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
+        //    DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && !p.IsDeleted);
 
-            if (b != null)
-                return b;
-            else
-                throw new DO.IncorrectInputException($"Incorrect license number: {licenseNumber} OR trip id: {id}. could not found this bus on trip, try enter again");
-        }
-        #endregion
+        //    if (b != null)
+        //        return b;
+        //    else
+        //        throw new DO.IncorrectInputException($"Incorrect license number: {licenseNumber} OR trip id: {id}. could not found this bus on trip, try enter again");
+        //}
+        //#endregion
 
-        #region GetAllBusesOnTrip
-        /// <summary>
-        /// A function that return all the buses on trip
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<DO.BusOnTrip> GetAllBusesOnTrip()
-        {
-            List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
-            return from bus in ListBusesOnTrip
-                   where bus.IsDeleted == false
-                   select bus;
-        }
-        #endregion
+        //#region GetAllBusesOnTrip
+        ///// <summary>
+        ///// A function that return all the buses on trip
+        ///// </summary>
+        ///// <returns></returns>
+        //public IEnumerable<DO.BusOnTrip> GetAllBusesOnTrip()
+        //{
+        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
+        //    return from bus in ListBusesOnTrip
+        //           where bus.IsDeleted == false
+        //           select bus;
+        //}
+        //#endregion
 
-        #region GetAllBusesOnTripBy
-        /// <summary>
-        ///  A function that returns the buses on trip that have the special thing that the predicat do
-        /// </summary>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
-        public IEnumerable<DO.BusOnTrip> GetAllBusesOnTripBy(Predicate<DO.BusOnTrip> predicate)
-        {
-            List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
-            return from bus in ListBusesOnTrip
-                   where predicate(bus)
-                   select bus;
-        }
-        #endregion
+        //#region GetAllBusesOnTripBy
+        ///// <summary>
+        /////  A function that returns the buses on trip that have the special thing that the predicat do
+        ///// </summary>
+        ///// <param name="predicate"></param>
+        ///// <returns></returns>
+        //public IEnumerable<DO.BusOnTrip> GetAllBusesOnTripBy(Predicate<DO.BusOnTrip> predicate)
+        //{
+        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
+        //    return from bus in ListBusesOnTrip
+        //           where predicate(bus)
+        //           select bus;
+        //}
+        //#endregion
 
-        #region AddBusOnTrip
-        /// <summary>
-        /// A function that add a bus on trip to the list
-        /// </summary>
-        /// <param name="bus"></param>
-        public void AddBusOnTrip(DO.BusOnTrip bus)
-        {
-            List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
-            if (ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted) != null)
-                throw new IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is exsit in the system, could not add it again");
-            bus.Id = DO.Configuration.BusOnTripID++;//המספר הרץ
-            ListBusesOnTrip.Add(bus);
-            XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
-        }
-        #endregion
+        //#region AddBusOnTrip
+        ///// <summary>
+        ///// A function that add a bus on trip to the list
+        ///// </summary>
+        ///// <param name="bus"></param>
+        //public void AddBusOnTrip(DO.BusOnTrip bus)
+        //{
+        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
+        //    if (ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted) != null)
+        //        throw new IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is exsit in the system, could not add it again");
+        //    bus.Id = DO.Configuration.BusOnTripID++;//המספר הרץ
+        //    ListBusesOnTrip.Add(bus);
+        //    XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
+        //}
+        //#endregion
 
-        #region UpdateBusOnTrip
-        /// <summary>
-        /// A function that update the bus on trip
-        /// </summary>
-        /// <param name="bus"></param>
-        public void UpdateBusOnTrip(DO.BusOnTrip bus)
-        {
-            List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
-            DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted);
-            if (b != null)
-            {
-                ListBusesOnTrip.Remove(b);
-                ListBusesOnTrip.Add(bus);
-            }
-            else
-                throw new DO.IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is not exsit in the system, could not update it");
-            XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
-        }
-        #endregion UpdateBusOnTrip
+        //#region UpdateBusOnTrip
+        ///// <summary>
+        ///// A function that update the bus on trip
+        ///// </summary>
+        ///// <param name="bus"></param>
+        //public void UpdateBusOnTrip(DO.BusOnTrip bus)
+        //{
+        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
+        //    DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted);
+        //    if (b != null)
+        //    {
+        //        ListBusesOnTrip.Remove(b);
+        //        ListBusesOnTrip.Add(bus);
+        //    }
+        //    else
+        //        throw new DO.IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is not exsit in the system, could not update it");
+        //    XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
+        //}
+        //#endregion UpdateBusOnTrip
 
-        #region UpdateBusOnTrip
+        //#region UpdateBusOnTrip
 
-        /// <summary>
-        /// method that knows to updt specific fields in BusOnTrip
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="update"></param>
-        public void UpdateBusOnTrip(int id, int licenseNumber, Action<DO.BusOnTrip> update)
-        {
-            List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
-            DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted == false);
-            if (b == null)
-                throw new DO.IncorrectInputException($"The bus on trip {licenseNumber} with the line ID:{id} is not exsit in the system, could not update it"); ;
-            update(b);
-            XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
-        }
-        #endregion
+        ///// <summary>
+        ///// method that knows to updt specific fields in BusOnTrip
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="update"></param>
+        //public void UpdateBusOnTrip(int id, int licenseNumber, Action<DO.BusOnTrip> update)
+        //{
+        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
+        //    DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted == false);
+        //    if (b == null)
+        //        throw new DO.IncorrectInputException($"The bus on trip {licenseNumber} with the line ID:{id} is not exsit in the system, could not update it"); ;
+        //    update(b);
+        //    XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
+        //}
+        //#endregion
 
-        #region DeleteBusOnTrip
-        /// <summary>
-        /// A function that delete bus on trip (mark the flag IsDeleted = true) 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="licenseNumber"></param>
-        public void DeleteBusOnTrip(int id, int licenseNumber)
-        {
-            List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
-            DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && !p.IsDeleted);
+        //#region DeleteBusOnTrip
+        ///// <summary>
+        ///// A function that delete bus on trip (mark the flag IsDeleted = true) 
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="licenseNumber"></param>
+        //public void DeleteBusOnTrip(int id, int licenseNumber)
+        //{
+        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
+        //    DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && !p.IsDeleted);
 
 
-            if (b != null)
-            {
-                //DataSource.ListBusesOnTrip.Remove(b);
-                b.IsDeleted = true;
-            }
-            else
-                throw new DO.IncorrectInputException($"Incorrect license number: {licenseNumber} OR line ID: {id} could not found this bus, try enter again");
-            XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
-        }
-        #endregion
+        //    if (b != null)
+        //    {
+        //        //DataSource.ListBusesOnTrip.Remove(b);
+        //        b.IsDeleted = true;
+        //    }
+        //    else
+        //        throw new DO.IncorrectInputException($"Incorrect license number: {licenseNumber} OR line ID: {id} could not found this bus, try enter again");
+        //    XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
+        //}
+        //#endregion
         #endregion
 
         #region LineTrip
@@ -302,7 +314,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.LineTrip> GetAllLinesTrip()
         {
-            List<DO.LineTrip> ListLinesTrip = XMLTools.LoadListFromXMLSerializer<DO.LineTrip>(LineTripPath);
+            List<DO.LineTrip> ListLinesTrip = XMLTools.LoadListFromXMLSerializer<DO.LineTrip>(LinesTripFilePath);
             return from lt in ListLinesTrip
                    where lt.IsDeleted == false
                    select lt;
@@ -317,7 +329,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.LineTrip> GetAllLinesTripBy(Predicate<DO.LineTrip> predicate)
         {
-            List<DO.LineTrip> ListLinesTrip = XMLTools.LoadListFromXMLSerializer<DO.LineTrip>(LineTripPath);
+            List<DO.LineTrip> ListLinesTrip = XMLTools.LoadListFromXMLSerializer<DO.LineTrip>(LinesTripFilePath);
             return from trip in ListLinesTrip
                    where predicate(trip)
                    select trip;
@@ -333,7 +345,7 @@ namespace DL
         /// <returns></returns>
         public DO.LineTrip GetLineTrip(int id, int lineId)
         {
-            List<DO.LineTrip> ListLinesTrip = XMLTools.LoadListFromXMLSerializer<DO.LineTrip>(LineTripPath);
+            List<DO.LineTrip> ListLinesTrip = XMLTools.LoadListFromXMLSerializer<DO.LineTrip>(LinesTripFilePath);
             DO.LineTrip lt = ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId && !p.IsDeleted);
 
             if (lt != null)
@@ -350,11 +362,11 @@ namespace DL
         /// <param name="lt"></param>
         public void AddLineTrip(DO.LineTrip lt)
         {
-            List<DO.LineTrip> ListLinesTrip = XMLTools.LoadListFromXMLSerializer<DO.LineTrip>(LineTripPath);
+            List<DO.LineTrip> ListLinesTrip = XMLTools.LoadListFromXMLSerializer<DO.LineTrip>(LinesTripFilePath);
             if (ListLinesTrip.FirstOrDefault(p => p.Id == lt.Id && p.LineId == lt.LineId && !p.IsDeleted) != null)
-                throw new IncorrectInputException($"The trip {lt.Id} with the line ID:{lt.LineId} is exsit in the system, could not add it again");
+                throw new DO.IncorrectInputException($"The trip {lt.Id} with the line ID:{lt.LineId} is exsit in the system, could not add it again");
             ListLinesTrip.Add(lt);
-            XMLTools.SaveListToXMLSerializer(ListLinesTrip, LineTripPath);
+            XMLTools.SaveListToXMLSerializer(ListLinesTrip, LinesTripFilePath);
         }
         #endregion
 
@@ -365,7 +377,7 @@ namespace DL
         /// <param name="bus"></param>
         public void UpdateLineTrip(DO.LineTrip lt)
         {
-            List<DO.LineTrip> ListLinesTrip = XMLTools.LoadListFromXMLSerializer<DO.LineTrip>(LineTripPath);
+            List<DO.LineTrip> ListLinesTrip = XMLTools.LoadListFromXMLSerializer<DO.LineTrip>(LinesTripFilePath);
             DO.LineTrip l = ListLinesTrip.Find(p => p.Id == lt.Id && p.LineId == lt.LineId && !p.IsDeleted);
 
             if (l != null)
@@ -375,7 +387,7 @@ namespace DL
             }
             else
                 throw new DO.IncorrectInputException($"The trip: {lt.Id} with the line ID: {lt.LineId} is not exsit in the system, could not update it");
-            XMLTools.SaveListToXMLSerializer(ListLinesTrip, LineTripPath);
+            XMLTools.SaveListToXMLSerializer(ListLinesTrip, LinesTripFilePath);
         }
         #endregion
 
@@ -388,12 +400,12 @@ namespace DL
         /// <param name="update"></param>
         public void UpdateLineTrip(int id, int lineId, Action<DO.LineTrip> update)
         {
-            List<DO.LineTrip> ListLinesTrip = XMLTools.LoadListFromXMLSerializer<DO.LineTrip>(LineTripPath);
+            List<DO.LineTrip> ListLinesTrip = XMLTools.LoadListFromXMLSerializer<DO.LineTrip>(LinesTripFilePath);
             DO.LineTrip l = ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId && p.IsDeleted == false);
             if (l == null)
                 throw new DO.IncorrectInputException($"The trip: {id} with the line ID: {lineId} is not exsit in the system, could not update it");
             update(l);
-            XMLTools.SaveListToXMLSerializer(ListLinesTrip, LineTripPath);
+            XMLTools.SaveListToXMLSerializer(ListLinesTrip, LinesTripFilePath);
         }
         #endregion
 
@@ -405,7 +417,7 @@ namespace DL
         /// <param name="lineId"></param>
         public void DeleteLineTrip(int id, int lineId)
         {
-            List<DO.LineTrip> ListLinesTrip = XMLTools.LoadListFromXMLSerializer<DO.LineTrip>(LineTripPath);
+            List<DO.LineTrip> ListLinesTrip = XMLTools.LoadListFromXMLSerializer<DO.LineTrip>(LinesTripFilePath);
             DO.LineTrip l = ListLinesTrip.Find(p => p.Id == id && p.LineId == lineId && !p.IsDeleted);
 
             if (l != null)
@@ -415,13 +427,12 @@ namespace DL
             }
             else
                 throw new DO.IncorrectInputException($"The trip: {id} with the line ID: {lineId} is not exsit in the system. could not be deleted, try enter again");
-            XMLTools.SaveListToXMLSerializer(ListLinesTrip, LineTripPath);
+            XMLTools.SaveListToXMLSerializer(ListLinesTrip, LinesTripFilePath);
         }
         #endregion
         #endregion
 
         #region Station
-
         #region GetAllStationes
         /// <summary>
         /// A function that return all the stations
@@ -429,7 +440,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.Station> GetAllStationes()
         {
-            List<DO.Station> ListStations = XMLTools.LoadListFromXMLSerializer<DO.Station>(StationPath);
+            List<DO.Station> ListStations = XMLTools.LoadListFromXMLSerializer<DO.Station>(StationFilePath);
             return from station in ListStations
                    where station.IsDeleted == false
                    select station;
@@ -444,7 +455,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.Station> GetAllStationesBy(Predicate<DO.Station> predicate)
         {
-            List<DO.Station> ListStations = XMLTools.LoadListFromXMLSerializer<DO.Station>(StationPath);
+            List<DO.Station> ListStations = XMLTools.LoadListFromXMLSerializer<DO.Station>(StationFilePath);
             return from station in ListStations
                    where predicate(station)
                    select station;
@@ -459,7 +470,7 @@ namespace DL
         /// <returns></returns>
         public DO.Station GetStation(int code)
         {
-            List<DO.Station> ListStations = XMLTools.LoadListFromXMLSerializer<DO.Station>(StationPath);
+            List<DO.Station> ListStations = XMLTools.LoadListFromXMLSerializer<DO.Station>(StationFilePath);
             DO.Station station = ListStations.Find(p => p.Code == code && !p.IsDeleted);
             if (station != null)
                 return station;
@@ -475,11 +486,12 @@ namespace DL
         /// <param name="station"></param>
         public void AddStation(DO.Station station)
         {
-            List<DO.Station> ListStations = XMLTools.LoadListFromXMLSerializer<DO.Station>(StationPath);
-            if (ListStations.FirstOrDefault(p => p.Code == station.Code && !p.IsDeleted);
-            throw new IncorrectCodeStationException(station.Code, $"The station  {station.Code}  is exsit in the system, could not add it again");
+            List<DO.Station> ListStations = XMLTools.LoadListFromXMLSerializer<DO.Station>(StationFilePath);
+            if (ListStations.FirstOrDefault(p => p.Code == station.Code && !p.IsDeleted) != null)
+                throw new DO.IncorrectCodeStationException(station.Code, $"The station  {station.Code}  is exsit in the system, could not add it again");
             ListStations.Add(station);
-            XMLTools.SaveListToXMLSerializer(ListStations, StationPath);
+            XMLTools.SaveListToXMLSerializer(ListStations, StationFilePath);
+
         }
         #endregion
 
@@ -490,7 +502,7 @@ namespace DL
         /// <param name="station"></param>
         public void UpdateStation(DO.Station station)
         {
-            List<DO.Station> ListStations = XMLTools.LoadListFromXMLSerializer<DO.Station>(StationPath);
+            List<DO.Station> ListStations = XMLTools.LoadListFromXMLSerializer<DO.Station>(StationFilePath);
             DO.Station s = ListStations.Find(p => p.Code == station.Code && !p.IsDeleted);
             if (s != null)
             {
@@ -499,7 +511,7 @@ namespace DL
             }
             else
                 throw new DO.IncorrectCodeStationException(station.Code, $"The station  {station.Code}  is not exsit in the system, could not update it");
-            XMLTools.SaveListToXMLSerializer(ListStations, StationPath);
+            XMLTools.SaveListToXMLSerializer(ListStations, StationFilePath);
         }
         #endregion
 
@@ -511,23 +523,23 @@ namespace DL
         /// <param name="update"></param>
         public void UpdateStation(int id, Action<DO.Station> update)
         {
-            List<DO.Station> ListStations = XMLTools.LoadListFromXMLSerializer<DO.Station>(StationPath);
+            List<DO.Station> ListStations = XMLTools.LoadListFromXMLSerializer<DO.Station>(StationFilePath);
             DO.Station station = ListStations.Find(p => p.Code == id && p.IsDeleted == false);
             if (station == null)
                 throw new DO.IncorrectCodeStationException(id, $"The station {id}  is not exsit in the system, could not update it");
             update(station);
-            XMLTools.SaveListToXMLSerializer(ListStations, StationPath);
+            XMLTools.SaveListToXMLSerializer(ListStations, StationFilePath);
         }
         #endregion
 
         #region DeleteStation
-        /// <summary>
-        /// A function that delete station (mark the flag IsDeleted = true) 
-        /// </summary>
-        /// <param name="code"></param>
+            /// <summary>
+            /// A function that delete station (mark the flag IsDeleted = true) 
+            /// </summary>
+            /// <param name="code"></param>
         public void DeleteStation(int code)
         {
-            List<DO.Station> ListStations = XMLTools.LoadListFromXMLSerializer<DO.Station>(StationPath);
+            List<DO.Station> ListStations = XMLTools.LoadListFromXMLSerializer<DO.Station>(StationFilePath);
             DO.Station s = ListStations.Find(p => p.Code == code && !p.IsDeleted);
             if (s != null)
             {
@@ -536,7 +548,7 @@ namespace DL
             }
             else
                 throw new DO.IncorrectCodeStationException(code, $"Incorrect station code: {code}. could not found this station, try enter again");
-            XMLTools.SaveListToXMLSerializer(ListStations, StationPath);
+            XMLTools.SaveListToXMLSerializer(ListStations, StationFilePath);
         }
         #endregion
         #endregion
@@ -549,7 +561,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.Line> GetAllLines()
         {
-            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LinePath);
+            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LineFilePath);
             return from line in ListLines
                    where line.IsDeleted == false
                    select line;
@@ -565,7 +577,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.Line> GetAllLinesBy(Predicate<DO.Line> predicate)
         {
-            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LinePath);
+            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LineFilePath);
             return from line in ListLines
                    where predicate(line)
                    select line;
@@ -581,7 +593,7 @@ namespace DL
         /// <returns></returns>
         public DO.Line GetLine(int id)
         {
-            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LinePath);
+            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LineFilePath);
             DO.Line l = ListLines.Find(p => p.Id == id && !p.IsDeleted);
             if (l != null)
                 return l;
@@ -598,7 +610,7 @@ namespace DL
         /// <returns></returns>
         public DO.Line GetLineNumber(int num)
         {
-            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LineNumberPath);
+            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LineFilePath);
             DO.Line l = ListLines.Find(p => p.LineNumber == num && !p.IsDeleted);
             if (l != null)
                 return l;
@@ -614,12 +626,12 @@ namespace DL
         /// <param name="line"></param>
         public void AddLine(DO.Line line)
         {
-            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LinePath);
+            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LineFilePath);
             if (ListLines.FirstOrDefault(p => p.Id == line.Id && p.IsDeleted) != null)
-                throw new IncorrectLineIDException(line.Id, $"The line  {line.Id}  is exsit in the system, could not add it again");
+                throw new DO.IncorrectLineIDException(line.Id, $"The line  {line.Id}  is exsit in the system, could not add it again");
             line.Id = DO.Configuration.LineID++; //המספר הרץ
             ListLines.Add(line);
-            XMLTools.SaveListToXMLSerializer(ListLines, LinePath);
+            XMLTools.SaveListToXMLSerializer(ListLines, LineFilePath);
         }
         #endregion
 
@@ -630,7 +642,7 @@ namespace DL
         /// <param name="line"></param>
         public void UpdateLine(DO.Line line)
         {
-            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LinePath);
+            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LineFilePath);
             DO.Line l = ListLines.Find(p => p.Id == line.Id && !p.IsDeleted);
             if (l != null)
             {
@@ -640,7 +652,7 @@ namespace DL
             else
                 throw new DO.IncorrectLineIDException(line.Id, $"The line  {line.Id}  is not exsit in the system, could not update it");
             ListLines.Add(line);
-            XMLTools.SaveListToXMLSerializer(ListLines, LinePath);
+            XMLTools.SaveListToXMLSerializer(ListLines, LineFilePath);
         }
         #endregion
 
@@ -652,12 +664,12 @@ namespace DL
         /// <param name="update"></param>
         public void UpdateLine(int id, Action<DO.Line> update)
         {
-            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LinePath);
+            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LineFilePath);
             DO.Line line = ListLines.Find(p => p.Id == id && p.IsDeleted == false);
             if (line == null)
                 throw new DO.IncorrectLineIDException(id, $"The line  {id}  is not exsit in the system, could not update it");
             update(line);
-            XMLTools.SaveListToXMLSerializer(ListLines, LinePath);
+            XMLTools.SaveListToXMLSerializer(ListLines, LineFilePath);
         }
         #endregion
 
@@ -668,7 +680,7 @@ namespace DL
         /// <param name="id"></param>
         public void DeleteLine(int id)
         {
-            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LinePath);
+            List<DO.Line> ListLines = XMLTools.LoadListFromXMLSerializer<DO.Line>(LineFilePath);
             DO.Line l = ListLines.Find(p => p.Id == id && !p.IsDeleted);
 
             if (l != null)
@@ -678,7 +690,7 @@ namespace DL
             }
             else
                 throw new DO.IncorrectLineIDException(id, $"Incorrect line: {id}. could not found this line, try enter again");
-            XMLTools.SaveListToXMLSerializer(ListLines, LinePath);
+            XMLTools.SaveListToXMLSerializer(ListLines, LineFilePath);
         }
         #endregion
         #endregion
@@ -691,7 +703,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.LineStation> GetAllLinesStation()
         {
-            List<DO.LineStation> ListLineStations = XMLTools.LoadListFromXMLSerializer<DO.LineStation>(LinePath);
+            List<DO.LineStation> ListLineStations = XMLTools.LoadListFromXMLSerializer<DO.LineStation>(LineStationFilePath);
             return from linestation in ListLineStations
                    where linestation.IsDeleted == false
                    select linestation;
@@ -706,7 +718,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.LineStation> GetAllLinesStationBy(Predicate<DO.LineStation> predicate)
         {
-            List<DO.LineStation> ListLineStations = XMLTools.LoadListFromXMLSerializer<DO.LineStation>(LinePath);
+            List<DO.LineStation> ListLineStations = XMLTools.LoadListFromXMLSerializer<DO.LineStation>(LineStationFilePath);
             return from linestation in ListLineStations
                    where predicate(linestation)
                    select linestation;
@@ -723,7 +735,7 @@ namespace DL
         /// <returns></returns>
         public DO.LineStation GetLineStation(int lineId, int stationCode)
         {
-            List<DO.LineStation> ListLineStations = XMLTools.LoadListFromXMLSerializer<DO.LineStation>(LinePath);
+            List<DO.LineStation> ListLineStations = XMLTools.LoadListFromXMLSerializer<DO.LineStation>(LineStationFilePath);
             DO.LineStation linestation = ListLineStations.Find(p => p.LineId == lineId && p.StationCode == stationCode && !p.IsDeleted);
             if (linestation != null)
                 return linestation;
@@ -739,11 +751,11 @@ namespace DL
         /// <param name="lineStation"></param>
         public void AddLineStation(DO.LineStation lineStation)
         {
-            List<DO.LineStation> ListLineStations = XMLTools.LoadListFromXMLSerializer<DO.LineStation>(LineStationPath);
+            List<DO.LineStation> ListLineStations = XMLTools.LoadListFromXMLSerializer<DO.LineStation>(LineStationFilePath);
             if (ListLineStations.FirstOrDefault(p => p.LineId == lineStation.LineId && p.StationCode == lineStation.StationCode && !p.IsDeleted) != null)
-                throw new IncorrectInputException($"The line {lineStation.LineId} with the station code:{lineStation.StationCode} is exsit in the system, could not add it again");
+                throw new DO.IncorrectInputException($"The line {lineStation.LineId} with the station code:{lineStation.StationCode} is exsit in the system, could not add it again");
             ListLineStations.Add(lineStation);
-            XMLTools.SaveListToXMLSerializer(ListLineStations, LineStationPath);
+            XMLTools.SaveListToXMLSerializer(ListLineStations, LineStationFilePath);
         }
         #endregion
 
@@ -754,7 +766,7 @@ namespace DL
         /// <param name="lineStation"></param>
         public void UpdateLineStation(DO.LineStation lineStation)
         {
-            List<DO.LineStation> ListLineStations = XMLTools.LoadListFromXMLSerializer<DO.LineStation>(LineStationPath);
+            List<DO.LineStation> ListLineStations = XMLTools.LoadListFromXMLSerializer<DO.LineStation>(LineStationFilePath);
             DO.LineStation linestation = ListLineStations.Find(p => p.LineId == lineStation.LineId && p.StationCode == lineStation.StationCode && !p.IsDeleted);
 
             if (linestation != null)
@@ -764,7 +776,7 @@ namespace DL
             }
             else
                 throw new DO.IncorrectInputException($"The line id: {lineStation.LineId} OR station code: {lineStation.StationCode} are not exsit in the system, could not update it");
-            XMLTools.SaveListToXMLSerializer(ListLineStations, LineStationPath);
+            XMLTools.SaveListToXMLSerializer(ListLineStations, LineStationFilePath);
         }
         #endregion
 
@@ -777,12 +789,12 @@ namespace DL
         /// <param name="update"></param>
         public void UpdateLineStation(int lineId, int stationCode, Action<DO.LineStation> update)
         {
-            List<DO.LineStation> ListLineStations = XMLTools.LoadListFromXMLSerializer<DO.LineStation>(LineStationPath);
+            List<DO.LineStation> ListLineStations = XMLTools.LoadListFromXMLSerializer<DO.LineStation>(LineStationFilePath);
             DO.LineStation linestation = ListLineStations.Find(p => (p.LineId == lineId && p.StationCode == stationCode && p.IsDeleted == false));
             if (linestation == null)
                 throw new DO.IncorrectInputException($"The line id: {lineId} OR station code: {stationCode} are not exsit in the system, could not update it");
             update(linestation);
-            XMLTools.SaveListToXMLSerializer(ListLineStations, LineStationPath);
+            XMLTools.SaveListToXMLSerializer(ListLineStations, LineStationFilePath);
         }
         #endregion
 
@@ -794,7 +806,7 @@ namespace DL
         /// <param name="stationCode"></param>
         public void DeleteLineStation(int lineId, int stationCode)
         {
-            List<DO.LineStation> ListLineStations = XMLTools.LoadListFromXMLSerializer<DO.LineStation>(LineStationPath);
+            List<DO.LineStation> ListLineStations = XMLTools.LoadListFromXMLSerializer<DO.LineStation>(LineStationFilePath);
             DO.LineStation linestation = ListLineStations.Find(p => p.LineId == lineId && p.StationCode == stationCode && !p.IsDeleted);
 
             if (linestation != null)
@@ -804,7 +816,7 @@ namespace DL
             }
             else
                 throw new DO.IncorrectInputException($"Incorrect line id: {lineId} OR station code: {stationCode}. could not found this lineStation, try enter again");
-            XMLTools.SaveListToXMLSerializer(ListLineStations, LineStationPath);
+            XMLTools.SaveListToXMLSerializer(ListLineStations, LineStationFilePath);
         }
         #endregion
         #endregion
@@ -817,7 +829,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.User> GetAllUsers()
         {
-            XElement userRootElem = XMLTools.LoadListFromXMLElement(userPath);
+            XElement userRootElem = XMLTools.LoadListFromXMLElement(UserFilePath);
 
             return from p in userRootElem.Elements()
                    select new DO.User()
@@ -844,7 +856,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.User> GetAllUsersBy(Predicate<DO.User> predicate)
         {
-            XElement userRootElem = XMLTools.LoadListFromXMLElement(userPath);
+            XElement userRootElem = XMLTools.LoadListFromXMLElement(UserFilePath);
 
             return from p in userRootElem.Elements()
                    let p1 = new DO.User()
@@ -872,7 +884,7 @@ namespace DL
         /// <returns></returns>
         public DO.User GetUser(string userName)
         {
-            XElement userRootElem = XMLTools.LoadListFromXMLElement(userPath);
+            XElement userRootElem = XMLTools.LoadListFromXMLElement(UserFilePath);
 
             DO.User p = (from per in userRootElem.Elements()
                         where per.Element("UserName").Value == userName
@@ -904,7 +916,7 @@ namespace DL
         /// <param name="user"></param>
         public void AddUser(DO.User user)
         {
-            XElement userRootElem = XMLTools.LoadListFromXMLElement(userPath);
+            XElement userRootElem = XMLTools.LoadListFromXMLElement(UserFilePath);
             XElement per1 = (from p in userRootElem.Elements()
                              where p.Element("UserName").Value == user.UserName
                              select p).FirstOrDefault();
@@ -919,9 +931,9 @@ namespace DL
                                    new XElement("Birthday", user.Birthday),
                                    new XElement("Balance", user.Balance),
                                    new XElement("FirstName", user.FirstName),
-                                   new XElement("LastName", user.LastName);
+                                   new XElement("LastName", user.LastName));
             userRootElem.Add(userElem);
-            XMLTools.SaveListToXMLElement(userRootElem, userPath);
+            XMLTools.SaveListToXMLElement(userRootElem, UserFilePath);
         }
         #endregion
        
@@ -932,9 +944,9 @@ namespace DL
         /// <param name="user"></param>
         public void UpdateUser(DO.User user)
         {
-            XElement userRootElem = XMLTools.LoadListFromXMLElement(userPath);
+            XElement userRootElem = XMLTools.LoadListFromXMLElement(UserFilePath);
 
-            XElement per = (from p in userElem.Elements()
+            XElement per = (from p in userRootElem.Elements()
                             where p.Element("UserName").Value == user.UserName
                             select p).FirstOrDefault();
 
@@ -949,7 +961,7 @@ namespace DL
                 per.Element("Balance").Value = user.Balance.ToString();
                 per.Element("FirstName").Value = user.FirstName;
                 per.Element("LastName").Value = user.LastName;
-                XMLTools.SaveListToXMLElement(userRootElem, userPath);
+                XMLTools.SaveListToXMLElement(userRootElem,UserFilePath);
             }
             else
                 throw new DO.IncorrectUserNameException(user.UserName, $"bad user user name: {user.UserName}");
@@ -979,17 +991,17 @@ namespace DL
         /// <param name="userName"></param>
         public void DeleteUser(string userName)
         {
-            XElement userRootElem = XMLTools.LoadListFromXMLElement(userPath);
+            XElement userRootElem = XMLTools.LoadListFromXMLElement(UserFilePath);
             XElement per = (from p in userRootElem.Elements()
                             where p.Element("UserName").Value == userName
                             select p).FirstOrDefault();
             if (per != null)
             {
                 per.Remove();
-                XMLTools.SaveListToXMLElement(userRootElem, userPath);
+                XMLTools.SaveListToXMLElement(userRootElem, UserFilePath);
             }
             else
-                throw new DO.IncorrectUserNameException(id, $"bad person id: {id}");
+                throw new DO.IncorrectUserNameException(userName);
         }
         #endregion
         #endregion
@@ -1003,7 +1015,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.AdjacentStations> GetAllAdjacentStations()
         {
-            List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentStationsPath);
+            List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentFilePath);
             return from adjacentStations in ListAdjacentStations
                    where adjacentStations.IsDeleted == false
                    select adjacentStations;
@@ -1018,7 +1030,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.AdjacentStations> GetAllAdjacentStationsBy(Predicate<DO.AdjacentStations> predicate)
         {
-            List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentStationsPath);
+            List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentFilePath);
             return from adjacentStations in ListAdjacentStations
                    where predicate(adjacentStations)
                    select adjacentStations;
@@ -1034,7 +1046,7 @@ namespace DL
         /// <returns></returns>
         public DO.AdjacentStations GetAdjacentStations(int stationCode1, int stationCode2)
         {
-            List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentStationsPath);
+            List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentFilePath);
             DO.AdjacentStations a = ListAdjacentStations.Find(p => (p.CodeStation1 == stationCode1) && (p.CodeStation2 == stationCode2) && !p.IsDeleted);
             if (a != null)
                 return a;
@@ -1043,19 +1055,19 @@ namespace DL
         }
         #endregion
 
-        #region AddAdjacentStations
+        #region AdjacentStations
         /// <summary>
         /// A function that add AdjacentStations to the list
         /// </summary>
         /// <param name="adjacentStations"></param>
         public void AddAdjacentStations(DO.AdjacentStations adjacentStations)
         {
-            List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentStationsPath);
+            List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentFilePath);
             if (ListAdjacentStations.FirstOrDefault(p => (p.CodeStation1 == adjacentStations.CodeStation1) && (p.CodeStation2 == adjacentStations.CodeStation2) && !p.IsDeleted) != null)
                 throw new DO.IncorrectCodeStationException(adjacentStations.CodeStation1, adjacentStations.CodeStation2, $"Incorrect station code: {adjacentStations.CodeStation1} or station code {adjacentStations.CodeStation2}. could not found thier stations, try enter again");
             else
                 ListAdjacentStations.Add(adjacentStations);
-            XMLTools.SaveListToXMLSerializer(ListAdjacentStations, AdjacentStationsPath);
+            XMLTools.SaveListToXMLSerializer(ListAdjacentStations, AdjacentFilePath);
         }
         #endregion
 
@@ -1066,7 +1078,7 @@ namespace DL
         /// <param name="adjacentStations"></param>
         public void UpdateAdjacentStations(DO.AdjacentStations adjacentStations)
         {
-            List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentStationsPath);
+            List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentFilePath);
             DO.AdjacentStations u = ListAdjacentStations.Find(p => ((p.CodeStation1 == adjacentStations.CodeStation1) && (p.CodeStation2 == adjacentStations.CodeStation2)) && !p.IsDeleted);
             if (u != null)
             {
@@ -1075,7 +1087,7 @@ namespace DL
             }
             else
                 throw new DO.IncorrectCodeStationException(adjacentStations.CodeStation1, adjacentStations.CodeStation2, $"Incorrect station code: {adjacentStations.CodeStation1} or station code {adjacentStations.CodeStation2}. could not update, try enter again");
-            XMLTools.SaveListToXMLSerializer(ListAdjacentStations, AdjacentStationsPath);
+            XMLTools.SaveListToXMLSerializer(ListAdjacentStations, AdjacentFilePath);
         }
         #endregion
 
@@ -1088,12 +1100,12 @@ namespace DL
         /// <param name="update"></param>
         public void UpdateAdjacentStations(int stationCode1, int stationCode2, Action<DO.AdjacentStations> update)
         {
-            List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentStationsPath);
+            List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentFilePath);
             DO.AdjacentStations adjacentStations = ListAdjacentStations.Find(p => ((p.CodeStation1 == stationCode1 && p.CodeStation2 == stationCode2 && p.IsDeleted == false || p.CodeStation1 == stationCode2 && p.CodeStation2 == stationCode1) && p.IsDeleted == false));
             if (adjacentStations == null)
                 throw new DO.IncorrectCodeStationException(stationCode1, stationCode2, $"Incorrect station code: {stationCode1} or station code {stationCode2}. could not update, try enter again");
             update(adjacentStations);
-            XMLTools.SaveListToXMLSerializer(ListAdjacentStations, AdjacentStationsPath);
+            XMLTools.SaveListToXMLSerializer(ListAdjacentStations, AdjacentFilePath);
         }
         #endregion
 
@@ -1105,137 +1117,137 @@ namespace DL
         /// <param name="stationCode2"></param>
         public void DeleteAdjacentStations(int stationCode1, int stationCode2)
         {
-            List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentStationsPath);
+            List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentFilePath);
             DO.AdjacentStations a = ListAdjacentStations.Find(p => (p.CodeStation1 == stationCode1) && (p.CodeStation2 == stationCode1) && !p.IsDeleted);
+            if (a != null)
             {
-                //DataSource.ListAdjacentStations.Remove(u);
                 a.IsDeleted = true;
             }
             else
                 throw new DO.IncorrectCodeStationException(stationCode1, stationCode2, $"Incorrect station code: {stationCode1} or station code {stationCode2}. could not delete the AdjacentStations, try enter again");
-            XMLTools.SaveListToXMLSerializer(ListAdjacentStations, AdjacentStationsPath);
+            XMLTools.SaveListToXMLSerializer(ListAdjacentStations, AdjacentFilePath);
         }
         #endregion
         #endregion
 
         #region Trip
-        #region GetAllTrips
-        /// <summary>
-        /// A function that return all the trips
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<DO.Trip> GetAllTrips()
-        {
-            List<DO.Trip> ListTrips = XMLTools.LoadListFromXMLSerializer<DO.Trip>(TripPath);
-            return from trip in ListTrips
-                   where trip.IsDeleted == false
-                   select trip;
-        }
-        #endregion
+        //#region GetAllTrips
+        ///// <summary>
+        ///// A function that return all the trips
+        ///// </summary>
+        ///// <returns></returns>
+        //public IEnumerable<DO.Trip> GetAllTrips()
+        //{
+        //    List<DO.Trip> ListTrips = XMLTools.LoadListFromXMLSerializer<DO.Trip>(TripPath);
+        //    return from trip in ListTrips
+        //           where trip.IsDeleted == false
+        //           select trip;
+        //}
+        //#endregion
 
-        #region GetAllTripsBy
-        /// <summary>
-        /// A function that returns the trip that have the special thing that the predicat do
-        /// </summary>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
-        public IEnumerable<DO.Trip> GetAllTripsBy(Predicate<DO.Trip> predicate)
-        {
-            List<DO.Trip> ListTrips = XMLTools.LoadListFromXMLSerializer<DO.Trip>(TripPath);
-            return from trip in ListTrips
-                   where predicate(trip)
-                   select trip;
-        }
-        #endregion
+        //#region GetAllTripsBy
+        ///// <summary>
+        ///// A function that returns the trip that have the special thing that the predicat do
+        ///// </summary>
+        ///// <param name="predicate"></param>
+        ///// <returns></returns>
+        //public IEnumerable<DO.Trip> GetAllTripsBy(Predicate<DO.Trip> predicate)
+        //{
+        //    List<DO.Trip> ListTrips = XMLTools.LoadListFromXMLSerializer<DO.Trip>(TripPath);
+        //    return from trip in ListTrips
+        //           where predicate(trip)
+        //           select trip;
+        //}
+        //#endregion
 
-        #region GetTrip
-        /// <summary>
-        /// A function that return trip
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public DO.Trip GetTrip(int id)
-        {
-            List<DO.Trip> ListTrips = XMLTools.LoadListFromXMLSerializer<DO.Trip>(TripPath);
-            DO.Trip trip = ListTrips.Find(p => p.Id == id && !p.IsDeleted);
-            if (trip != null)
-                return trip;
-            else
-                throw new DO.IncorrectTripIDException(id, $"Incorrect trip user id: {id}. could not found this trip, try enter again");
-        }
-        #endregion
+        //#region GetTrip
+        ///// <summary>
+        ///// A function that return trip
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //public DO.Trip GetTrip(int id)
+        //{
+        //    List<DO.Trip> ListTrips = XMLTools.LoadListFromXMLSerializer<DO.Trip>(TripPath);
+        //    DO.Trip trip = ListTrips.Find(p => p.Id == id && !p.IsDeleted);
+        //    if (trip != null)
+        //        return trip;
+        //    else
+        //        throw new DO.IncorrectTripIDException(id, $"Incorrect trip user id: {id}. could not found this trip, try enter again");
+        //}
+        //#endregion
 
-        #region AddTrip
-        /// <summary>
-        /// A function that add trip to the list
-        /// </summary>
-        /// <param name="trip"></param>
-        public void AddTrip(DO.Trip trip)
-        {
-            List<DO.Trip> ListTrips = XMLTools.LoadListFromXMLSerializer<DO.Trip>(TripPath);
-            if (ListTrips.FirstOrDefault(p => p.Id == trip.Id && !p.IsDeleted) != null)
-                throw new DO.IncorrectTripIDException(trip.Id, $"The trip user id: {trip.Id} is exist in the system. could not add it again");
-            trip.Id = DO.Configuration.TripID;
-            ListTrips.Add(trip);
-            XMLTools.SaveListToXMLSerializer(ListTrips, ListTrips);
-        }
-        #endregion
+        //#region AddTrip
+        ///// <summary>
+        ///// A function that add trip to the list
+        ///// </summary>
+        ///// <param name="trip"></param>
+        //public void AddTrip(DO.Trip trip)
+        //{
+        //    List<DO.Trip> ListTrips = XMLTools.LoadListFromXMLSerializer<DO.Trip>(TripPath);
+        //    if (ListTrips.FirstOrDefault(p => p.Id == trip.Id && !p.IsDeleted) != null)
+        //        throw new DO.IncorrectTripIDException(trip.Id, $"The trip user id: {trip.Id} is exist in the system. could not add it again");
+        //    trip.Id = DO.Configuration.TripID;
+        //    ListTrips.Add(trip);
+        //    XMLTools.SaveListToXMLSerializer(ListTrips, ListTrips);
+        //}
+        //#endregion
 
-        #region UpdateTrip
-        /// <summary>
-        ///  A function that update the trip
-        /// </summary>
-        /// <param name="trip"></param>
-        public void UpdateTrip(DO.Trip trip)
-        {
-            List<DO.Trip> ListTrips = XMLTools.LoadListFromXMLSerializer<DO.Trip>(TripPath);
-            DO.Trip t = ListTrips.Find(p => p.Id == trip.Id && !p.IsDeleted);
-            if (t != null)
-            {
-                ListTrips.Remove(t);
-                ListTrips.Add(trip);
-            }
-            else
-                throw new DO.IncorrectTripIDException(trip.Id, $"The trip user id: {trip.Id} is not exist in the system. could not update it");
-            XMLTools.SaveListToXMLSerializer(ListTrips, ListTrips);
-        }
-        #endregion
+        //#region UpdateTrip
+        ///// <summary>
+        /////  A function that update the trip
+        ///// </summary>
+        ///// <param name="trip"></param>
+        //public void UpdateTrip(DO.Trip trip)
+        //{
+        //    List<DO.Trip> ListTrips = XMLTools.LoadListFromXMLSerializer<DO.Trip>(TripPath);
+        //    DO.Trip t = ListTrips.Find(p => p.Id == trip.Id && !p.IsDeleted);
+        //    if (t != null)
+        //    {
+        //        ListTrips.Remove(t);
+        //        ListTrips.Add(trip);
+        //    }
+        //    else
+        //        throw new DO.IncorrectTripIDException(trip.Id, $"The trip user id: {trip.Id} is not exist in the system. could not update it");
+        //    XMLTools.SaveListToXMLSerializer(ListTrips, ListTrips);
+        //}
+        //#endregion
 
-        #region UpdateTrip
-        /// <summary>
-        /// method that knows to updt specific fields in Trip
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="update"></param>
-        public void UpdateTrip(int id, Action<DO.Trip> update) //method that knows to updt specific fields in Trip
-        {
-            List<DO.Trip> ListTrips = XMLTools.LoadListFromXMLSerializer<DO.Trip>(TripPath);
-            DO.Trip trip = ListTrips.Find(p => p.Id == id && p.IsDeleted == false);
-            if (trip == null)
-                throw new DO.IncorrectTripIDException(id, $"The trip user id: {id} is not exist in the system. could not update it");
-            update(trip);
-            XMLTools.SaveListToXMLSerializer(ListTrips, ListTrips);
-        }
-        #endregion
+        //#region UpdateTrip
+        ///// <summary>
+        ///// method that knows to updt specific fields in Trip
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="update"></param>
+        //public void UpdateTrip(int id, Action<DO.Trip> update) //method that knows to updt specific fields in Trip
+        //{
+        //    List<DO.Trip> ListTrips = XMLTools.LoadListFromXMLSerializer<DO.Trip>(TripPath);
+        //    DO.Trip trip = ListTrips.Find(p => p.Id == id && p.IsDeleted == false);
+        //    if (trip == null)
+        //        throw new DO.IncorrectTripIDException(id, $"The trip user id: {id} is not exist in the system. could not update it");
+        //    update(trip);
+        //    XMLTools.SaveListToXMLSerializer(ListTrips, ListTrips);
+        //}
+        //#endregion
 
-        #region DeleteTrip
-        /// <summary>
-        /// A function that delete trip (mark the flag IsDeleted = true)
-        /// </summary>
-        /// <param name="id"></param>
-        public void DeleteTrip(int id)
-        {
-            List<DO.Trip> ListTrips = XMLTools.LoadListFromXMLSerializer<DO.Trip>(ListTrips);
-            DO.Trip trip = ListTrips.Find(p => p.Id == id && !p.IsDeleted);
-            if (trip != null)
-            {
-                //DataSource.ListTrips.Remove(u);
-                trip.IsDeleted = true;
-            }
-            else
-                throw new DO.IncorrectTripIDException(id, $"The trip user id: {id} is not exist in the system. could not detete it");
-            XMLTools.SaveListToXMLSerializer(ListTrips, ListTrips);
-        }
+        //#region DeleteTrip
+        ///// <summary>
+        ///// A function that delete trip (mark the flag IsDeleted = true)
+        ///// </summary>
+        ///// <param name="id"></param>
+        //public void DeleteTrip(int id)
+        //{
+        //    List<DO.Trip> ListTrips = XMLTools.LoadListFromXMLSerializer<DO.Trip>(ListTrips);
+        //    DO.Trip trip = ListTrips.Find(p => p.Id == id && !p.IsDeleted);
+        //    if (trip != null)
+        //    {
+        //        //DataSource.ListTrips.Remove(u);
+        //        trip.IsDeleted = true;
+        //    }
+        //    else
+        //        throw new DO.IncorrectTripIDException(id, $"The trip user id: {id} is not exist in the system. could not detete it");
+        //    XMLTools.SaveListToXMLSerializer(ListTrips, ListTrips);
+        //}
         #endregion
         #endregion
     }

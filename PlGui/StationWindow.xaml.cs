@@ -53,25 +53,29 @@ namespace PlGui
         #region update_click_button
         private void update_click_button(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                BO.Station station = (sender as Button).DataContext as BO.Station;
+            BO.Station station = (sender as Button).DataContext as BO.Station;
+            UpdateStation update = new UpdateStation(station);
+            update.ShowDialog();
+            listViewStations.ItemsSource = bl.GetAllStations().ToList();
+            //try
+            //{
+            //    BO.Station station = (sender as Button).DataContext as BO.Station;
 
-                bl.UpdateStation(station);
-                listViewStations.ItemsSource = bl.GetAllStations().ToList(); //reftesh
-            }
-            catch (BO.IncorrectCodeStationException ex)
-            {
-                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            //    bl.UpdateStation(station);
+            //    listViewStations.ItemsSource = bl.GetAllStations().ToList(); //reftesh
+            //}
+            //catch (BO.IncorrectCodeStationException ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
         }
         #endregion
 
-        #region update_click_button
+        #region lines_click_button
         private void lines_click_button(object sender, RoutedEventArgs e)
         {
             try

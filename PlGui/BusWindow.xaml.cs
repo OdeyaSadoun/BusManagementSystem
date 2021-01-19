@@ -77,21 +77,24 @@ namespace PlGui
         #region update_click_button
         private void update_click_button(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                BO.Bus bus = (sender as Button).DataContext as BO.Bus;
-
-                bl.UpdateBus(bus);
-                listViewBus.ItemsSource = bl.GetAllBuses().ToList();//reftesh
-            }
-            catch (BO.IncorrectLicenseNumberException ex)
-            {
-                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            BO.Bus bus = (sender as Button).DataContext as BO.Bus;
+            UpdateBus update = new UpdateBus(bus);
+            update.ShowDialog();
+            listViewBus.ItemsSource = bl.GetAllBuses().ToList();
+            //try
+            //{
+            //    BO.Bus bus = (sender as Button).DataContext as BO.Bus;
+            //    bl.UpdateBus(bus);
+            //    listViewBus.ItemsSource = bl.GetAllBuses().ToList();//reftesh
+            //}
+            //catch (BO.IncorrectLicenseNumberException ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
         }
         #endregion
 

@@ -82,7 +82,7 @@ namespace BLApi
         #region Trip
         //IEnumerable<BO.Trip> GetAllTrips();
         //IEnumerable<BO.Trip> GetAllTripsBy(Predicate<BO.Trip> predicate);
-        BO.Trip GetTrip(int id);
+        //BO.Trip GetTrip(int id);
         //void AddTrip(BO.Trip trip);
         //void UpdateTrip(BO.Trip trip);
         //void UpdateTrip(int id, Action<BO.Trip> update); //method that knows to updt specific fields in Trip

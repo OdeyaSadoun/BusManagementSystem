@@ -43,21 +43,23 @@ namespace PlGui
         #region update_click_button
         private void update_click_button(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                BO.Line line = (sender as Button).DataContext as BO.Line;
+            UpdateLine update = new UpdateLine();
+            update.ShowDialog();
+            //try
+            //{
+            //    BO.Line line = (sender as Button).DataContext as BO.Line;
 
-                bl.UpdateLine(line);
-                listViewLine.ItemsSource = bl.GetAllLines().ToList(); //reftesh
-            }
-            catch (BO.IncorrectLineIDException ex)
-            {
-                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            //    bl.UpdateLine(line);
+            //    listViewLine.ItemsSource = bl.GetAllLines().ToList(); //reftesh
+            //}
+            //catch (BO.IncorrectLineIDException ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
         }
         #endregion
 

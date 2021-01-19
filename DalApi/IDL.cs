@@ -24,15 +24,15 @@ namespace DalApi
         void DeleteBus(int id);//V
         #endregion
 
-        #region BusOnTrip
-        IEnumerable<DO.BusOnTrip> GetAllBusesOnTrip();
-        IEnumerable<DO.BusOnTrip> GetAllBusesOnTripBy(Predicate<DO.BusOnTrip> predicate);
-        DO.BusOnTrip GetBusOnTrip(int id, int licenseNumber);
-        void AddBusOnTrip(DO.BusOnTrip bus);
-        void UpdateBusOnTrip(DO.BusOnTrip bus);
-        void UpdateBusOnTrip(int id, int licenseNumber, Action<DO.BusOnTrip> update); //method that knows to updt specific fields in BusOnTrip
-        void DeleteBusOnTrip(int id, int licenseNumber);
-        #endregion
+        //#region BusOnTrip
+        //IEnumerable<DO.BusOnTrip> GetAllBusesOnTrip();
+        //IEnumerable<DO.BusOnTrip> GetAllBusesOnTripBy(Predicate<DO.BusOnTrip> predicate);
+        //DO.BusOnTrip GetBusOnTrip(int id, int licenseNumber);
+        //void AddBusOnTrip(DO.BusOnTrip bus);
+        //void UpdateBusOnTrip(DO.BusOnTrip bus);
+        //void UpdateBusOnTrip(int id, int licenseNumber, Action<DO.BusOnTrip> update); //method that knows to updt specific fields in BusOnTrip
+        //void DeleteBusOnTrip(int id, int licenseNumber);
+        //#endregion
 
         #region LineTrip
         IEnumerable<DO.LineTrip> GetAllLinesTrip();
@@ -106,14 +106,14 @@ namespace DalApi
         void DeleteAdjacentStations(int stationCode1, int stationCode2);
         #endregion
 
-        #region Trip
-        IEnumerable<DO.Trip> GetAllTrips();
-        IEnumerable<DO.Trip> GetAllTripsBy(Predicate<DO.Trip> predicate);
-        DO.Trip GetTrip(int id);
-        void AddTrip(DO.Trip trip);
-        void UpdateTrip(DO.Trip trip);
-        void UpdateTrip(int id, Action<DO.Trip> update); //method that knows to updt specific fields in Trip
-        void DeleteTrip(int id);
-        #endregion
+        //#region Trip
+        //IEnumerable<DO.Trip> GetAllTrips();
+        //IEnumerable<DO.Trip> GetAllTripsBy(Predicate<DO.Trip> predicate);
+        //DO.Trip GetTrip(int id);
+        //void AddTrip(DO.Trip trip);
+        //void UpdateTrip(DO.Trip trip);
+        //void UpdateTrip(int id, Action<DO.Trip> update); //method that knows to updt specific fields in Trip
+        //void DeleteTrip(int id);
+        //#endregion
     }
 }

@@ -117,6 +117,15 @@
     <Compile Include="StationWindowPassnger.xaml.cs">
       <DependentUpon>StationWindowPassnger.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateBus.xaml.cs">
+      <DependentUpon>UpdateBus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateLine.xaml.cs">
+      <DependentUpon>UpdateLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateStation.xaml.cs">
+      <DependentUpon>UpdateStation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UsersWindow.xaml.cs">
       <DependentUpon>UsersWindow.xaml</DependentUpon>
     </Compile>
@@ -219,6 +228,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StationWindowPassnger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateBus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateStation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
