@@ -16,16 +16,17 @@ namespace BL
     sealed class BLImp : IBL
     {
         IDL dl = DLFactory.GetDL();
-        //#region singelton
-        ///// <summary>
-        ///// singleton pattern is a software design pattern that restricts the instantiation of a class to one "single" instance.
-        ///// This is useful when exactly one object is needed to coordinate actions across the system.
-        ///// </summary>
-        //static readonly BLImp instance = new BLImp();
-        //static BLImp() { }// static ctor to ensure instance init is done just before first usage
-        //BLImp() { } // default => private
-        //public static BLImp Instance { get => instance; }// The public Instance property to use
-        //#endregion
+
+        #region singelton
+        /// <summary>
+        /// singleton pattern is a software design pattern that restricts the instantiation of a class to one "single" instance.
+        /// This is useful when exactly one object is needed to coordinate actions across the system.
+        /// </summary>
+        static readonly BLImp instance = new BLImp();
+        static BLImp() { }// static ctor to ensure instance init is done just before first usage
+        BLImp() { } // default => private
+        public static BLImp Instance { get => instance; }// The public Instance property to use
+        #endregion
 
         #region Bus
 
@@ -443,6 +444,13 @@ namespace BL
 
         #endregion
 
+        #region StationInLine
+
+        #region DeleteStationInLine
+        /// <summary>
+        /// A function that delete DeleteStationInLine BO - LineStation DO
+        /// </summary>
+        /// <param name="sInL"></param>
         public void DeleteStationInLine(BO.StationInLine sInL)
         {
             try
@@ -455,6 +463,8 @@ namespace BL
                 throw new BO.IncorrectInputException( ex.Message);
             }
         }
+        #endregion
+        #endregion
 
         #region Station
 
@@ -738,13 +748,6 @@ namespace BL
             }
         }
         #endregion
-
-        public bool IsAdmin(BO.User user)
-        {
-            if (user.Admin)
-                return true;
-            return false;
-        }
 
         #region UpdateUser
         /// <summary>

@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BLApi.BLFactory" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BLApi\BLFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BL.BLImp" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAmoAABAAAVACAAEEQAaAAUEAQBAAEAoUIIQAAEABBA=</HashCode>
+      <FileName>BLImp.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BL.DeepCopyUtilities" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAgCACAAAAAABQhAA=</HashCode>
+      <FileName>DeepCopyUtilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.Bus" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAEAQAAAAAEAAAEEAAABAAAAAAAIAAAAyAAAAg=</HashCode>
+      <FileName>BO\Bus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.BusOnTrip" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAACQgAAABAAAgAEACABAgAAAAACAAAAQAAAAA=</HashCode>
+      <FileName>BO\BusOnTrip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.IncorrectLicenseNumberException" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BO\Exceptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.IncorrectLicenseNumberOrDateException" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BO\Exceptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.IncorrectInputException" Collapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BO\Exceptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.IncorrectLineIDException" Collapsed="true">
+    <Position X="3" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BO\Exceptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.IncorrectCodeStationException" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>BO\Exceptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.IncorrectUserNameException" Collapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>BO\Exceptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.IncorrectTripIDException" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BO\Exceptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.IncorrectDateException" Collapsed="true">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BO\Exceptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.Line" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEABAAAAAAgAAAABAAAAQAAAAA=</HashCode>
+      <FileName>BO\Line.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.LineTrip" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAABAEAAAAAAIgAAgAAAAAAAQAAAAA=</HashCode>
+      <FileName>BO\LineTrip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.ShortLine" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAEAAAAAAAAAAIAAAAAAAAAAAAABAAAQAAAAA=</HashCode>
+      <FileName>BO\ShortLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.Station" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAUAAACAEAAAoAAQAAgAAAAACAAAAAYAAAAA=</HashCode>
+      <FileName>BO\Station.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.StationInLine" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAACAAACAAQAAAAAAAEgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BO\StationInLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.Tools" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BO\Tools.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.Trip" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAgAAIAAAQADAQIAAAA=</HashCode>
+      <FileName>BO\Trip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BO.User" Collapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAgAAQAAAAQIAAACAQAAAQAAAAg=</HashCode>
+      <FileName>BO\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="BLApi.IBL" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAmIAAAAAAVACAAEEQAQAAUEAQBAAEAoEAIAAAEAABA=</HashCode>
+      <FileName>BLApi\IBL.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="BO.Area" Collapsed="true">
+    <Position X="3" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAABIAAAAAAAAAAAEAAEAAEAAACAAAAAACAAAIAAA=</HashCode>
+      <FileName>BO\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BO.BusStatus" Collapsed="true">
+    <Position X="4.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAQAAAAAAIAAQAAAAAAAAAA=</HashCode>
+      <FileName>BO\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BO.Profile" Collapsed="true">
+    <Position X="6.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAIIAACAAAEAAAAAAA=</HashCode>
+      <FileName>BO\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

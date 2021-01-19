@@ -70,6 +70,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\DataSources\BO.User.datasource" />
     <None Include="Properties\DataSources\DO.User.datasource" />
   </ItemGroup>
