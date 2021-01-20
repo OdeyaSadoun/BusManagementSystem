@@ -37,6 +37,7 @@ namespace BO
        
         public bool IsDeleted { get; set; }
         #endregion
+
         #region ListOfTripTime
         /// <summary>
         /// the list of all the 

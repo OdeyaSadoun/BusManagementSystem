@@ -60,66 +60,26 @@
             <Label Content="Fare:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
             <TextBlock x:Name="fareTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="4" Text="{Binding Fare}" VerticalAlignment="Center" FontWeight="Bold" Foreground="White"/>
             <Label Content="Travel Time In This Line:" Grid.Column="0" HorizontalAlignment="Left" Margin="5" Grid.Row="5" VerticalAlignment="Center" FontWeight="Bold" Foreground="White"/>
-            <TextBox x:Name="travelTimeInThisLineTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding TravelTimeInThisLine, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" FontWeight="Bold" Background="Transparent" Foreground="White" TextAlignment="Center"/>
+            <TextBox x:Name="travelTimeInThisLineTextBox" IsReadOnly="True" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding TravelTimeInThisLine, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" FontWeight="Bold" Background="Transparent" Foreground="White" TextAlignment="Center"/>
         </Grid>
         
         
-        <ListView x:Name="times"  ItemsSource="{Binding}" Grid.Column="1" HorizontalAlignment="Left" Height="204" Margin="49,49,0,0" VerticalAlignment="Top" Width="141">
+        <ListView x:Name="times"   Grid.Column="1" HorizontalAlignment="Left" Height="204" Margin="59,49,0,0" VerticalAlignment="Top" Width="128">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Times to travel:" DisplayMemberBinding="{Binding}" Width="135"/>
+                    <GridViewColumn Header="Times to travel:" DisplayMemberBinding="{Binding StartAt}" Width="100"/>
                     
                 </GridView>
             </ListView.View>
         </ListView>
-        
-        
+
+
         <ListView  x:Name="stations"  HorizontalAlignment="Left" Height="124" Margin="56,268,0,0" VerticalAlignment="Top" Width="691" Grid.ColumnSpan="2">
-
-
-
-            <!--<ListView.ItemTemplate>-->
-
-                <!--<DataTemplate x:Name="myDataTemplate">
-
-                    <Grid x:Name="grid1" HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto">
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition  Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0"  Text="{Binding Path=StationCode}" Margin="15,0,0,0" Width="45" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" />
-                        <TextBlock Grid.Column="1"  Text="{Binding Path= LineStationIndex}" Margin="15,0,0,0" Width="234" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="13" />
-                        <TextBlock Grid.Column="2" Text="{Binding Path= LineStationIndex}" Margin="15,0,0,0" Width="261" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="13" />
-                      
-                    </Grid>
-
-                </DataTemplate>
-
-            </ListView.ItemTemplate>-->
-
-
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Station code:" DisplayMemberBinding="{Binding StationCode}" Width="90"/>
                     <GridViewColumn Header="index in this line:" DisplayMemberBinding="{Binding LineStationIndex}" Width="100"/>
                     <GridViewColumn Header="name:" DisplayMemberBinding="{Binding StationName}" Width="232"/>
-                    <!--<GridViewColumn Header="Station code:" Width="90"/>
-                    <GridViewColumn Header="index in this line:" Width="100"/>
-                    <GridViewColumn Header="name:"  Width="232"/>-->
                     <GridViewColumn Header="distance to next station:" DisplayMemberBinding="{Binding DistanceTo}" Width="138"/>
                     <GridViewColumn Header="time to next station:" DisplayMemberBinding="{Binding TimeTo}" Width="120"/>
                 </GridView>

@@ -50,12 +50,12 @@ namespace BO
         public bool IsDeleted { get; set; }
         #endregion
 
-        #region ListOfStationsInLine
-        /// <summary>
-        /// the list of all the stations in line in this bus on trip
-        /// </summary>
-        public IEnumerable<StationInLine> ListOfStationsInLine { get; set; }
-        #endregion
+        //#region ListOfStationsInLine
+        ///// <summary>
+        ///// the list of all the stations in line in this bus on trip
+        ///// </summary>
+        //public IEnumerable<StationInLine> ListOfStationsInLine { get; set; }
+        //#endregion
 
     }
 }

@@ -86,6 +86,9 @@
       <DependentUpon>ContactWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConvertFromEnumToString.cs" />
+    <Compile Include="ElectronicScreen.xaml.cs">
+      <DependentUpon>ElectronicScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>
@@ -173,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ContactWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ElectronicScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

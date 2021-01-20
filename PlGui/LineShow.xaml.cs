@@ -35,7 +35,7 @@ namespace PlGui
             stations.ItemsSource = line.ListOfStationsInLine.ToList();
             //stations.DataContext = line.ListOfStationsInLine.ToList();
             stations.Visibility = Visibility.Visible;
-            times.DataContext = line.ListOfTripTime;
+            times.ItemsSource = line.ListOfTripTime.ToList();
             times.SelectedItem = 0;
 
         }

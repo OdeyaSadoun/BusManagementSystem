@@ -7,7 +7,7 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="AdminWindow"  Height="400" Width="650" Icon="User2.png">
-    <Grid  HorizontalAlignment="Stretch" Margin="0,1,-6.4,-31">
+    <Grid  HorizontalAlignment="Stretch" Margin="0,1,-6,-4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="13*"/>
             <ColumnDefinition Width="687*"/>
@@ -19,7 +19,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <TextBlock Height="43" HorizontalAlignment="Left" Margin="37,40,0,0" Name="textBlockHeading" Text="Registration:" VerticalAlignment="Top" Width="168"  FontSize="25" Foreground="White" FontStretch="ExtraCondensed" FontWeight="Bold" Grid.Column="1" RenderTransformOrigin="0.536,0.667"/>
+        <TextBlock Height="43" HorizontalAlignment="Left" Margin="37,37,0,0" Name="textBlockHeading" Text="Registration:" VerticalAlignment="Top" Width="168"  FontSize="25" Foreground="White" FontStretch="ExtraCondensed" FontWeight="Bold" Grid.Column="1" RenderTransformOrigin="0.536,0.667"/>
         <!--Button as a Link button using style-->
         <Button Margin="528,44,46,34" Content="Login" Cursor="Hand" Click="Login_Click" Foreground="White" Background="White" FontWeight="Bold" FontSize="18" Grid.Column="1">
             <Button.Template>
@@ -41,7 +41,7 @@
             </Button.Style>
         </Button>
         <!--end Button as a Link button using style-->
-        <Grid Margin="37,0,55,37" HorizontalAlignment="Stretch" Background="White" Height="282" VerticalAlignment="Bottom" Grid.RowSpan="2" Grid.Column="1">
+        <Grid Margin="37,0,55,15" HorizontalAlignment="Stretch" Background="White" Height="282" VerticalAlignment="Bottom" Grid.RowSpan="2" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="59*"/>
                 <ColumnDefinition Width="51*"/>
@@ -74,7 +74,7 @@
             <Button Content="Reset" Height="27" HorizontalAlignment="Left" Margin="22,219,0,0"  Foreground="White" Name="Reset" VerticalAlignment="Top" Width="70" Click="Reset_Click" FontWeight="Bold" Background="#FFAC3EA2" Grid.Column="4" Grid.ColumnSpan="2" />
             <Button Content="Cancel" Height="27" HorizontalAlignment="Right" Margin="0,219,0,0"  Foreground="White" Name="Cancel" VerticalAlignment="Top" Width="70" Click="Cancel_Click" FontWeight="Bold" Background="#FFAC3EA2" Grid.Column="5" RenderTransformOrigin="0.846,0.541" Grid.ColumnSpan="2" />
             <DatePicker x:Name="dataPickerBirthday" HorizontalAlignment="Left" Margin="93,165,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.ColumnSpan="4" Height="24" Width="105"/>
-            <Image Margin="22,-42,61,288" Source="userWhite-removebg-preview.png" Stretch="Fill" Grid.Column="7"/>
+            <Image Margin="22,-39,61,285" Source="userWhite-removebg-preview.png" Stretch="Fill" Grid.Column="7"/>
         </Grid>
 
     </Grid>

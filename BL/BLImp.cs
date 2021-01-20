@@ -205,6 +205,32 @@ namespace BL
         #endregion
         #endregion
 
+        #region lineTripDoBoAdapter
+        /// <summary>
+        /// A function that copy details of bus from DO to BO
+        /// </summary>
+        /// <param name="lineTripDO"></param>
+        /// <returns></returns>
+        BO.LineTrip lineTripDoBoAdapter(DO.LineTrip lineTripDO)
+        {
+            BO.LineTrip lineTripBO = new BO.LineTrip();
+            lineTripDO.CopyPropertiesTo(lineTripBO);
+            return lineTripBO;
+        }
+        #endregion
+
+        #region GetAllLinesTrip
+        /// <summary>
+        /// A BO function that return all the lines trip 
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<BO.LineTrip> GetAllLinesTrip()
+        {
+            return from lt in dl.GetAllLinesTrip()
+                   select lineTripDoBoAdapter(lt);
+        }
+        #endregion
+
         #region Line
         #region lineDoBoAdapter
         /// <summary>
@@ -239,7 +265,15 @@ namespace BL
             lineBO.ListOfStationsInLine = stations;
             lineBO.TravelTimeInThisLine = count;
 
+            List<BO.LineTrip> tempTimes = GetAllLinesTrip().ToList();
+            List<BO.LineTrip> times = new List<BO.LineTrip>();
 
+            foreach (BO.LineTrip lt in tempTimes)
+            {
+                if (lt.LineId == lineId && lt.IsDeleted==false)
+                    times.Add(lt);
+            }
+            lineBO.ListOfTripTime = times;
             //BO.Station sBO;
             //DO.Station sDO = dl.GetStation(lineDO.FirstStation);
             //lineBO.FirstStation = stationDoBoAdapter(sDO);
@@ -448,6 +482,21 @@ namespace BL
 
         #region StationInLine
 
+        #region stationInLineDoBoAdapter
+        /// <summary>
+        /// A function that copy details of bus from DO to BO
+        /// </summary>
+        /// <param name="lineTripDO"></param>
+        /// <returns></returns>
+        BO.StationInLine stationInLineDoBoAdapter(DO.LineStation lineStationDO)
+        {
+            BO.StationInLine stationInLineBO = new BO.StationInLine();
+            DO.Station s = dl.GetStation(lineStationDO.StationCode);
+            stationInLineBO= DeepCopyUtilities.CopyToStationInLine(s,lineStationDO);
+            return stationInLineBO;
+        }
+        #endregion 
+
         #region DeleteStationInLine
         /// <summary>
         /// A function that delete DeleteStationInLine BO - LineStation DO
@@ -466,6 +515,20 @@ namespace BL
             }
         }
         #endregion
+
+        
+        #region GetAllStationsInLine
+        /// <summary>
+        /// A BO function that return all the lines trip 
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<BO.StationInLine> GetAllStationsInLine()
+        {
+            return from s in dl.GetAllLinesStation()
+                   select stationInLineDoBoAdapter(s);
+        }
+        #endregion
+
         #endregion
 
         #region Station
