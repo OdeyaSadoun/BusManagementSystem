@@ -34,7 +34,7 @@ namespace BLApi
         //#endregion
 
         #region LineTrip
-        //IEnumerable<BO.LineTrip> GetAllLinesTrip();
+        IEnumerable<BO.LineTrip> GetAllLinesTrip();
         //IEnumerable<BO.BusOnTrip> GetAllLinesTripBy(Predicate<BO.LineTrip> predicate);
         //BO.LineTrip GetLineTrip(int id, int lineId);
         //void AddLineTrip(BO.LineTrip bus);
@@ -65,6 +65,9 @@ namespace BLApi
         //void UpdateLine(int id, Action<BO.Line> update); //method that knows to updt specific fields in Line
         void DeleteLine(BO.Line line);
         #endregion
+
+       void DeleteStationInLine(BO.StationInLine sInL);
+        IEnumerable<BO.StationInLine> GetAllStationsInLine();
 
 
         #region User
