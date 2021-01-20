@@ -14,7 +14,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <Grid x:Name="grid2" DataContext="{StaticResource stationViewSource}" HorizontalAlignment="Left" Margin="453,106,0,0" VerticalAlignment="Top">
+        <Grid x:Name="grid2" DataContext="{StaticResource stationViewSource}" HorizontalAlignment="Left" Margin="277,73,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -39,8 +39,8 @@
             <CheckBox x:Name="isBenchCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding IsBench, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="4" VerticalAlignment="Center" Foreground="Black" FontSize="12"  FontWeight="Bold"/>
             <Label Content="Is Digital Panel:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" Foreground="white" FontSize="12"  FontWeight="Bold"/>
             <CheckBox x:Name="isDigitalPanelCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding IsDigitalPanel, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="5" Grid.Row="5" VerticalAlignment="Center" Foreground="Black" FontSize="12"  FontWeight="Bold"/>
-       
+
         </Grid>
-        <Button x:Name="updating" Content="Update" HorizontalAlignment="Left" Margin="553,346,0,0" VerticalAlignment="Top" Width="75"  Foreground="Black" FontSize="12"  FontWeight="Bold" Click="updating_Click"/>
+        <Button x:Name="updating" Content="Update" HorizontalAlignment="Left" Margin="355,322,0,0" VerticalAlignment="Top" Width="108"  Foreground="Black" FontSize="12"  FontWeight="Bold" Click="updating_Click" Height="28"/>
     </Grid>
 </Window>

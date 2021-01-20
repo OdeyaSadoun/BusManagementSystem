@@ -14,7 +14,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <Button x:Name="updating" Content="Update" HorizontalAlignment="Left" Margin="538,322,0,0" VerticalAlignment="Top" Width="75" Click="updating_Click"/>
+        <Button x:Name="updating" Content="Update" HorizontalAlignment="Left" Margin="538,322,0,0" VerticalAlignment="Top" Width="75" Click="updating_Click" FontWeight="Bold"/>
         <Grid x:Name="grid2" DataContext="{StaticResource busViewSource}" HorizontalAlignment="Left" Margin="110,136,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.496,0.558">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>

@@ -11,6 +11,7 @@ namespace BLApi
     {
         public static IBL GetBL(string type)
         {
+            
             return BLImp.Instance;
             //switch (type)
             //{
