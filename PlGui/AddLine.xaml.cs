@@ -20,7 +20,7 @@ namespace PlGui
     /// </summary>
     public partial class AddLine : Window
     {
-        IBL bl = BLFactory.GetBL("2");
+        IBL bl = BLFactory.GetBL();
 
        // List<BO.Area> areaList = new List<BO.Area> { BO.Area.Center, BO.Area.Jerusalem, BO.Area.JerusalemCenter, BO.Area.JerusalemNorth, BO.Area.JerusalemSouth, BO.Area.North, BO.Area.NorthCenter, BO.Area.NorthSouth, BO.Area.South, BO.Area.SouthCenter };
         public AddLine()

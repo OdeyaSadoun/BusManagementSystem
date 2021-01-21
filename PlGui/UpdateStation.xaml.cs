@@ -20,7 +20,7 @@ namespace PlGui
     /// </summary>
     public partial class UpdateStation : Window
     {
-        IBL bl = BLFactory.GetBL("2");
+        IBL bl = BLFactory.GetBL();
         public BO.Station s { get; set; }
         public UpdateStation(BO.Station station)
         {

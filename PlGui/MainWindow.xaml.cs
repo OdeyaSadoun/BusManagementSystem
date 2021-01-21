@@ -30,7 +30,7 @@ namespace PlGui
     public partial class MainWindow : Window
     {
         public ObservableCollection<BO.Line> listOfLines { get; set; } = new ObservableCollection<BO.Line>();
-        IBL bl = BLFactory.GetBL("2");
+        IBL bl = BLFactory.GetBL();
         public MainWindow()
         {
             InitializeComponent();

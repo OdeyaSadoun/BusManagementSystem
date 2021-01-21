@@ -25,7 +25,7 @@ namespace PlGui
     {
         public ObservableCollection<BO.Line> listOfLines { get; set; } = new ObservableCollection<BO.Line>();
 
-        IBL bl = BLFactory.GetBL("2");
+        IBL bl = BLFactory.GetBL();
         public Button Update { get; set; }
         public Button Delete { get; set; }
         public BO.User User { get; set; }
@@ -43,7 +43,8 @@ namespace PlGui
         #region update_click_button
         private void update_click_button(object sender, RoutedEventArgs e)
         {
-            UpdateLine update = new UpdateLine();
+            BO.Line l = (sender as Button).DataContext as BO.Line;
+            UpdateLine update = new UpdateLine(l);
             update.ShowDialog();
             //try
             //{

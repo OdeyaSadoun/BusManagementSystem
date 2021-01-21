@@ -20,7 +20,7 @@ namespace PlGui
     /// </summary>
     public partial class SearchIdWindow : Window
     {
-        IBL bl = BLFactory.GetBL("2");
+        IBL bl = BLFactory.GetBL();
         public ObservableCollection<BO.Station> Stations { get; set; } = new ObservableCollection<BO.Station>();
 
         public BO.Line l { get; set; }

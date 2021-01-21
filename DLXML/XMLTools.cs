@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-
+//Tamar
 namespace DL
 {
     class XMLTools
     {
         static string dir = @"xml\";
+        public static object XmlTools { get; private set; }
         static XMLTools()
         {
             if (!Directory.Exists(dir))
@@ -40,7 +41,7 @@ namespace DL
                 }
                 else
                 {
-                    XElement rootElem = new XElement(dir + filePath);
+                    XElement rootElem = new XElement( filePath);
                     rootElem.Save(dir + filePath);
                     return rootElem;
                 }
@@ -87,6 +88,37 @@ namespace DL
             {
                 throw new DO.XMLFileLoadCreateException(filePath, $"fail to load xml file: {filePath}", ex);
             }
+        }
+        #endregion
+
+        #region GetRuningNumber
+        public static int GetRunningNumber(string filePath)
+        {
+            List<int> listRunningNumber = XMLTools.LoadListFromXMLSerializer<int>(filePath);
+            try
+            {
+                int tempSave;
+                int tempReturn;
+                if (listRunningNumber.Count() == 0)
+                {
+                    tempReturn = 0;
+                    tempSave = 1;
+                }
+                else
+                {
+                    tempReturn = listRunningNumber.First();
+                    tempSave = tempReturn + 1;
+                    listRunningNumber.Remove(tempReturn);
+                }
+                listRunningNumber.Add(tempSave);
+                SaveListToXMLSerializer(listRunningNumber, filePath);
+                return tempReturn;
+            }
+            catch (Exception ex)
+            {
+                throw new DO.XMLFileLoadCreateException(filePath, $"fail to create xml file: {filePath}", ex);
+            }
+
         }
         #endregion
     }

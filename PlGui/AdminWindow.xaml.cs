@@ -26,7 +26,7 @@ namespace PlGui
     /// </summary>
     public partial class AdminWindow : Window
     {
-        IBL bl = BLFactory.GetBL("2");
+        IBL bl = BLFactory.GetBL();
         public AdminWindow()
         {
             InitializeComponent();

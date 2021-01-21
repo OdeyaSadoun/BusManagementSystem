@@ -12,7 +12,7 @@ namespace BL
     public static class DeepCopyUtilities
     {
         static IDL dl = DLFactory.GetDL();
-        static IBL bl = BLFactory.GetBL("2");
+        static IBL bl = BLFactory.GetBL();
 
         public static void CopyPropertiesTo<T, S>(this S from, T to)
         {

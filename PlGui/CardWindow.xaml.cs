@@ -21,7 +21,7 @@ namespace PlGui
     public partial class CardWindow : Window
     {
         public BO.User user { get; set; }
-        IBL bl = BLFactory.GetBL("2");
+        IBL bl = BLFactory.GetBL();
 
         public CardWindow(BO.User u)
         {

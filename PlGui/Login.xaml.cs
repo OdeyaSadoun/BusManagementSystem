@@ -25,7 +25,7 @@ namespace PlGui
     /// </summary>
     public partial class Login : Window
     {
-        IBL bl = BLFactory.GetBL("2");
+        IBL bl = BLFactory.GetBL();
 
         #region constructor
         public Login()

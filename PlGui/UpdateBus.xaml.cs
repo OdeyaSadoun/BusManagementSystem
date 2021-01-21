@@ -19,7 +19,7 @@ namespace PlGui
     /// </summary>
     public partial class UpdateBus : Window
     {
-        IBL bl = BLFactory.GetBL("2");
+        IBL bl = BLFactory.GetBL();
         public BO.Bus b { get; set; }
         public UpdateBus(BO.Bus bus)
         {

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using DS;
 using System.IO;
-
+using DO;
+//Tamar
 namespace DL
 {
     sealed class DLXML:IDL
@@ -18,29 +19,29 @@ namespace DL
         /// This is useful when exactly one object is needed to coordinate actions across the system.
         /// </summary>
         static readonly DLXML instance = new DLXML();
-        static DLXML() { }// static ctor to ensure instance init is done just before first usage
+        static DLXML(){}// static ctor to ensure instance init is done just before first usage
         DLXML() 
         {
-            if (!File.Exists(BusFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.Bus>(DS.DataSource.ListBuses, BusFilePath);
+            //if (!File.Exists(BusFilePath))
+            //    DL.XMLTools.SaveListToXMLSerializer<DO.Bus>(DS.DataSource.ListBuses, BusFilePath);
 
-            if (!File.Exists(UserFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.User>(DS.DataSource.ListUsers, UserFilePath);
+            //if (!File.Exists(UserFilePath))
+            //    DL.XMLTools.SaveListToXMLSerializer<DO.User>(DS.DataSource.ListUsers, UserFilePath);
 
-            if (!File.Exists(LineStationFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.LineStation>(DS.DataSource.ListLineStations, LineStationFilePath);
+            //if (!File.Exists(LineStationFilePath))
+            //    DL.XMLTools.SaveListToXMLSerializer<DO.LineStation>(DS.DataSource.ListLineStations, LineStationFilePath);
 
-            if (!File.Exists(LineFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.Line>(DS.DataSource.ListLines, LineFilePath);
+            //if (!File.Exists(LineFilePath))
+            //    DL.XMLTools.SaveListToXMLSerializer<DO.Line>(DS.DataSource.ListLines, LineFilePath);
 
-            if (!File.Exists(StationFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.Station>(DS.DataSource.ListStations, StationFilePath);
+            //if (!File.Exists(StationFilePath))
+            //    DL.XMLTools.SaveListToXMLSerializer<DO.Station>(DS.DataSource.ListStations, StationFilePath);
 
-            if (!File.Exists(AdjacentFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.AdjacentStations>(DS.DataSource.ListAdjacentStations, AdjacentFilePath);
+            //if (!File.Exists(AdjacentFilePath))
+            //    DL.XMLTools.SaveListToXMLSerializer<DO.AdjacentStations>(DS.DataSource.ListAdjacentStations, AdjacentFilePath);
 
-            if (!File.Exists(LinesTripFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.LineTrip>(DS.DataSource.ListLinesTrip, LinesTripFilePath);
+            //if (!File.Exists(LinesTripFilePath))
+            //    DL.XMLTools.SaveListToXMLSerializer<DO.LineTrip>(DS.DataSource.ListLinesTrip, LinesTripFilePath);
         }
         public static DLXML Instance { get => instance; }// The public Instance property to use
         #endregion
@@ -48,14 +49,14 @@ namespace DL
 
         #region DS XML Files
      
-        string BusFilePath = @"BusXml.xml"; //XMLSerializer
-        string UserFilePath = @"UserXml.xml"; //XMLSerializer
-        string LineStationFilePath = @"LineStationXml.xml"; //XMLSerializer
-        string LineFilePath = @"LineXml.xml"; //XMLSerializer
-        string StationFilePath = @"StationXml.xml"; //XMLSerializer
-        string AdjacentFilePath = @"AdjacentXml.xml"; //XMLSerializer
-        string LinesTripFilePath = @"LinesTripXml.xml"; //XMLSerializer
-
+        string BusFilePath = @"BusFileXml.xml"; //XMLSerializer
+        string UserFilePath = @"UserFileXml.xml"; //XElement
+        string LineStationFilePath = @"LineStationFileXml.xml"; //XMLSerializer
+        string LineFilePath = @"LineFileXml.xml"; //XMLSerializer
+        string StationFilePath = @"StationFileXml.xml"; //XMLSerializer
+        string AdjacentFilePath = @"AdjacentFileXml.xml"; //XMLSerializer
+        string LinesTripFilePath = @"LinesTripFileXml.xml"; //XMLSerializer
+        string runningNumberPath = @"RunningNumberPathXml.xml"; //XMLSerializer
         #region Bus
         #region GetBus
         /// <summary>

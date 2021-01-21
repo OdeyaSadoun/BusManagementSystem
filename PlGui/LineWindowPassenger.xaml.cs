@@ -24,7 +24,7 @@ namespace PlGui
     {
         public ObservableCollection<BO.Line> listOfLines { get; set; } = new ObservableCollection<BO.Line>();
 
-        IBL bl = BLFactory.GetBL("2");
+        IBL bl = BLFactory.GetBL();
         public Button Update { get; set; }
         public Button Delete { get; set; }
         public BO.User User { get; set; }

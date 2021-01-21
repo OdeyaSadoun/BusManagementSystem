@@ -22,7 +22,7 @@ namespace PlGui
     /// </summary>
     public partial class StationWindow : Window
     {
-        IBL bl = BLFactory.GetBL("2");
+        IBL bl = BLFactory.GetBL();
         public BO.User User1 { get; set; }
         #region constructor
         public StationWindow(BO.User u)

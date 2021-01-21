@@ -20,7 +20,7 @@ namespace PlGui
     /// </summary>
     public partial class AddStation : Window
     {
-        IBL bl = BLFactory.GetBL("2");
+        IBL bl = BLFactory.GetBL();
         public AddStation()
         {
             InitializeComponent();

@@ -23,7 +23,7 @@ namespace PlGui
     public partial class BusWindowPassnger : Window
     {
         public ObservableCollection<BO.Bus> listOfBuses { get; set; } = new ObservableCollection<BO.Bus>();
-        IBL bl = BLFactory.GetBL("2");
+        IBL bl = BLFactory.GetBL();
 
         #region constructor
         public BusWindowPassnger()

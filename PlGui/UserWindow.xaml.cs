@@ -27,7 +27,7 @@ namespace PlGui
     /// </summary>
     public partial class UserWindow : Window
     {
-        IBL bl = BLFactory.GetBL("2");
+        IBL bl = BLFactory.GetBL();
         public UserWindow()
         {
             InitializeComponent();

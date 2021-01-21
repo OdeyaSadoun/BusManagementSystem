@@ -61,6 +61,7 @@ namespace DalApi
             DLPackages = (from pkg in dlConfig.Element("dl-packages").Elements()
                           let tmp1 = pkg.Attribute("namespace")
                           let nameSpace = tmp1 == null ? "DalObject" : tmp1.Value
+                          //let nameSpace = tmp1 == null ? "DLXML" : tmp1.Value
                           let tmp2 = pkg.Attribute("class")
                           let className = tmp2 == null ? pkg.Value : tmp2.Value
                           select new DLPackage()
