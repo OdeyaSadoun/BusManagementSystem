@@ -48,6 +48,7 @@
     <Compile Include="BO\Enums.cs" />
     <Compile Include="BO\Exceptions.cs" />
     <Compile Include="BO\Line.cs" />
+    <Compile Include="BO\LineTiming.cs" />
     <Compile Include="BO\ShortLine.cs" />
     <Compile Include="BO\StationInLine.cs" />
     <Compile Include="BO\LineTrip.cs" />

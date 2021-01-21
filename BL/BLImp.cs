@@ -1340,5 +1340,48 @@ namespace BL
         //    }
         //}
         #endregion
+
+        #region GetLineTimingsPerStation
+        /// <summary>
+        /// A BO function that return a BO bus
+        /// </summary>
+        /// <param name = "id" ></ param >
+        /// < returns ></ returns >
+        public BO.Bus GetBus(int id)
+        {
+            DO.Bus busDO;
+            try
+            {
+                busDO = dl.GetBus(id);
+            }
+            catch (DO.IncorrectLicenseNumberException ex)
+            {
+                throw new BO.IncorrectLicenseNumberException(ex.licenseNumber, ex.Message);
+            }
+            return busDoBoAdapter(busDO);
+        }
+        #endregion
+        public IEnumerable<BO.LineTiming> GetLineTimingsPerStation(BO.Station station, TimeSpan tsCurentTime)//פונקצית הרחבה
+        {
+            List<AdjacentStations> ListAdjacentStations = new List<AdjacentStations>();
+            IEnumerable<BO.ShortLine> ListOfLines = station.ListOfLines;
+            foreach(BO.Line l in ListOfLines)
+            {
+                IEnumerable<StationInLine> listOfStationsInLine = l.ListOfStationsInLine;
+                foreach(BO.StationInLine s in listOfStationsInLine)
+                    while(s.StationCode!=station.Code)
+                    {
+                        TimeSpan sum = TimeSpan.Zero;
+                        sum += s.TimeTo;
+                    }
+            }
+
+
+
+
+
+
+        }
+        #endregion
     }
 }

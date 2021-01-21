@@ -68,7 +68,12 @@ namespace PlGui
                 List<BO.StationInLine> lst = new List<BO.StationInLine>();
                 if (AddBox.Text!=null)
                 {
-
+                    foreach (BO.StationInLine s in listOfStations)
+                    {
+                        if (s.StationCode != int.Parse(AddBox.Text))
+                            temp.Add(s);
+                    }
+                    line.ListOfStationsInLine = temp;
                 }
                 bl.UpdateLine(line);
             }
