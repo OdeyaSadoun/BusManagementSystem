@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:PlGui"
         mc:Ignorable="d"
         Title="ElectronicScreen" Height="300" Width="450">
-    <Grid Background="#FFB0B0B0">
+    <Grid x:Name="gridStation" Background="#FFB0B0B0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="163*"/>
             <ColumnDefinition Width="256*"/>
             <ColumnDefinition Width="73*"/>
         </Grid.ColumnDefinitions>
-        <Grid HorizontalAlignment="Left" Height="249" Margin="10,10,0,0" VerticalAlignment="Top" Width="422" Grid.ColumnSpan="3" Background="Black">
-            <ListView HorizontalAlignment="Left" Height="165" Margin="35,56,0,0" VerticalAlignment="Top" Width="356">
+        <Grid x:Name="lineTimingDataGrid" HorizontalAlignment="Left" Height="249" Margin="10,10,0,0" VerticalAlignment="Top" Width="422" Grid.ColumnSpan="3" Background="Black">
+            <!--<ListView  HorizontalAlignment="Left" Height="165" Margin="35,59,0,0" VerticalAlignment="Top" Width="356">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding StartAt}" Width="75"/>
@@ -21,8 +21,9 @@
                         <GridViewColumn DisplayMemberBinding="{Binding StartAt}" Width="75"/>
                     </GridView>
                 </ListView.View>
-            </ListView>
-            <TextBlock HorizontalAlignment="Left" Margin="35,14,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Background="White" Width="99" Height="28"/>
+            </ListView>-->
+            <TextBlock x:Name="timerTextBlock" HorizontalAlignment="Left" Margin="35,18,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Background="White" Width="99" Height="28"/>
+            <ListBox HorizontalAlignment="Left" Height="165" Margin="35,60,0,0" VerticalAlignment="Top" Width="355"/>
         </Grid>
 
     </Grid>
