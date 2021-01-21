@@ -34,5 +34,12 @@ namespace PlGui
             // Load data by setting the CollectionViewSource.Source property:
             // stationViewSource.Source = [generic data source]
         }
+
+        private void RealTime_Click(object sender, RoutedEventArgs e)
+        {
+            BO.Station s = (sender as Button).DataContext as BO.Station;
+            ElectronicScreen win = new ElectronicScreen(s);
+            win.ShowDialog();
+        }
     }
 }

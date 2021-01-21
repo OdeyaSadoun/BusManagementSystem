@@ -70,6 +70,8 @@ namespace BLApi
         IEnumerable<BO.StationInLine> GetAllStationsInLine();
 
 
+        IEnumerable<BO.LineTiming> GetLineTimingsPerStation(BO.Station station, TimeSpan tsCurentTime);
+
         #region User
         IEnumerable<BO.User> GetAllUsers();
         //IEnumerable<BO.User> GetAllUsersBy(Predicate<BO.User> predicate);

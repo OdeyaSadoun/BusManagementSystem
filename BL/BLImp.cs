@@ -1341,47 +1341,44 @@ namespace BL
         //}
         #endregion
 
-        #region GetLineTimingsPerStation
-        /// <summary>
-        /// A BO function that return a BO bus
-        /// </summary>
-        /// <param name = "id" ></ param >
-        /// < returns ></ returns >
-        public BO.Bus GetBus(int id)
-        {
-            DO.Bus busDO;
-            try
-            {
-                busDO = dl.GetBus(id);
-            }
-            catch (DO.IncorrectLicenseNumberException ex)
-            {
-                throw new BO.IncorrectLicenseNumberException(ex.licenseNumber, ex.Message);
-            }
-            return busDoBoAdapter(busDO);
-        }
-        #endregion
+
+
+        #region
         public IEnumerable<BO.LineTiming> GetLineTimingsPerStation(BO.Station station, TimeSpan tsCurentTime)//פונקצית הרחבה
         {
             List<AdjacentStations> ListAdjacentStations = new List<AdjacentStations>();
-            IEnumerable<BO.ShortLine> ListOfLines = station.ListOfLines;
-            foreach(BO.Line l in ListOfLines)
+            IEnumerable<BO.LineTiming> lst=(IEnumerable<BO.LineTiming>)new List<BO.LineTiming>();           
+            List<BO.ShortLine> ListOfLines = station.ListOfLines.ToList();
+            DO.Line lineDO = new DO.Line();
+            BO.Line lineBO = new BO.Line();
+            foreach (BO.Line l in ListOfLines)
             {
-                IEnumerable<StationInLine> listOfStationsInLine = l.ListOfStationsInLine;
-                foreach(BO.StationInLine s in listOfStationsInLine)
-                    while(s.StationCode!=station.Code)
-                    {
-                        TimeSpan sum = TimeSpan.Zero;
-                        sum += s.TimeTo;
+                lineDO = dl.GetLine(l.Id);
+                lineBO = lineDoBoAdapter(lineDO);
+                BO.LineTiming lt = new BO.LineTiming();
+                lt.LineId = l.Id;
+                lt.LineNumber = l.LineNumber;
+                List<BO.StationInLine> listOfStationsInLine = lineBO.ListOfStationsInLine.ToList();
+                BO.StationInLine sil = new BO.StationInLine();
+                lt.SourceStation = GetStation(listOfStationsInLine[0].StationCode);
+                lt.TargetStation = GetStation(listOfStationsInLine[listOfStationsInLine.Count() - 1].StationCode);
+
+                TimeSpan sum = TimeSpan.Zero;
+                int count = -1;
+                foreach (BO.StationInLine s in listOfStationsInLine)
+                {
+                    while (s.LineStationIndex != count)
+                    {                      
+                        sum += s.TimeTo;                        
+                        count++;
                     }
+                    lt.Timing = sum;
+                    lst.ToList().Add(lt);
+                }
+                //lst.ToList().Add(lt);                
             }
-
-
-
-
-
-
+            return lst;
         }
         #endregion
     }
-}
+}//tamargavrieli18@gmail.com

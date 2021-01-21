@@ -13,17 +13,17 @@
             <ColumnDefinition Width="73*"/>
         </Grid.ColumnDefinitions>
         <Grid x:Name="lineTimingDataGrid" HorizontalAlignment="Left" Height="249" Margin="10,10,0,0" VerticalAlignment="Top" Width="422" Grid.ColumnSpan="3" Background="Black">
-            <!--<ListView  HorizontalAlignment="Left" Height="165" Margin="35,59,0,0" VerticalAlignment="Top" Width="356">
+            <ListView x:Name="lv"  HorizontalAlignment="Left" Height="165" Margin="35,59,0,0" VerticalAlignment="Top" Width="356">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding StartAt}" Width="75"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding StartAt}" Width="200"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding StartAt}" Width="75"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding LineNumber}" Width="75"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Timing}" Width="200"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding SourceStation}" Width="75"/>
                     </GridView>
                 </ListView.View>
-            </ListView>-->
+            </ListView>
             <TextBlock x:Name="timerTextBlock" HorizontalAlignment="Left" Margin="35,18,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Background="White" Width="99" Height="28"/>
-            <ListBox HorizontalAlignment="Left" Height="165" Margin="35,60,0,0" VerticalAlignment="Top" Width="355"/>
+          
         </Grid>
 
     </Grid>

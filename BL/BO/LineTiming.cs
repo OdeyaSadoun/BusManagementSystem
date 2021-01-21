@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    class LineTiming
+    public class LineTiming
     {
         public int LineId { get; set; }
+        public int LineNumber { get; set; }
         public TimeSpan Timing { get; set; }
         public Station SourceStation { get; set; }
         public Station TargetStation{ get; set; }

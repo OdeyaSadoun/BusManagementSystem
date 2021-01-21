@@ -34,7 +34,7 @@ namespace PlGui
         public ElectronicScreen(BO.Station currntStation)
         {
             InitializeComponent();
-
+            
             station = currntStation;
             gridStation.DataContext = station;
             stopWatch = new Stopwatch();
@@ -51,6 +51,7 @@ namespace PlGui
             isTimerRun = true;
 
             timerWorker.RunWorkerAsync();
+            
 
         }
 
