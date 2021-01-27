@@ -542,30 +542,58 @@ namespace BL
         }
         #endregion
 
+        //#region GetStationInLine
+        ///// <summary>
+        /////  A function that return a BO station
+        ///// </summary>
+        ///// <param name="code"></param>
+        ///// <returns></returns>
+        //public BO.StationInLine GetStationInLine(int code, int id)
+        //{
+        //    DO.Station stationDO;
+        //    DO.LineStation lDO;
+
+        //    try
+        //    {
+        //        stationDO = dl.GetStation(code);
+        //        lDO = dl.GetLineStation(code, id);
+        //    }
+
+        //    catch (DO.IncorrectCodeStationException ex)
+        //    {
+        //        throw new BO.IncorrectLineIDException(ex.stationCode, ex.Message);
+        //    }
+
+        //    return stationInLineDoBoAdapter(lDO);
+        //}
         #region GetStationInLine
         /// <summary>
-        ///  A function that return a BO station
+        /// A BO function that return a BO bus
         /// </summary>
-        /// <param name="code"></param>
-        /// <returns></returns>
-        public BO.StationInLine GetStationInLine(int code, int id)
+        /// <param name = "id" ></ param >
+        /// < returns ></ returns >
+        public BO.StationInLine GetStationInLine(int stationCode, int lineId)
         {
-            DO.Station stationDO;
-            DO.LineStation lDO;
-
+            DO.LineStation lineStationDO;
+            DO.Station station;
+            BO.Line l = GetLine(lineId);
+            BO.StationInLine stationinlineBO;
             try
             {
-                stationDO = dl.GetStation(code);
-                lDO = dl.GetLineStation(code, id);
+                foreach (BO.StationInLine s in l.ListOfStationsInLine)
+                {
+                    if (s.StationCode == stationCode)
+                        return s;
+                }
+                throw new BO.IncorrectInputException($"The line {lineId} or the station {stationCode} are not correct");
             }
-
-            catch (DO.IncorrectCodeStationException ex)
+            catch (DO.IncorrectInputException ex)
             {
-                throw new BO.IncorrectLineIDException(ex.stationCode, ex.Message);
+                throw new BO.IncorrectInputException(ex.Message);
             }
 
-            return stationInLineDoBoAdapter(lDO);
         }
+       // #endregion
         #endregion
 
         #endregion
@@ -1161,34 +1189,6 @@ namespace BL
         //#endregion
         #endregion
 
-        //#region GetStationInLine
-        ///// <summary>
-        ///// A BO function that return a BO bus
-        ///// </summary>
-        ///// <param name = "id" ></ param >
-        ///// < returns ></ returns >
-        //public BO.StationInLine GetStationInLine(int stationCode, int lineId)
-        //{
-        //    DO.LineStation lineStationDO;
-        //    DO.Station station;
-        //    BO.Line l = GetLine(lineId);
-        //    BO.StationInLine stationinlineBO;
-        //    try
-        //    {
-        //        foreach (BO.StationInLine s in l.ListOfStationsInLine)
-        //        {
-        //            if (s.StationCode == stationCode)
-        //                return s;
-        //        }
-        //        throw new BO.IncorrectInputException($"The line {lineId} or the station {stationCode} are not correct");
-        //    }
-        //    catch (DO.IncorrectInputException ex)
-        //    {
-        //        throw new BO.IncorrectInputException(ex.Message);
-        //    }
-
-        //}
-        //#endregion
 
 
 
