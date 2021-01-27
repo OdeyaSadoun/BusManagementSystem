@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlGui"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PlGui.UpdateStation"
+    WindowStartupLocation="CenterScreen"     
         mc:Ignorable="d"
-        Title="UpdateStation" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="UpdateStation" Height="450" Width="700" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="stationViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:Station}, CreateList=True}"/>
     </Window.Resources>
@@ -14,7 +15,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <Grid x:Name="grid2" DataContext="{StaticResource stationViewSource}" HorizontalAlignment="Left" Margin="277,73,0,0" VerticalAlignment="Top">
+        <Grid x:Name="grid2" DataContext="{StaticResource stationViewSource}" HorizontalAlignment="Left" Margin="227,99,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -41,6 +42,7 @@
             <CheckBox x:Name="isDigitalPanelCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding IsDigitalPanel, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="5" Grid.Row="5" VerticalAlignment="Center" Foreground="Black" FontSize="12"  FontWeight="Bold"/>
 
         </Grid>
-        <Button x:Name="updating" Content="Update" HorizontalAlignment="Left" Margin="355,322,0,0" VerticalAlignment="Top" Width="108"  Foreground="Black" FontSize="12"  FontWeight="Bold" Click="updating_Click" Height="28"/>
+        <Button x:Name="updating" Content="Update" HorizontalAlignment="Left" Margin="290,321,0,0" VerticalAlignment="Top" Width="108"  Foreground="Black" FontSize="12"  FontWeight="Bold" Click="updating_Click" Height="28"/>
+        <Label Content="enter details to update this station:" HorizontalAlignment="Left"  Foreground="White" Margin="227,48,0,0" VerticalAlignment="Top" Width="266" FontWeight="Bold" FontSize="14"/>
     </Grid>
 </Window>

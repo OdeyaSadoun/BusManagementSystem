@@ -62,7 +62,7 @@ namespace PlGui
             string timerText = tsCurentTime.ToString().Substring(0, 8);
             this.timerTextBlock.Text = timerText;
 
-            lineTimingDataGrid.DataContext = bl.GetLineTimingsPerStation(station, tsCurentTime);
+            lv.ItemsSource = bl.GetLineTimingsPerStation(station, tsCurentTime).ToList();
         }
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)

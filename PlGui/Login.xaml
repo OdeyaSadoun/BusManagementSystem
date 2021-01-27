@@ -21,20 +21,20 @@
                 <TextBlock TextDecorations="Underline"><Hyperlink Click="UserRegister_Click" FontSize="14" FontStyle="Normal"><Run Foreground="Black" Text="Register as user"/></Hyperlink></TextBlock>  
             </InlineUIContainer><Run Text=" "/>
         </TextBlock>
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="141.4,178,0,0" Name="emailTextBlock1" Text="Email:" Foreground="White" VerticalAlignment="Top" Width="34" FontWeight="Bold" Grid.Column="2" RenderTransformOrigin="2.082,-0.635" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="141.4,226,0,0" Name="passwordTextBlock2" Text="Password:"  Foreground="White" VerticalAlignment="Top" Width="57" FontWeight="Bold" Grid.Column="2" >
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="133,178,0,0" Name="emailTextBlock1" Text="Email:" Foreground="White" VerticalAlignment="Top" Width="34" FontWeight="Bold" Grid.Column="2" RenderTransformOrigin="2.082,-0.635" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="133,226,0,0" Name="passwordTextBlock2" Text="Password:"  Foreground="White" VerticalAlignment="Top" Width="57" FontWeight="Bold" Grid.Column="2" >
             <TextBlock.Background>
                 <ImageBrush/>
             </TextBlock.Background>
         </TextBlock>
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="140.4,200,0,0" Name="textBoxEmail" VerticalAlignment="Top" Width="247" Grid.Column="2" Text="Enter email" Grid.ColumnSpan="2"  />
-        <PasswordBox Height="23" HorizontalAlignment="Left" Margin="140.4,246,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="247" Grid.Column="2" Grid.ColumnSpan="2"   />
-        <Button Content="Login" Height="29" HorizontalAlignment="Left" Margin="140.4,281,0,0" Name="button1" VerticalAlignment="Top" Width="247" Click="buttonLogin_Click" FontWeight="Bold" Grid.Column="2" Grid.ColumnSpan="2" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="132,200,0,0" Name="textBoxEmail" VerticalAlignment="Top" Width="247" Grid.Column="2" Text="Enter email" Grid.ColumnSpan="2" />
+        <PasswordBox Height="23" HorizontalAlignment="Left" Margin="132,246,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="247" Grid.Column="2" Grid.ColumnSpan="2"   />
+        <Button Content="Login" Height="29" HorizontalAlignment="Left" Margin="132,281,0,0" Name="button1" VerticalAlignment="Top" Width="247" Click="buttonLogin_Click" FontWeight="Bold" Grid.Column="2" Grid.ColumnSpan="2" />
         <TextBlock Height="23" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="147" Margin="188,315,0,0"  OpacityMask="White"  FontWeight="Bold" Foreground="White" Grid.Column="2"  />
         <TextBlock  Height="32" x:Name="textblockAdmin" HorizontalAlignment="Left" VerticalAlignment="Stretch" FontSize="12" FontStyle="Italic" Padding="5" Margin="264.4,356,0,32" Grid.Column="2" TextDecorations="Underline" Grid.ColumnSpan="2"><Run Text=" "/><InlineUIContainer>
                 <TextBlock TextDecorations="{x:Null}" RenderTransformOrigin="0.811,1.467"><Hyperlink Click="AdinRegister_Click" FontSize="14" FontStyle="Normal"><Run Foreground="Black" Text="Register as admin"/></Hyperlink></TextBlock>  
             </InlineUIContainer></TextBlock>
         <Label x:Name="Registration" Content="Not registerd? Click here" HorizontalAlignment="Left" Margin="186.4,338,0,0" VerticalAlignment="Top" Width="155" FontWeight="Bold" Grid.Column="2"/>
-        <Image Margin="194.4,40,33.2,239" Source="userWhite-removebg-preview.png" Stretch="Fill" Grid.Column="2"/>
+        <Image Margin="184,40,43,239" Source="userWhite-removebg-preview.png" Stretch="Fill" Grid.Column="2"/>
     </Grid>
 </Window>

@@ -4,16 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlGui"
+        WindowStartupLocation="CenterScreen"     
         mc:Ignorable="d"
-        Title="UpdateLine" Height="450" Width="800">
+        Title="UpdateLine" Height="450" Width="600">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <Label x:Name="Add" Content="Label" HorizontalAlignment="Left" Margin="129,130,0,252"  VerticalAlignment="Center"  Foreground="white" FontSize="12"  FontWeight="Bold" Height="38" Width="48"/>
-        <Label x:Name="Remove" Content="Label" HorizontalAlignment="Left" Margin="129,197,0,185" VerticalAlignment="Center"  Foreground="white" FontSize="12"  FontWeight="Bold" Height="38" Width="48"/>
-        <Label x:Name="Cost" Content="Label" HorizontalAlignment="Left" Margin="129,255,0,127" VerticalAlignment="Center"  Foreground="white" FontSize="12"  FontWeight="Bold" Height="38" Width="48"/>
-        <TextBox x:Name="AddBox" HorizontalAlignment="Left" Height="36" Margin="239,132,0,252" TextWrapping="Wrap"  Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="144" Foreground="Black" FontSize="12"  FontWeight="Bold" TextChanged="AddTextBox_TextChanged"/>
+        <Label x:Name="Add" Content="add station:" HorizontalAlignment="Left" Margin="85,119,0,273"  VerticalAlignment="Center"  Foreground="white" FontSize="12"  FontWeight="Bold" Height="27" Width="92"/>
+        <Label x:Name="Remove" Content="delete station" HorizontalAlignment="Left" Margin="85,196,0,198" VerticalAlignment="Center"  Foreground="white" FontSize="12"  FontWeight="Bold" Height="25" Width="92"/>
+        <Label x:Name="Cost" Content="change the fare:" HorizontalAlignment="Left" Margin="85,254,0,139" VerticalAlignment="Center"  Foreground="white" FontSize="12"  FontWeight="Bold" Height="26" Width="103"/>
+        <TextBox x:Name="AddBox" HorizontalAlignment="Left" Height="36" Margin="239,119,0,264" TextWrapping="Wrap"  Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="144" Foreground="Black" FontSize="12"  FontWeight="Bold" TextChanged="AddTextBox_TextChanged"/>
         <TextBox x:Name="RemoveBox" HorizontalAlignment="Left" Height="36" Margin="239,199,0,185" TextWrapping="Wrap" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="144" Foreground="Black" FontSize="12"  FontWeight="Bold" TextChanged="RemoveTextBox_TextChanged"/>
         <TextBox x:Name="CostBox" HorizontalAlignment="Left" Height="37" Margin="239,256,0,127" TextWrapping="Wrap"  Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="144" Foreground="Black" FontSize="12"  FontWeight="Bold" TextChanged="CostTextBox_TextChanged"/>
         <Button x:Name="Updating" Content="Update" HorizontalAlignment="Left" Margin="239,344,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Click="Updating_Click"/>

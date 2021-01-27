@@ -4,26 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlGui"
+        WindowStartupLocation="CenterScreen" 
         mc:Ignorable="d"
-        Title="ElectronicScreen" Height="300" Width="450">
+        Title="ElectronicScreen" Height="350" Width="550">
     <Grid x:Name="gridStation" Background="#FFB0B0B0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="163*"/>
             <ColumnDefinition Width="256*"/>
             <ColumnDefinition Width="73*"/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="lineTimingDataGrid" HorizontalAlignment="Left" Height="249" Margin="10,10,0,0" VerticalAlignment="Top" Width="422" Grid.ColumnSpan="3" Background="Black">
-            <ListView x:Name="lv"  HorizontalAlignment="Left" Height="165" Margin="35,59,0,0" VerticalAlignment="Top" Width="356">
+        <Grid x:Name="lineTimingDataGrid" HorizontalAlignment="Left" Height="299" Margin="10,10,0,0" VerticalAlignment="Top" Width="522" Grid.ColumnSpan="3" Background="Black">
+            <ListView x:Name="lv" FontWeight="Bold" FontSize="14" FontFamily="Miriam" Foreground="Black" HorizontalAlignment="Left" Height="218" Margin="20,59,0,0" VerticalAlignment="Top" Width="483" Background="#FFAFC896">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding LineNumber}" Width="75"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Timing}" Width="200"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding SourceStation}" Width="75"/>
+                        <GridViewColumn Header="Time:" DisplayMemberBinding="{Binding Timing}" Width="112"/>
+                        <GridViewColumn Header="Destination" DisplayMemberBinding="{Binding TargetStation.Name}"  Width="260"/>
+                        <GridViewColumn Header="Line Number:" DisplayMemberBinding="{Binding LineNumber}" Width="100"/>
                     </GridView>
                 </ListView.View>
             </ListView>
-            <TextBlock x:Name="timerTextBlock" HorizontalAlignment="Left" Margin="35,18,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Background="White" Width="99" Height="28"/>
-          
+            <TextBlock x:Name="timerTextBlock" HorizontalAlignment="Left" Margin="20,22,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Background="White" Width="158" Height="28" FontWeight="Bold" TextAlignment="Center" FontSize="17"/>
+            <Label Content= "{Binding Name}" HorizontalAlignment="Left" Margin="230,22,0,0" VerticalAlignment="Top" Width="273"  Foreground="White" Height="37" FontSize="17"/>
+
         </Grid>
 
     </Grid>

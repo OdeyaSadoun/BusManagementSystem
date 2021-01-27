@@ -48,22 +48,27 @@ namespace PlGui
         {
             Login login = new Login();
             login.ShowDialog();
+            Close();
         }
 
         private void UserButton_Click(object sender, RoutedEventArgs e)
         {
             UserWindow user = new UserWindow();
             user.ShowDialog();
+            Close();
+
         }
 
         private void AdminButton_Click(object sender, RoutedEventArgs e)
         {
             AdminWindow admin = new AdminWindow();
             admin.ShowDialog();
+            Close();
+
         }
 
-       
-      
+
+
 
         private void ButtonAbout_Click(object sender, RoutedEventArgs e)
         {

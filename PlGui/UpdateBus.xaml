@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:PlGui"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PlGui.UpdateBus"
         mc:Ignorable="d"
-        Title="UpdateBus" Height="450" Width="800" Loaded="Window_Loaded">
+    WindowStartupLocation="CenterScreen"     
+        Title="UpdateBus" Height="450" Width="700" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="busViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:Bus}, CreateList=True}"/>
     </Window.Resources>
@@ -14,8 +15,8 @@
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <Button x:Name="updating" Content="Update" HorizontalAlignment="Left" Margin="538,322,0,0" VerticalAlignment="Top" Width="75" Click="updating_Click" FontWeight="Bold"/>
-        <Grid x:Name="grid2" DataContext="{StaticResource busViewSource}" HorizontalAlignment="Left" Margin="110,136,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.496,0.558">
+        <Button x:Name="updating" Content="Update" HorizontalAlignment="Left" Margin="301,337,0,0" VerticalAlignment="Top" Width="75" Click="updating_Click" FontWeight="Bold"/>
+        <Grid x:Name="grid2" DataContext="{StaticResource busViewSource}" HorizontalAlignment="Left" Margin="233,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.496,0.558">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>

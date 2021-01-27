@@ -46,7 +46,7 @@ namespace BL
         {
             BO.ShortLine lineInStation = new BO.ShortLine();
             lineInStation = l.CopyToLineDOToBO();
-            lineInStation.Id = s.LineStationIndex;
+           // lineInStation.Id = s.LineStationIndex;
             return lineInStation;
         }
         public static BO.Line CopyToLineDOToBO(this DO.Line s)

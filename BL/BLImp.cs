@@ -529,6 +529,45 @@ namespace BL
         }
         #endregion
 
+        #region GetAllStationesInLineBy
+        /// <summary>
+        /// A function that returns the stations that have the special thing that the predicat BO
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public IEnumerable<BO.StationInLine> GetAllStationesInLineBy(int id)
+        {
+            return from station in dl.GetAllLinesStationBy(s=> s.LineId == id)
+                   select stationInLineDoBoAdapter(station);
+        }
+        #endregion
+
+        #region GetStationInLine
+        /// <summary>
+        ///  A function that return a BO station
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public BO.StationInLine GetStationInLine(int code, int id)
+        {
+            DO.Station stationDO;
+            DO.LineStation lDO;
+
+            try
+            {
+                stationDO = dl.GetStation(code);
+                lDO = dl.GetLineStation(code, id);
+            }
+
+            catch (DO.IncorrectCodeStationException ex)
+            {
+                throw new BO.IncorrectLineIDException(ex.stationCode, ex.Message);
+            }
+
+            return stationInLineDoBoAdapter(lDO);
+        }
+        #endregion
+
         #endregion
 
         #region Station
@@ -1131,18 +1170,23 @@ namespace BL
         //public BO.StationInLine GetStationInLine(int stationCode, int lineId)
         //{
         //    DO.LineStation lineStationDO;
+        //    DO.Station station;
+        //    BO.Line l = GetLine(lineId);
         //    BO.StationInLine stationinlineBO;
         //    try
         //    {
-        //        lineStationDO = dl.GetLineStation(lineId, stationCode);
+        //        foreach (BO.StationInLine s in l.ListOfStationsInLine)
+        //        {
+        //            if (s.StationCode == stationCode)
+        //                return s;
+        //        }
+        //        throw new BO.IncorrectInputException($"The line {lineId} or the station {stationCode} are not correct");
         //    }
         //    catch (DO.IncorrectInputException ex)
         //    {
         //        throw new BO.IncorrectInputException(ex.Message);
         //    }
 
-        //    stationinlineBO = DeepCopyUtilities.CopyToStationInLine(lineStationDO);
-        //    return stationinlineBO;
         //}
         //#endregion
 
@@ -1343,14 +1387,19 @@ namespace BL
 
 
 
-        #region
+        #region GetLineTimingsPerStation
         public IEnumerable<BO.LineTiming> GetLineTimingsPerStation(BO.Station station, TimeSpan tsCurentTime)//פונקצית הרחבה
         {
-            List<AdjacentStations> ListAdjacentStations = new List<AdjacentStations>();
-            IEnumerable<BO.LineTiming> lst=(IEnumerable<BO.LineTiming>)new List<BO.LineTiming>();           
-            List<BO.ShortLine> ListOfLines = station.ListOfLines.ToList();
+
+            IEnumerable<BO.LineTiming> lst=(IEnumerable<BO.LineTiming>)new List<BO.LineTiming>();
+            List<BO.LineTiming> temp = new List<LineTiming>();
+            List<BO.LineTrip> times;
             DO.Line lineDO = new DO.Line();
             BO.Line lineBO = new BO.Line();
+
+            BO.Station curStation = station;
+            List<BO.ShortLine> ListOfLines = curStation.ListOfLines.ToList();
+
             foreach (BO.Line l in ListOfLines)
             {
                 lineDO = dl.GetLine(l.Id);
@@ -1359,24 +1408,43 @@ namespace BL
                 lt.LineId = l.Id;
                 lt.LineNumber = l.LineNumber;
                 List<BO.StationInLine> listOfStationsInLine = lineBO.ListOfStationsInLine.ToList();
-                BO.StationInLine sil = new BO.StationInLine();
+                times = lineBO.ListOfTripTime.ToList();
                 lt.SourceStation = GetStation(listOfStationsInLine[0].StationCode);
                 lt.TargetStation = GetStation(listOfStationsInLine[listOfStationsInLine.Count() - 1].StationCode);
+                BO.StationInLine sil = GetStationInLine(station.Code, l.Id);
+                //foreach (BO.LineTrip ltrip in lineBO.ListOfTripTime)
+                //{
 
-                TimeSpan sum = TimeSpan.Zero;
-                int count = -1;
-                foreach (BO.StationInLine s in listOfStationsInLine)
+                for (int i = 0; i < times.Count; i++)
                 {
-                    while (s.LineStationIndex != count)
-                    {                      
-                        sum += s.TimeTo;                        
+                    TimeSpan sum = times[i].StartAt;
+                    if (sum < tsCurentTime)
+                        continue;
+
+                    int count = -1;
+
+                    //foreach (BO.StationInLine s in listOfStationsInLine)
+                    //{
+                    //    if (s.StationCode == station.Code)
+                    //    {
+                    //        sil = s;
+                    //        break;
+                    //    }
+                    //}
+                    while (sil.LineStationIndex != count)
+                    {
+                        sum +=  listOfStationsInLine[count + 1].TimeTo;
                         count++;
                     }
                     lt.Timing = sum;
-                    lst.ToList().Add(lt);
+                    temp.Add(new BO.LineTiming() { LineId = lt.LineId, LineNumber = lt.LineNumber, SourceStation = lt.SourceStation, TargetStation = lt.TargetStation, Timing = lt.Timing } );
                 }
+                //}
                 //lst.ToList().Add(lt);                
             }
+            temp = (temp.OrderBy(s => s.Timing)).ToList();
+            lst = temp.ToList();
+            
             return lst;
         }
         #endregion

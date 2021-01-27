@@ -68,7 +68,8 @@ namespace BLApi
 
        void DeleteStationInLine(BO.StationInLine sInL);
         IEnumerable<BO.StationInLine> GetAllStationsInLine();
-
+        IEnumerable<BO.StationInLine> GetAllStationesInLineBy(int id);
+        BO.StationInLine GetStationInLine(int stationCode, int lineId);
 
         IEnumerable<BO.LineTiming> GetLineTimingsPerStation(BO.Station station, TimeSpan tsCurentTime);
 
