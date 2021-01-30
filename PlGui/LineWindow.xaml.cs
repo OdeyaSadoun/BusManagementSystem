@@ -46,6 +46,8 @@ namespace PlGui
             BO.Line l = (sender as Button).DataContext as BO.Line;
             UpdateLine update = new UpdateLine(l);
             update.ShowDialog();
+            listViewLine.ItemsSource = bl.GetAllLines().ToList();
+
             //try
             //{
             //    BO.Line line = (sender as Button).DataContext as BO.Line;
@@ -180,6 +182,7 @@ namespace PlGui
             BO.Line line = (sender as ListBox).SelectedItem as BO.Line;
             LineShow win = new LineShow(line);
             win.ShowDialog();
+
         }
         #endregion
     }

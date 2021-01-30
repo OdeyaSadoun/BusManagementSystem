@@ -7,7 +7,7 @@
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PlGui.BusShow"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="BusShow" Height="450" Width="600" Loaded="Window_Loaded">
+        Title="BusShow" Height="450" Width="650" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="busViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:Bus}, CreateList=True}"/>
     </Window.Resources>
@@ -17,7 +17,7 @@
     </Window.Background>
 
     <Grid DataContext="{StaticResource busViewSource}">
-        <Grid x:Name="grid2" HorizontalAlignment="Left" Margin="68,49,0,0" VerticalAlignment="Top">
+        <Grid x:Name="grid2" HorizontalAlignment="Left" Margin="92,85,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -46,20 +46,14 @@
             <TextBlock x:Name="totalMileageTextBlock1" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="4" Text="{Binding TotalMileage}" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
             <Label Content="Fuel Remain:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
             <TextBlock x:Name="fuelRemainTextBlock1" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="5" Text="{Binding FuelRemain}" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
-            <Label Content="Current Mileage:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" />
-            <TextBlock x:Name="currentMileageTextBlock1" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="6" Text="{Binding CurrentMileage}" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
             <Label Content="Is Accessible:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
             <TextBlock x:Name="isAccessibleTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="7" Text="{Binding IsAccessible}" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
-            <Label Content="Km Before Fuel:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
-            <TextBlock x:Name="kmBeforeFuelTextBlock1" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="8" Text="{Binding KmBeforeFuel}" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
-            <Label Content="Km Befor Treatment:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
-            <TextBlock x:Name="kmBeforTreatmentTextBlock1" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="9" Text="{Binding KmBeforTreatment}" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
-            
-            
-           
-         
+
+
+
+
         </Grid>
-        <Image Margin="381,274,10,24" Source="BUS33.png" Stretch="Fill"/>
+        <Image Margin="410,274,10,24" Source="BUS33.png" Stretch="Fill"/>
 
 
     </Grid>

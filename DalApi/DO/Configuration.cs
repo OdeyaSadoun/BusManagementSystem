@@ -10,7 +10,7 @@ namespace DO
     {
         public static int BusOnTripID = 0;
         public static int LineID = 14;
-        public static int TripID = 0;
+        public static int TripID = 391;
 
     }
 }

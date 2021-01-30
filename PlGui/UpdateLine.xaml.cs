@@ -58,7 +58,7 @@ namespace PlGui
 
 
                 //מחיקת תחנה מרשימת התחנות
-                if (RemoveBox.Text != null)
+                if (RemoveBox.Text != "")
                 {
                     stationToDelete = bl.GetStationInLine(int.Parse(RemoveBox.Text), line.Id);
 
@@ -68,9 +68,13 @@ namespace PlGui
 
                     listOfStations.Remove(v);
                 }
+                else
+                {
+                    line.ListOfStationsInLine = listOfStations;
+                }
 
                 //הוספת תחנה לרשימת התחנות
-                if (AddBox.Text != null)
+                if (AddBox.Text != "")
                 {
                     stationToAdd = bl.GetStationInLine(int.Parse(AddBox.Text), line.Id);
                     if (stationToAdd != null)
@@ -80,11 +84,29 @@ namespace PlGui
                         throw new BO.IncorrectCodeStationException(int.Parse(AddBox.Text), "this station is not exsist in the system");
                     listOfStations.Add(stationToAdd);
                 }
+                else
+                {
+                    line.ListOfStationsInLine = listOfStations;
+                }
 
                 //עדכון מחיר
-                if(CostBox.Text !=null)
+                if(CostBox.Text !="")
                 {
                     line.Fare = double.Parse(CostBox.Text);
+                }
+                else
+                {
+                    line.Fare = line.Fare;
+                }
+                //הוספת זמן יציאה:
+                if(TimeTravel.Text != "")
+                {
+                    BO.LineTrip lt = new BO.LineTrip() { IsDeleted = false, LineId = line.Id, StartAt = TimeSpan.Parse(TimeTravel.Text) };
+                    List<BO.LineTrip> listTimes = (List<BO.LineTrip>)line.ListOfTripTime;
+                    listTimes.Add(lt);
+                    listTimes.OrderBy(s => s.StartAt).ToList();
+                    line.ListOfTripTime = listTimes;
+
                 }
                     //bl.DeleteStationInLine()
                     //listOfStations = temp;// כרגע זוהי רשימת תחנות הקו בקו הנוכחי
@@ -114,6 +136,7 @@ namespace PlGui
                     //    line.ListOfStationsInLine = temp;
                     //}
                     bl.UpdateLine(line);
+                Close();
             }
             catch (Exception ex)
             {
