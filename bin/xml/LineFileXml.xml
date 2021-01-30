@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<ArrayOfLine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Line>
+    <Id>0</Id>
+    <LineNumber>480</LineNumber>
+    <Area>JerusalemCenter</Area>
+    <FirstStation>20001</FirstStation>
+    <LastStation>4170</LastStation>
+    <Fare>30</Fare>
+    <TravelTimeInThisLine />
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>1</Id>
+    <LineNumber>921</LineNumber>
+    <Area>NorthCenter</Area>
+    <FirstStation>33079</FirstStation>
+    <LastStation>42657</LastStation>
+    <Fare>29.5</Fare>
+    <TravelTimeInThisLine />
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>2</Id>
+    <LineNumber>790</LineNumber>
+    <Area>SouthCenter</Area>
+    <FirstStation>10466</FirstStation>
+    <LastStation>20594</LastStation>
+    <Fare>75.3</Fare>
+    <TravelTimeInThisLine />
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>3</Id>
+    <LineNumber>380</LineNumber>
+    <Area>SouthCenter</Area>
+    <FirstStation>13907</FirstStation>
+    <LastStation>20001</LastStation>
+    <Fare>46.2</Fare>
+    <TravelTimeInThisLine />
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>4</Id>
+    <LineNumber>431</LineNumber>
+    <Area>JerusalemCenter</Area>
+    <FirstStation>4170</FirstStation>
+    <LastStation>35744</LastStation>
+    <Fare>25.6</Fare>
+    <TravelTimeInThisLine />
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>5</Id>
+    <LineNumber>691</LineNumber>
+    <Area>North</Area>
+    <FirstStation>40058</FirstStation>
+    <LastStation>42657</LastStation>
+    <Fare>15</Fare>
+    <TravelTimeInThisLine />
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>6</Id>
+    <LineNumber>41</LineNumber>
+    <Area>North</Area>
+    <FirstStation>51353</FirstStation>
+    <LastStation>59903</LastStation>
+    <Fare>8.9</Fare>
+    <TravelTimeInThisLine />
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>7</Id>
+    <LineNumber>59</LineNumber>
+    <Area>North</Area>
+    <FirstStation>53408</FirstStation>
+    <LastStation>58471</LastStation>
+    <Fare>8.9</Fare>
+    <TravelTimeInThisLine />
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>8</Id>
+    <LineNumber>53</LineNumber>
+    <Area>Center</Area>
+    <FirstStation>26469</FirstStation>
+    <LastStation>22955</LastStation>
+    <Fare>5.9</Fare>
+    <TravelTimeInThisLine />
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>9</Id>
+    <LineNumber>60</LineNumber>
+    <Area>Center</Area>
+    <FirstStation>22955</FirstStation>
+    <LastStation>26472</LastStation>
+    <Fare>5.9</Fare>
+    <TravelTimeInThisLine />
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>10</Id>
+    <LineNumber>150</LineNumber>
+    <Area>South</Area>
+    <FirstStation>10030</FirstStation>
+    <LastStation>19116</LastStation>
+    <Fare>12</Fare>
+    <TravelTimeInThisLine />
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>11</Id>
+    <LineNumber>115</LineNumber>
+    <Area>Center</Area>
+    <FirstStation>33551</FirstStation>
+    <LastStation>25867</LastStation>
+    <Fare>8.9</Fare>
+    <TravelTimeInThisLine />
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>12</Id>
+    <LineNumber>2</LineNumber>
+    <Area>Center</Area>
+    <FirstStation>31738</FirstStation>
+    <LastStation>31901</LastStation>
+    <Fare>5.9</Fare>
+    <TravelTimeInThisLine />
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>13</Id>
+    <LineNumber>392</LineNumber>
+    <Area>Center</Area>
+    <FirstStation>38330</FirstStation>
+    <LastStation>32241</LastStation>
+    <Fare>5.9</Fare>
+    <TravelTimeInThisLine />
+    <IsDeleted>false</IsDeleted>
+  </Line>
+</ArrayOfLine>

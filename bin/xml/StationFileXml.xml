@@ -1,0 +1,2654 @@
+<?xml version="1.0"?>
+<ArrayOfStation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Station>
+    <Code>20001</Code>
+    <Name>ת. רכבת ת''א מרכז / רציפים</Name>
+    <Longitude>34.796091</Longitude>
+    <Latitude>32.083157</Latitude>
+    <Address>תל אביב - יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>640</Code>
+    <Name>מחלף חמד</Name>
+    <Longitude>35.126238</Longitude>
+    <Latitude>31.80033</Latitude>
+    <Address>יציאה לכביש 1, מטה יהודה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>5602</Code>
+    <Name>מחלף הראל</Name>
+    <Longitude>35.145723</Longitude>
+    <Latitude>31.798621</Latitude>
+    <Address>יציאה לכביש 1, מבשרת ציון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>4170</Code>
+    <Name>ת. מרכזית ירושלים קומה 3/רציפים</Name>
+    <Longitude>35.203715</Longitude>
+    <Latitude>31.789467</Latitude>
+    <Address>ירושלים, רציף: 15 קומה: 3</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>33079</Code>
+    <Name>מסוף רעננה</Name>
+    <Longitude>34.889781</Longitude>
+    <Latitude>32.175079</Latitude>
+    <Address>רחוב היהלום, רעננה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>33711</Code>
+    <Name>צומת כפר סבא רעננה צפון</Name>
+    <Longitude>34.888841</Longitude>
+    <Latitude>32.192382</Latitude>
+    <Address>יציאה לכביש 4, כפר סבא</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>34236</Code>
+    <Name>מחלף בצרה</Name>
+    <Longitude>34.883706</Longitude>
+    <Latitude>32.209417</Latitude>
+    <Address>כביש 4, בצרה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>34206</Code>
+    <Name>מחלף בני ציון</Name>
+    <Longitude>34.883338</Longitude>
+    <Latitude>32.219892</Latitude>
+    <Address>כביש 4, דרום השרון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>34237</Code>
+    <Name>מחלף הדרים</Name>
+    <Longitude>34.88462</Longitude>
+    <Latitude>32.234942</Latitude>
+    <Address>יציאה לכביש 4, חוף השרון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>36472</Code>
+    <Name>מחלף דרור לצפון</Name>
+    <Longitude>34.893387</Longitude>
+    <Latitude>32.256516</Latitude>
+    <Address>יציאה לכביש 4, לב השרון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>30316</Code>
+    <Name>צומת הדסים</Name>
+    <Longitude>34.896962</Longitude>
+    <Latitude>32.284144</Latitude>
+    <Address>כביש 4, קדימה צורן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>30331</Code>
+    <Name>צומת אילנות</Name>
+    <Longitude>34.898694</Longitude>
+    <Latitude>32.293337</Latitude>
+    <Address>כביש 4, קדימה צורן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>30345</Code>
+    <Name>צומת פרדסיה</Name>
+    <Longitude>34.900931</Longitude>
+    <Latitude>32.305138</Latitude>
+    <Address>כביש 4, פרדסיה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>37800</Code>
+    <Name>מסוף בית ליד</Name>
+    <Longitude>34.904564</Longitude>
+    <Latitude>32.322803</Latitude>
+    <Address>כפר יונה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>30386</Code>
+    <Name>צומת רופין</Name>
+    <Longitude>34.907781</Longitude>
+    <Latitude>32.344205</Latitude>
+    <Address>כביש 4, עמק חפר</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>30401</Code>
+    <Name>צומת העוגן</Name>
+    <Longitude>34.908334</Longitude>
+    <Latitude>32.357114</Latitude>
+    <Address>כביש 4, עמק חפר</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>32782</Code>
+    <Name>צומת מעברות</Name>
+    <Longitude>34.909662</Longitude>
+    <Latitude>32.366376</Latitude>
+    <Address>כביש 4, עמק חפר</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>30404</Code>
+    <Name>צומת חפר</Name>
+    <Longitude>34.908841</Longitude>
+    <Latitude>32.373139</Latitude>
+    <Address>כביש 4, עמק חפר</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>32784</Code>
+    <Name>צומת אלישיב</Name>
+    <Longitude>34.907664</Longitude>
+    <Latitude>32.378766</Latitude>
+    <Address>כביש 4, עמק חפר</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>30358</Code>
+    <Name>צומת הרוא''ה</Name>
+    <Longitude>34.903167</Longitude>
+    <Latitude>32.392873</Latitude>
+    <Address>כביש 4, עמק חפר</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>30352</Code>
+    <Name>צומת מטע</Name>
+    <Longitude>34.903026</Longitude>
+    <Latitude>32.400004</Latitude>
+    <Address>כביש 4, עמק חפר</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>48139</Code>
+    <Name>צומת יער חדרה</Name>
+    <Longitude>34.903951</Longitude>
+    <Latitude>32.410464</Latitude>
+    <Address>כביש 4, חדרה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>47962</Code>
+    <Name>ת. מרכזית חדרה/רציפים</Name>
+    <Longitude>34.914021</Longitude>
+    <Latitude>32.435962</Latitude>
+    <Address>חדרה, רציף: 2</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40095</Code>
+    <Name>צומת חדרה</Name>
+    <Longitude>34.911828</Longitude>
+    <Latitude>32.438467</Latitude>
+    <Address>רחוב הרברט סמואל 7, חדרה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>42133</Code>
+    <Name>כביש 4/שדרות החרות</Name>
+    <Longitude>34.910952</Longitude>
+    <Latitude>32.441755</Latitude>
+    <Address>כביש 4, חדרה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>42626</Code>
+    <Name>אזור תעשיה דרומי</Name>
+    <Longitude>34.910077</Longitude>
+    <Latitude>32.448027</Latitude>
+    <Address>כביש 4, חדרה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40073</Code>
+    <Name>כביש 4/חוף הכרמל</Name>
+    <Longitude>34.908517</Longitude>
+    <Latitude>32.451889</Latitude>
+    <Address>כביש 4, חדרה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>42465</Code>
+    <Name>צומת חרושת</Name>
+    <Longitude>34.907102</Longitude>
+    <Latitude>32.455869</Latitude>
+    <Address>כביש 4, חדרה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>40059</Code>
+    <Name>צומת חפציבה</Name>
+    <Longitude>34.9071</Longitude>
+    <Latitude>32.457375</Latitude>
+    <Address>כביש 4, חדרה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40117</Code>
+    <Name>צומת נחל חדרה</Name>
+    <Longitude>34.914414</Longitude>
+    <Latitude>32.465712</Latitude>
+    <Address>כביש 4, חדרה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>40161</Code>
+    <Name>צומת פל ים</Name>
+    <Longitude>34.91953</Longitude>
+    <Latitude>32.479664</Latitude>
+    <Address>כביש 4, קיסריה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>40758</Code>
+    <Name>צומת אור עקיבא לצפון</Name>
+    <Longitude>34.928512</Longitude>
+    <Latitude>32.501306</Latitude>
+    <Address>כביש 4, קיסריה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>41705</Code>
+    <Name>צומת בנימינה</Name>
+    <Longitude>34.929888</Longitude>
+    <Latitude>32.516826</Latitude>
+    <Address>כביש 4, בנימינה גבעת עדה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>40240</Code>
+    <Name>צומת בית חנניה</Name>
+    <Longitude>34.928702</Longitude>
+    <Latitude>32.533345</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>40253</Code>
+    <Name>צומת מעגן מיכאל</Name>
+    <Longitude>34.931537</Longitude>
+    <Latitude>32.556372</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>46181</Code>
+    <Name>צומת זיכרון</Name>
+    <Longitude>34.937017</Longitude>
+    <Latitude>32.569451</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>46182</Code>
+    <Name>צומת משטרת זיכרון</Name>
+    <Longitude>34.938104</Longitude>
+    <Latitude>32.572419</Latitude>
+    <Address>כביש 4, זכרון יעקב</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>46183</Code>
+    <Name>אזור תעשייה זכרון יעקב</Name>
+    <Longitude>34.939234</Longitude>
+    <Latitude>32.575651</Latitude>
+    <Address>כביש 4, זכרון יעקב</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>46184</Code>
+    <Name>צומת פרדיס</Name>
+    <Longitude>34.947607</Longitude>
+    <Latitude>32.593044</Latitude>
+    <Address>כביש 4, פוריידיס</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>46185</Code>
+    <Name>פוריידיס/4</Name>
+    <Longitude>34.949834</Longitude>
+    <Latitude>32.596925</Latitude>
+    <Address>כביש 4, פוריידיס</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40841</Code>
+    <Name>צומת נחשולים/דור</Name>
+    <Longitude>34.952011</Longitude>
+    <Latitude>32.605658</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>40844</Code>
+    <Name>מפעלי סיד</Name>
+    <Longitude>34.956211</Longitude>
+    <Latitude>32.621465</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>40831</Code>
+    <Name>צומת עין איילה</Name>
+    <Longitude>34.957777</Longitude>
+    <Latitude>32.628808</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40834</Code>
+    <Name>צומת עופר</Name>
+    <Longitude>34.958505</Longitude>
+    <Latitude>32.639184</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40836</Code>
+    <Name>צומת הבונים</Name>
+    <Longitude>34.958627</Longitude>
+    <Latitude>32.642367</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>40838</Code>
+    <Name>צומת צרופה</Name>
+    <Longitude>34.958993</Longitude>
+    <Latitude>32.648199</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40839</Code>
+    <Name>צומת גבע כרמל</Name>
+    <Longitude>34.960079</Longitude>
+    <Latitude>32.662089</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40845</Code>
+    <Name>צומת עין כרמל</Name>
+    <Longitude>34.937017</Longitude>
+    <Latitude>32.569451</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40847</Code>
+    <Name>צומת עין הוד</Name>
+    <Longitude>34.968957</Longitude>
+    <Latitude>32.702365</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>40849</Code>
+    <Name>צומת עתלית</Name>
+    <Longitude>34.962667</Longitude>
+    <Latitude>32.710857</Latitude>
+    <Address>כביש 721, עתלית</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40850</Code>
+    <Name>צומת אורן</Name>
+    <Longitude>34.970693</Longitude>
+    <Latitude>32.713239</Latitude>
+    <Address>כביש 721/4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>41622</Code>
+    <Name>צומת סיטרין</Name>
+    <Longitude>34.968229</Longitude>
+    <Latitude>32.718374</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>41621</Code>
+    <Name>צומת מגדים</Name>
+    <Longitude>34.966216</Longitude>
+    <Latitude>32.725875</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>41456</Code>
+    <Name>נחל ספונים/מגדים</Name>
+    <Longitude>34.96622</Longitude>
+    <Latitude>32.738683</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>41891</Code>
+    <Name>מחנה 137</Name>
+    <Longitude>34.964412</Longitude>
+    <Latitude>32.748096</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40851</Code>
+    <Name>מסעף החותרים</Name>
+    <Longitude>34.962668</Longitude>
+    <Latitude>32.752365</Latitude>
+    <Address>כביש 4, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>42286</Code>
+    <Name>מסעף טירת הכרמל/ז'בוטינסקי</Name>
+    <Longitude>34.961275</Longitude>
+    <Latitude>32.759921</Latitude>
+    <Address>כביש 4, טירת הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40852</Code>
+    <Name>מסעף כפר גלים</Name>
+    <Longitude>34.961821</Longitude>
+    <Latitude>32.764238</Latitude>
+    <Address>כביש 4, טירת הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40900</Code>
+    <Name>מסעף טירת הכרמל/הרצל</Name>
+    <Longitude>34.96341</Longitude>
+    <Latitude>32.773179</Latitude>
+    <Address>רחוב: שדרות ההגנה, טירת הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>40957</Code>
+    <Name>בסיס תובלה</Name>
+    <Longitude>34.963392</Longitude>
+    <Latitude>32.777535</Latitude>
+    <Address>רחוב: שדרות ההגנה, טירת הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>40965</Code>
+    <Name>ההגנה/רוטנברג</Name>
+    <Longitude>34.962823</Longitude>
+    <Latitude>32.785647</Latitude>
+    <Address>כביש 4, חיפה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>42656</Code>
+    <Name>מת''מ</Name>
+    <Longitude>34.96134</Longitude>
+    <Latitude>32.790385</Latitude>
+    <Address>רחוב: אנדרי סחרוב 3, חיפה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>42657</Code>
+    <Name>ת. מרכזית חוף הכרמל/הורדה</Name>
+    <Longitude>34.959587</Longitude>
+    <Latitude>32.793368</Latitude>
+    <Address>חיפה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>10466</Code>
+    <Name>ת. מרכזית אילת/רציפים</Name>
+    <Longitude>34.952682</Longitude>
+    <Latitude>29.556565</Latitude>
+    <Address>אילת</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>12093</Code>
+    <Name>תחנת התרעננות/פונדק חצבה</Name>
+    <Longitude>35.243661</Longitude>
+    <Latitude>30.798872</Latitude>
+    <Address>תמר</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>19757</Code>
+    <Name>תחנת התרעננות/פונדק בית קמה</Name>
+    <Longitude>34.764124</Longitude>
+    <Latitude>31.442304</Latitude>
+    <Address>בני שמעון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>20594</Code>
+    <Name>ת. רכבת ת''א מרכז/הורדה</Name>
+    <Longitude>34.797298</Longitude>
+    <Latitude>32.082844</Latitude>
+    <Address>רחוב: 1285, תל אביב-יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>13907</Code>
+    <Name>ת.מרכזית באר שבע/רציפים בינעירוני</Name>
+    <Longitude>34.796743</Longitude>
+    <Latitude>31.243017</Latitude>
+    <Address>באר שבע, רציף: 11</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>13106</Code>
+    <Name>מרכז רפואי סורוקה/יצחק רגר</Name>
+    <Longitude>34.798444</Longitude>
+    <Latitude>31.257665</Latitude>
+    <Address>רחוב: יצחק רגר 76, באר שבע</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>13115</Code>
+    <Name>אוניברסיטת בן גוריון/יצחק רגר</Name>
+    <Longitude>34.798018</Longitude>
+    <Latitude>31.264565</Latitude>
+    <Address>רחוב: יצחק רגר 135, באר שבע</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>38683</Code>
+    <Name>מוטה גור/יצחק רבין</Name>
+    <Longitude>34.773428</Longitude>
+    <Latitude>31.969716</Latitude>
+    <Address>רחוב: מוטה גור 1, ראשון לציון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>35744</Code>
+    <Name>ת. מרכזית ראשל''צ</Name>
+    <Longitude>34.784636</Longitude>
+    <Latitude>31.967621</Latitude>
+    <Address>רחוב: גולדה מאיר 23, ראשון לציון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40058</Code>
+    <Name>מרכז מיר''ב</Name>
+    <Longitude>34.963904</Longitude>
+    <Latitude>32.647076</Latitude>
+    <Address>מרכז מיר''ב</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40190</Code>
+    <Name>עין הוד מזרח</Name>
+    <Longitude>34.982311</Longitude>
+    <Latitude>32.702186</Latitude>
+    <Address>כביש 7111, מגילות ים המלח</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40178</Code>
+    <Name>צומת ניר עציון</Name>
+    <Longitude>34.970121</Longitude>
+    <Latitude>32.70246</Latitude>
+    <Address>כביש 7111, חוף הכרמל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40055</Code>
+    <Name>עין הוד / כניסה מזרחית</Name>
+    <Longitude>34.984854</Longitude>
+    <Latitude>32.701305</Latitude>
+    <Address>מגילות ים המלח</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40123</Code>
+    <Name>עין הוד</Name>
+    <Longitude>34.999008</Longitude>
+    <Latitude>32.69189</Latitude>
+    <Address>עין הוד</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40187</Code>
+    <Name>עין הוד מערב</Name>
+    <Longitude>34.981855</Longitude>
+    <Latitude>32.70241</Latitude>
+    <Address>כביש 7111, מגילות ים המלח</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>40022</Code>
+    <Name>קיבוץ החותרים</Name>
+    <Longitude>34.957043</Longitude>
+    <Latitude>32.75145</Latitude>
+    <Address>החותרים</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51353</Code>
+    <Name>אלמגור מרכז</Name>
+    <Longitude>35.602287</Longitude>
+    <Latitude>32.910867</Latitude>
+    <Address>אלמגור</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51986</Code>
+    <Name>מסעף אלמגור</Name>
+    <Longitude>35.596392</Longitude>
+    <Latitude>32.9125</Latitude>
+    <Address>כביש 8277, עמק הירדן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51354</Code>
+    <Name>מסעף כרכום</Name>
+    <Longitude>35.587403</Longitude>
+    <Latitude>32.91418</Latitude>
+    <Address>כביש 8273, עמק הירדן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51336</Code>
+    <Name>כרכום 2</Name>
+    <Longitude>35.605795</Longitude>
+    <Latitude>32.928196</Latitude>
+    <Address>רחוב: ראשונים, עמק הירדן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51335</Code>
+    <Name>כרכום 3</Name>
+    <Longitude>35.607921</Longitude>
+    <Latitude>32.928093</Latitude>
+    <Address>רחוב: בוסתן, כרכום</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51330</Code>
+    <Name>כרכום מרכז</Name>
+    <Longitude>35.60742</Longitude>
+    <Latitude>32.929816</Latitude>
+    <Address>רחוב: בוסתן, כרכום</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51342</Code>
+    <Name>כרכום 4</Name>
+    <Longitude>35.605512</Longitude>
+    <Latitude>32.92809</Latitude>
+    <Address>כרכום</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51361</Code>
+    <Name>אמנון מרכז</Name>
+    <Longitude>35.571227</Longitude>
+    <Latitude>32.905286</Latitude>
+    <Address>אמנון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51360</Code>
+    <Name>מסעף אמנון</Name>
+    <Longitude>35.578892</Longitude>
+    <Latitude>32.909943</Latitude>
+    <Address>כביש 8271, הגליל העליון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51976</Code>
+    <Name>מסעף אמנון</Name>
+    <Longitude>35.579121</Longitude>
+    <Latitude>32.910353</Latitude>
+    <Address>כביש 8277, הגליל העליון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51364</Code>
+    <Name>מסעף כורזים</Name>
+    <Longitude>35.553333</Longitude>
+    <Latitude>32.903952</Latitude>
+    <Address>מבואות החרמון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51366</Code>
+    <Name>כורזים 1</Name>
+    <Longitude>35.551317</Longitude>
+    <Latitude>32.909237</Latitude>
+    <Address>כורזים</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51400</Code>
+    <Name>כורזים 2</Name>
+    <Longitude>35.54703</Longitude>
+    <Latitude>32.912004</Latitude>
+    <Address>כורזים</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>57016</Code>
+    <Name>קיבוץ עמיעד</Name>
+    <Longitude>35.54388</Longitude>
+    <Latitude>32.925492</Latitude>
+    <Address>כביש 90, הגליל העליון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>57017</Code>
+    <Name>צומת מחנה יפתח</Name>
+    <Longitude>35.547652</Longitude>
+    <Latitude>32.941523</Latitude>
+    <Address>כביש 8652, מבואות החרמון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>53558</Code>
+    <Name>מחנה פילון/גשר אברהם חידו</Name>
+    <Longitude>35.542354</Longitude>
+    <Latitude>32.954917</Latitude>
+    <Address>יציאה לכביש 90, מבואות החרמון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51392</Code>
+    <Name>דרך הגליל/מעלה גיא אוני</Name>
+    <Longitude>35.550436</Longitude>
+    <Latitude>32.968383</Latitude>
+    <Address>רחוב: מעלה גיא אוני, ראש פינה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51404</Code>
+    <Name>צומת ראש פינה</Name>
+    <Longitude>35.550281</Longitude>
+    <Latitude>32.967464</Latitude>
+    <Address>כביש 90, ראש פינה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>51425</Code>
+    <Name>מסוף חצור הגלילית</Name>
+    <Longitude>35.556766</Longitude>
+    <Latitude>32.981961</Latitude>
+    <Address>רחוב: מעלה חוני המעגל, חצור הגלילית</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>59903</Code>
+    <Name>מסוף חצור הגלילית/הורדה</Name>
+    <Longitude>35.556525</Longitude>
+    <Latitude>32.980861</Latitude>
+    <Address>חצור הגלילית</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>53408</Code>
+    <Name>מסוף חצור הגלילית/רציפים</Name>
+    <Longitude>35.556268</Longitude>
+    <Latitude>32.98083</Latitude>
+    <Address>חצור הגלילית, רציף:1</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>57307</Code>
+    <Name>תחנה מרכזית ראש פינה</Name>
+    <Longitude>35.548852</Longitude>
+    <Latitude>32.968734</Latitude>
+    <Address>רחוב: דרך הגליל 18, ראש פינה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58011</Code>
+    <Name>מחנה פילון</Name>
+    <Longitude>35.546121</Longitude>
+    <Latitude>32.954845</Latitude>
+    <Address>מבואות החרמון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58012</Code>
+    <Name>מושב אליפלט</Name>
+    <Longitude>35.545834</Longitude>
+    <Latitude>32.945106</Latitude>
+    <Address>מבואות החרמון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58013</Code>
+    <Name>מחנה יפתח</Name>
+    <Longitude>35.547714</Longitude>
+    <Latitude>32.94162</Latitude>
+    <Address>כביש 8652, מבואות החרמון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58015</Code>
+    <Name>צומת עמיעד</Name>
+    <Longitude>35.544636</Longitude>
+    <Latitude>32.912672</Latitude>
+    <Address>כביש 90, מבואות החרמון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58016</Code>
+    <Name>צומת כורזים</Name>
+    <Longitude>35.547413</Longitude>
+    <Latitude>32.904554</Latitude>
+    <Address>כביש 90, הגליל העליון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58017</Code>
+    <Name>הר האושר</Name>
+    <Longitude>35.551594</Longitude>
+    <Latitude>32.887473</Latitude>
+    <Address>כביש 90, עמק הירדן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58018</Code>
+    <Name>צומת כפר נחום</Name>
+    <Longitude>35.544987</Longitude>
+    <Latitude>32.876194</Latitude>
+    <Address>כביש 90, עמק הירדן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58019</Code>
+    <Name>אתר ספיר</Name>
+    <Longitude>35.532901</Longitude>
+    <Latitude>32.870215</Latitude>
+    <Address>כביש 90, עמק הירדן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58020</Code>
+    <Name>צומת חוקוק</Name>
+    <Longitude>35.530766</Longitude>
+    <Latitude>32.866156</Latitude>
+    <Address>כביש 90, עמק הירדן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58021</Code>
+    <Name>קיבוץ גנוסר 1</Name>
+    <Longitude>35.518439</Longitude>
+    <Latitude>32.848416</Latitude>
+    <Address>כביש 90, עמק הירדן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58022</Code>
+    <Name>קיבוץ גנוסר 2</Name>
+    <Longitude>35.515335</Longitude>
+    <Latitude>32.844145</Latitude>
+    <Address>כביש: 90, מגדל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58023</Code>
+    <Name>מסעף מגדל</Name>
+    <Longitude>35.509981</Longitude>
+    <Latitude>32.83595</Latitude>
+    <Address>כביש 90, מגדל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58025</Code>
+    <Name>צומת מגדל</Name>
+    <Longitude>35.512121</Longitude>
+    <Latitude>32.826415</Latitude>
+    <Address>כביש 90, מגדל</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58123</Code>
+    <Name>אלחדיף/אילת</Name>
+    <Longitude>35.539745</Longitude>
+    <Latitude>32.789659</Latitude>
+    <Address>רחוב: אלחדיף, טבריה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>58471</Code>
+    <Name>ת. מרכזית טבריה/הורדה</Name>
+    <Longitude>35.537034</Longitude>
+    <Latitude>32.787037</Latitude>
+    <Address>כביש 411, טבריה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26469</Code>
+    <Name>קהילות יעקב/רבי יוסף צבי רימון</Name>
+    <Longitude>34.838308</Longitude>
+    <Latitude>32.07124</Latitude>
+    <Address>רחוב: קהילות יעקה 72, בני ברק</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26504</Code>
+    <Name>בירנבוים/הרב עוזיאל</Name>
+    <Longitude>34.840713</Longitude>
+    <Latitude>32.071681</Latitude>
+    <Address>רחוב: ד''ר נתן בירנבוים 19, בני ברק</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26490</Code>
+    <Name>הרב יצחק ניסים/קהילות יעקב</Name>
+    <Longitude>34.83865</Longitude>
+    <Latitude>32.073339</Latitude>
+    <Address>רחוב: הרב יצחק ניסים 22, בני ברק</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26487</Code>
+    <Name>דמשק אליעזר/האדמו''ר מויז'ניץ</Name>
+    <Longitude>34.837276</Longitude>
+    <Latitude>32.074832</Latitude>
+    <Address>רחוב: דמשק אליעזר 21, בני ברק</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>23051</Code>
+    <Name>האדמור מנדבורנא/חזון אי''ש</Name>
+    <Longitude>34.833822</Longitude>
+    <Latitude>32.075852</Latitude>
+    <Address>רחוב: האדמו''ר מנדבורנא 74, בני ברק</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>20059</Code>
+    <Name>חזון אי''ש/דבורה הנביאה</Name>
+    <Longitude>34.834037</Longitude>
+    <Latitude>32.078652</Latitude>
+    <Address>רחוב: חזון אי''ש 65, בני ברק</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>20340</Code>
+    <Name>חזון אי''ש/האדמו''ר מגור</Name>
+    <Longitude>34.835564</Longitude>
+    <Latitude>32.082834</Latitude>
+    <Address>רחוב: חזון אי''ש 23, בני ברק</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26520</Code>
+    <Name>חזון אי''ש/רבנו תם</Name>
+    <Longitude>34.836367</Longitude>
+    <Latitude>32.084589</Latitude>
+    <Address>רחוב: חזון אי''ש 11, בני ברק</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>20826</Code>
+    <Name>רבי עקיבא/הרב שך</Name>
+    <Longitude>34.834862</Longitude>
+    <Latitude>32.085829</Latitude>
+    <Address>רחוב: רבי עקיבא 113, בני ברק</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>20207</Code>
+    <Name>רבי עקיבא/גן ורשה</Name>
+    <Longitude>34.831878</Longitude>
+    <Latitude>32.086086</Latitude>
+    <Address>רחוב: רבי עקיבא 85, בני ברק</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21597</Code>
+    <Name>רבי עקיבא/הרב קוק</Name>
+    <Longitude>34.828114</Longitude>
+    <Latitude>32.087547</Latitude>
+    <Address>רחוב: רבי עקיבא 47, בני ברק</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21377</Code>
+    <Name>רבי עקיבא/דרך ז'בוטינסקי</Name>
+    <Longitude>34.825442</Longitude>
+    <Latitude>32.090778</Latitude>
+    <Address>רחוב: רבי עקיבא 5, בני ברק</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>28500</Code>
+    <Name>דרך ז'בוטינסקי/דרך בן גוריון</Name>
+    <Longitude>34.821915</Longitude>
+    <Latitude>32.090742</Latitude>
+    <Address>רחוב: דרך זאב ז'בוטינסקי 153, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21470</Code>
+    <Name>דרך ז'בוטינסקי/רש''י</Name>
+    <Longitude>34.818457</Longitude>
+    <Latitude>32.089649</Latitude>
+    <Address>רחוב: דרך זאב ז'בוטינסקי 125, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>20036</Code>
+    <Name>דרך זאב ז'בוטינסקי/הרצל</Name>
+    <Longitude>34.814882</Longitude>
+    <Latitude>32.088658</Latitude>
+    <Address>רחוב: דרך זאב ז'בוטינסקי 97, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21654</Code>
+    <Name>דרך ז'בוטינסקי/ביאליק</Name>
+    <Longitude>34.810136</Longitude>
+    <Latitude>32.085293</Latitude>
+    <Address>רחוב: דרך זאב ז'בוטינסקי 51, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21644</Code>
+    <Name>דרך ז'בוטינסקי/גלעד</Name>
+    <Longitude>34.805056</Longitude>
+    <Latitude>32.0831</Latitude>
+    <Address>רחוב: דרך זאב ז'בוטינסקי 14, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26241</Code>
+    <Name>הבורסה/דרך ז'בוטינסקי</Name>
+    <Longitude>34.800225</Longitude>
+    <Latitude>32.082614</Latitude>
+    <Address>רחוב: דרך זאב ז'בוטינסקי 1, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21705</Code>
+    <Name>דרך בגין/על פרשת דרכים</Name>
+    <Longitude>34.794882</Longitude>
+    <Latitude>32.079838</Latitude>
+    <Address>רחוב: דרך מנחם בגין 157, תל אביב-יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>23014</Code>
+    <Name>קניון עזריאלי/דרך בגין</Name>
+    <Longitude>34.791025</Longitude>
+    <Latitude>32.074292</Latitude>
+    <Address>רחוב: דרך מנחם בגין 132, תל אביב-יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21675</Code>
+    <Name>גשר קלקא/דרך בגין</Name>
+    <Longitude>34.789291</Longitude>
+    <Latitude>32.07189</Latitude>
+    <Address>רחוב:מרדכי מקלף 5, תל אביב-יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>22946</Code>
+    <Name>המסגר/יצחק שדה</Name>
+    <Longitude>34.786054</Longitude>
+    <Latitude>32.064921</Latitude>
+    <Address>רחוב: המסגר 37, תל אביב-יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>22947</Code>
+    <Name>המסגר/יד חרוצים</Name>
+    <Longitude>34.78463</Longitude>
+    <Latitude>32.061357</Latitude>
+    <Address>רחוב: המסגר 7, תל אביב-יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>22955</Code>
+    <Name>ת.מרכזית ת''א ק.7/רציפים</Name>
+    <Longitude>34.779452</Longitude>
+    <Latitude>32.056413</Latitude>
+    <Address>תחנה מרכזית קומה 7, ת אביב-יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>23016</Code>
+    <Name>המסגר/לה גוורדיה</Name>
+    <Longitude>34.784515</Longitude>
+    <Latitude>32.059809</Latitude>
+    <Address>רחוב: המסגר 2, תל אביב-יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>25702</Code>
+    <Name>המסגר/ריב''ל</Name>
+    <Longitude>34.785009</Longitude>
+    <Latitude>32.061944</Latitude>
+    <Address>רחוב: המסגר 18, תל אביב-יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>20026</Code>
+    <Name>המסגר/בן אביגדור</Name>
+    <Longitude>34.786974</Longitude>
+    <Latitude>32.067007</Latitude>
+    <Address>רחוב: המסגר 60, תל אביב-יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21139</Code>
+    <Name>ת. רכבת ת''א מרכז/על פרשת דרכים</Name>
+    <Longitude>34.795453</Longitude>
+    <Latitude>32.082475</Latitude>
+    <Address>על פרשת דרכים 3, תל אביב-יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>20024</Code>
+    <Name>גשר דוד שיפמן /דרך מנחם בגין</Name>
+    <Longitude>34.797667</Longitude>
+    <Latitude>32.080454</Latitude>
+    <Address>רחוב: ערבי נחל, תל אביב-יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21125</Code>
+    <Name>ערבי נחל/בורוכוב</Name>
+    <Longitude>34.801218</Longitude>
+    <Latitude>32.078281</Latitude>
+    <Address>רחוב: ערבי נחל 13, גבעתיים</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21095</Code>
+    <Name>כצנלסון/עליית הנוער</Name>
+    <Longitude>34.803357</Longitude>
+    <Latitude>32.075186</Latitude>
+    <Address>רחוב: כצנלסון 14, גבעתיים</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21096</Code>
+    <Name>כצנלסון/קק''ל</Name>
+    <Longitude>34.806944</Longitude>
+    <Latitude>32.075287</Latitude>
+    <Address>רחוב: כצנלסון 53, גבעתיים</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26127</Code>
+    <Name>כצנלסון/ויצמן</Name>
+    <Longitude>34.807975</Longitude>
+    <Latitude>32.075176</Latitude>
+    <Address>רחוב: כצנלסון 54, גבעתיים</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26130</Code>
+    <Name>גן הזיכרון/כצנלסון</Name>
+    <Longitude>34.810752</Longitude>
+    <Latitude>32.075625</Latitude>
+    <Address>רחוב: כצנלסון 82, גבעתיים</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26135</Code>
+    <Name>כצנלסון/סירקין</Name>
+    <Longitude>34.815073</Longitude>
+    <Latitude>32.076926</Latitude>
+    <Address>רחוב: כצנלסון 118, גבעתיים</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26195</Code>
+    <Name>כצנלסון/דרך בן גוריון</Name>
+    <Longitude>34.81724</Longitude>
+    <Latitude>32.07566</Latitude>
+    <Address>רחוב: כצנלסון 143, גבעתיים</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26205</Code>
+    <Name>שד. ירושלים/מוריה</Name>
+    <Longitude>34.821709</Longitude>
+    <Latitude>32.074616</Latitude>
+    <Address>רחוב: שדרות ירושלים 26, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26227</Code>
+    <Name>שד' ירושלים/הרא''ה</Name>
+    <Longitude>34.82544</Longitude>
+    <Latitude>32.074627</Latitude>
+    <Address>רחוב: שדרות ירושלים 55, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26236</Code>
+    <Name>שד' ירושלים/מולכו</Name>
+    <Longitude>34.830784</Longitude>
+    <Latitude>32.074685</Latitude>
+    <Address>רחוב: שדרות ירושלים 96, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26475</Code>
+    <Name>חזון אי''ש/מרום נווה</Name>
+    <Longitude>34.832921</Longitude>
+    <Latitude>32.07311</Latitude>
+    <Address>רחוב: חזון אי''ש 90, בני ברק</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26463</Code>
+    <Name>אצ''ל/בן אליעזר</Name>
+    <Longitude>34.833592</Longitude>
+    <Latitude>32.066176</Latitude>
+    <Address>רחוב אצ''ל 18, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26468</Code>
+    <Name>אצ''ל/הרב לנדס</Name>
+    <Longitude>34.837687</Longitude>
+    <Latitude>32.069621</Latitude>
+    <Address>רחוב אצ''ל 56, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>26472</Code>
+    <Name>עמידר ר''ג</Name>
+    <Longitude>34.838968</Longitude>
+    <Latitude>32.069215</Latitude>
+    <Address>רחוב: התפוצות 57, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>10030</Code>
+    <Name>ת. מרכזית אשדוד/רציפים</Name>
+    <Longitude>34.639905</Longitude>
+    <Latitude>31.79089</Latitude>
+    <Address>קניון הסיטי, אשדוד</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11015</Code>
+    <Name>שד. ירושלים/שד.הרצל</Name>
+    <Longitude>34.642622</Longitude>
+    <Latitude>31.794</Latitude>
+    <Address>רחוב: שדרות ירושלים, אשדוד</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11016</Code>
+    <Name>שד' ירושלים/התקומה</Name>
+    <Longitude>34.646307</Longitude>
+    <Latitude>31.792495</Latitude>
+    <Address>רחוב: שדרות ירושלים 21, אשדוד</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11017</Code>
+    <Name>שד.ירושלים/בני ברית</Name>
+    <Longitude>34.650557</Longitude>
+    <Latitude>31.791117</Latitude>
+    <Address>רחוב: שדרות ירושלים, אשדוד</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11018</Code>
+    <Name>שדרות ירושלים / הפרחים</Name>
+    <Longitude>34.654863</Longitude>
+    <Latitude>31.78974</Latitude>
+    <Address>רחוב: שדרות ירושלים, אשדוד</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11019</Code>
+    <Name>שד. ירושלים/אלטלנה</Name>
+    <Longitude>34.659209</Longitude>
+    <Latitude>31.788354000000002</Latitude>
+    <Address>רחוב: שדרות ירושלים, אשדוד</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11020</Code>
+    <Name>שד.ירושלים/רבנו גרשום</Name>
+    <Longitude>34.662054</Longitude>
+    <Latitude>31.787439</Latitude>
+    <Address>רחוב: שדרות ירושלים, אשדוד</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11021</Code>
+    <Name>שדרות ירושלים/שדרות משה סנה</Name>
+    <Longitude>34.665139</Longitude>
+    <Latitude>31.786461</Latitude>
+    <Address>רחוב: שדרות ירושלים, אשדוד</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11022</Code>
+    <Name>אנדרטת עד הלום/שדרות משה סנה</Name>
+    <Longitude>34.665125</Longitude>
+    <Latitude>31.781198</Latitude>
+    <Address>רחוב: שדרות משה סנה, אשדוד</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11023</Code>
+    <Name>שדרות מנחם בגין/שדרות משה סנה</Name>
+    <Longitude>34.664186</Longitude>
+    <Latitude>31.777756</Latitude>
+    <Address>רחוב: שדרות מנחם בגין, אשדוד</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11152</Code>
+    <Name>צומת עד הלום/כביש 4</Name>
+    <Longitude>34.667305</Longitude>
+    <Latitude>31.765906</Latitude>
+    <Address>כביש 4, באר טוביה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>11153</Code>
+    <Name>צומת שדה עוזיהו/כביש 4</Name>
+    <Longitude>34.666928</Longitude>
+    <Latitude>31.760786</Latitude>
+    <Address>כביש 4, באר טוביה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11154</Code>
+    <Name>מסעף אמונים</Name>
+    <Longitude>34.662094</Longitude>
+    <Latitude>31.75265</Latitude>
+    <Address>כביש 4, באר טוביה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>11155</Code>
+    <Name>צומת בית עזרא</Name>
+    <Longitude>34.645363</Longitude>
+    <Latitude>31.741015</Latitude>
+    <Address>כביש 4, באר טוביה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11157</Code>
+    <Name>צומת אשכולות</Name>
+    <Longitude>34.635428</Longitude>
+    <Latitude>31.724006</Latitude>
+    <Address>כביש 4, חוף אשקלון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>12479</Code>
+    <Name>מחלף רבין אשקלון לדרום</Name>
+    <Longitude>34.620322</Longitude>
+    <Latitude>31.703631</Latitude>
+    <Address>יציאה לכביש 4, באר גנים</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11165</Code>
+    <Name>צומת אשקלון צפון/כביש 4</Name>
+    <Longitude>34.609694</Longitude>
+    <Latitude>31.679622</Latitude>
+    <Address>כביש 4, אשקלון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>12075</Code>
+    <Name>צומת כפר סילבר</Name>
+    <Longitude>34.60944</Longitude>
+    <Latitude>31.674937</Latitude>
+    <Address>כביש 4, חוף אשקלון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>12074</Code>
+    <Name>צומת ברכיה</Name>
+    <Longitude>34.606749</Longitude>
+    <Latitude>31.666503</Latitude>
+    <Address>כביש 4, אשקלון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>12073</Code>
+    <Name>צומת אשקלון</Name>
+    <Longitude>34.60346</Longitude>
+    <Latitude>31.659233</Latitude>
+    <Address>כביש 4, אשקלון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11164</Code>
+    <Name>קניון חוצות/בן גוריון</Name>
+    <Longitude>34.588385</Longitude>
+    <Latitude>31.660747</Latitude>
+    <Address>רחוב: שדרות דוד בן גוריון, אשקלון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11303</Code>
+    <Name>בית ההסתדרות/בן גוריון</Name>
+    <Longitude>34.584896</Longitude>
+    <Latitude>31.661512</Latitude>
+    <Address>רחוב: שדרות דוד בן גוריון, אשקלון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>11304</Code>
+    <Name>בן גוריון/נאות אשקלון</Name>
+    <Longitude>34.576455</Longitude>
+    <Latitude>31.66131</Latitude>
+    <Address>רחוב: שדרות דוד בן גוריון, אשקלון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>19116</Code>
+    <Name>ת.מרכזית אשקלון/הורדה</Name>
+    <Longitude>34.56599</Longitude>
+    <Latitude>31.664033</Latitude>
+    <Address>אשקלון</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>33551</Code>
+    <Name>מסוף קרית אונו</Name>
+    <Longitude>34.866052</Longitude>
+    <Latitude>32.037353</Latitude>
+    <Address>קרית אונו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>35301</Code>
+    <Name>דרך רב אלוף יעקוב דורי/דרך לוי אשכול</Name>
+    <Longitude>34.864658</Longitude>
+    <Latitude>32.047463</Latitude>
+    <Address>רחוב: דרך רב אלוף יעקב דורי, קרית אונו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>31740</Code>
+    <Name>בית הברוש</Name>
+    <Longitude>34.858611</Longitude>
+    <Latitude>32.048963</Latitude>
+    <Address>רחוב: דרך רב אלוף יעקב דורי, קרית אונוו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>31739</Code>
+    <Name>שער קיראון</Name>
+    <Longitude>34.855289</Longitude>
+    <Latitude>32.05016</Latitude>
+    <Address>רחוב: דרך רב אלוף יעקב דורי, קרית אונו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>31013</Code>
+    <Name>בן גוריון / הפרדס</Name>
+    <Longitude>34.85145</Longitude>
+    <Latitude>32.056036</Latitude>
+    <Address>רחוב: שדרות בן גוריון, קרית אונו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>31900</Code>
+    <Name>שדרות אהרון קציר/שמחה הולצברג</Name>
+    <Longitude>34.846183</Longitude>
+    <Latitude>32.062569</Latitude>
+    <Address>רחוב: שדרות אהרון קציר, קרית אונו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>38128</Code>
+    <Name>אוניברסיטת בר אילן/דרך אשכול</Name>
+    <Longitude>34.843957</Longitude>
+    <Latitude>32.065608</Latitude>
+    <Address>רחוב: דרך אשכול, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21001</Code>
+    <Name>אלוף שדה/דרך יצחק רבין</Name>
+    <Longitude>34.820239</Longitude>
+    <Latitude>32.059607</Latitude>
+    <Address>רחוב: אלוף שדה, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21285</Code>
+    <Name>אלוף שדה/עודד</Name>
+    <Longitude>34.812677</Longitude>
+    <Latitude>32.05839</Latitude>
+    <Address>רחוב: אלוף שדה, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>21595</Code>
+    <Name>לה גוורדיה/דרך הטייסים</Name>
+    <Longitude>34.80295</Longitude>
+    <Latitude>32.059319</Latitude>
+    <Address>רחוב: לה גווארדיה 91, תל אביב יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21318</Code>
+    <Name>היכל הספורט/יגאל אלון</Name>
+    <Longitude>34.791891</Longitude>
+    <Latitude>32.060644</Latitude>
+    <Address>רחוב: יגאל אלון 47, תל אביב יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21406</Code>
+    <Name>סינרמה/יגאל אלון</Name>
+    <Longitude>34.792274</Longitude>
+    <Latitude>32.064876</Latitude>
+    <Address>רחוב: יגאל אלון 61, תל אביב יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21289</Code>
+    <Name>אסותא/יגאל אלון</Name>
+    <Longitude>34.793735</Longitude>
+    <Latitude>32.069566</Latitude>
+    <Address>רחוב: יגאל אלון 96, תל אביב יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>21022</Code>
+    <Name>ת. רכבת השלום</Name>
+    <Longitude>34.792974</Longitude>
+    <Latitude>32.073112</Latitude>
+    <Address>רחוב: גבעת התחמושת, תל אביב יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>27005</Code>
+    <Name>קפלן/אלוף מנדלר</Name>
+    <Longitude>34.786797</Longitude>
+    <Latitude>32.073253</Latitude>
+    <Address>רחוב: אליעזר קפלן 24, תל אביב יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>25565</Code>
+    <Name>דיזנגוף סנטר/דיזנגוף</Name>
+    <Longitude>34.775108</Longitude>
+    <Latitude>32.075411</Latitude>
+    <Address>רחוב: דיזנגוף 53, תל אביב יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>25778</Code>
+    <Name>דיזנגוף/גורדון</Name>
+    <Longitude>34.773845</Longitude>
+    <Latitude>32.082363</Latitude>
+    <Address>רחוב: דיזנגוף 139, תל אביב יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>25832</Code>
+    <Name>דיזנגוף/ז'בוטינסקי</Name>
+    <Longitude>34.77566</Longitude>
+    <Latitude>32.089631</Latitude>
+    <Address>רחוב: דיזנגוף 236, תל אביב יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>25844</Code>
+    <Name>דיזנגוף/בן יהודה</Name>
+    <Longitude>34.776296</Longitude>
+    <Latitude>32.09548</Latitude>
+    <Address>רחוב: דיזנגוף 318, תל אביב יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>25867</Code>
+    <Name>רדינג</Name>
+    <Longitude>34.779874</Longitude>
+    <Latitude>32.099148</Latitude>
+    <Address>תל אביב יפו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>31738</Code>
+    <Name>בקו''ם/שדרות אהרון קציר</Name>
+    <Longitude>34.84914</Longitude>
+    <Latitude>32.050905</Latitude>
+    <Address>רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>31737</Code>
+    <Name>גילדסגיים/שד' אהרון קציר</Name>
+    <Longitude>34.848901</Longitude>
+    <Latitude>32.052848</Latitude>
+    <Address>רחוב: גילדסגייםמ4, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>35474</Code>
+    <Name>דרך רב אלוף יעקב דורי/גילדסגיים</Name>
+    <Longitude>34.853028</Longitude>
+    <Latitude>32.05293</Latitude>
+    <Address>רחוב: דרך רב אלוף יעקב דורי, קרית אונו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>38636</Code>
+    <Name>מקמצ''ר</Name>
+    <Longitude>34.858513</Longitude>
+    <Latitude>32.047029</Latitude>
+    <Address>קרית אונו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>38644</Code>
+    <Name>מקשח''ר</Name>
+    <Longitude>34.860278</Longitude>
+    <Latitude>32.045293</Latitude>
+    <Address>קרית אונו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>38647</Code>
+    <Name>יחידת בינוי</Name>
+    <Longitude>34.854717</Longitude>
+    <Latitude>32.045521</Latitude>
+    <Address>קרית אונו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>38638</Code>
+    <Name>שער דרום</Name>
+    <Longitude>34.847097</Longitude>
+    <Latitude>32.036918</Latitude>
+    <Address>אור יהודה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>38639</Code>
+    <Name>מש''א 7000</Name>
+    <Longitude>34.847431</Longitude>
+    <Latitude>32.037778</Latitude>
+    <Address>אור יהודה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>38637</Code>
+    <Name>בסיס ציוד</Name>
+    <Longitude>34.849301</Longitude>
+    <Latitude>32.041621</Latitude>
+    <Address>אור יהודה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>38653</Code>
+    <Name>מיטב</Name>
+    <Longitude>34.850257</Longitude>
+    <Latitude>32.042986</Latitude>
+    <Address>קרית אונו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>38648</Code>
+    <Name>מיצג חילות</Name>
+    <Longitude>34.853021</Longitude>
+    <Latitude>32.045186</Latitude>
+    <Address>קרית אונו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>38646</Code>
+    <Name>מרכז דלק</Name>
+    <Longitude>34.857059</Longitude>
+    <Latitude>32.04562</Latitude>
+    <Address>קרית אונו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>38650</Code>
+    <Name>שער שלכת</Name>
+    <Longitude>34.856194</Longitude>
+    <Latitude>32.047726</Latitude>
+    <Address>קרית אונו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>31739</Code>
+    <Name>שער קיראון</Name>
+    <Longitude>34.855289</Longitude>
+    <Latitude>32.05016</Latitude>
+    <Address>רחוב: דרך רב אלוף יעקב דורי, קרית אונו</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>31901</Code>
+    <Name>שדרות אהרון קציר/מנדס</Name>
+    <Longitude>34.848048</Longitude>
+    <Latitude>32.053397</Latitude>
+    <Address>רחוב: שדרות אהרון קציר 17, רמת גן</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>38330</Code>
+    <Name>שלום צלח/הרב אלקלעי</Name>
+    <Longitude>34.911754</Longitude>
+    <Latitude>32.077107</Latitude>
+    <Address>רחוב: שלום צלח, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>38332</Code>
+    <Name>שלום צלח/שפיק</Name>
+    <Longitude>34.910356</Longitude>
+    <Latitude>32.074889</Latitude>
+    <Address>רחוב: שלום צלח 40, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>32474</Code>
+    <Name>עד''ש שפיק/שבט לוי</Name>
+    <Longitude>34.910737</Longitude>
+    <Latitude>32.07362</Latitude>
+    <Address>רחוב: עד''ש שפיק 6, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>32473</Code>
+    <Name>עד''ש שפיק/קופ''ח</Name>
+    <Longitude>34.912516</Longitude>
+    <Latitude>32.073666</Latitude>
+    <Address>רחוב: עד''ש שפיק 18, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>32478</Code>
+    <Name>עזרא ונחמיה/מרכז שיטור</Name>
+    <Longitude>34.91264</Longitude>
+    <Latitude>32.072551</Latitude>
+    <Address>רחוב: עזרא ונחמיה 39, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>32450</Code>
+    <Name>אריה בן אליעזר/דרך מנחם בגין</Name>
+    <Longitude>34.908653</Longitude>
+    <Latitude>32.072089</Latitude>
+    <Address>רחוב: דרך מנחם בגין 87, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>32449</Code>
+    <Name>דרך מנחם בגין/ויינברגר</Name>
+    <Longitude>34.905508</Longitude>
+    <Latitude>32.074976</Latitude>
+    <Address>רחוב: דרך מנחם בגין 69, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>32448</Code>
+    <Name>מרכז מסחרי/דרך מנחם בגין</Name>
+    <Longitude>34.906036</Longitude>
+    <Latitude>32.077888</Latitude>
+    <Address>רחוב: דרך מנחם בגין 21, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>32437</Code>
+    <Name>הרב עובדיה יוסף/דרך מנחם בגין</Name>
+    <Longitude>34.908</Longitude>
+    <Latitude>32.080717</Latitude>
+    <Address>רחוב: הרב עובדיה יוסף, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>31593</Code>
+    <Name>אלעזר פרידמן/עין גנים</Name>
+    <Longitude>34.900343</Longitude>
+    <Latitude>32.082174</Latitude>
+    <Address>רחוב: עין גנים 89, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>31592</Code>
+    <Name>בי''ס ברנר</Name>
+    <Longitude>34.898098</Longitude>
+    <Latitude>32.082426</Latitude>
+    <Address>רחוב: עין גנים 84, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>35288</Code>
+    <Name>מחנה יהודה/עין גנים</Name>
+    <Longitude>34.89691</Longitude>
+    <Latitude>32.083543</Latitude>
+    <Address>רחוב: מחנה יהודה 25, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>31607</Code>
+    <Name>מיכל פינס / סלנט</Name>
+    <Longitude>34.891017</Longitude>
+    <Latitude>32.079368</Latitude>
+    <Address>רחוב: יחיאל מיכל פינס 45, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>31606</Code>
+    <Name>יחיאל מיכל פינס/רוטשילד</Name>
+    <Longitude>34.886651</Longitude>
+    <Latitude>32.076273</Latitude>
+    <Address>רחוב: יחיאל מיכל פינס 9, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>32331</Code>
+    <Name>העצמאות/משעול ד''ר נפתלי קבנצל</Name>
+    <Longitude>34.882833</Longitude>
+    <Latitude>32.074573</Latitude>
+    <Address>רחוב: העצמאות 6, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>32328</Code>
+    <Name>העצמאות/מרכז פיס</Name>
+    <Longitude>34.880469</Longitude>
+    <Latitude>32.074614</Latitude>
+    <Address>רחוב: העצמאות 18, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>32329</Code>
+    <Name>העצמאות/דיקר</Name>
+    <Longitude>34.878091</Longitude>
+    <Latitude>32.074666</Latitude>
+    <Address>רחוב: העצמאות 44, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>32330</Code>
+    <Name>כיכר קובלנץ</Name>
+    <Longitude>34.876438</Longitude>
+    <Latitude>32.074519</Latitude>
+    <Address>רחוב: העצמאות 47, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>32333</Code>
+    <Name>העצמאות/ויצמן</Name>
+    <Longitude>34.872474</Longitude>
+    <Latitude>32.074819</Latitude>
+    <Address>רחוב: העצמאות, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>37526</Code>
+    <Name>העצמאות/כיכר קפלנסקי</Name>
+    <Longitude>34.864396</Longitude>
+    <Latitude>32.073484</Latitude>
+    <Address>רחוב: העצמאות 102, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>32881</Code>
+    <Name>אבי אורן/קפלן</Name>
+    <Longitude>34.866176</Longitude>
+    <Latitude>32.08127</Latitude>
+    <Address>רחוב: אבי אורן 9, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>false</IsBench>
+  </Station>
+  <Station>
+    <Code>38663</Code>
+    <Name>בית ספר עלומים/בן גוריון</Name>
+    <Longitude>34.870331</Longitude>
+    <Latitude>32.080025</Latitude>
+    <Address>רחוב: בן גוריון 22, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>true</IsAccessible>
+    <IsDigitalPanel>false</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+  <Station>
+    <Code>32241</Code>
+    <Name>חטיבת ביניים עלומים/דגל ראובן</Name>
+    <Longitude>34.869173</Longitude>
+    <Latitude>32.081612</Latitude>
+    <Address>רחוב: דגל ראובן 67, פתח תקווה</Address>
+    <IsDeleted>false</IsDeleted>
+    <IsAccessible>false</IsAccessible>
+    <IsDigitalPanel>true</IsDigitalPanel>
+    <IsBench>true</IsBench>
+  </Station>
+</ArrayOfStation>

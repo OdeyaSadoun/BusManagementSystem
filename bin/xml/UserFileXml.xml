@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<ArrayOfUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <User>
+    <UserName>odeya.sadoun@gmail.com</UserName>
+    <Password>123456</Password>
+    <Admin>true</Admin>
+    <IsDeleted>false</IsDeleted>
+    <UserProfile>OrdinaryStudent</UserProfile>
+    <Birthday>2001-10-21T00:00:00</Birthday>
+    <Balance>45.5</Balance>
+    <FirstName>Odeya</FirstName>
+    <LastName>Sadoun</LastName>
+  </User>
+  <User>
+    <UserName>tamargavrieli18@gmail.com</UserName>
+    <Password>56789</Password>
+    <Admin>true</Admin>
+    <IsDeleted>false</IsDeleted>
+    <UserProfile>OrdinaryStudent</UserProfile>
+    <Birthday>2001-02-20T00:00:00</Birthday>
+    <Balance>30</Balance>
+    <FirstName>Tamar</FirstName>
+    <LastName>Gavrieli</LastName>
+  </User>
+  <User>
+    <UserName>orit.stavsky@gmail.com</UserName>
+    <Password>122135</Password>
+    <Admin>false</Admin>
+    <IsDeleted>false</IsDeleted>
+    <UserProfile>OrdinaryStudent</UserProfile>
+    <Birthday>2001-12-11T00:00:00</Birthday>
+    <Balance>60</Balance>
+    <FirstName>Orit</FirstName>
+    <LastName>Stavski</LastName>
+  </User>
+</ArrayOfUser>
