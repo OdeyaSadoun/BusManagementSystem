@@ -22,26 +22,26 @@ namespace DL
         static DLXML(){}// static ctor to ensure instance init is done just before first usage
         DLXML() 
         {
-            //if (!File.Exists(BusFilePath))
-            //    DL.XMLTools.SaveListToXMLSerializer<DO.Bus>(DS.DataSource.ListBuses, BusFilePath);
+            if (!File.Exists(BusFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.Bus>(DS.DataSource.ListBuses, BusFilePath);
 
-            //if (!File.Exists(UserFilePath))
-            //    DL.XMLTools.SaveListToXMLSerializer<DO.User>(DS.DataSource.ListUsers, UserFilePath);
+            if (!File.Exists(UserFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.User>(DS.DataSource.ListUsers, UserFilePath);
 
-            //if (!File.Exists(LineStationFilePath))
-            //    DL.XMLTools.SaveListToXMLSerializer<DO.LineStation>(DS.DataSource.ListLineStations, LineStationFilePath);
+            if (!File.Exists(LineStationFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.LineStation>(DS.DataSource.ListLineStations, LineStationFilePath);
 
-            //if (!File.Exists(LineFilePath))
-            //    DL.XMLTools.SaveListToXMLSerializer<DO.Line>(DS.DataSource.ListLines, LineFilePath);
+            if (!File.Exists(LineFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.Line>(DS.DataSource.ListLines, LineFilePath);
 
-            //if (!File.Exists(StationFilePath))
-            //    DL.XMLTools.SaveListToXMLSerializer<DO.Station>(DS.DataSource.ListStations, StationFilePath);
+            if (!File.Exists(StationFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.Station>(DS.DataSource.ListStations, StationFilePath);
 
-            //if (!File.Exists(AdjacentFilePath))
-            //    DL.XMLTools.SaveListToXMLSerializer<DO.AdjacentStations>(DS.DataSource.ListAdjacentStations, AdjacentFilePath);
+            if (!File.Exists(AdjacentFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.AdjacentStations>(DS.DataSource.ListAdjacentStations, AdjacentFilePath);
 
-            //if (!File.Exists(LinesTripFilePath))
-            //    DL.XMLTools.SaveListToXMLSerializer<DO.LineTrip>(DS.DataSource.ListLinesTrip, LinesTripFilePath);
+            if (!File.Exists(LinesTripFilePath))
+                DL.XMLTools.SaveListToXMLSerializer<DO.LineTrip>(DS.DataSource.ListLinesTrip, LinesTripFilePath);
         }
         public static DLXML Instance { get => instance; }// The public Instance property to use
         #endregion
