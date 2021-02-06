@@ -44,11 +44,13 @@ namespace DL
                 DL.XMLTools.SaveListToXMLSerializer<DO.LineTrip>(DS.DataSource.ListLinesTrip, LinesTripFilePath);
         }
         public static DLXML Instance { get => instance; }// The public Instance property to use
+
+
         #endregion
 
 
         #region DS XML Files
-     
+
         string BusFilePath = @"BusFileXml.xml"; //XMLSerializer
         string UserFilePath = @"UserFileXml.xml"; //XElement
         string LineStationFilePath = @"LineStationFileXml.xml"; //XMLSerializer
@@ -1016,6 +1018,7 @@ namespace DL
         /// <returns></returns>
         public IEnumerable<DO.AdjacentStations> GetAllAdjacentStations()
         {
+
             List<DO.AdjacentStations> ListAdjacentStations = XMLTools.LoadListFromXMLSerializer<DO.AdjacentStations>(AdjacentFilePath);
             return from adjacentStations in ListAdjacentStations
                    where adjacentStations.IsDeleted == false

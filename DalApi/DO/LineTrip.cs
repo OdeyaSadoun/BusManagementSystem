@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace DO
 {
@@ -26,7 +29,22 @@ namespace DO
         /// <summary>
         /// The time of the begining of this travel line
         /// </summary>
-        public TimeSpan StartAt { get; set; }
+        //public TimeSpan StartAt { get; set; }
+        private TimeSpan startAt;
+        [XmlIgnore]
+        public TimeSpan StartAt
+        {
+            get { return startAt; }
+            set { startAt = value; }
+        }
+        [XmlElement("StartAt", DataType = "duration")]
+        [DefaultValue("PT10M")]
+        public string XmlTime
+        {
+            get { return XmlConvert.ToString(startAt); }
+            set { startAt = XmlConvert.ToTimeSpan(value); }
+        }
+
         #endregion
 
         //#region Frequency

@@ -7,7 +7,7 @@
     <FirstStation>20001</FirstStation>
     <LastStation>4170</LastStation>
     <Fare>30</Fare>
-    <TravelTimeInThisLine />
+    <TravelTimeInThisLine>PT1H30M</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
   <Line>
@@ -17,7 +17,7 @@
     <FirstStation>33079</FirstStation>
     <LastStation>42657</LastStation>
     <Fare>29.5</Fare>
-    <TravelTimeInThisLine />
+    <TravelTimeInThisLine>PT2H40M</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
   <Line>
@@ -27,7 +27,7 @@
     <FirstStation>10466</FirstStation>
     <LastStation>20594</LastStation>
     <Fare>75.3</Fare>
-    <TravelTimeInThisLine />
+    <TravelTimeInThisLine>PT5H40M</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
   <Line>
@@ -37,7 +37,7 @@
     <FirstStation>13907</FirstStation>
     <LastStation>20001</LastStation>
     <Fare>46.2</Fare>
-    <TravelTimeInThisLine />
+    <TravelTimeInThisLine>PT3H</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
   <Line>
@@ -47,7 +47,7 @@
     <FirstStation>4170</FirstStation>
     <LastStation>35744</LastStation>
     <Fare>25.6</Fare>
-    <TravelTimeInThisLine />
+    <TravelTimeInThisLine>PT1H25M30S</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
   <Line>
@@ -57,7 +57,7 @@
     <FirstStation>40058</FirstStation>
     <LastStation>42657</LastStation>
     <Fare>15</Fare>
-    <TravelTimeInThisLine />
+    <TravelTimeInThisLine>PT52M12S</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
   <Line>
@@ -67,7 +67,7 @@
     <FirstStation>51353</FirstStation>
     <LastStation>59903</LastStation>
     <Fare>8.9</Fare>
-    <TravelTimeInThisLine />
+    <TravelTimeInThisLine>PT1H5M</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
   <Line>
@@ -77,7 +77,7 @@
     <FirstStation>53408</FirstStation>
     <LastStation>58471</LastStation>
     <Fare>8.9</Fare>
-    <TravelTimeInThisLine />
+    <TravelTimeInThisLine>PT1H</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
   <Line>
@@ -87,7 +87,7 @@
     <FirstStation>26469</FirstStation>
     <LastStation>22955</LastStation>
     <Fare>5.9</Fare>
-    <TravelTimeInThisLine />
+    <TravelTimeInThisLine>PT1H10M</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
   <Line>
@@ -97,7 +97,7 @@
     <FirstStation>22955</FirstStation>
     <LastStation>26472</LastStation>
     <Fare>5.9</Fare>
-    <TravelTimeInThisLine />
+    <TravelTimeInThisLine>PT30M56S</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
   <Line>
@@ -107,7 +107,7 @@
     <FirstStation>10030</FirstStation>
     <LastStation>19116</LastStation>
     <Fare>12</Fare>
-    <TravelTimeInThisLine />
+    <TravelTimeInThisLine>PT45M</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
   <Line>
@@ -117,7 +117,7 @@
     <FirstStation>33551</FirstStation>
     <LastStation>25867</LastStation>
     <Fare>8.9</Fare>
-    <TravelTimeInThisLine />
+    <TravelTimeInThisLine>PT30M</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
   <Line>
@@ -127,7 +127,7 @@
     <FirstStation>31738</FirstStation>
     <LastStation>31901</LastStation>
     <Fare>5.9</Fare>
-    <TravelTimeInThisLine />
+    <TravelTimeInThisLine>PT45M</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
   <Line>
@@ -137,7 +137,7 @@
     <FirstStation>38330</FirstStation>
     <LastStation>32241</LastStation>
     <Fare>5.9</Fare>
-    <TravelTimeInThisLine />
+    <TravelTimeInThisLine>PT50M</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
 </ArrayOfLine>

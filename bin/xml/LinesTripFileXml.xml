@@ -3,2347 +3,2347 @@
   <LineTrip>
     <Id>0</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT6H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>1</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT6H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>2</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT7H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>3</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT7H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>4</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT8H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>5</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT8H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>6</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT9H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>7</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT9H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>8</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT10H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>9</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT10H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>10</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT11H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>11</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT11H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>12</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT12H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>13</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT12H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>14</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT13H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>15</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT13H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>16</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT14H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>17</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT14H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>18</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT15H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>19</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT15H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>20</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT16H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>21</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT16H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>22</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT17H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>23</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT17H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>24</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT18H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>25</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT18H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>26</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT19H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>27</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT19H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>28</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT20H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>29</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT20H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>30</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT21H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>31</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT21H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>32</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT22H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>33</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT22H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>34</Id>
     <LineId>0</LineId>
-    <StartAt />
+    <StartAt>PT23H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>35</Id>
     <LineId>1</LineId>
-    <StartAt />
+    <StartAt>PT8H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>36</Id>
     <LineId>1</LineId>
-    <StartAt />
+    <StartAt>PT9H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>37</Id>
     <LineId>1</LineId>
-    <StartAt />
+    <StartAt>PT10H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>38</Id>
     <LineId>1</LineId>
-    <StartAt />
+    <StartAt>PT12H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>39</Id>
     <LineId>1</LineId>
-    <StartAt />
+    <StartAt>PT13H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>40</Id>
     <LineId>1</LineId>
-    <StartAt />
+    <StartAt>PT14H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>41</Id>
     <LineId>1</LineId>
-    <StartAt />
+    <StartAt>PT16H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>42</Id>
     <LineId>1</LineId>
-    <StartAt />
+    <StartAt>PT17H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>43</Id>
     <LineId>1</LineId>
-    <StartAt />
+    <StartAt>PT18H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>44</Id>
     <LineId>1</LineId>
-    <StartAt />
+    <StartAt>PT19H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>45</Id>
     <LineId>1</LineId>
-    <StartAt />
+    <StartAt>PT21H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>46</Id>
     <LineId>1</LineId>
-    <StartAt />
+    <StartAt>PT22H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>47</Id>
     <LineId>2</LineId>
-    <StartAt />
+    <StartAt>PT6H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>48</Id>
     <LineId>2</LineId>
-    <StartAt />
+    <StartAt>PT16H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>49</Id>
     <LineId>3</LineId>
-    <StartAt />
+    <StartAt>PT9H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>50</Id>
     <LineId>3</LineId>
-    <StartAt />
+    <StartAt>PT11H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>51</Id>
     <LineId>3</LineId>
-    <StartAt />
+    <StartAt>PT13H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>52</Id>
     <LineId>3</LineId>
-    <StartAt />
+    <StartAt>PT16H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>53</Id>
     <LineId>3</LineId>
-    <StartAt />
+    <StartAt>PT17H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>54</Id>
     <LineId>3</LineId>
-    <StartAt />
+    <StartAt>PT18H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>55</Id>
     <LineId>3</LineId>
-    <StartAt />
+    <StartAt>PT20H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>56</Id>
     <LineId>3</LineId>
-    <StartAt />
+    <StartAt>PT22H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>57</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT7H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>58</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT8H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>59</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT9H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>60</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT10H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>61</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT11H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>62</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT12H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>63</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT13H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>64</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT14H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>65</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT15H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>66</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT16H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>67</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT17H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>68</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT18H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>69</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT19H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>70</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT20H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>71</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT21H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>72</Id>
     <LineId>4</LineId>
-    <StartAt />
+    <StartAt>PT22H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>73</Id>
     <LineId>5</LineId>
-    <StartAt />
+    <StartAt>PT8H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>74</Id>
     <LineId>5</LineId>
-    <StartAt />
+    <StartAt>PT9H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>75</Id>
     <LineId>5</LineId>
-    <StartAt />
+    <StartAt>PT11H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>76</Id>
     <LineId>5</LineId>
-    <StartAt />
+    <StartAt>PT12H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>77</Id>
     <LineId>5</LineId>
-    <StartAt />
+    <StartAt>PT13H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>78</Id>
     <LineId>5</LineId>
-    <StartAt />
+    <StartAt>PT13H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>79</Id>
     <LineId>5</LineId>
-    <StartAt />
+    <StartAt>PT14H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>80</Id>
     <LineId>5</LineId>
-    <StartAt />
+    <StartAt>PT14H25M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>81</Id>
     <LineId>5</LineId>
-    <StartAt />
+    <StartAt>PT16H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>82</Id>
     <LineId>5</LineId>
-    <StartAt />
+    <StartAt>PT17H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>83</Id>
     <LineId>5</LineId>
-    <StartAt />
+    <StartAt>PT18H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>84</Id>
     <LineId>5</LineId>
-    <StartAt />
+    <StartAt>PT20H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>85</Id>
     <LineId>5</LineId>
-    <StartAt />
+    <StartAt>PT20H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>86</Id>
     <LineId>6</LineId>
-    <StartAt />
+    <StartAt>PT7H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>87</Id>
     <LineId>6</LineId>
-    <StartAt />
+    <StartAt>PT8H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>88</Id>
     <LineId>6</LineId>
-    <StartAt />
+    <StartAt>PT9H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>89</Id>
     <LineId>6</LineId>
-    <StartAt />
+    <StartAt>PT10H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>90</Id>
     <LineId>6</LineId>
-    <StartAt />
+    <StartAt>PT11H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>91</Id>
     <LineId>6</LineId>
-    <StartAt />
+    <StartAt>PT12H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>92</Id>
     <LineId>6</LineId>
-    <StartAt />
+    <StartAt>PT13H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>93</Id>
     <LineId>6</LineId>
-    <StartAt />
+    <StartAt>PT13H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>94</Id>
     <LineId>6</LineId>
-    <StartAt />
+    <StartAt>PT15H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>95</Id>
     <LineId>6</LineId>
-    <StartAt />
+    <StartAt>PT16H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>96</Id>
     <LineId>6</LineId>
-    <StartAt />
+    <StartAt>PT17H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>97</Id>
     <LineId>6</LineId>
-    <StartAt />
+    <StartAt>PT18H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>98</Id>
     <LineId>6</LineId>
-    <StartAt />
+    <StartAt>PT19H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>99</Id>
     <LineId>6</LineId>
-    <StartAt />
+    <StartAt>PT20H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>100</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT8H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>101</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT9H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>102</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT9H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>103</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT10H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>104</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT10H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>105</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT11H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>106</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT12H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>107</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT13H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>108</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT13H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>109</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT14H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>110</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT14H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>111</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT15H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>112</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT15H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>113</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT16H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>114</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT16H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>115</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT17H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>116</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT18H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>117</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT19H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>118</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT20H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>119</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT21H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>120</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT22H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>121</Id>
     <LineId>7</LineId>
-    <StartAt />
+    <StartAt>PT22H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>122</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT6H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>123</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT6H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>124</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT6H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>125</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT6H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>126</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT7H5M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>127</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT7H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>128</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT7H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>129</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT8H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>130</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT8H10M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>131</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT8H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>132</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT8H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>133</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT9H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>134</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT9H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>135</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT9H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>136</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT10H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>137</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT10H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>138</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT11H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>139</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT11H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>140</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT12H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>141</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT12H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>142</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT12H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>143</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT13H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>144</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT13H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>145</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT13H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>146</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT13H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>147</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT14H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>148</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT14H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>149</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT15H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>150</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT15H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>151</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT16H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>152</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT16H7M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>153</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT16H16M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>154</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT16H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>155</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT16H42M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>156</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT16H56M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>157</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT17H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>158</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT17H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>159</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT17H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>160</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT17H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>161</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT18H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>162</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT19H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>163</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT20H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>164</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT20H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>165</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT20H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>166</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT21H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>167</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT21H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>168</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT21H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>169</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT22H5M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>170</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT22H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>171</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT22H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>172</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT23H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>173</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT23H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>174</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT23H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>175</Id>
     <LineId>8</LineId>
-    <StartAt />
+    <StartAt>PT23H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>176</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT6H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>177</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT6H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>178</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT6H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>179</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT6H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>180</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT7H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>181</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT7H9M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>182</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT7H12M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>183</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT7H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>184</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT7H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>185</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT7H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>186</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT8H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>187</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT8H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>188</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT8H23M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>189</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT8H35M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>190</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT9H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>191</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT9H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>192</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT9H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>193</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT10H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>194</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT10H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>195</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT11H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>196</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT11H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>197</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT12H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>198</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT12H35M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>199</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT12H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>200</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT13H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>201</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT13H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>202</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT13H25M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>203</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT13H32M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>204</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT13H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>205</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT14H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>206</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT14H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>207</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT15H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>208</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT15H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>209</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT16H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>210</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT16H7M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>211</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT16H16M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>212</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT16H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>213</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT16H42M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>214</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT16H56M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>215</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT17H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>216</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT17H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>217</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT17H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>218</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT17H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>219</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT18H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>220</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT19H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>221</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT20H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>222</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT20H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>223</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT20H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>224</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT21H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>225</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT21H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>226</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT21H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>227</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT22H5M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>228</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT22H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>229</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT22H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>230</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT23H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>231</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT23H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>232</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT23H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>233</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT23H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>234</Id>
     <LineId>9</LineId>
-    <StartAt />
+    <StartAt>PT23H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>235</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT7H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>236</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT8H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>237</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT9H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>238</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT10H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>239</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT11H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>240</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT12H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>241</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT13H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>242</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT13H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>243</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT13H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>244</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT14H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>245</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT14H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>246</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT15H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>247</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT16H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>248</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT16H16M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>249</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT16H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>250</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT16H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>251</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT17H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>252</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT17H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>253</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT17H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>254</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT18H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>255</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT19H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>256</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT20H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>257</Id>
     <LineId>10</LineId>
-    <StartAt />
+    <StartAt>PT21H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>258</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT6H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>259</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT6H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>260</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT6H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>261</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT7H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>262</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT7H9M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>263</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT7H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>264</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT7H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>265</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT7H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>266</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT8H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>267</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT8H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>268</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT8H23M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>269</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT9H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>270</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT9H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>271</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT9H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>272</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT10H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>273</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT10H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>274</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT11H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>275</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT11H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>276</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT12H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>277</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT12H35M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>278</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT12H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>279</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT13H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>280</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT13H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>281</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT13H22M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>282</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT13H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>283</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT13H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>284</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT14H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>285</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT15H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>286</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT15H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>287</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT16H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>288</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT16H5M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>289</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT16H16M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>290</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT16H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>291</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT16H56M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>292</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT17H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>293</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT17H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>294</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT17H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>295</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT17H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>296</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT18H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>297</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT19H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>298</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT20H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>299</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT20H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>300</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT21H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>301</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT21H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>302</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT21H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>303</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT22H5M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>304</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT22H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>305</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT22H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>306</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT23H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>307</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT23H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>308</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT23H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>309</Id>
     <LineId>11</LineId>
-    <StartAt />
+    <StartAt>PT23H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>310</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT6H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>311</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT6H10M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>312</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT6H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>313</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT6H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>314</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT6H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>315</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT6H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>316</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT7H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>317</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT7H10M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>318</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT7H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>319</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT7H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>320</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT7H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>321</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT7H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>322</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT8H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>323</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT8H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>324</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT8H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>325</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT8H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>326</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT9H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>327</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT9H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>328</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT10H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>329</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT10H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>330</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT11H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>331</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT12H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>323</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT13H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>333</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT13H6M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>334</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT13H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>335</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT13H22M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>336</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT13H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>337</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT13H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>338</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT13H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>339</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT14H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>340</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT14H15M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>341</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT14H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>342</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT14H45M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>343</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT15H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>344</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT16H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>345</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT16H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>346</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT16H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>347</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT17H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>348</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT17H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>349</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT18H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>350</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT18H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>351</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT19H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>352</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT19H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>353</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT20H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>354</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT21H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>355</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT21H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>356</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT22H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>357</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT22H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>358</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT23H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>359</Id>
     <LineId>12</LineId>
-    <StartAt />
+    <StartAt>PT23H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>360</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT7H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>361</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT8H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>362</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT8H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>363</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT9H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>364</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT9H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>365</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT10H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>366</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT10H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>367</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT11H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>368</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT12H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>369</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT13H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>370</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT13H20M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>371</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT13H40M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>372</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT14H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>373</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT14H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>374</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT15H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>375</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT16H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>376</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT16H16M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>377</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT16H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>378</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT16H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>379</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT17H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>380</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT17H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>381</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT17H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>382</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT18H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>383</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT19H50M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>384</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT20H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>385</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT21H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>386</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT21H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>387</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT22H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>388</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT22H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>389</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT23H</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
   <LineTrip>
     <Id>390</Id>
     <LineId>13</LineId>
-    <StartAt />
+    <StartAt>PT23H30M</StartAt>
     <IsDeleted>false</IsDeleted>
   </LineTrip>
 </ArrayOfLineTrip>

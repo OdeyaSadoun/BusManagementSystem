@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace DO
 {
@@ -54,7 +57,21 @@ namespace DO
         /// <summary>
         /// Estimated travel time of the route
         /// </summary>
-        public TimeSpan TravelTimeInThisLine { get; set; }
+        //public TimeSpan TravelTimeInThisLine { get; set; }
+        private TimeSpan travelTimeInThisLine;
+        [XmlIgnore]
+        public TimeSpan TravelTimeInThisLine
+        {
+            get { return travelTimeInThisLine; }
+            set { travelTimeInThisLine = value; }
+        }
+        [XmlElement("TravelTimeInThisLine", DataType = "duration")]
+        [DefaultValue("PT10M")]
+        public string XmlTime
+        {
+            get { return XmlConvert.ToString(travelTimeInThisLine); }
+            set { travelTimeInThisLine = XmlConvert.ToTimeSpan(value); }
+        }
         #endregion
 
         #region IsDeleted

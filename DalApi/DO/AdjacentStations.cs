@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace DO
 {
@@ -33,7 +36,23 @@ namespace DO
         /// <summary>
         /// Average travel time between the 2 stations
         /// </summary>
-        public TimeSpan TravelTime { get; set; }
+        /// 
+        private TimeSpan travelTime;
+        [XmlIgnore]
+        public TimeSpan TravelTime
+        {
+            get { return travelTime; }
+            set { travelTime = value; }
+        }
+        [XmlElement("TravelTime", DataType="duration")]
+        [DefaultValue("PT10M")]
+        public string XmlTime
+        {
+            get { return XmlConvert.ToString(travelTime); }
+            set { travelTime = XmlConvert.ToTimeSpan(value); }
+        }
+
+
         #endregion
 
         #region IsDeleted
