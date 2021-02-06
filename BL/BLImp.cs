@@ -507,7 +507,17 @@ namespace BL
             try
             {
                 //DO.LineStation ls = dl.GetLineStation(sInL.LineId, sInL.StationCode);
+                BO.Station stat = GetStation(sInL.StationCode);
+                BO.Line line = GetLine(sInL.LineId);
+                DO.Line lineDO = dl.GetLine(sInL.LineId);
+
+                if (line.FirstStation == stat)
+                {
+                    line.FirstStation = GetStation(line.ListOfStationsInLine.ToList()[1].StationCode);
+                    lineDO.FirstStation = line.FirstStation.Code;
+                }
                 dl.DeleteLineStation(sInL.LineId, sInL.StationCode);
+
             }
             catch(DO.IncorrectInputException ex)
             {
@@ -715,14 +725,21 @@ namespace BL
                 //    throw new BO.IncorrectCodeStationException(station.Code, "Station cant be deleted because other buses stop there");
                 ////נעבור על רשימת הקווים, בכל קו נבדוק האם התחנה היתה קיימת, ופשוט נמחק אותה, (ןנעדכן את הזמן והמרחק לתחנה הבאה)
                 List<BO.Line> listLines = GetAllLines().ToList();
+                bool stationdelete = false;
                 foreach (BO.Line l in listLines)
                 {
                     foreach (BO.StationInLine sl in l.ListOfStationsInLine)
                     {
                         if (sl.StationCode == station.Code)
+                        {
                             DeleteStationInLine(sl);
+                            stationdelete = true;
+                            break;
+                        }
                     }
                     //DO.Station statDO = dl.GetStation(station.Code);
+                    //if (stationdelete)
+                    //    break;
                 }
                 List<DO.AdjacentStations> listAdj = dl.GetAllAdjacentStations().ToList();
                 int i = 0;

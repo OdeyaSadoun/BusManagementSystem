@@ -54,6 +54,20 @@
 
         </Grid>
         <Image Margin="410,274,10,24" Source="BUS33.png" Stretch="Fill"/>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="420,188,0,0" VerticalAlignment="Top" Width="198">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Km Before Fuel:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="kmBeforeFuelTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" Text="{Binding KmBeforeFuel}" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+            <Label Content="Km Befor Treatment:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="kmBeforTreatmentTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" Text="{Binding KmBeforTreatment}" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+        </Grid>
 
 
     </Grid>

@@ -23,6 +23,7 @@ namespace PlGui
         {
             InitializeComponent();
             grid2.DataContext = bus;
+            grid1.DataContext = bus;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
