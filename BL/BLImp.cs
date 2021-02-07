@@ -183,10 +183,13 @@ namespace BL
         #region Refuel
         public void Refuel(BO.Bus bus)
         {
+            DO.Bus busDo = dl.GetBus(bus.LicenseNumber);
             bus.FuelRemain = 1200;
             bus.Status = BO.BusStatus.Refueling;
             bus.KmBeforeFuel = 1200;
-           
+            busDo.FuelRemain = 1200;
+            busDo.Status = DO.BusStatus.Refueling;
+            busDo.KmBeforeFuel = 1200;
         }
         #endregion
 
