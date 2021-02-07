@@ -51,6 +51,13 @@ namespace BO
         public TimeSpan TimeTo { get; set; }
         #endregion
 
+        #region IsDeleted
+        /// <summary>
+        /// Does this bus exist in the system or is it deleted from it
+        /// </summary>
+        public bool IsDeleted { get; set; }
+        #endregion
+
         //#region ToString
         //public override string ToString()
         //{

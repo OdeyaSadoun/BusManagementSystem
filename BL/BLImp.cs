@@ -247,6 +247,7 @@ namespace BL
             int lineId = lineDO.Id;
 
             List<BO.StationInLine> stations = new List<BO.StationInLine>();
+            List<BO.StationInLine> stationsTmp = new List<BO.StationInLine>();
             stations = (from stat in dl.GetAllLinesStationBy(stat => stat.LineId == lineId && stat.IsDeleted == false)
                                                let station = dl.GetStation(stat.StationCode)
                                                select station.CopyToStationInLine(stat)).ToList();
@@ -265,6 +266,19 @@ namespace BL
                 }
             }
             lineBO = lineDO.CopyToLineDOToBO();
+            stationsTmp = stations;
+            //for (int i = 0; i < stationsTmp.Count; i++)
+            //{
+            //    if (stationsTmp[i].IsDeleted == true)
+            //        stations.Remove(stations[i]);
+            //}
+            var temp = from stat in stationsTmp
+                       where stat.IsDeleted == false
+                       select stat;
+            stations = temp.ToList();
+            lineBO.FirstStation = GetStation( stations[0].StationCode);
+
+
             lineBO.ListOfStationsInLine = stations;
             lineBO.TravelTimeInThisLine = count;
 

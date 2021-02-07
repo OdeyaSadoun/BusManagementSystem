@@ -52,6 +52,8 @@ namespace BL
         public static BO.Line CopyToLineDOToBO(this DO.Line s)
         {
             BO.Line line = new BO.Line();
+            //BO.Station stat = bl.GetStation(line.ListOfStationsInLine.ToList()[1].StationCode);
+            //if(line.ListOfStationsInLine.ToList()[0])
 
             line.Area = (BO.Area)s.Area;
 

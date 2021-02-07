@@ -13,5 +13,12 @@ namespace BO
         public TimeSpan Timing { get; set; }
         public Station SourceStation { get; set; }
         public Station TargetStation{ get; set; }
+
+        #region IsDeleted
+        /// <summary>
+        /// Does this bus exist in the system or is it deleted from it
+        /// </summary>
+        public bool IsDeleted { get; set; }
+        #endregion
     }
 }
