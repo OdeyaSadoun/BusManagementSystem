@@ -1419,7 +1419,26 @@ namespace BL
         //}
         #endregion
 
-
+        #region AddLineTrip
+        /// <summary>
+        /// A function that add a station to 
+        /// </summary>
+        /// <param name="station"></param>
+        public void AddLineTrip(BO.LineTrip ltrip)
+        {
+            DO.LineTrip ltDO = new DO.LineTrip();
+            ltrip.CopyPropertiesTo(ltDO);// מועתק ל DO
+            ltDO.IsDeleted = false;
+            try
+            {
+                dl.AddLineTrip(ltDO);
+            }
+            catch (DO.IncorrectCodeStationException ex)
+            {
+                throw new BO.IncorrectCodeStationException(ex.stationCode, ex.Message);
+            }
+        }
+        #endregion
 
         #region GetLineTimingsPerStation
         public IEnumerable<BO.LineTiming> GetLineTimingsPerStation(BO.Station station, TimeSpan tsCurentTime)//פונקצית הרחבה

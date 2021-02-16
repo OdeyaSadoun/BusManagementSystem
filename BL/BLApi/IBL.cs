@@ -82,7 +82,7 @@ namespace BLApi
         //void UpdateUser(int id, Action<BO.User> update); //method that knows to updt specific fields in User
         void DeleteUser(BO.User userBO);
         void Charge(int balance, BO.User user);
-     
+
         #endregion
 
         #region Trip
@@ -94,5 +94,7 @@ namespace BLApi
         //void UpdateTrip(int id, Action<BO.Trip> update); //method that knows to updt specific fields in Trip
         //void DeleteTrip(int id);
         #endregion
+
+        void AddLineTrip(BO.LineTrip ltrip);
     }
 }

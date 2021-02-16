@@ -104,6 +104,7 @@ namespace PlGui
                     BO.LineTrip lt = new BO.LineTrip() { IsDeleted = false, LineId = line.Id, StartAt = TimeSpan.Parse(TimeTravel.Text) };
                     List<BO.LineTrip> listTimes = (List<BO.LineTrip>)line.ListOfTripTime;
                     listTimes.Add(lt);
+                    bl.AddLineTrip(lt);
                     listTimes.OrderBy(s => s.StartAt).ToList();
                     line.ListOfTripTime = listTimes;
 
