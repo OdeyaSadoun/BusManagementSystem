@@ -308,7 +308,8 @@ namespace DalObject
         public void AddLineTrip(DO.LineTrip lt)
         {
             if (DataSource.ListLinesTrip.FirstOrDefault(p => p.Id == lt.Id && p.LineId == lt.LineId && !p.IsDeleted) != null)
-                throw new IncorrectInputException($"The trip {lt.Id} with the line ID:{lt.LineId} is exsit in the system, could not add it again"); 
+                throw new IncorrectInputException($"The trip {lt.Id} with the line ID:{lt.LineId} is exsit in the system, could not add it again");
+            
             DataSource.ListLinesTrip.Add(lt.Clone());
         }
         #endregion

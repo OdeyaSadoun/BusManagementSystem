@@ -23,8 +23,8 @@ namespace PlGui
     public partial class LineShow : Window
     {
         IBL bl = BLFactory.GetBL();
-        
 
+        public BO.Line thisLine { get; set; }
 
         public LineShow(BO.Line line)
         {
@@ -37,7 +37,7 @@ namespace PlGui
             stations.Visibility = Visibility.Visible;
             times.ItemsSource = line.ListOfTripTime.ToList();
             times.SelectedItem = 0;
-
+            thisLine = line;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -46,6 +46,20 @@ namespace PlGui
             System.Windows.Data.CollectionViewSource lineViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("lineViewSource")));
             // Load data by setting the CollectionViewSource.Source property:
             // lineViewSource.Source = [generic data source]
+        }
+
+        private void DeleteStation(object sender, RoutedEventArgs e)
+        {
+            BO.StationInLine b = (sender as Button).DataContext as BO.StationInLine;
+           //bl.DeleteStationInLine(b);
+             BO.StationInLine stationToDelete = bl.GetStationInLine(b.StationCode, thisLine.Id);
+
+            var v = (from item in thisLine.ListOfStationsInLine
+                     where stationToDelete.LineId == thisLine.Id
+                     select item).FirstOrDefault();
+
+            thisLine.ListOfStationsInLine.ToList().Remove(v);
+
         }
     }
 }

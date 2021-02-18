@@ -41,9 +41,9 @@ namespace PlGui
         {
             try
             {
-                if ((fuelRemainTextBox.Text != null)&&(b!=null))
+                if ((fuelRemainTextBox.Text != "")&&(b!=null))
                     b.FuelRemain = double.Parse(fuelRemainTextBox.Text);
-                if ((totalMileageTextBox.Text != null)&& (b != null))
+                if ((totalMileageTextBox.Text != "")&& (b != null))
                     b.TotalMileage = double.Parse(totalMileageTextBox.Text);
                 if ((isAccessibleCheckBox.IsChecked != null) && (b != null))
                     b.IsAccessible = isAccessibleCheckBox.IsChecked.Value;

@@ -737,63 +737,62 @@ namespace BL
         {
             try
             {
-                //BO.Station statBO = stationDoBoAdapter(statDO);
-                //if (statBO.ListOfLines.Count() != 0)//if there are lines that stop in the station
-                //    throw new BO.IncorrectCodeStationException(station.Code, "Station cant be deleted because other buses stop there");
-                ////נעבור על רשימת הקווים, בכל קו נבדוק האם התחנה היתה קיימת, ופשוט נמחק אותה, (ןנעדכן את הזמן והמרחק לתחנה הבאה)
-                List<BO.Line> listLines = GetAllLines().ToList();
-                bool stationdelete = false;
-                foreach (BO.Line l in listLines)
-                {
-                    foreach (BO.StationInLine sl in l.ListOfStationsInLine)
-                    {
-                        if (sl.StationCode == station.Code)
-                        {
-                            DeleteStationInLine(sl);
-                            stationdelete = true;
-                            break;
-                        }
-                    }
-                    //DO.Station statDO = dl.GetStation(station.Code);
-                    //if (stationdelete)
-                    //    break;
-                }
-                List<DO.AdjacentStations> listAdj = dl.GetAllAdjacentStations().ToList();
-                int i = 0;
-                DO.AdjacentStations tempAdj = listAdj[i];
-                DO.AdjacentStations adjToAdd = new AdjacentStations() ;
-                //מה קורה שזו תחנה ראשונה???
-                if(tempAdj.CodeStation1 == station.Code)
-                {
-                    dl.DeleteAdjacentStations(tempAdj.CodeStation1, tempAdj.CodeStation2);
-                    i++;
-                    tempAdj = listAdj[i];
-                }
-                //לראות מה הולך עם הזמנים
-                bool isDeleteAdj = false;
-                for(int j = i; j < listAdj.Count(); j ++)
-                {
-                    if (listAdj[j].CodeStation1 == station.Code)//התחנה הראשונה בזוג תחנות עוקבות היא התחנה שנמחקה
-                    {
-                        dl.DeleteAdjacentStations(listAdj[j].CodeStation1, listAdj[j].CodeStation2);
-                        adjToAdd.CodeStation1 = tempAdj.CodeStation1;
-                        adjToAdd.CodeStation2 = listAdj[j].CodeStation2;
-                        adjToAdd.Distance = tempAdj.Distance + listAdj[j].Distance;
-                        adjToAdd.TravelTime = tempAdj.TravelTime + listAdj[j].TravelTime;
-                        dl.AddAdjacentStations(adjToAdd);
-                        isDeleteAdj = true;
+                DO.Station statDO = dl.GetStation(station.Code);
+                if (station.ListOfLines.Count() != 0)//if there are lines that stop in the station
+                    throw new BO.IncorrectCodeStationException(station.Code, "Station cant be deleted because other buses stop there");
+                //////נעבור על רשימת הקווים, בכל קו נבדוק האם התחנה היתה קיימת, ופשוט נמחק אותה, (ןנעדכן את הזמן והמרחק לתחנה הבאה)
+                //List<BO.Line> listLines = GetAllLines().ToList();
+                //bool stationdelete = false;
+                //foreach (BO.Line l in listLines)
+                //{
+                //    foreach (BO.StationInLine sl in l.ListOfStationsInLine)
+                //    {
+                //        if (sl.StationCode == station.Code)
+                //        {
+                //            DeleteStationInLine(sl);
+                //            stationdelete = true;
+                //            break;
+                //        }
+                //    }
+                //    //DO.Station statDO = dl.GetStation(station.Code);
+                //    //if (stationdelete)
+                //    //    break;
+                //}
+                //List<DO.AdjacentStations> listAdj = dl.GetAllAdjacentStations().ToList();
+                //int i = 0;
+                //DO.AdjacentStations tempAdj = listAdj[i];
+                //DO.AdjacentStations adjToAdd = new AdjacentStations() ;
+                ////מה קורה שזו תחנה ראשונה???
+                //if(tempAdj.CodeStation1 == station.Code)
+                //{
+                //    dl.DeleteAdjacentStations(tempAdj.CodeStation1, tempAdj.CodeStation2);
+                //    i++;
+                //    tempAdj = listAdj[i];
+                //}
+                ////לראות מה הולך עם הזמנים
+                //bool isDeleteAdj = false;
+                //for(int j = i; j < listAdj.Count(); j ++)
+                //{
+                //    if (listAdj[j].CodeStation1 == station.Code)//התחנה הראשונה בזוג תחנות עוקבות היא התחנה שנמחקה
+                //    {
+                //        dl.DeleteAdjacentStations(listAdj[j].CodeStation1, listAdj[j].CodeStation2);
+                //        adjToAdd.CodeStation1 = tempAdj.CodeStation1;
+                //        adjToAdd.CodeStation2 = listAdj[j].CodeStation2;
+                //        adjToAdd.Distance = tempAdj.Distance + listAdj[j].Distance;
+                //        adjToAdd.TravelTime = tempAdj.TravelTime + listAdj[j].TravelTime;
+                //        dl.AddAdjacentStations(adjToAdd);
+                //        isDeleteAdj = true;
 
-                    }
-                    if(!isDeleteAdj)
-                        tempAdj = listAdj[j];
-                    else
-                        tempAdj = listAdj[j-1];
+                //    }
+                //    if(!isDeleteAdj)
+                //        tempAdj = listAdj[j];
+                //    else
+                //        tempAdj = listAdj[j-1];
 
-                    //else if (listAdj[i].CodeStation2 == statBO.Code)
-                    //{
-                    //}
-                }
-  
+                //    //else if (listAdj[i].CodeStation2 == statBO.Code)
+                //    //{
+                //    //}
+                //}
                 dl.DeleteStation(station.Code);
                 //foreach (DO.AdjacentStations s in listAdj)//delete from adjacent Station list
                 //{
@@ -1426,7 +1425,7 @@ namespace BL
         /// <param name="station"></param>
         public void AddLineTrip(BO.LineTrip ltrip)
         {
-            DO.LineTrip ltDO = new DO.LineTrip();
+            DO.LineTrip ltDO = new DO.LineTrip();            
             ltrip.CopyPropertiesTo(ltDO);// מועתק ל DO
             ltDO.IsDeleted = false;
             try

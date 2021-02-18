@@ -56,11 +56,11 @@ namespace PlGui
             try
             {
                
-                if ((addressTextBox.Text != null) && (s != null))
+                if ((addressTextBox.Text != "") && (s != null))
                     s.Address = addressTextBox.Text;
-                if ((latitudeTextBox.Text != null) && (s != null))
+                if ((latitudeTextBox.Text != "") && (s != null))
                     s.Latitude = double.Parse(latitudeTextBox.Text);
-                if ((longitudeTextBox.Text != null) && (s != null))
+                if ((longitudeTextBox.Text != "") && (s != null))
                     s.Longitude = double.Parse(longitudeTextBox.Text);
                 if ((isAccessibleCheckBox.IsChecked != null) && (s != null))
                     s.IsAccessible = isAccessibleCheckBox.IsChecked.Value;

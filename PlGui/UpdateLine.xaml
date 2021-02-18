@@ -12,14 +12,12 @@
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
         <Label x:Name="Add" Content="add station:" HorizontalAlignment="Left" Margin="188,85,0,307"  VerticalAlignment="Center"  Foreground="white" FontSize="12"  FontWeight="Bold" Height="27" Width="92"/>
-        <Label x:Name="Remove" Content="delete station" HorizontalAlignment="Left" Margin="188,148,0,246" VerticalAlignment="Center"  Foreground="white" FontSize="12"  FontWeight="Bold" Height="25" Width="92"/>
-        <Label x:Name="Cost" Content="change the fare:" HorizontalAlignment="Left" Margin="188,211,0,182" VerticalAlignment="Center"  Foreground="white" FontSize="12"  FontWeight="Bold" Height="26" Width="103"/>
-        <TextBox x:Name="AddBox" HorizontalAlignment="Left" Height="36" Margin="309,80,0,303" TextWrapping="Wrap"  Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="144" Foreground="Black" FontSize="12"  FontWeight="Bold" TextChanged="AddTextBox_TextChanged"/>
-        <TextBox x:Name="RemoveBox" HorizontalAlignment="Left" Height="36" Margin="309,142,0,241" TextWrapping="Wrap" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="144" Foreground="Black" FontSize="12"  FontWeight="Bold" TextChanged="RemoveTextBox_TextChanged"/>
-        <TextBox x:Name="CostBox" HorizontalAlignment="Left" Height="36" Margin="309,208,0,175" TextWrapping="Wrap"  Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="144" Foreground="Black" FontSize="12"  FontWeight="Bold" TextChanged="CostTextBox_TextChanged"/>
+        <Label x:Name="Cost" Content="change the fare:" HorizontalAlignment="Left" Margin="188,160,0,234" VerticalAlignment="Center"  Foreground="white" FontSize="12"  FontWeight="Bold" Height="26" Width="103"/>
+        <TextBox x:Name="CostBox" HorizontalAlignment="Left" Height="36" Margin="309,150,0,234" TextWrapping="Wrap"  Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="144" Foreground="Black" FontSize="12"  FontWeight="Bold" TextChanged="CostTextBox_TextChanged"/>
         <Button x:Name="Updating" Content="Update" HorizontalAlignment="Left" Margin="239,344,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Click="Updating_Click"/>
-        <Label x:Name="LableTimeTravel" Content="add time to travel" HorizontalAlignment="Left" Margin="188,276,0,117" VerticalAlignment="Center"  Foreground="white" FontSize="12"  FontWeight="Bold" Height="26" Width="115"/>
-        <TextBox x:Name="TimeTravel" HorizontalAlignment="Left" Height="36" Margin="309,271,0,112" TextWrapping="Wrap"  Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="144" Foreground="Black" FontSize="12"  FontWeight="Bold" TextChanged="CostTextBox_TextChanged"/>
+        <Label x:Name="LableTimeTravel" Content="add time to travel" HorizontalAlignment="Left" Margin="188,234,0,160" VerticalAlignment="Center"  Foreground="white" FontSize="12"  FontWeight="Bold" Height="26" Width="115"/>
+        <TextBox x:Name="TimeTravel" HorizontalAlignment="Left" Height="36" Margin="309,234,0,150" TextWrapping="Wrap"  Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="144" Foreground="Black" FontSize="12"  FontWeight="Bold" TextChanged="CostTextBox_TextChanged"/>
+        <ComboBox x:Name="stationAdd" HorizontalAlignment="Left" Margin="309,85,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding}" RenderTransformOrigin="0.54,2.768"/>
 
     </Grid>
 </Window>

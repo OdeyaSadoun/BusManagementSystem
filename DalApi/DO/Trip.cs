@@ -15,47 +15,14 @@ namespace DO
         public int Id { get; set; }
         #endregion
 
-        #region UserName
-        /// <summary>
-        /// Passenger username
-        /// </summary>
-        public string UserName { get; set; }
-        #endregion
-
-        #region LineId
-        /// <summary>
-        /// Line ID
-        /// </summary>
-        public int LineId { get; set; }
-        #endregion
-
-        #region StartStation
-        /// <summary>
-        /// Passenger boarding station
-        /// </summary>
-        public int StartStation { get; set; }
-        #endregion
-
-        #region InAt
+        #region Time
         /// <summary>
         /// Boarding time
         /// </summary>
-        public TimeSpan InAt { get; set; }
+        public TimeSpan Time { get; set; }
         #endregion
 
-        #region DestinationStation
-        /// <summary>
-        /// Passenger drop-off station
-        /// </summary>
-        public int DestinationStation { get; set; }
-        #endregion
-
-        #region OutAt
-        /// <summary>
-        /// Time to get off the bus
-        /// </summary>
-        public TimeSpan OutAt { get; set; }
-        #endregion
+        
 
         #region IsDeleted
         /// <summary>

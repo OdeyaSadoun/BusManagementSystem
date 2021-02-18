@@ -27,12 +27,16 @@ namespace PlGui
         {
             InitializeComponent();
             line = l;
+            List<BO.StationInLine> lst = bl.GetAllStationsInLine().ToList();
+            stationAdd.ItemsSource = lst;
+            stationAdd.DisplayMemberPath = "StationCode";
+            stationAdd.SelectedIndex = 0;
         }
 
 
         private void AddTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //tamargavrieli18@gmail.com
         }
 
         private void RemoveTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -55,40 +59,6 @@ namespace PlGui
 
                 //BO.Line line = (sender as Button).DataContext as BO.Line;
                 List<BO.StationInLine> listOfStations = bl.GetAllStationesInLineBy(line.Id).ToList();
-
-
-                //מחיקת תחנה מרשימת התחנות
-                if (RemoveBox.Text != "")
-                {
-                    stationToDelete = bl.GetStationInLine(int.Parse(RemoveBox.Text), line.Id);
-
-                    var v = (from item in listOfStations
-                             where stationToDelete.LineId == line.Id
-                             select item).FirstOrDefault();
-
-                    listOfStations.Remove(v);
-                }
-                else
-                {
-                    line.ListOfStationsInLine = listOfStations;
-                }
-
-                //הוספת תחנה לרשימת התחנות
-                if (AddBox.Text != "")
-                {
-                    stationToAdd = bl.GetStationInLine(int.Parse(AddBox.Text), line.Id);
-                    if (stationToAdd != null)
-                        throw new BO.IncorrectCodeStationException(int.Parse(AddBox.Text), "this station is exsist in this line");
-                    station = bl.GetStation(int.Parse(AddBox.Text));
-                    if(station == null)
-                        throw new BO.IncorrectCodeStationException(int.Parse(AddBox.Text), "this station is not exsist in the system");
-                    listOfStations.Add(stationToAdd);
-                }
-                else
-                {
-                    line.ListOfStationsInLine = listOfStations;
-                }
-
                 //עדכון מחיר
                 if(CostBox.Text !="")
                 {
@@ -101,41 +71,40 @@ namespace PlGui
                 //הוספת זמן יציאה:
                 if(TimeTravel.Text != "")
                 {
-                    BO.LineTrip lt = new BO.LineTrip() { IsDeleted = false, LineId = line.Id, StartAt = TimeSpan.Parse(TimeTravel.Text) };
                     List<BO.LineTrip> listTimes = (List<BO.LineTrip>)line.ListOfTripTime;
+                    int countOfTrip = listTimes.Count();
+                    BO.LineTrip lt = new BO.LineTrip() { IsDeleted = false, LineId = line.Id, StartAt = TimeSpan.Parse(TimeTravel.Text), Id= countOfTrip+1 };                 
                     listTimes.Add(lt);
+                    listTimes.OrderBy(s => s.StartAt).ToList();
                     bl.AddLineTrip(lt);
                     listTimes.OrderBy(s => s.StartAt).ToList();
                     line.ListOfTripTime = listTimes;
-
                 }
-                    //bl.DeleteStationInLine()
-                    //listOfStations = temp;// כרגע זוהי רשימת תחנות הקו בקו הנוכחי
-                    //temp.Clear();//נאפס את הרשימה לצורך שימוש חוזר
-                    //if (RemoveBox.Text != null)
-                    //{
-                    //    foreach(BO.StationInLine s in listOfStations)
-                    //    {
-                    //        if (s.StationCode != int.Parse(RemoveBox.Text))
-                    //            temp.Add(s);
-                    //    }
-                    //    line.ListOfStationsInLine = temp;//עדכון רשימת התחנות של הקו
+                if(stationAdd.Text!="")
+                {
+                    List<BO.StationInLine> lstStationLine = bl.GetAllStationesInLineBy(line.Id).ToList();
+                    int temp = int.Parse(stationAdd.Text);
+                    foreach (BO.StationInLine b in lstStationLine)
+                    {
+                        if (b.StationCode == temp)
+                        {
+                            throw new ArgumentException("The station already exsist");
+                        }
+                    }
+                    List<BO.StationInLine> list = bl.GetAllStationsInLine().ToList();
+                    List<BO.StationInLine> inLine = line.ListOfStationsInLine.ToList();
+                    foreach (BO.StationInLine b in list)
+                    {
+                        if (b.StationCode == temp)
+                        {
+                            inLine.Add(b);
+                            break;
+                        }
 
-                    //}
-                    ////הוספת תחנה לקו 
-                    //temp.Clear();//נאפס את הרשימה לצורך שימוש חוזר
-                    //if (AddBox.Text!=null)
-                    //{
-                    //    foreach (BO.StationInLine s in line.ListOfStationsInLine)
-                    //    {
-                    //        if (s.StationCode == int.Parse(AddBox.Text))
-                    //            throw new BO.IncorrectCodeStationException(int.Parse(AddBox.Text), "The station is exsist in this line. you can not add it again");              
-                    //    }
-                    //    //אם התחנה לא קיימת במסלול
-                    //    temp = line.ListOfStationsInLine.ToList();
-                    //    temp.Add(int.Parse(AddBox.Text))
-                    //    line.ListOfStationsInLine = temp;
-                    //}
+                    }
+                    line.ListOfStationsInLine = inLine;
+                }
+
                     bl.UpdateLine(line);
                 Close();
             }
@@ -143,6 +112,12 @@ namespace PlGui
             {
                 MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+
         }
     }
 }

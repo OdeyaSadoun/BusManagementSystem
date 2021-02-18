@@ -79,9 +79,16 @@
                 <GridView>
                     <GridViewColumn Header="Station code:" DisplayMemberBinding="{Binding StationCode}" Width="90"/>
                     <GridViewColumn Header="index in this line:" DisplayMemberBinding="{Binding LineStationIndex}" Width="100"/>
-                    <GridViewColumn Header="name:" DisplayMemberBinding="{Binding StationName}" Width="232"/>
+                    <GridViewColumn Header="name:" DisplayMemberBinding="{Binding StationName}" Width="200"/>
                     <GridViewColumn Header="distance to next station:" DisplayMemberBinding="{Binding DistanceTo}" Width="138"/>
                     <GridViewColumn Header="time to next station:" DisplayMemberBinding="{Binding TimeTo}" Width="120"/>
+                    <GridViewColumn Header="Delete" Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete" Click="DeleteStation" CommandParameter="{Binding Id}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
