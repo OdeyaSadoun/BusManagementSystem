@@ -83,26 +83,29 @@ namespace PlGui
                 if(stationAdd.Text!="")
                 {
                     List<BO.StationInLine> lstStationLine = bl.GetAllStationesInLineBy(line.Id).ToList();
-                    int temp = int.Parse(stationAdd.Text);
+                    int tempCode = int.Parse(stationAdd.Text);
                     foreach (BO.StationInLine b in lstStationLine)
                     {
-                        if (b.StationCode == temp)
+                        if (b.StationCode == tempCode)
                         {
                             throw new ArgumentException("The station already exsist");
                         }
                     }
-                    List<BO.StationInLine> list = bl.GetAllStationsInLine().ToList();
-                    List<BO.StationInLine> inLine = line.ListOfStationsInLine.ToList();
-                    foreach (BO.StationInLine b in list)
-                    {
-                        if (b.StationCode == temp)
-                        {
-                            inLine.Add(b);
-                            break;
-                        }
+                    //List<BO.StationInLine> list = bl.GetAllStationsInLine().ToList();
+                    //List<BO.StationInLine> inLine = line.ListOfStationsInLine.ToList();
+                    //foreach (BO.StationInLine b in list)
+                    //{
+                    //    if (b.StationCode == tempCode)
+                    //    {
+                    //        inLine.Add(b);
+                    //        break;
+                    //    }
 
-                    }
-                    line.ListOfStationsInLine = inLine;
+                    //}
+                    //line.ListOfStationsInLine = inLine;
+                    BO.Station tempStat = bl.GetStation(tempCode);
+                    BO.Line tempLine = bl.GetLine(line.Id);
+                    bl.AddStationInLine(tempStat, tempLine);
                 }
 
                     bl.UpdateLine(line);

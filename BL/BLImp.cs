@@ -265,7 +265,6 @@ namespace BL
                     count = count + s.TimeTo;
                 }
             }
-            lineBO = lineDO.CopyToLineDOToBO();
             stationsTmp = stations;
             //for (int i = 0; i < stationsTmp.Count; i++)
             //{
@@ -276,6 +275,7 @@ namespace BL
                        where stat.IsDeleted == false
                        select stat;
             stations = temp.ToList();
+            lineBO = lineDO.CopyToLineDOToBO();
             lineBO.FirstStation = GetStation( stations[0].StationCode);
 
 
@@ -525,14 +525,14 @@ namespace BL
             {
                 //DO.LineStation ls = dl.GetLineStation(sInL.LineId, sInL.StationCode);
                 BO.Station stat = GetStation(sInL.StationCode);
-                BO.Line line = GetLine(sInL.LineId);
+               // BO.Line line = GetLine(sInL.LineId);
                 DO.Line lineDO = dl.GetLine(sInL.LineId);
 
-                if (line.FirstStation == stat)
-                {
-                    line.FirstStation = GetStation(line.ListOfStationsInLine.ToList()[1].StationCode);
-                    lineDO.FirstStation = line.FirstStation.Code;
-                }
+                //if (line.FirstStation == stat)
+                //{
+                //    line.FirstStation = GetStation(line.ListOfStationsInLine.ToList()[1].StationCode);
+                //    lineDO.FirstStation = line.FirstStation.Code;
+                //}
                 dl.DeleteLineStation(sInL.LineId, sInL.StationCode);
 
             }
@@ -543,7 +543,34 @@ namespace BL
         }
         #endregion
 
-        
+        public void AddStationInLine(BO.Station s, BO.Line l)
+        {
+            try
+            {
+                BO.StationInLine sil = new StationInLine() { LineId = l.Id, LineStationIndex = l.ListOfStationsInLine.Count(), StationCode = s.Code, StationName = s.Name };
+                DO.LineStation ls = new DO.LineStation() { StationCode = s.Code, LineId = l.Id, LineStationIndex = l.ListOfStationsInLine.Count() };
+                dl.AddLineStation(ls);
+                Random rnd = new Random();
+                DO.AdjacentStations aj = new AdjacentStations() { CodeStation1 = l.ListOfStationsInLine.ToList()[l.ListOfStationsInLine.Count() - 1].StationCode, CodeStation2 = sil.StationCode , Distance = rnd.Next(6,50)};
+                aj.TravelTime = new TimeSpan( rnd.Next(0, 2), rnd.Next(0,60), rnd.Next(0,60));
+                dl.AddAdjacentStations(aj);
+                l.ListOfStationsInLine.ToList()[l.ListOfStationsInLine.Count() - 1].DistanceTo = aj.Distance;
+                l.ListOfStationsInLine.ToList()[l.ListOfStationsInLine.Count() - 1].TimeTo = aj.TravelTime;
+               
+                l.TravelTimeInThisLine += l.ListOfStationsInLine.ToList()[l.ListOfStationsInLine.Count() - 1].TimeTo;
+                l.ListOfStationsInLine.ToList().Add(sil);
+
+
+
+
+            }
+            catch (DO.IncorrectInputException ex)
+            {
+                throw new BO.IncorrectInputException(ex.Message);
+            }
+        }
+
+
         #region GetAllStationsInLine
         /// <summary>
         /// A BO function that return all the lines trip 

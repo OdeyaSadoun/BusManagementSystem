@@ -56,12 +56,18 @@ namespace BL
             //if(line.ListOfStationsInLine.ToList()[0])
 
             line.Area = (BO.Area)s.Area;
-
-            DO.Station sDO = dl.GetStation(s.FirstStation);
-            line.FirstStation = CopyToStationDOToBO(sDO);
+            try
+            {
+                DO.Station sDO1 = dl.GetStation(s.FirstStation);
+                line.FirstStation = CopyToStationDOToBO(sDO1);
+            }
+            catch(BO.IncorrectCodeStationException ex)
+            {
+                DO.Station sDO1 = default;
+            }
             //line.FirstStation = bl.GetStation(s.FirstStation);
-            sDO = dl.GetStation(s.LastStation);
-            line.LastStation = CopyToStationDOToBO(sDO);
+            DO.Station sDO2 = dl.GetStation(s.LastStation);
+            line.LastStation = CopyToStationDOToBO(sDO2);
             //line.LastStation = bl.GetStation(s.LastStation);
 
 

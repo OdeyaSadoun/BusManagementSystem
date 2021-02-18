@@ -19,9 +19,9 @@
         <Grid.Background>
             <ImageBrush ImageSource="r3.jpeg"/>
         </Grid.Background>
-        <TextBlock Height="33" HorizontalAlignment="Left" Margin="37,32,0,0" Name="textBlockHeading" Text="Registration:" VerticalAlignment="Top" Width="168"  FontSize="25" Foreground="White" FontStretch="ExtraCondensed" FontWeight="Bold" Grid.Column="1"/>
+        <TextBlock Height="33" HorizontalAlignment="Left" Margin="37,27,0,0" Name="textBlockHeading" Text="Registration:" VerticalAlignment="Top" Width="168"  FontSize="25" Foreground="White" FontStretch="ExtraCondensed" FontWeight="Bold" Grid.Column="1"/>
         <!--Button as a Link button using style-->
-        <Button Margin="517,38,54,37" Content="Login" Cursor="Hand" Click="Login_Click" Foreground="White" Background="White" FontWeight="Bold" FontSize="20" Grid.Column="1">
+        <Button Margin="516,32,55,43" Content="Login" Cursor="Hand" Click="Login_Click" Foreground="White" Background="White" FontWeight="Bold" FontSize="20" Grid.Column="1">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <TextBlock TextDecorations="Underline">  
@@ -74,7 +74,7 @@
             <Button Content="Reset" Height="27" HorizontalAlignment="Left" Margin="21,219,0,0"  Foreground="White" Name="Reset" VerticalAlignment="Top" Width="70" Click="Reset_Click" FontWeight="Bold" Background="#FFAC3EA2" Grid.Column="4" Grid.ColumnSpan="2" />
             <Button Content="Cancel" Height="27" HorizontalAlignment="Right" Margin="0,219,120,0"  Foreground="White" Name="Cancel" VerticalAlignment="Top" Width="70" Click="Cancel_Click" FontWeight="Bold" Background="#FFAC3EA2" Grid.Column="5" RenderTransformOrigin="0.846,0.541" Grid.ColumnSpan="3" />
             <DatePicker x:Name="dataPickerBirthday" HorizontalAlignment="Left" Margin="93,165,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.ColumnSpan="3" Height="24" Width="111"/>
-            <Image Margin="14,-40,71,286" Source="userWhite-removebg-preview.png" Stretch="Fill" Grid.Column="7"/>
+            <Image Margin="16,-43,69,289" Source="userWhite-removebg-preview.png" Stretch="Fill" Grid.Column="7" RenderTransformOrigin="0.417,0.222"/>
         </Grid>
 
     </Grid>

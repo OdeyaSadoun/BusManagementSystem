@@ -59,7 +59,36 @@ namespace PlGui
                      select item).FirstOrDefault();
 
             thisLine.ListOfStationsInLine.ToList().Remove(v);
+            stations.ItemsSource = thisLine.ListOfStationsInLine.ToList();
+        }
 
+        private void delete_click_button(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //BO.Line line = (sender as Button).DataContext as BO.Line;
+
+                //bl.DeleteLine(line);
+                //listViewLine.ItemsSource = bl.GetAllLines().ToList(); //reftesh
+                BO.StationInLine b = (sender as Button).DataContext as BO.StationInLine;
+                bl.DeleteStationInLine(b);
+                //BO.StationInLine stationToDelete = bl.GetStationInLine(b.StationCode, thisLine.Id);
+
+                //var v = (from item in thisLine.ListOfStationsInLine
+                //         where stationToDelete.LineId == thisLine.Id
+                //         select item).FirstOrDefault();
+
+                //thisLine.ListOfStationsInLine.ToList().Remove(v);
+                stations.ItemsSource = thisLine.ListOfStationsInLine.ToList();
+            }
+            catch (BO.IncorrectLineIDException ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

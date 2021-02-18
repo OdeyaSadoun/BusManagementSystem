@@ -70,6 +70,7 @@ namespace BLApi
         IEnumerable<BO.StationInLine> GetAllStationsInLine();
         IEnumerable<BO.StationInLine> GetAllStationesInLineBy(int id);
         BO.StationInLine GetStationInLine(int stationCode, int lineId);
+        void AddStationInLine(BO.Station s, BO.Line l);
 
         IEnumerable<BO.LineTiming> GetLineTimingsPerStation(BO.Station station, TimeSpan tsCurentTime);
 

@@ -76,7 +76,48 @@
 
         <ListView  x:Name="stations"  HorizontalAlignment="Left" Height="124" Margin="56,268,0,0" VerticalAlignment="Top" Width="691" Grid.ColumnSpan="2">
             <ListView.View>
+
+                <!--<ListView.ItemTemplate>
+
+                    <DataTemplate x:Name="myDataTemplate">
+
+                        <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+
+                            </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0"  Text="{Binding Path=StationCode}" Margin="15,0,0,0" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" />
+                        <TextBlock Grid.Column="1"  Text="{Binding Path=LineStationIndex}" Margin="15,0,0,0" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="13" />
+                        <TextBlock Grid.Column="2" Text="{Binding Path=StationName}" Margin="15,0,0,0" Width="370" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="13" />
+                        <TextBlock Grid.Column="2" Text="{Binding Path=DistanceTo}" Margin="15,0,0,0" Width="370" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="13" />
+
+                        <TextBlock Grid.Column="2" Text="{Binding Path=TimeTo}" Margin="15,0,0,0" Width="370" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="13" />
+                       
+                            <Button x:Name="Delete_Button" Content="delete" Grid.Column="8" Height="30" Width ="55"  Click="delete_click_button" BorderBrush="{x:Null}" ClickMode="Release"  ></Button>
+                    
+                        </Grid>
+
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>-->
+
+
+
                 <GridView>
+                    
                     <GridViewColumn Header="Station code:" DisplayMemberBinding="{Binding StationCode}" Width="90"/>
                     <GridViewColumn Header="index in this line:" DisplayMemberBinding="{Binding LineStationIndex}" Width="100"/>
                     <GridViewColumn Header="name:" DisplayMemberBinding="{Binding StationName}" Width="200"/>
@@ -85,7 +126,7 @@
                     <GridViewColumn Header="Delete" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Delete" Click="DeleteStation" CommandParameter="{Binding Id}"/>
+                                <Button Content="Delete" Click="delete_click_button" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
