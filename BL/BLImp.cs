@@ -528,12 +528,15 @@ namespace BL
                // BO.Line line = GetLine(sInL.LineId);
                 DO.Line lineDO = dl.GetLine(sInL.LineId);
 
+
                 //if (line.FirstStation == stat)
                 //{
                 //    line.FirstStation = GetStation(line.ListOfStationsInLine.ToList()[1].StationCode);
                 //    lineDO.FirstStation = line.FirstStation.Code;
                 //}
                 dl.DeleteLineStation(sInL.LineId, sInL.StationCode);
+                lineDO.TravelTimeInThisLine -= sInL.TimeTo;
+
 
             }
             catch(DO.IncorrectInputException ex)
@@ -559,6 +562,8 @@ namespace BL
                
                 l.TravelTimeInThisLine += l.ListOfStationsInLine.ToList()[l.ListOfStationsInLine.Count() - 1].TimeTo;
                 l.ListOfStationsInLine.ToList().Add(sil);
+                l.LastStation = GetStation(l.ListOfStationsInLine.ToList()[l.ListOfStationsInLine.Count() - 1].StationCode);
+                    
 
 
 

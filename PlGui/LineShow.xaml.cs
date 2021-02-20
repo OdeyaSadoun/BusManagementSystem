@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+//using System.Collections.Generic.List<BO.StationInLine>;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -72,6 +73,11 @@ namespace PlGui
                 //listViewLine.ItemsSource = bl.GetAllLines().ToList(); //reftesh
                 BO.StationInLine b = (sender as Button).DataContext as BO.StationInLine;
                 bl.DeleteStationInLine(b);
+                ObservableCollection<BO.StationInLine> tmp = new ObservableCollection<StationInLine>(thisLine.ListOfStationsInLine.ToList());
+
+                thisLine.ListOfStationsInLine.ToList().Remove(b);
+                tmp.Remove(b);
+                thisLine.ListOfStationsInLine = tmp;
                 //BO.StationInLine stationToDelete = bl.GetStationInLine(b.StationCode, thisLine.Id);
 
                 //var v = (from item in thisLine.ListOfStationsInLine

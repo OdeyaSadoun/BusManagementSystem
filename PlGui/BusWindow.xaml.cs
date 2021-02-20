@@ -21,8 +21,8 @@ namespace PlGui
     /// </summary>
     public partial class BusWindow : Window
     {
-        public ObservableCollection<BO.Bus> listOfBuses { get; set; } = new ObservableCollection<BO.Bus>();
         IBL bl = BLFactory.GetBL();
+    
 
         #region constructor
         public BusWindow()
@@ -38,9 +38,11 @@ namespace PlGui
             try
             {
                 BO.Bus bus = (sender as Button).DataContext as BO.Bus;
-
+                ObservableCollection<BO.Bus> allBuses = new ObservableCollection<BO.Bus>(bl.GetAllBuses());
                 bl.Refuel(bus);
                 listViewBus.ItemsSource = bl.GetAllBuses().ToList(); //reftesh
+                listViewBus.ItemsSource = allBuses; //reftesh
+
             }
             catch (BO.IncorrectLicenseNumberException ex)
             {

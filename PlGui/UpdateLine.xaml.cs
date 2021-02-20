@@ -72,6 +72,8 @@ namespace PlGui
                 if(TimeTravel.Text != "")
                 {
                     List<BO.LineTrip> listTimes = (List<BO.LineTrip>)line.ListOfTripTime;
+                    //ObservableCollection<BO.LineTrip> listTimes = new ObservableCollection<BO.LineTrip>( (List<BO.LineTrip>)line.ListOfTripTime);
+
                     int countOfTrip = listTimes.Count();
                     BO.LineTrip lt = new BO.LineTrip() { IsDeleted = false, LineId = line.Id, StartAt = TimeSpan.Parse(TimeTravel.Text), Id= countOfTrip+1 };                 
                     listTimes.Add(lt);
