@@ -27,8 +27,15 @@ namespace PlGui
         {
             InitializeComponent();
             areaComboBox.ItemsSource = Enum.GetValues(typeof(BO.Area));
-            //areaComboBox.ItemsSource = areaList;
             areaComboBox.SelectedIndex = 0;
+            List<BO.Station> lst = bl.GetAllStations().ToList();
+            firstStation.ItemsSource = lst;
+            firstStation.DisplayMemberPath = "Code";
+            firstStation.SelectedIndex = 0;
+
+            lastStation.ItemsSource = lst;
+            lastStation.DisplayMemberPath = "Code";
+            lastStation.SelectedIndex = 0;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -44,8 +51,8 @@ namespace PlGui
             try
             {
                 BO.Line line = new BO.Line() { LineNumber = int.Parse(lineNumberTextBox.Text), Area = (BO.Area)areaComboBox.SelectedItem, IsDeleted = false, Fare = int.Parse(fareTextBox.Text), TravelTimeInThisLine = TimeSpan.Parse(travelTimeInThisLineTextBox.Text)  };
-                line.FirstStation = bl.GetStation(int.Parse(firstStationTextBox.Text));
-                line.LastStation = bl.GetStation(int.Parse(lastStationTextBox.Text));
+                line.FirstStation = bl.GetStation(int.Parse(firstStation.Text));
+                line.LastStation = bl.GetStation(int.Parse(lastStation.Text));
                 bl.AddLine(line);
                 MessageBox.Show("The line added successfuly", "information", MessageBoxButton.OK, MessageBoxImage.Information);           
                 Close();
@@ -59,6 +66,16 @@ namespace PlGui
             {
                 MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void firstStation_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void lastStation_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
