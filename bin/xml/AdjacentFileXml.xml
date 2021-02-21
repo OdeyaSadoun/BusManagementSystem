@@ -1771,4 +1771,11 @@
     <TravelTime>PT5M</TravelTime>
     <IsDeleted>false</IsDeleted>
   </AdjacentStations>
+  <AdjacentStations>
+    <CodeStation1>4170</CodeStation1>
+    <CodeStation2>30331</CodeStation2>
+    <Distance>40</Distance>
+    <TravelTime>PT21M31S</TravelTime>
+    <IsDeleted>false</IsDeleted>
+  </AdjacentStations>
 </ArrayOfAdjacentStations>

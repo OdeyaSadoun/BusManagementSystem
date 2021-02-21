@@ -64,6 +64,6 @@ namespace BLApi
 
         IEnumerable<BO.LineTiming> GetLineTimingsPerStation(BO.Station station, TimeSpan tsCurentTime);
 
-
+        
     }
 }

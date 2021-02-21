@@ -1602,4 +1602,10 @@
     <LineStationIndex>22</LineStationIndex>
     <IsDeleted>false</IsDeleted>
   </LineStation>
+  <LineStation>
+    <LineId>0</LineId>
+    <StationCode>30331</StationCode>
+    <LineStationIndex>4</LineStationIndex>
+    <IsDeleted>false</IsDeleted>
+  </LineStation>
 </ArrayOfLineStation>

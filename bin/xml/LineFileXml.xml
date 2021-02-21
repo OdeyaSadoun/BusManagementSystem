@@ -1,16 +1,6 @@
 <?xml version="1.0"?>
 <ArrayOfLine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Line>
-    <Id>0</Id>
-    <LineNumber>480</LineNumber>
-    <Area>JerusalemCenter</Area>
-    <FirstStation>20001</FirstStation>
-    <LastStation>4170</LastStation>
-    <Fare>30</Fare>
-    <TravelTimeInThisLine>PT1H30M</TravelTimeInThisLine>
-    <IsDeleted>false</IsDeleted>
-  </Line>
-  <Line>
     <Id>1</Id>
     <LineNumber>921</LineNumber>
     <Area>NorthCenter</Area>
@@ -138,6 +128,26 @@
     <LastStation>32241</LastStation>
     <Fare>5.9</Fare>
     <TravelTimeInThisLine>PT50M</TravelTimeInThisLine>
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>0</Id>
+    <LineNumber>480</LineNumber>
+    <Area>JerusalemCenter</Area>
+    <FirstStation>20001</FirstStation>
+    <LastStation>4170</LastStation>
+    <Fare>30</Fare>
+    <TravelTimeInThisLine>PT2H7M</TravelTimeInThisLine>
+    <IsDeleted>false</IsDeleted>
+  </Line>
+  <Line>
+    <Id>0</Id>
+    <LineNumber>480</LineNumber>
+    <Area>JerusalemCenter</Area>
+    <FirstStation>20001</FirstStation>
+    <LastStation>4170</LastStation>
+    <Fare>30</Fare>
+    <TravelTimeInThisLine>PT2H7M</TravelTimeInThisLine>
     <IsDeleted>false</IsDeleted>
   </Line>
 </ArrayOfLine>
