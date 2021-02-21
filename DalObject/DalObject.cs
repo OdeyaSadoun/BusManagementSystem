@@ -24,6 +24,7 @@ namespace DalObject
 
         //Implement IDL methods, CRUD
         #region Bus
+
         #region GetBus
         /// <summary>
         /// A function that return a bus
@@ -136,124 +137,6 @@ namespace DalObject
         #endregion
         #endregion
 
-        #region BusOnTrip
-
-        #region GetBusOnTrip
-        /// <summary>
-        ///  A function that return a bus on trip
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="licenseNumber"></param>
-        /// <returns></returns>
-        public DO.BusOnTrip GetBusOnTrip(int id, int licenseNumber)
-        {
-            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && !p.IsDeleted);
-
-            if (b != null)
-                return b.Clone();
-            else
-                throw new DO.IncorrectInputException($"Incorrect license number: {licenseNumber} OR trip id: {id}. could not found this bus on trip, try enter again");
-        }
-        #endregion
-
-        #region GetAllBusesOnTrip
-        /// <summary>
-        /// A function that return all the buses on trip
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<DO.BusOnTrip> GetAllBusesOnTrip()
-        {
-            return from bus in DataSource.ListBusesOnTrip
-                   where bus.IsDeleted == false
-                   select bus.Clone();
-        }
-        #endregion
-
-        #region GetAllBusesOnTripBy
-        /// <summary>
-        ///  A function that returns the buses on trip that have the special thing that the predicat do
-        /// </summary>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
-        public IEnumerable<DO.BusOnTrip> GetAllBusesOnTripBy(Predicate<DO.BusOnTrip> predicate)
-        {
-            return from bus in DataSource.ListBusesOnTrip
-                   where predicate(bus)
-                   select bus.Clone();
-        }
-        #endregion
-
-        #region AddBusOnTrip
-        /// <summary>
-        /// A function that add a bus on trip to the list
-        /// </summary>
-        /// <param name="bus"></param>
-        public void AddBusOnTrip(DO.BusOnTrip bus)
-        { 
-            if (DataSource.ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted) != null)
-                throw new IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is exsit in the system, could not add it again");
-            bus.Id = DO.Configuration.BusOnTripID++;//המספר הרץ
-            DataSource.ListBusesOnTrip.Add(bus.Clone());
-        }
-        #endregion
-
-        #region UpdateBusOnTrip
-        /// <summary>
-        /// A function that update the bus on trip
-        /// </summary>
-        /// <param name="bus"></param>
-        public void UpdateBusOnTrip(DO.BusOnTrip bus)
-        {
-            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted);
-
-            if (b != null)
-            {
-                DataSource.ListBusesOnTrip.Remove(b);
-                DataSource.ListBusesOnTrip.Add(bus.Clone());
-            }
-            else
-                throw new DO.IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is not exsit in the system, could not update it");
-        }
-        #endregion UpdateBusOnTrip
-
-        #region UpdateBusOnTrip
-
-        /// <summary>
-        /// method that knows to updt specific fields in BusOnTrip
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="update"></param>
-        public void UpdateBusOnTrip(int id, int licenseNumber, Action<DO.BusOnTrip> update)
-        {
-            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber  && p.IsDeleted == false);
-            if (b == null)
-                throw new DO.IncorrectInputException($"The bus on trip {licenseNumber} with the line ID:{id} is not exsit in the system, could not update it"); ;
-            update(b);
-        }
-        #endregion
-
-        #region DeleteBusOnTrip
-        /// <summary>
-        /// A function that delete bus on trip (mark the flag IsDeleted = true) 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="licenseNumber"></param>
-        public void DeleteBusOnTrip(int id, int licenseNumber)
-        {
-            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && !p.IsDeleted);
-
-            if (b != null)
-            {
-                //DataSource.ListBusesOnTrip.Remove(b);
-                b.IsDeleted = true;
-            }
-            else
-                throw new DO.IncorrectInputException($"Incorrect license number: {licenseNumber} OR line ID: {id} could not found this bus, try enter again");
-        }
-        #endregion
-        #endregion
-
-        
         #region LineTrip
         #region GetAllLinesTrip
         /// <summary>
@@ -963,6 +846,126 @@ namespace DalObject
         }
         #endregion
         #endregion
+
+
+        //////////////////////////////////////////////////////////////////////////
+        
+        #region BusOnTrip
+
+        #region GetBusOnTrip
+        /// <summary>
+        ///  A function that return a bus on trip
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="licenseNumber"></param>
+        /// <returns></returns>
+        public DO.BusOnTrip GetBusOnTrip(int id, int licenseNumber)
+        {
+            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && !p.IsDeleted);
+
+            if (b != null)
+                return b.Clone();
+            else
+                throw new DO.IncorrectInputException($"Incorrect license number: {licenseNumber} OR trip id: {id}. could not found this bus on trip, try enter again");
+        }
+        #endregion
+
+        #region GetAllBusesOnTrip
+        /// <summary>
+        /// A function that return all the buses on trip
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<DO.BusOnTrip> GetAllBusesOnTrip()
+        {
+            return from bus in DataSource.ListBusesOnTrip
+                   where bus.IsDeleted == false
+                   select bus.Clone();
+        }
+        #endregion
+
+        #region GetAllBusesOnTripBy
+        /// <summary>
+        ///  A function that returns the buses on trip that have the special thing that the predicat do
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public IEnumerable<DO.BusOnTrip> GetAllBusesOnTripBy(Predicate<DO.BusOnTrip> predicate)
+        {
+            return from bus in DataSource.ListBusesOnTrip
+                   where predicate(bus)
+                   select bus.Clone();
+        }
+        #endregion
+
+        #region AddBusOnTrip
+        /// <summary>
+        /// A function that add a bus on trip to the list
+        /// </summary>
+        /// <param name="bus"></param>
+        public void AddBusOnTrip(DO.BusOnTrip bus)
+        {
+            if (DataSource.ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted) != null)
+                throw new IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is exsit in the system, could not add it again");
+            bus.Id = DO.Configuration.BusOnTripID++;//המספר הרץ
+            DataSource.ListBusesOnTrip.Add(bus.Clone());
+        }
+        #endregion
+
+        #region UpdateBusOnTrip
+        /// <summary>
+        /// A function that update the bus on trip
+        /// </summary>
+        /// <param name="bus"></param>
+        public void UpdateBusOnTrip(DO.BusOnTrip bus)
+        {
+            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted);
+
+            if (b != null)
+            {
+                DataSource.ListBusesOnTrip.Remove(b);
+                DataSource.ListBusesOnTrip.Add(bus.Clone());
+            }
+            else
+                throw new DO.IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is not exsit in the system, could not update it");
+        }
+        #endregion UpdateBusOnTrip
+
+        #region UpdateBusOnTrip
+
+        /// <summary>
+        /// method that knows to updt specific fields in BusOnTrip
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="update"></param>
+        public void UpdateBusOnTrip(int id, int licenseNumber, Action<DO.BusOnTrip> update)
+        {
+            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted == false);
+            if (b == null)
+                throw new DO.IncorrectInputException($"The bus on trip {licenseNumber} with the line ID:{id} is not exsit in the system, could not update it"); ;
+            update(b);
+        }
+        #endregion
+
+        #region DeleteBusOnTrip
+        /// <summary>
+        /// A function that delete bus on trip (mark the flag IsDeleted = true) 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="licenseNumber"></param>
+        public void DeleteBusOnTrip(int id, int licenseNumber)
+        {
+            DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && !p.IsDeleted);
+
+            if (b != null)
+            {
+                //DataSource.ListBusesOnTrip.Remove(b);
+                b.IsDeleted = true;
+            }
+            else
+                throw new DO.IncorrectInputException($"Incorrect license number: {licenseNumber} OR line ID: {id} could not found this bus, try enter again");
+        }
+        #endregion
+#endregion
 
         #region Trip
         #region GetAllTrips

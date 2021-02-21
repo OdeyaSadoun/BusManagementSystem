@@ -8,7 +8,6 @@ namespace BO
 {
 
     [Serializable]
-
     public class IncorrectLicenseNumberException : Exception
     {
         public int licenseNumber;
@@ -21,9 +20,7 @@ namespace BO
         public override string ToString() => base.ToString() + $", Incorrect license number: {licenseNumber}";
     }
 
-
     [Serializable]
-
     public class IncorrectLicenseNumberOrDateException : Exception
     {
         public int licenseNumber;

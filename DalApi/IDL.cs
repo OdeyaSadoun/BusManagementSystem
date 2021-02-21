@@ -9,11 +9,11 @@ namespace DalApi
     public interface IDL
     {
         #region Bus
-        IEnumerable<DO.Bus> GetAllBuses(); //V
+        IEnumerable<DO.Bus> GetAllBuses(); 
         IEnumerable<DO.Bus> GetAllBusesBy(Predicate<DO.Bus> predicate);
-        DO.Bus GetBus(int id);//V
-        void AddBus(DO.Bus bus);//V
-        void UpdateBus(DO.Bus bus);//V
+        DO.Bus GetBus(int id);
+        void AddBus(DO.Bus bus);
+        void UpdateBus(DO.Bus bus);
 
         /// <summary>
         /// method that knows to updt specific fields in Bus
@@ -23,16 +23,6 @@ namespace DalApi
         void UpdateBus(int id, Action<DO.Bus> update); 
         void DeleteBus(int id);//V
         #endregion
-
-        //#region BusOnTrip
-        //IEnumerable<DO.BusOnTrip> GetAllBusesOnTrip();
-        //IEnumerable<DO.BusOnTrip> GetAllBusesOnTripBy(Predicate<DO.BusOnTrip> predicate);
-        //DO.BusOnTrip GetBusOnTrip(int id, int licenseNumber);
-        //void AddBusOnTrip(DO.BusOnTrip bus);
-        //void UpdateBusOnTrip(DO.BusOnTrip bus);
-        //void UpdateBusOnTrip(int id, int licenseNumber, Action<DO.BusOnTrip> update); //method that knows to updt specific fields in BusOnTrip
-        //void DeleteBusOnTrip(int id, int licenseNumber);
-        //#endregion
 
         #region LineTrip
         IEnumerable<DO.LineTrip> GetAllLinesTrip();
@@ -88,32 +78,12 @@ namespace DalApi
         #region AdjacentStations
         IEnumerable<DO.AdjacentStations> GetAllAdjacentStations();
         IEnumerable<DO.AdjacentStations> GetAllAdjacentStationsBy(Predicate<DO.AdjacentStations> predicate);
-        DO.AdjacentStations GetAdjacentStations
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            (int stationCode1, int stationCode2);
+        DO.AdjacentStations GetAdjacentStations(int stationCode1, int stationCode2);
         void AddAdjacentStations(DO.AdjacentStations adjacentStations);
         void UpdateAdjacentStations(DO.AdjacentStations adjacentStations);
         void UpdateAdjacentStations(int stationCode1, int stationCode2, Action<DO.AdjacentStations> update); //method that knows to updt specific fields in AdjacentStations
         void DeleteAdjacentStations(int stationCode1, int stationCode2);
         #endregion
 
-        //#region Trip
-        //IEnumerable<DO.Trip> GetAllTrips();
-        //IEnumerable<DO.Trip> GetAllTripsBy(Predicate<DO.Trip> predicate);
-        //DO.Trip GetTrip(int id);
-        //void AddTrip(DO.Trip trip);
-        //void UpdateTrip(DO.Trip trip);
-        //void UpdateTrip(int id, Action<DO.Trip> update); //method that knows to updt specific fields in Trip
-        //void DeleteTrip(int id);
-        //#endregion
     }
 }

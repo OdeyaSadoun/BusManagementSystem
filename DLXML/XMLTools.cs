@@ -91,35 +91,6 @@ namespace DL
         }
         #endregion
 
-        #region GetRuningNumber
-        public static int GetRunningNumber(string filePath)
-        {
-            List<int> listRunningNumber = XMLTools.LoadListFromXMLSerializer<int>(filePath);
-            try
-            {
-                int tempSave;
-                int tempReturn;
-                if (listRunningNumber.Count() == 0)
-                {
-                    tempReturn = 0;
-                    tempSave = 1;
-                }
-                else
-                {
-                    tempReturn = listRunningNumber.First();
-                    tempSave = tempReturn + 1;
-                    listRunningNumber.Remove(tempReturn);
-                }
-                listRunningNumber.Add(tempSave);
-                SaveListToXMLSerializer(listRunningNumber, filePath);
-                return tempReturn;
-            }
-            catch (Exception ex)
-            {
-                throw new DO.XMLFileLoadCreateException(filePath, $"fail to create xml file: {filePath}", ex);
-            }
 
-        }
-        #endregion
     }
 }

@@ -22,26 +22,26 @@ namespace DL
         static DLXML(){}// static ctor to ensure instance init is done just before first usage
         DLXML() 
         {
-            if (!File.Exists(BusFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.Bus>(DS.DataSource.ListBuses, BusFilePath);
+            //if (!File.Exists(BusFilePath))
+            //    DL.XMLTools.SaveListToXMLSerializer<DO.Bus>(DS.DataSource.ListBuses, BusFilePath);
 
-            if (!File.Exists(UserFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.User>(DS.DataSource.ListUsers, UserFilePath);
+            //if (!File.Exists(UserFilePath))
+            //    DL.XMLTools.SaveListToXMLSerializer<DO.User>(DS.DataSource.ListUsers, UserFilePath);
 
-            if (!File.Exists(LineStationFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.LineStation>(DS.DataSource.ListLineStations, LineStationFilePath);
+            //if (!File.Exists(LineStationFilePath))
+            //    DL.XMLTools.SaveListToXMLSerializer<DO.LineStation>(DS.DataSource.ListLineStations, LineStationFilePath);
 
-            if (!File.Exists(LineFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.Line>(DS.DataSource.ListLines, LineFilePath);
+            //if (!File.Exists(LineFilePath))
+            //    DL.XMLTools.SaveListToXMLSerializer<DO.Line>(DS.DataSource.ListLines, LineFilePath);
 
-            if (!File.Exists(StationFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.Station>(DS.DataSource.ListStations, StationFilePath);
+            //if (!File.Exists(StationFilePath))
+            //    DL.XMLTools.SaveListToXMLSerializer<DO.Station>(DS.DataSource.ListStations, StationFilePath);
 
-            if (!File.Exists(AdjacentFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.AdjacentStations>(DS.DataSource.ListAdjacentStations, AdjacentFilePath);
+            //if (!File.Exists(AdjacentFilePath))
+            //    DL.XMLTools.SaveListToXMLSerializer<DO.AdjacentStations>(DS.DataSource.ListAdjacentStations, AdjacentFilePath);
 
-            if (!File.Exists(LinesTripFilePath))
-                DL.XMLTools.SaveListToXMLSerializer<DO.LineTrip>(DS.DataSource.ListLinesTrip, LinesTripFilePath);
+            //if (!File.Exists(LinesTripFilePath))
+            //    DL.XMLTools.SaveListToXMLSerializer<DO.LineTrip>(DS.DataSource.ListLinesTrip, LinesTripFilePath);
         }
         public static DLXML Instance { get => instance; }// The public Instance property to use
 
@@ -58,7 +58,7 @@ namespace DL
         string StationFilePath = @"StationFileXml.xml"; //XMLSerializer
         string AdjacentFilePath = @"AdjacentFileXml.xml"; //XMLSerializer
         string LinesTripFilePath = @"LinesTripFileXml.xml"; //XMLSerializer
-        string runningNumberPath = @"RunningNumberPathXml.xml"; //XMLSerializer
+
         #region Bus
         #region GetBus
         /// <summary>
@@ -179,134 +179,6 @@ namespace DL
             XMLTools.SaveListToXMLSerializer(ListBuses, BusFilePath);
         }
         #endregion
-        #endregion
-
-        #region BusOnTrip
-
-        //#region GetBusOnTrip
-        ///// <summary>
-        /////  A function that return a bus on trip
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <param name="licenseNumber"></param>
-        ///// <returns></returns>
-        //public DO.BusOnTrip GetBusOnTrip(int id, int licenseNumber)
-        //{
-        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
-        //    DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && !p.IsDeleted);
-
-        //    if (b != null)
-        //        return b;
-        //    else
-        //        throw new DO.IncorrectInputException($"Incorrect license number: {licenseNumber} OR trip id: {id}. could not found this bus on trip, try enter again");
-        //}
-        //#endregion
-
-        //#region GetAllBusesOnTrip
-        ///// <summary>
-        ///// A function that return all the buses on trip
-        ///// </summary>
-        ///// <returns></returns>
-        //public IEnumerable<DO.BusOnTrip> GetAllBusesOnTrip()
-        //{
-        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
-        //    return from bus in ListBusesOnTrip
-        //           where bus.IsDeleted == false
-        //           select bus;
-        //}
-        //#endregion
-
-        //#region GetAllBusesOnTripBy
-        ///// <summary>
-        /////  A function that returns the buses on trip that have the special thing that the predicat do
-        ///// </summary>
-        ///// <param name="predicate"></param>
-        ///// <returns></returns>
-        //public IEnumerable<DO.BusOnTrip> GetAllBusesOnTripBy(Predicate<DO.BusOnTrip> predicate)
-        //{
-        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
-        //    return from bus in ListBusesOnTrip
-        //           where predicate(bus)
-        //           select bus;
-        //}
-        //#endregion
-
-        //#region AddBusOnTrip
-        ///// <summary>
-        ///// A function that add a bus on trip to the list
-        ///// </summary>
-        ///// <param name="bus"></param>
-        //public void AddBusOnTrip(DO.BusOnTrip bus)
-        //{
-        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
-        //    if (ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted) != null)
-        //        throw new IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is exsit in the system, could not add it again");
-        //    bus.Id = DO.Configuration.BusOnTripID++;//המספר הרץ
-        //    ListBusesOnTrip.Add(bus);
-        //    XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
-        //}
-        //#endregion
-
-        //#region UpdateBusOnTrip
-        ///// <summary>
-        ///// A function that update the bus on trip
-        ///// </summary>
-        ///// <param name="bus"></param>
-        //public void UpdateBusOnTrip(DO.BusOnTrip bus)
-        //{
-        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
-        //    DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted);
-        //    if (b != null)
-        //    {
-        //        ListBusesOnTrip.Remove(b);
-        //        ListBusesOnTrip.Add(bus);
-        //    }
-        //    else
-        //        throw new DO.IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is not exsit in the system, could not update it");
-        //    XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
-        //}
-        //#endregion UpdateBusOnTrip
-
-        //#region UpdateBusOnTrip
-
-        ///// <summary>
-        ///// method that knows to updt specific fields in BusOnTrip
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <param name="update"></param>
-        //public void UpdateBusOnTrip(int id, int licenseNumber, Action<DO.BusOnTrip> update)
-        //{
-        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
-        //    DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted == false);
-        //    if (b == null)
-        //        throw new DO.IncorrectInputException($"The bus on trip {licenseNumber} with the line ID:{id} is not exsit in the system, could not update it"); ;
-        //    update(b);
-        //    XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
-        //}
-        //#endregion
-
-        //#region DeleteBusOnTrip
-        ///// <summary>
-        ///// A function that delete bus on trip (mark the flag IsDeleted = true) 
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <param name="licenseNumber"></param>
-        //public void DeleteBusOnTrip(int id, int licenseNumber)
-        //{
-        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
-        //    DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && !p.IsDeleted);
-
-
-        //    if (b != null)
-        //    {
-        //        //DataSource.ListBusesOnTrip.Remove(b);
-        //        b.IsDeleted = true;
-        //    }
-        //    else
-        //        throw new DO.IncorrectInputException($"Incorrect license number: {licenseNumber} OR line ID: {id} could not found this bus, try enter again");
-        //    XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
-        //}
-        //#endregion
         #endregion
 
         #region LineTrip
@@ -1134,6 +1006,8 @@ namespace DL
         #endregion
         #endregion
 
+        //////////////////////////////////////////////////////////
+
         #region Trip
         //#region GetAllTrips
         ///// <summary>
@@ -1252,6 +1126,134 @@ namespace DL
         //        throw new DO.IncorrectTripIDException(id, $"The trip user id: {id} is not exist in the system. could not detete it");
         //    XMLTools.SaveListToXMLSerializer(ListTrips, ListTrips);
         //}
+        #endregion
+
+        #region BusOnTrip
+
+        //#region GetBusOnTrip
+        ///// <summary>
+        /////  A function that return a bus on trip
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="licenseNumber"></param>
+        ///// <returns></returns>
+        //public DO.BusOnTrip GetBusOnTrip(int id, int licenseNumber)
+        //{
+        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
+        //    DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && !p.IsDeleted);
+
+        //    if (b != null)
+        //        return b;
+        //    else
+        //        throw new DO.IncorrectInputException($"Incorrect license number: {licenseNumber} OR trip id: {id}. could not found this bus on trip, try enter again");
+        //}
+        //#endregion
+
+        //#region GetAllBusesOnTrip
+        ///// <summary>
+        ///// A function that return all the buses on trip
+        ///// </summary>
+        ///// <returns></returns>
+        //public IEnumerable<DO.BusOnTrip> GetAllBusesOnTrip()
+        //{
+        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
+        //    return from bus in ListBusesOnTrip
+        //           where bus.IsDeleted == false
+        //           select bus;
+        //}
+        //#endregion
+
+        //#region GetAllBusesOnTripBy
+        ///// <summary>
+        /////  A function that returns the buses on trip that have the special thing that the predicat do
+        ///// </summary>
+        ///// <param name="predicate"></param>
+        ///// <returns></returns>
+        //public IEnumerable<DO.BusOnTrip> GetAllBusesOnTripBy(Predicate<DO.BusOnTrip> predicate)
+        //{
+        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
+        //    return from bus in ListBusesOnTrip
+        //           where predicate(bus)
+        //           select bus;
+        //}
+        //#endregion
+
+        //#region AddBusOnTrip
+        ///// <summary>
+        ///// A function that add a bus on trip to the list
+        ///// </summary>
+        ///// <param name="bus"></param>
+        //public void AddBusOnTrip(DO.BusOnTrip bus)
+        //{
+        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
+        //    if (ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted) != null)
+        //        throw new IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is exsit in the system, could not add it again");
+        //    bus.Id = DO.Configuration.BusOnTripID++;//המספר הרץ
+        //    ListBusesOnTrip.Add(bus);
+        //    XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
+        //}
+        //#endregion
+
+        //#region UpdateBusOnTrip
+        ///// <summary>
+        ///// A function that update the bus on trip
+        ///// </summary>
+        ///// <param name="bus"></param>
+        //public void UpdateBusOnTrip(DO.BusOnTrip bus)
+        //{
+        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
+        //    DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && !p.IsDeleted);
+        //    if (b != null)
+        //    {
+        //        ListBusesOnTrip.Remove(b);
+        //        ListBusesOnTrip.Add(bus);
+        //    }
+        //    else
+        //        throw new DO.IncorrectInputException($"The bus on trip {bus.LicenseNumber} with the line ID:{bus.Id} is not exsit in the system, could not update it");
+        //    XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
+        //}
+        //#endregion UpdateBusOnTrip
+
+        //#region UpdateBusOnTrip
+
+        ///// <summary>
+        ///// method that knows to updt specific fields in BusOnTrip
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="update"></param>
+        //public void UpdateBusOnTrip(int id, int licenseNumber, Action<DO.BusOnTrip> update)
+        //{
+        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
+        //    DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted == false);
+        //    if (b == null)
+        //        throw new DO.IncorrectInputException($"The bus on trip {licenseNumber} with the line ID:{id} is not exsit in the system, could not update it"); ;
+        //    update(b);
+        //    XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
+        //}
+        //#endregion
+
+        //#region DeleteBusOnTrip
+        ///// <summary>
+        ///// A function that delete bus on trip (mark the flag IsDeleted = true) 
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="licenseNumber"></param>
+        //public void DeleteBusOnTrip(int id, int licenseNumber)
+        //{
+        //    List<DO.BusOnTrip> ListBusesOnTrip = XMLTools.LoadListFromXMLSerializer<DO.BusOnTrip>(BusOnTripPath);
+        //    DO.BusOnTrip b = ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && !p.IsDeleted);
+
+
+        //    if (b != null)
+        //    {
+        //        //DataSource.ListBusesOnTrip.Remove(b);
+        //        b.IsDeleted = true;
+        //    }
+        //    else
+        //        throw new DO.IncorrectInputException($"Incorrect license number: {licenseNumber} OR line ID: {id} could not found this bus, try enter again");
+        //    XMLTools.SaveListToXMLSerializer(ListBusesOnTrip, BusOnTripPath);
+        //}
+        //#endregion
         #endregion
         #endregion
     }

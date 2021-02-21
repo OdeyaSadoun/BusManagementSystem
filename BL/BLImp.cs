@@ -208,6 +208,8 @@ namespace BL
         #endregion
         #endregion
 
+        #region lineTrip
+
         #region lineTripDoBoAdapter
         /// <summary>
         /// A function that copy details of bus from DO to BO
@@ -234,6 +236,8 @@ namespace BL
         }
         #endregion
 
+        #endregion
+
         #region Line
         #region lineDoBoAdapter
         /// <summary>
@@ -251,7 +255,7 @@ namespace BL
             stations = (from stat in dl.GetAllLinesStationBy(stat => stat.LineId == lineId && stat.IsDeleted == false)
                                                let station = dl.GetStation(stat.StationCode)
                                                select station.CopyToStationInLine(stat)).ToList();
-            //stations = (stations.OrderBy(s => s.LineStationIndex)).ToList();
+           
             TimeSpan count = TimeSpan.Zero;
             foreach (BO.StationInLine s in stations)
             {
@@ -266,11 +270,7 @@ namespace BL
                 }
             }
             stationsTmp = stations;
-            //for (int i = 0; i < stationsTmp.Count; i++)
-            //{
-            //    if (stationsTmp[i].IsDeleted == true)
-            //        stations.Remove(stations[i]);
-            //}
+
             var temp = from stat in stationsTmp
                        where stat.IsDeleted == false
                        select stat;
@@ -291,11 +291,6 @@ namespace BL
                     times.Add(lt);
             }
             lineBO.ListOfTripTime = times;
-            //BO.Station sBO;
-            //DO.Station sDO = dl.GetStation(lineDO.FirstStation);
-            //lineBO.FirstStation = stationDoBoAdapter(sDO);
-            //sDO = dl.GetStation(lineDO.LastStation);
-            //lineBO.LastStation = stationDoBoAdapter(sDO);
 
             return lineBO;
         }
@@ -377,13 +372,6 @@ namespace BL
                 if (line.LineNumber < 0 || line.Fare < 0 || line.TravelTimeInThisLine == TimeSpan.Zero) //מספר הקו שלילי ולא תקין או מחיר הנסיעה שלילי או זמן הנסיעה 0
                     throw new BO.IncorrectInputException("The line number or fare of trabel time not valid");
 
-                //DO.Station sDO1 = dl.GetStation(line.FirstStation.Code);
-                //DO.Station sDO2 = dl.GetStation(line.LastStation.Code);
-
-                //if ((sDO1 == null) || (sDO2 == null))
-                //    throw new BO.IncorrectCodeStationException(line.FirstStation.Code, "This station code could not found");
-                //line.FirstStation = sDO1.CopyToStationDOToBO();
-                //line.LastStation = sDO2.CopyToStationDOToBO();
                 lineDOtemp.FirstStation = line.FirstStation.Code;
                 lineDOtemp.LastStation = line.LastStation.Code;
 
@@ -454,7 +442,6 @@ namespace BL
         public void UpdateLine(BO.Line line)
         {
             DO.Line lineDO = new DO.Line();
-            //line.CopyPropertiesTo(lineDO);
             lineDO = line.CopyToLineBOToDO();
             try
             {
@@ -523,17 +510,9 @@ namespace BL
         {
             try
             {
-                //DO.LineStation ls = dl.GetLineStation(sInL.LineId, sInL.StationCode);
                 BO.Station stat = GetStation(sInL.StationCode);
-               // BO.Line line = GetLine(sInL.LineId);
                 DO.Line lineDO = dl.GetLine(sInL.LineId);
 
-
-                //if (line.FirstStation == stat)
-                //{
-                //    line.FirstStation = GetStation(line.ListOfStationsInLine.ToList()[1].StationCode);
-                //    lineDO.FirstStation = line.FirstStation.Code;
-                //}
                 dl.DeleteLineStation(sInL.LineId, sInL.StationCode);
                 lineDO.TravelTimeInThisLine -= sInL.TimeTo;
 
@@ -545,6 +524,8 @@ namespace BL
             }
         }
         #endregion
+
+        #region AddStationInLine
 
         public void AddStationInLine(BO.Station s, BO.Line l)
         {
@@ -563,10 +544,7 @@ namespace BL
                 l.TravelTimeInThisLine += l.ListOfStationsInLine.ToList()[l.ListOfStationsInLine.Count() - 1].TimeTo;
                 l.ListOfStationsInLine.ToList().Add(sil);
                 l.LastStation = GetStation(l.ListOfStationsInLine.ToList()[l.ListOfStationsInLine.Count() - 1].StationCode);
-                    
-
-
-
+       
 
             }
             catch (DO.IncorrectInputException ex)
@@ -574,7 +552,7 @@ namespace BL
                 throw new BO.IncorrectInputException(ex.Message);
             }
         }
-
+        #endregion
 
         #region GetAllStationsInLine
         /// <summary>
@@ -601,30 +579,6 @@ namespace BL
         }
         #endregion
 
-        //#region GetStationInLine
-        ///// <summary>
-        /////  A function that return a BO station
-        ///// </summary>
-        ///// <param name="code"></param>
-        ///// <returns></returns>
-        //public BO.StationInLine GetStationInLine(int code, int id)
-        //{
-        //    DO.Station stationDO;
-        //    DO.LineStation lDO;
-
-        //    try
-        //    {
-        //        stationDO = dl.GetStation(code);
-        //        lDO = dl.GetLineStation(code, id);
-        //    }
-
-        //    catch (DO.IncorrectCodeStationException ex)
-        //    {
-        //        throw new BO.IncorrectLineIDException(ex.stationCode, ex.Message);
-        //    }
-
-        //    return stationInLineDoBoAdapter(lDO);
-        //}
         #region GetStationInLine
         /// <summary>
         /// A BO function that return a BO bus
@@ -676,9 +630,6 @@ namespace BL
                                      let line = dl.GetLine(stat.LineId)
                                      select line.CopyToLineInStation(stat)).ToList();
 
-            //stationBO.ListOfStationsInLines = (from stat in dl.GetAllLinesStationBy(stat => stat.StationCode == stationCode && stat.IsDeleted == false)
-            //                                   let station = dl.GetStation(stat.StationCode)
-            //                                   select station.CopyToStationInLine(stat)).ToList();
             return stationBO;
         }
         #endregion
@@ -989,467 +940,7 @@ namespace BL
 
         #endregion
 
-        #region Trip
-
-        //#region tripDoBoAdapter
-        ///// <summary>
-        ///// A function that copy details from DO to BO
-        ///// </summary>
-        ///// <param name="tripDO"></param>
-        ///// <returns></returns>
-        //BO.Trip tripDoBoAdapter(DO.Trip tripDO)
-        //{
-        //    BO.Trip tripBO = new BO.Trip();
-        //    tripDO.CopyPropertiesTo(tripBO);
-        //    return tripBO;
-        //}
-        //#endregion
-
-        //#region GetTrip
-        ///// <summary>
-        ///// A function that return trip
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //public BO.Trip GetTrip(int id)
-        //{
-        //    DO.Trip tripDO;
-        //    try
-        //    {
-        //        tripDO = dl.GetTrip(id);
-        //    }
-
-        //    catch (DO.IncorrectTripIDException ex)
-        //    {
-        //        throw new BO.IncorrectTripIDException(ex.ID, ex.Message);
-        //    }
-
-        //    return tripDoBoAdapter(tripDO);
-        //}
-        //#endregion
-        //#region GetAllTrips
-        ///// <summary>
-        ///// A function that return all the trips
-        ///// </summary>
-        ///// <returns></returns>
-        //public IEnumerable<DO.Trip> GetAllTrips()
-        //{
-        //    return from user in DataSource.ListTrips
-        //           select user.Clone();
-        //}
-        //#endregion
-
-        //#region GetAllTripsBy
-        ///// <summary>
-        ///// A function that returns the trip that have the special thing that the predicat do
-        ///// </summary>
-        ///// <param name="predicate"></param>
-        ///// <returns></returns>
-        //public IEnumerable<DO.Trip> GetAllTripsBy(Predicate<DO.Trip> predicate)
-        //{
-        //    return from trip in DataSource.ListTrips
-        //           where predicate(trip)
-        //           select trip.Clone();
-        //}
-        //#endregion
-
-
-        //#region AddTrip
-        ///// <summary>
-        ///// A function that add trip to the list
-        ///// </summary>
-        ///// <param name="trip"></param>
-        //public void AddTrip(DO.Trip trip)
-        //{
-        //    if (DataSource.ListTrips.FirstOrDefault(p => p.Id == trip.Id && p.IsDeleted) != null)
-        //        throw new Exception();
-        //    trip.Id = DO.Configuration.TripID;
-        //    DataSource.ListTrips.Add(trip.Clone());
-        //}
-        //#endregion
-
-        //#region UpdateTrip
-        ///// <summary>
-        /////  A function that update the trip
-        ///// </summary>
-        ///// <param name="trip"></param>
-        //public void UpdateTrip(DO.Trip trip)
-        //{
-        //    DO.Trip u = DataSource.ListTrips.Find(p => p.Id == trip.Id && p.IsDeleted);
-
-        //    if (u != null)
-        //    {
-        //        DataSource.ListTrips.Remove(u);
-        //        DataSource.ListTrips.Add(trip.Clone());
-        //    }
-        //    else
-        //        throw new Exception();
-        //}
-        //#endregion
-
-        //#region UpdateTrip
-        ///// <summary>
-        ///// method that knows to updt specific fields in Trip
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <param name="update"></param>
-        //public void UpdateTrip(int id, Action<DO.Trip> update) //method that knows to updt specific fields in Trip
-        //{
-        //    DO.Trip trip = DataSource.ListTrips.Find(p => p.Id == id && p.IsDeleted == false);
-        //    if (trip == null)
-        //        throw new Exception();
-        //    update(trip);
-        //}
-        //#endregion
-
-        //#region DeleteTrip
-        ///// <summary>
-        ///// A function that delete trip (mark the flag IsDeleted = true)
-        ///// </summary>
-        ///// <param name="id"></param>
-        //public void DeleteTrip(int id)
-        //{
-        //    DO.Trip u = DataSource.ListTrips.Find(p => p.Id == id && p.IsDeleted);
-
-        //    if (u != null)
-        //    {
-        //        //DataSource.ListTrips.Remove(u);
-        //        u.IsDeleted = true;
-        //    }
-        //    else
-        //        throw new Exception();
-        //}
-        //#endregion
-        //#endregion
-
-        #region BusOnTrip
-
-        //#region BusOnTripDoBoAdapter
-        ///// <summary>
-        ///// A function that copy details from DO to BO
-        ///// </summary>
-        ///// <param name="busDO"></param>
-        ///// <returns></returns>
-        //BO.BusOnTrip BusOnTripDoBoAdapter(DO.BusOnTrip BusOnTripDO)
-        //{
-        //    BO.BusOnTrip BusOnTripBO = new BO.BusOnTrip();
-        //    BusOnTripDO.CopyPropertiesTo(BusOnTripBO);
-        //    return BusOnTripBO;
-        //}
-        //#endregion 
-
-        //#region GetBusOnTrip
-        ///// <summary>
-        /////  A function that return a bus on trip
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <param name="licenseNumber"></param>
-        ///// <returns></returns>
-        //public DO.BusOnTrip GetBusOnTrip(int id, int licenseNumber)
-        //{
-        //    DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted);
-
-        //    if (b != null)
-        //        return b.Clone();
-        //    else
-
-        //        throw new Exception();
-        //}
-        //#endregion
-
-        //#region GetAllBusesOnTrip
-        ///// <summary>
-        ///// A function that return all the buses on trip
-        ///// </summary>
-        ///// <returns></returns>
-        //public IEnumerable<DO.BusOnTrip> GetAllBusesOnTrip()
-        //{
-        //    return from bus in DataSource.ListBusesOnTrip
-        //           select bus.Clone();
-        //}
-        //#endregion
-
-        //#region GetAllBusesOnTripBy
-        ///// <summary>
-        /////  A function that returns the buses on trip that have the special thing that the predicat do
-        ///// </summary>
-        ///// <param name="predicate"></param>
-        ///// <returns></returns>
-        //public IEnumerable<DO.BusOnTrip> GetAllBusesOnTripBy(Predicate<DO.BusOnTrip> predicate)
-        //{
-        //    return from bus in DataSource.ListBusesOnTrip
-        //           where predicate(bus)
-        //           select bus.Clone();
-        //}
-        //#endregion
-
-        //#region AddBusOnTrip
-        ///// <summary>
-        ///// A function that add a bus on trip to the list
-        ///// </summary>
-        ///// <param name="bus"></param>
-        //public void AddBusOnTrip(DO.BusOnTrip bus)
-        //{
-
-        //    if (DataSource.ListBusesOnTrip.FirstOrDefault(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && p.IsDeleted) != null)
-        //        throw new Exception();
-        //    bus.Id = DO.Configuration.BusOnTripID++;//המספר הרץ
-        //    DataSource.ListBusesOnTrip.Add(bus.Clone());
-        //}
-        //#endregion
-
-        //#region UpdateBusOnTrip
-        ///// <summary>
-        ///// A function that update the bus on trip
-        ///// </summary>
-        ///// <param name="bus"></param>
-        //public void UpdateBusOnTrip(DO.BusOnTrip bus)
-        //{
-        //    DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == bus.Id && p.LicenseNumber == bus.LicenseNumber && p.IsDeleted);
-
-        //    if (b != null)
-        //    {
-        //        DataSource.ListBusesOnTrip.Remove(b);
-        //        DataSource.ListBusesOnTrip.Add(bus.Clone());
-        //    }
-        //    else
-        //        throw new Exception();
-        //}
-        //#endregion UpdateBusOnTrip
-
-        //#region UpdateBusOnTrip
-
-        ///// <summary>
-        ///// method that knows to updt specific fields in BusOnTrip
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <param name="update"></param>
-        //public void UpdateBusOnTrip(int id, int licenseNumber, Action<DO.BusOnTrip> update)
-        //{
-        //    DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted == false);
-        //    if (b == null)
-        //        throw new Exception();
-        //    update(b);
-        //}
-        //#endregion
-
-        //#region DeleteBusOnTrip
-        ///// <summary>
-        ///// A function that delete bus on trip (mark the flag IsDeleted = true) 
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <param name="licenseNumber"></param>
-        //public void DeleteBusOnTrip(int id, int licenseNumber)
-        //{
-        //    DO.BusOnTrip b = DataSource.ListBusesOnTrip.Find(p => p.Id == id && p.LicenseNumber == licenseNumber && p.IsDeleted);
-
-        //    if (b != null)
-        //    {
-        //        //DataSource.ListBusesOnTrip.Remove(b);
-        //        b.IsDeleted = true;
-        //    }
-        //    else
-        //        throw new Exception();
-        //}
-        //#endregion
-        #endregion
-
-
-
-
-
-        //#region StationInLine
-        //public void UpdateTimeAndDistance(BO.StationInLine first, BO.StationInLine second)
-        //{
-        //    try
-        //    {
-        //        DO.AdjacentStations adj = new DO.AdjacentStations() { StationCode1 = first.StationCode, StationCode2 = second.StationCode, Distance = first.Distance, Time = first.Time, IsDeleted = false };
-        //        dl.UpdateAdjacentStations(adj);
-        //    }
-        //    catch (DO.BadAdjacentStationsException ex)
-        //    {
-        //        throw new BO.BadAdjacentStationsException(ex.stationCode1, ex.stationCode2, ex.Message);
-        //    }
-        //    {
-        //        throw new Exception("Error, it cannot be update");
-        //    }
-        //}
-        //#endregion
-
-
-
-
-
-        //#region LineStation
-        //public bool IsExistLineStation(DO.LineStation s)
-        //{
-        //    try
-        //    {
-        //        DO.LineStation linestation = dl.GetLineStation(s.LineId, s.StationCode);
-        //        return true;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
-
-        //}
-        //public void AddLineStation(BO.LineStation s)
-        //{
-        //    DO.LineStation sDO = (DO.LineStation)s.CopyPropertiesToNew(typeof(DO.LineStation));
-        //    try
-        //    {
-        //        if (IsExistLineStation(sDO))
-        //            throw new BO.BadLineStationException(sDO.LineId, sDO.StationCode, "The station is already exist in the line");
-        //        //עידכון של כל האינדקסים של התחנות הבאות בקו
-        //        List<DO.LineStation> lSList = ((dl.GetAllLineStationsBy(stat => stat.LineId == sDO.LineId && stat.IsDeleted == false)).OrderBy(stat => stat.LineStationIndex)).ToList();
-        //        int indexlast = lSList[lSList.Count - 1].LineStationIndex;
-        //        if (sDO.LineStationIndex != indexlast + 1)//if we didnt add a last station
-        //        {
-        //            for (int i = sDO.LineStationIndex; i < indexlast + 1; i++)
-        //            {
-        //                lSList[i - 1].LineStationIndex++;
-        //            }
-        //        }
-        //        //עידכון תחנה קודמת והבאה וגם את התחנה הראשונה והאחרונה של היישות קו
-        //        DO.LineStation prev;
-        //        DO.LineStation next;
-        //        if (sDO.LineStationIndex > 1)//its not the first station
-        //        {
-        //            prev = lSList[sDO.LineStationIndex - 2];
-        //            prev.NextStationCode = sDO.StationCode;
-        //            sDO.PrevStationCode = prev.StationCode;
-        //        }
-        //        else//if its the first station-we need to update the first ans last station in the DO.Line
-        //        {
-        //            DO.Line line = dl.GetLine(sDO.LineId);
-        //            line.FirstStation = sDO.StationCode;
-        //            dl.UpdateLine(line);
-        //        }
-        //        if (sDO.LineStationIndex != indexlast + 1)//if its not the last station
-        //        {
-        //            next = lSList[sDO.LineStationIndex];
-        //            next.PrevStationCode = sDO.StationCode;
-        //            sDO.NextStationCode = next.StationCode;
-        //        }
-        //        else//if its the last station we need to update the last station in the DO.Line
-        //        {
-        //            DO.Line line = dl.GetLine(sDO.LineId);
-        //            line.LastStation = sDO.StationCode;
-        //            dl.UpdateLine(line);
-        //        }
-        //        foreach (DO.LineStation item in lSList)
-        //        {
-        //            dl.UpdateLineStation(item);
-        //        }
-
-        //        dl.AddLineStation(sDO);
-
-        //        //טיפול בתחנות עוקבות לאחר ההוספה
-        //        List<DO.LineStation> lst = ((dl.GetAllLineStationsBy(stat => stat.LineId == sDO.LineId && stat.IsDeleted == false)).OrderBy(stat => stat.LineStationIndex)).ToList();
-        //        if (s.LineStationIndex != 1)//if its the first station- it doesnt have prev
-        //        {
-        //            prev = lst[s.LineStationIndex - 2];
-        //            if (!IsExistAdjacentStations(prev.StationCode, s.StationCode))
-        //            {
-        //                DO.AdjacentStations adjPrev = new DO.AdjacentStations() { StationCode1 = prev.StationCode, StationCode2 = s.StationCode };
-        //                dl.AddAdjacentStations(adjPrev);
-        //            }
-        //        }
-        //        if (s.LineStationIndex != lst[lst.Count - 1].LineStationIndex)//if its the last station- it doesnt have next
-        //        {
-        //            next = lst[s.LineStationIndex];
-        //            if (!IsExistAdjacentStations(s.StationCode, next.StationCode))
-        //            {
-        //                DO.AdjacentStations adjNext = new DO.AdjacentStations() { StationCode1 = s.StationCode, StationCode2 = next.StationCode };
-        //                dl.AddAdjacentStations(adjNext);
-        //            }
-        //        }
-
-        //    }
-        //    catch (DO.BadLineStationException ex)
-        //    {
-        //        throw new BO.BadLineStationException(ex.lineId, ex.stationCode, ex.Message);
-        //    }
-        //    catch (DO.BadAdjacentStationsException ex)
-        //    {
-        //        throw new BO.BadAdjacentStationsException(ex.stationCode1, ex.stationCode2, ex.Message);
-        //    }
-        //}
-        //public void DeleteLineStation(int lineId, int stationCode)
-        //{
-        //    try
-        //    {
-        //        //AdjacentStation
-        //        DO.LineStation statDel = dl.GetLineStation(lineId, stationCode);//the station that we want to delete
-        //        BO.Line line = GetLine(lineId);
-        //        if (line.Stations.Count <= 2)
-        //            throw new BO.BadInputException("The Station cannot be deleted, there is only 2 stations in the line route");
-        //        if (line.Stations[0].StationCode != stationCode && line.Stations[line.Stations.Count - 1].StationCode != stationCode)//if its not the first or the last station
-        //        {
-        //            BO.StationInLine prev = line.Stations[statDel.LineStationIndex - 2];
-        //            BO.StationInLine next = line.Stations[statDel.LineStationIndex];
-        //            if (!dl.IsExistAdjacentStations(prev.StationCode, next.StationCode))
-        //            {
-        //                DO.AdjacentStations adj = new DO.AdjacentStations() { StationCode1 = prev.StationCode, StationCode2 = next.StationCode, IsDeleted = false };
-        //                dl.AddAdjacentStations(adj);
-        //            }
-        //        }
-        //        //delete the line station
-        //        List<DO.LineStation> lSList = ((dl.GetAllLineStationsBy(stat => stat.LineId == statDel.LineId && stat.IsDeleted == false)).OrderBy(stat => stat.LineStationIndex)).ToList();
-        //        DO.LineStation NextFind;
-        //        if (statDel.LineStationIndex > 1)//if its not the first station
-        //        {
-        //            DO.LineStation PrevFind = lSList[statDel.LineStationIndex - 2];
-        //            if (statDel.LineStationIndex != lSList[lSList.Count - 1].LineStationIndex)//if its not the last station
-        //            {
-        //                NextFind = lSList[statDel.LineStationIndex];
-        //                PrevFind.NextStationCode = NextFind.StationCode;
-        //                NextFind.PrevStationCode = PrevFind.StationCode;
-        //            }
-        //            else
-        //            {
-        //                PrevFind.NextStationCode = 0;
-        //            }
-        //        }
-        //        else//if its the first station
-        //        {
-        //            if (statDel.LineStationIndex != lSList[lSList.Count - 1].LineStationIndex)
-        //            {
-        //                NextFind = lSList[statDel.LineStationIndex];
-        //                NextFind.PrevStationCode = 0;
-        //            }
-        //        }
-        //        //update index;
-        //        if (statDel.LineStationIndex != lSList[lSList.Count - 1].LineStationIndex)//update all the indexes of all the next stations if its not the last station
-        //        {
-        //            for (int i = statDel.LineStationIndex; i < lSList.Count; i++)
-        //            {
-        //                lSList[i].LineStationIndex--;
-        //            }
-        //        }
-        //        foreach (DO.LineStation item in lSList)
-        //        {
-        //            dl.UpdateLineStation(item);
-        //        }
-
-        //        dl.DeleteLineStation(lineId, stationCode);
-        //    }
-        //    catch (DO.BadLineStationException ex)
-        //    {
-        //        throw new BO.BadLineStationException(ex.lineId, ex.stationCode, ex.Message);
-        //    }
-        //    catch (BO.BadLineIdException ex)
-        //    {
-        //        throw new BO.BadLineIdException(ex.ID, ex.Message);
-        //    }
-        //    catch (DO.BadAdjacentStationsException ex)
-        //    {
-        //        throw new BO.BadAdjacentStationsException(ex.stationCode1, ex.stationCode2);
-        //    }
-        //}
-        #endregion
-
+        #region lineTrip
         #region AddLineTrip
         /// <summary>
         /// A function that add a station to 
@@ -1470,9 +961,16 @@ namespace BL
             }
         }
         #endregion
+        #endregion
 
         #region GetLineTimingsPerStation
-        public IEnumerable<BO.LineTiming> GetLineTimingsPerStation(BO.Station station, TimeSpan tsCurentTime)//פונקצית הרחבה
+        /// <summary>
+        /// A function that return the time per station
+        /// </summary>
+        /// <param name="station"></param>
+        /// <param name="tsCurentTime"></param>
+        /// <returns></returns>
+        public IEnumerable<BO.LineTiming> GetLineTimingsPerStation(BO.Station station, TimeSpan tsCurentTime)
         {
 
             IEnumerable<BO.LineTiming> lst=(IEnumerable<BO.LineTiming>)new List<BO.LineTiming>();
@@ -1496,8 +994,6 @@ namespace BL
                 lt.SourceStation = GetStation(listOfStationsInLine[0].StationCode);
                 lt.TargetStation = GetStation(listOfStationsInLine[listOfStationsInLine.Count() - 1].StationCode);
                 BO.StationInLine sil = GetStationInLine(station.Code, l.Id);
-                //foreach (BO.LineTrip ltrip in lineBO.ListOfTripTime)
-                //{
 
                 for (int i = 0; i < times.Count; i++)
                 {
@@ -1507,14 +1003,6 @@ namespace BL
 
                     int count = -1;
 
-                    //foreach (BO.StationInLine s in listOfStationsInLine)
-                    //{
-                    //    if (s.StationCode == station.Code)
-                    //    {
-                    //        sil = s;
-                    //        break;
-                    //    }
-                    //}
                     while (sil.LineStationIndex != count)
                     {
                         sum +=  listOfStationsInLine[count + 1].TimeTo;
@@ -1523,8 +1011,7 @@ namespace BL
                     lt.Timing = sum;
                     temp.Add(new BO.LineTiming() { LineId = lt.LineId, LineNumber = lt.LineNumber, SourceStation = lt.SourceStation, TargetStation = lt.TargetStation, Timing = lt.Timing } );
                 }
-                //}
-                //lst.ToList().Add(lt);                
+             
             }
             temp = (temp.OrderBy(s => s.Timing)).ToList();
             lst = temp.ToList();
@@ -1533,4 +1020,4 @@ namespace BL
         }
         #endregion
     }
-}//tamargavrieli18@gmail.com
+}

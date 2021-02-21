@@ -58,11 +58,6 @@ namespace BO
         public bool IsDeleted { get; set; }
         #endregion
 
-        //#region ToString
-        //public override string ToString()
-        //{
-        //    return "Station code: " + StationCode + "  Line station index: " + LineStationIndex + "  Name: " + StationName;
-        //}
-        //#endregion
+   
     }
 }

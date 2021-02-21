@@ -14,6 +14,7 @@ namespace BL
         static IDL dl = DLFactory.GetDL();
         static IBL bl = BLFactory.GetBL();
 
+        #region CopyPropertiesTo
         public static void CopyPropertiesTo<T, S>(this S from, T to)
         {
             foreach (PropertyInfo propTo in to.GetType().GetProperties())
@@ -26,12 +27,18 @@ namespace BL
                         propTo.SetValue(to, value);
             }
         }
+        #endregion
+
+        #region CopyPropertiesToNew
         public static object CopyPropertiesToNew<S>(this S from, Type type)
         {
             object to = Activator.CreateInstance(type); // new object of Type
             from.CopyPropertiesTo(to);
             return to;
         }
+        #endregion
+
+        #region CopyToStationInLine
         public static BO.StationInLine CopyToStationInLine(this DO.Station st, DO.LineStation s)
         {
             BO.StationInLine stationInLine = new BO.StationInLine();
@@ -41,19 +48,22 @@ namespace BL
             stationInLine.StationName = st.Name;
             return stationInLine;
         }
+        #endregion
+
+        #region CopyToLineInStation
 
         public static BO.ShortLine CopyToLineInStation(this DO.Line l, DO.LineStation s)
         {
             BO.ShortLine lineInStation = new BO.ShortLine();
             lineInStation = l.CopyToLineDOToBO();
-           // lineInStation.Id = s.LineStationIndex;
             return lineInStation;
         }
+        #endregion
+
+        #region CopyToLineDOToBO
         public static BO.Line CopyToLineDOToBO(this DO.Line s)
         {
             BO.Line line = new BO.Line();
-            //BO.Station stat = bl.GetStation(line.ListOfStationsInLine.ToList()[1].StationCode);
-            //if(line.ListOfStationsInLine.ToList()[0])
 
             line.Area = (BO.Area)s.Area;
             try
@@ -77,21 +87,11 @@ namespace BL
             line.LineNumber = s.LineNumber;
             line.IsDeleted = s.IsDeleted;
 
-            //רשימה של זמני יציאה- לברר
-            //List<TimeSpan> times = new List<TimeSpan>();
-            //line.ListOfTripTime = times;
-
-            //רשימה של תחנות קו
-
-            //List<BO.StationInLine> stations = new List<BO.StationInLine>();
-            //stations = (from stat in dl.GetAllLinesStationBy(stat => stat.LineId == line.Id && stat.IsDeleted == false)
-            //            let station = dl.GetStation(stat.StationCode)
-            //            select station.CopyToStationInLine(stat)).ToList();
-            //line.ListOfStationsInLine = stations;
-
-            //לבדוק מה קורה לגבי כל הרשימות
             return line;
         }
+        #endregion
+
+        #region CopyToLineBOToDO
 
         public static DO.Line CopyToLineBOToDO(this BO.Line lineBO)
         {
@@ -114,7 +114,9 @@ namespace BL
 
             return lineDO;
         }
+        #endregion
 
+        #region CopyToStationDOToBO
         public static BO.Station CopyToStationDOToBO(this DO.Station s)
         {
             BO.Station station = new BO.Station();
@@ -128,30 +130,9 @@ namespace BL
             station.Longitude = s.Longitude;
             station.Name = s.Name;
 
-            //List<BO.Line> line = new List<BO.Line>();
-            //foreach(BO.Line l in bl.GetAllLines())
-            //{
-            //    foreach (BO.StationInLine stationInLine in l.ListOfStationsInLine.ToList())
-            //    {
-            //        if (stationInLine.StationCode == station.Code)
-            //            line.Add(l);
-            //    }
-            //}
-
-
-
-
-
-
-
-            //List<BO.StationInLine> line = new List<BO.StationInLine>();
-            //line = (from l in dl.GetAllLinesStationBy(l => l.StationCode == station.Code && l.IsDeleted == false)
-            //            let line = dl.GetStation(stat.StationCode)
-            //            select station.CopyToStationInLine(stat)).ToList();
-            //לבדוק מה לעשות לגבי רשימת התחנות
-
             return station;
         }
+        #endregion
 
     }
 }
