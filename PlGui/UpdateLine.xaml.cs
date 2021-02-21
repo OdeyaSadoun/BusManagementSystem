@@ -36,7 +36,7 @@ namespace PlGui
 
         private void AddTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //tamargavrieli18@gmail.com
+            //tamargavrieli18@gmail.com.
         }
 
         private void RemoveTextBox_TextChanged(object sender, TextChangedEventArgs e)
