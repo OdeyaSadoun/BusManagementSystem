@@ -40,6 +40,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bin", "bin", "{455E24E2-BCB
 		bin\xml\LinesTripFileXml.xml = bin\xml\LinesTripFileXml.xml
 		bin\xml\StationFileXml.xml = bin\xml\StationFileXml.xml
 		bin\xml\UserFileXml.xml = bin\xml\UserFileXml.xml
+		bin\דף הבהרות מיני פרויקט 2021.pdf = bin\דף הבהרות מיני פרויקט 2021.pdf
 	EndProjectSection
 EndProject
 Global
